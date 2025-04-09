@@ -1,0 +1,38 @@
+# === Environment / Dependency folders ===
+venv/
+.env
+.env.*  # support for .env.dev, .env.local, etc.
+
+# === Python Bytecode / Cache ===
+__pycache__/
+*.py[cod]
+*.so
+*.pyo
+
+# === Logs / Coverage / Test stuff ===
+*.log
+*.pot
+*.pyc
+*.pyd
+*.pdb
+*.sqlite3
+*.db
+
+# === OS / Editor files ===
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# === Neo4j / Postgres runtime ===
+neo4j/
+postgres-data/
+
+# === Docker volumes ===
+*.pid
+*.sock
+
+# === Misc ===
+*.bak
+*.swp
+*.tmp
