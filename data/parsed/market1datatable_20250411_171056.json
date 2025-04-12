@@ -1,0 +1,115 @@
+{
+  "metadata": {
+    "source_file": "data/uploads/market1datatable.csv",
+    "extraction_date": "2025-04-11T17:10:56.038550",
+    "extractor": "spreadsheet_extractor",
+    "file_hash": "cd39680ce95fa147d6df0b04e62411b5467ee46438463c15db4de85fa1750cc1"
+  },
+  "document_metadata": {
+    "file_type": "CSV",
+    "encoding": "utf-8",
+    "rows": 6,
+    "columns": 2
+  },
+  "content": {
+    "text": "Score Weight 2 2 3 2 4 4 5 7 1 10 ",
+    "pages": [],
+    "tables": [
+      {
+        "name": "market1datatable.csv",
+        "headers": [
+          "Score",
+          "Weight"
+        ],
+        "data": [
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            7
+          ],
+          [
+            1,
+            10
+          ]
+        ],
+        "row_count": 5,
+        "column_count": 2
+      }
+    ],
+    "images": [],
+    "entities": [
+      {
+        "type": "organization",
+        "text": "Score Weight",
+        "start": 0,
+        "end": 12,
+        "confidence": 1.0
+      },
+      {
+        "type": "person",
+        "text": "Score Weight",
+        "start": 0,
+        "end": 12,
+        "confidence": 1.0
+      },
+      {
+        "type": "location",
+        "text": "Score",
+        "start": 0,
+        "end": 5,
+        "confidence": 1.0
+      },
+      {
+        "type": "location",
+        "text": "Weight",
+        "start": 6,
+        "end": 12,
+        "confidence": 1.0
+      }
+    ],
+    "sheets": [
+      {
+        "name": "market1datatable.csv",
+        "headers": [
+          "Score",
+          "Weight"
+        ],
+        "data": [
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            7
+          ],
+          [
+            1,
+            10
+          ]
+        ],
+        "row_count": 5,
+        "column_count": 2
+      }
+    ]
+  }
+}
