@@ -413,6 +413,48 @@ class Neo4jManager:
         LIMIT $limit
         """
         return self.execute_query(query, {"company_name": company_name, "limit": limit})
+    def run_risk_query(self, risk_type):
+        """
+        Execute risk-specific queries for the risk analyzer
+    
+        Args:
+            risk_type (str): Type of risk to analyze (financial, operational, market)
+        
+        Returns:
+            list: Risk data for analysis
+        """
+        if risk_type == "financial":
+            query = """
+            MATCH (e:Entity)-[:HAS_METRIC]->(m:Metric)
+            WHERE m.name IN ['revenue', 'profit', 'cash_flow', 'debt_to_equity', 'current_ratio']
+            WITH e, m, COUNT(*) as risk_count
+            RETURN e.name as entity, m.name as metric, m.value as value, 
+                m.unit as unit, risk_count
+            ORDER BY risk_count DESC
+            LIMIT 20
+            """
+        elif risk_type == "operational":
+            query = """
+            MATCH (e:Entity)-[:HAS_PROCESS]->(p:Process)-[:HAS_ISSUE]->(i)
+            WITH e, p, i, COUNT(*) as risk_count
+            RETURN e.name as entity, p.name as process, i.description as issue, risk_count
+            ORDER BY risk_count DESC
+            LIMIT 20
+            """
+        elif risk_type == "market":
+            query = """
+            MATCH (e:Entity)-[:OPERATES_IN|COMPETES_IN]->(m)
+            MATCH (m)-[:HAS_TREND|SHOWS]->(t)
+            WHERE t.name CONTAINS 'declin' OR t.name CONTAINS 'decrease'
+            WITH e, m, t, COUNT(*) as risk_count
+            RETURN e.name as entity, m.name as market, t.name as trend, risk_count
+            ORDER BY risk_count DESC
+            LIMIT 20
+            """
+        else:
+            return []
+        
+        return self.execute_query(query)
 
     def get_business_risks(self, entity_name=None, risk_types=None, min_level=None):
         """
@@ -527,7 +569,7 @@ class Neo4jManager:
                 rel_properties = dict(rel)
                 source_id = rel.start_node.id
                 target_id = rel.end_node.id
-                rel_type = type(rel).__name__
+                rel_type = getattr(rel, "type", None) or type(rel).__name__
                 
                 rel_data = {
                     "source": source_id,

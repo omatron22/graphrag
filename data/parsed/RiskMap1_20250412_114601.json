@@ -1,0 +1,48 @@
+{
+  "metadata": {
+    "source_file": "data/uploads/RiskMap1.pdf",
+    "extraction_date": "2025-04-12T11:46:01.858038",
+    "parser": "pymupdf"
+  },
+  "document_metadata": {
+    "title": "2025-01-07 07_03_25.002.pdf",
+    "author": "Mohan Maheswaran",
+    "subject": "",
+    "keywords": "",
+    "creator": "",
+    "producer": "Microsoft: Print To PDF",
+    "creation_date": "D:20250107070519-08'00'",
+    "modification_date": "D:20250107070519-08'00'",
+    "page_count": 1
+  },
+  "content": {
+    "pages": [
+      {
+        "page_number": 1,
+        "text": "",
+        "text_blocks": [],
+        "tables": [],
+        "images": [
+          {
+            "image_id": "img_0_0",
+            "xref": 4,
+            "bbox": [
+              0,
+              993,
+              2856,
+              8
+            ],
+            "size": [
+              993,
+              2856
+            ],
+            "format": "jpeg"
+          }
+        ]
+      }
+    ],
+    "tables": [],
+    "images": [],
+    "entities": []
+  }
+}

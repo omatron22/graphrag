@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "source_file": "data/uploads/diversitydatatable.csv",
+    "extraction_date": "2025-04-12T11:45:39.300075",
+    "extractor": "spreadsheet_extractor",
+    "file_hash": "3b84181b4229a65acededb864a7d157bac5cb570173282a6ecdb915ba2422aaa"
+  },
+  "document_metadata": {
+    "file_type": "CSV",
+    "encoding": "utf-8",
+    "rows": 6,
+    "columns": 2
+  },
+  "content": {
+    "text": "Year % 2021 33 2022 60 2023 65 2024 10 2025 5 ",
+    "pages": [],
+    "tables": [
+      {
+        "name": "diversitydatatable.csv",
+        "headers": [
+          "Year",
+          "%"
+        ],
+        "data": [
+          [
+            2021,
+            33
+          ],
+          [
+            2022,
+            60
+          ],
+          [
+            2023,
+            65
+          ],
+          [
+            2024,
+            10
+          ],
+          [
+            2025,
+            5
+          ]
+        ],
+        "row_count": 5,
+        "column_count": 2
+      }
+    ],
+    "images": [],
+    "entities": [
+      {
+        "type": "organization",
+        "text": "Year",
+        "start": 0,
+        "end": 4,
+        "confidence": 1.0
+      },
+      {
+        "type": "location",
+        "text": "Year",
+        "start": 0,
+        "end": 4,
+        "confidence": 1.0
+      }
+    ],
+    "sheets": [
+      {
+        "name": "diversitydatatable.csv",
+        "headers": [
+          "Year",
+          "%"
+        ],
+        "data": [
+          [
+            2021,
+            33
+          ],
+          [
+            2022,
+            60
+          ],
+          [
+            2023,
+            65
+          ],
+          [
+            2024,
+            10
+          ],
+          [
+            2025,
+            5
+          ]
+        ],
+        "row_count": 5,
+        "column_count": 2
+      }
+    ]
+  }
+}

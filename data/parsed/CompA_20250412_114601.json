@@ -1,0 +1,48 @@
+{
+  "metadata": {
+    "source_file": "data/uploads/CompA.pdf",
+    "extraction_date": "2025-04-12T11:46:01.759222",
+    "parser": "pymupdf"
+  },
+  "document_metadata": {
+    "title": "2025-01-07 07_03_46.545.pdf",
+    "author": "Mohan Maheswaran",
+    "subject": "",
+    "keywords": "",
+    "creator": "",
+    "producer": "Microsoft: Print To PDF",
+    "creation_date": "D:20250107070546-08'00'",
+    "modification_date": "D:20250107070546-08'00'",
+    "page_count": 1
+  },
+  "content": {
+    "pages": [
+      {
+        "page_number": 1,
+        "text": "",
+        "text_blocks": [],
+        "tables": [],
+        "images": [
+          {
+            "image_id": "img_0_0",
+            "xref": 4,
+            "bbox": [
+              0,
+              1608,
+              2856,
+              8
+            ],
+            "size": [
+              1608,
+              2856
+            ],
+            "format": "jpeg"
+          }
+        ]
+      }
+    ],
+    "tables": [],
+    "images": [],
+    "entities": []
+  }
+}

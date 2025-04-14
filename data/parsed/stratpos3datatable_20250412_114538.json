@@ -1,0 +1,115 @@
+{
+  "metadata": {
+    "source_file": "data/uploads/stratpos3datatable.csv",
+    "extraction_date": "2025-04-12T11:45:38.990300",
+    "extractor": "spreadsheet_extractor",
+    "file_hash": "549dd9ebd8f24cd4e4d89c7180b6188f239ccb6243fbabfb5ed437392295afd6"
+  },
+  "document_metadata": {
+    "file_type": "CSV",
+    "encoding": "utf-8",
+    "rows": 6,
+    "columns": 2
+  },
+  "content": {
+    "text": "Score Weight 3 10 1 4 3 3 1 7 3 1 ",
+    "pages": [],
+    "tables": [
+      {
+        "name": "stratpos3datatable.csv",
+        "headers": [
+          "Score",
+          "Weight"
+        ],
+        "data": [
+          [
+            3,
+            10
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            1,
+            7
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        "row_count": 5,
+        "column_count": 2
+      }
+    ],
+    "images": [],
+    "entities": [
+      {
+        "type": "organization",
+        "text": "Score Weight",
+        "start": 0,
+        "end": 12,
+        "confidence": 1.0
+      },
+      {
+        "type": "person",
+        "text": "Score Weight",
+        "start": 0,
+        "end": 12,
+        "confidence": 1.0
+      },
+      {
+        "type": "location",
+        "text": "Score",
+        "start": 0,
+        "end": 5,
+        "confidence": 1.0
+      },
+      {
+        "type": "location",
+        "text": "Weight",
+        "start": 6,
+        "end": 12,
+        "confidence": 1.0
+      }
+    ],
+    "sheets": [
+      {
+        "name": "stratpos3datatable.csv",
+        "headers": [
+          "Score",
+          "Weight"
+        ],
+        "data": [
+          [
+            3,
+            10
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            1,
+            7
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        "row_count": 5,
+        "column_count": 2
+      }
+    ]
+  }
+}

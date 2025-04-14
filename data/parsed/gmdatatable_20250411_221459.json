@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "source_file": "data/uploads/gmdatatable.csv",
+    "extraction_date": "2025-04-11T22:14:59.459743",
+    "extractor": "spreadsheet_extractor",
+    "file_hash": "e96c6cf5a8859986dbf1b8b1a1aec4f997f3cc2b223ec4af43dce7fcad98920f"
+  },
+  "document_metadata": {
+    "file_type": "CSV",
+    "encoding": "utf-8",
+    "rows": 6,
+    "columns": 2
+  },
+  "content": {
+    "text": "Year % 2021 3 2022 45 2023 80 2024 65 2025 33 ",
+    "pages": [],
+    "tables": [
+      {
+        "name": "gmdatatable.csv",
+        "headers": [
+          "Year",
+          "%"
+        ],
+        "data": [
+          [
+            2021,
+            3
+          ],
+          [
+            2022,
+            45
+          ],
+          [
+            2023,
+            80
+          ],
+          [
+            2024,
+            65
+          ],
+          [
+            2025,
+            33
+          ]
+        ],
+        "row_count": 5,
+        "column_count": 2
+      }
+    ],
+    "images": [],
+    "entities": [
+      {
+        "type": "organization",
+        "text": "Year",
+        "start": 0,
+        "end": 4,
+        "confidence": 1.0
+      },
+      {
+        "type": "location",
+        "text": "Year",
+        "start": 0,
+        "end": 4,
+        "confidence": 1.0
+      }
+    ],
+    "sheets": [
+      {
+        "name": "gmdatatable.csv",
+        "headers": [
+          "Year",
+          "%"
+        ],
+        "data": [
+          [
+            2021,
+            3
+          ],
+          [
+            2022,
+            45
+          ],
+          [
+            2023,
+            80
+          ],
+          [
+            2024,
+            65
+          ],
+          [
+            2025,
+            33
+          ]
+        ],
+        "row_count": 5,
+        "column_count": 2
+      }
+    ]
+  }
+}

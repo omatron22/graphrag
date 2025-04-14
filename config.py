@@ -33,7 +33,7 @@ MODELS = {
         }
     },
     'lightweight': {
-        'name': 'phi',  # Updated to match the actual model name in Ollama
+        'name': 'phi:latest',  # Updated to match the actual model name in Ollama
         'endpoint': 'http://localhost:11434/api/generate',
         'parameters': {
             'temperature': 0.1,

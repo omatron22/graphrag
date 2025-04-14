@@ -1,0 +1,143 @@
+{
+  "metadata": {
+    "source_file": "data/uploads/weakdatatable.csv",
+    "extraction_date": "2025-04-11T22:36:44.981116",
+    "extractor": "spreadsheet_extractor",
+    "file_hash": "22a6cefe0fcff8dc2717c4516eadce586d7a9461aef8feb491a368aec5acccd4"
+  },
+  "document_metadata": {
+    "file_type": "CSV",
+    "encoding": "utf-8",
+    "rows": 6,
+    "columns": 2
+  },
+  "content": {
+    "text": "Weak Score people 22 Power 8 service 40 Qlty 26 overhead 4 ",
+    "pages": [],
+    "tables": [
+      {
+        "name": "weakdatatable.csv",
+        "headers": [
+          "Weak",
+          "Score"
+        ],
+        "data": [
+          [
+            "people",
+            22
+          ],
+          [
+            "Power",
+            8
+          ],
+          [
+            "service",
+            40
+          ],
+          [
+            "Qlty",
+            26
+          ],
+          [
+            "overhead",
+            4
+          ]
+        ],
+        "row_count": 5,
+        "column_count": 2
+      }
+    ],
+    "images": [],
+    "entities": [
+      {
+        "type": "organization",
+        "text": "Weak Score",
+        "start": 0,
+        "end": 10,
+        "confidence": 1.0
+      },
+      {
+        "type": "person",
+        "text": "Weak Score",
+        "start": 0,
+        "end": 10,
+        "confidence": 1.0
+      },
+      {
+        "type": "location",
+        "text": "Weak",
+        "start": 0,
+        "end": 4,
+        "confidence": 1.0
+      },
+      {
+        "type": "location",
+        "text": "Score",
+        "start": 5,
+        "end": 10,
+        "confidence": 1.0
+      },
+      {
+        "type": "organization",
+        "text": "Power",
+        "start": 21,
+        "end": 26,
+        "confidence": 1.0
+      },
+      {
+        "type": "location",
+        "text": "Power",
+        "start": 21,
+        "end": 26,
+        "confidence": 1.0
+      },
+      {
+        "type": "organization",
+        "text": "Qlty",
+        "start": 40,
+        "end": 44,
+        "confidence": 1.0
+      },
+      {
+        "type": "location",
+        "text": "Qlty",
+        "start": 40,
+        "end": 44,
+        "confidence": 1.0
+      }
+    ],
+    "sheets": [
+      {
+        "name": "weakdatatable.csv",
+        "headers": [
+          "Weak",
+          "Score"
+        ],
+        "data": [
+          [
+            "people",
+            22
+          ],
+          [
+            "Power",
+            8
+          ],
+          [
+            "service",
+            40
+          ],
+          [
+            "Qlty",
+            26
+          ],
+          [
+            "overhead",
+            4
+          ]
+        ],
+        "row_count": 5,
+        "column_count": 2
+      }
+    ]
+  }
+}

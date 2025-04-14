@@ -1,0 +1,400 @@
+{
+  "metadata": {
+    "source_file": "data/uploads/sandmmetricdatatable.csv",
+    "extraction_date": "2025-04-11T22:14:48.308220",
+    "extractor": "spreadsheet_extractor",
+    "file_hash": "4d5564a71aac41e79e64255c2ca376ba6431c876e3d66d8fe0e1207a06068f8c"
+  },
+  "document_metadata": {
+    "file_type": "CSV",
+    "encoding": "utf-8",
+    "rows": 11,
+    "columns": 2
+  },
+  "content": {
+    "text": "Metric Value ARR 63 CAC 26 DWIN 200 OPP 500 LEAD2CUST 20 AVGCUSTOMERVALUE 20 ROI MKTG 10 ROI SALES 15 LEADCONVERSION 90 CHURN 33 ",
+    "pages": [],
+    "tables": [
+      {
+        "name": "sandmmetricdatatable.csv",
+        "headers": [
+          "Metric",
+          "Value"
+        ],
+        "data": [
+          [
+            "ARR",
+            63
+          ],
+          [
+            "CAC",
+            26
+          ],
+          [
+            "DWIN",
+            200
+          ],
+          [
+            "OPP",
+            500
+          ],
+          [
+            "LEAD2CUST",
+            20
+          ],
+          [
+            "AVGCUSTOMERVALUE",
+            20
+          ],
+          [
+            "ROI MKTG",
+            10
+          ],
+          [
+            "ROI SALES",
+            15
+          ],
+          [
+            "LEADCONVERSION",
+            90
+          ],
+          [
+            "CHURN",
+            33
+          ]
+        ],
+        "row_count": 10,
+        "column_count": 2
+      }
+    ],
+    "images": [],
+    "entities": [
+      {
+        "type": "organization",
+        "text": "Metric Value ARR",
+        "start": 0,
+        "end": 16,
+        "confidence": 1.0
+      },
+      {
+        "type": "person",
+        "text": "Metric Value",
+        "start": 0,
+        "end": 12,
+        "confidence": 1.0
+      },
+      {
+        "type": "location",
+        "text": "Metric",
+        "start": 0,
+        "end": 6,
+        "confidence": 1.0
+      },
+      {
+        "type": "location",
+        "text": "Value",
+        "start": 7,
+        "end": 12,
+        "confidence": 1.0
+      },
+      {
+        "type": "organization",
+        "text": "ARR",
+        "start": 13,
+        "end": 16,
+        "confidence": 1.0
+      },
+      {
+        "type": "location",
+        "text": "ARR",
+        "start": 13,
+        "end": 16,
+        "confidence": 1.0
+      },
+      {
+        "type": "organization",
+        "text": "CAC",
+        "start": 20,
+        "end": 23,
+        "confidence": 1.0
+      },
+      {
+        "type": "organization",
+        "text": "CAC",
+        "start": 20,
+        "end": 23,
+        "confidence": 1.0
+      },
+      {
+        "type": "location",
+        "text": "CAC",
+        "start": 20,
+        "end": 23,
+        "confidence": 1.0
+      },
+      {
+        "type": "organization",
+        "text": "DWIN",
+        "start": 27,
+        "end": 31,
+        "confidence": 1.0
+      },
+      {
+        "type": "organization",
+        "text": "DWIN",
+        "start": 27,
+        "end": 31,
+        "confidence": 1.0
+      },
+      {
+        "type": "location",
+        "text": "DWIN",
+        "start": 27,
+        "end": 31,
+        "confidence": 1.0
+      },
+      {
+        "type": "organization",
+        "text": "OPP",
+        "start": 36,
+        "end": 39,
+        "confidence": 1.0
+      },
+      {
+        "type": "organization",
+        "text": "OPP",
+        "start": 36,
+        "end": 39,
+        "confidence": 1.0
+      },
+      {
+        "type": "location",
+        "text": "OPP",
+        "start": 36,
+        "end": 39,
+        "confidence": 1.0
+      },
+      {
+        "type": "organization",
+        "text": "LEAD2CUST",
+        "start": 44,
+        "end": 53,
+        "confidence": 1.0
+      },
+      {
+        "type": "organization",
+        "text": "LEAD",
+        "start": 44,
+        "end": 48,
+        "confidence": 1.0
+      },
+      {
+        "type": "organization",
+        "text": "CUST",
+        "start": 49,
+        "end": 53,
+        "confidence": 1.0
+      },
+      {
+        "type": "organization",
+        "text": "AVGCUSTOMERVALUE",
+        "start": 57,
+        "end": 73,
+        "confidence": 1.0
+      },
+      {
+        "type": "organization",
+        "text": "AVGCUSTOMERVALUE",
+        "start": 57,
+        "end": 73,
+        "confidence": 1.0
+      },
+      {
+        "type": "location",
+        "text": "AVGCUSTOMERVALUE",
+        "start": 57,
+        "end": 73,
+        "confidence": 1.0
+      },
+      {
+        "type": "organization",
+        "text": "ROI",
+        "start": 77,
+        "end": 80,
+        "confidence": 1.0
+      },
+      {
+        "type": "organization",
+        "text": "ROI",
+        "start": 77,
+        "end": 80,
+        "confidence": 1.0
+      },
+      {
+        "type": "location",
+        "text": "ROI",
+        "start": 77,
+        "end": 80,
+        "confidence": 1.0
+      },
+      {
+        "type": "organization",
+        "text": "MKTG",
+        "start": 81,
+        "end": 85,
+        "confidence": 1.0
+      },
+      {
+        "type": "organization",
+        "text": "MKTG",
+        "start": 81,
+        "end": 85,
+        "confidence": 1.0
+      },
+      {
+        "type": "location",
+        "text": "MKTG",
+        "start": 81,
+        "end": 85,
+        "confidence": 1.0
+      },
+      {
+        "type": "organization",
+        "text": "ROI",
+        "start": 89,
+        "end": 92,
+        "confidence": 1.0
+      },
+      {
+        "type": "organization",
+        "text": "ROI",
+        "start": 89,
+        "end": 92,
+        "confidence": 1.0
+      },
+      {
+        "type": "location",
+        "text": "ROI",
+        "start": 89,
+        "end": 92,
+        "confidence": 1.0
+      },
+      {
+        "type": "organization",
+        "text": "SALES",
+        "start": 93,
+        "end": 98,
+        "confidence": 1.0
+      },
+      {
+        "type": "organization",
+        "text": "SALES",
+        "start": 93,
+        "end": 98,
+        "confidence": 1.0
+      },
+      {
+        "type": "location",
+        "text": "SALES",
+        "start": 93,
+        "end": 98,
+        "confidence": 1.0
+      },
+      {
+        "type": "organization",
+        "text": "LEADCONVERSION",
+        "start": 102,
+        "end": 116,
+        "confidence": 1.0
+      },
+      {
+        "type": "organization",
+        "text": "LEADCONVERSION",
+        "start": 102,
+        "end": 116,
+        "confidence": 1.0
+      },
+      {
+        "type": "location",
+        "text": "LEADCONVERSION",
+        "start": 102,
+        "end": 116,
+        "confidence": 1.0
+      },
+      {
+        "type": "organization",
+        "text": "CHURN",
+        "start": 120,
+        "end": 125,
+        "confidence": 1.0
+      },
+      {
+        "type": "organization",
+        "text": "CHURN",
+        "start": 120,
+        "end": 125,
+        "confidence": 1.0
+      },
+      {
+        "type": "location",
+        "text": "CHURN",
+        "start": 120,
+        "end": 125,
+        "confidence": 1.0
+      }
+    ],
+    "sheets": [
+      {
+        "name": "sandmmetricdatatable.csv",
+        "headers": [
+          "Metric",
+          "Value"
+        ],
+        "data": [
+          [
+            "ARR",
+            63
+          ],
+          [
+            "CAC",
+            26
+          ],
+          [
+            "DWIN",
+            200
+          ],
+          [
+            "OPP",
+            500
+          ],
+          [
+            "LEAD2CUST",
+            20
+          ],
+          [
+            "AVGCUSTOMERVALUE",
+            20
+          ],
+          [
+            "ROI MKTG",
+            10
+          ],
+          [
+            "ROI SALES",
+            15
+          ],
+          [
+            "LEADCONVERSION",
+            90
+          ],
+          [
+            "CHURN",
+            33
+          ]
+        ],
+        "row_count": 10,
+        "column_count": 2
+      }
+    ]
+  }
+}

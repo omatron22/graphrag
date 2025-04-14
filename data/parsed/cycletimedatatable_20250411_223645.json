@@ -1,0 +1,115 @@
+{
+  "metadata": {
+    "source_file": "data/uploads/cycletimedatatable.csv",
+    "extraction_date": "2025-04-11T22:36:45.325791",
+    "extractor": "spreadsheet_extractor",
+    "file_hash": "4d392d10541ffd5f10856be836b6ba5748c5624929af5cdbd9aa9ab0ec787dd7"
+  },
+  "document_metadata": {
+    "file_type": "CSV",
+    "encoding": "utf-8",
+    "rows": 6,
+    "columns": 2
+  },
+  "content": {
+    "text": "Year Days 2021 180 2022 90 2023 60 2024 30 2025 33 ",
+    "pages": [],
+    "tables": [
+      {
+        "name": "cycletimedatatable.csv",
+        "headers": [
+          "Year",
+          "Days"
+        ],
+        "data": [
+          [
+            2021,
+            180
+          ],
+          [
+            2022,
+            90
+          ],
+          [
+            2023,
+            60
+          ],
+          [
+            2024,
+            30
+          ],
+          [
+            2025,
+            33
+          ]
+        ],
+        "row_count": 5,
+        "column_count": 2
+      }
+    ],
+    "images": [],
+    "entities": [
+      {
+        "type": "organization",
+        "text": "Year Days",
+        "start": 0,
+        "end": 9,
+        "confidence": 1.0
+      },
+      {
+        "type": "person",
+        "text": "Year Days",
+        "start": 0,
+        "end": 9,
+        "confidence": 1.0
+      },
+      {
+        "type": "location",
+        "text": "Year",
+        "start": 0,
+        "end": 4,
+        "confidence": 1.0
+      },
+      {
+        "type": "location",
+        "text": "Days",
+        "start": 5,
+        "end": 9,
+        "confidence": 1.0
+      }
+    ],
+    "sheets": [
+      {
+        "name": "cycletimedatatable.csv",
+        "headers": [
+          "Year",
+          "Days"
+        ],
+        "data": [
+          [
+            2021,
+            180
+          ],
+          [
+            2022,
+            90
+          ],
+          [
+            2023,
+            60
+          ],
+          [
+            2024,
+            30
+          ],
+          [
+            2025,
+            33
+          ]
+        ],
+        "row_count": 5,
+        "column_count": 2
+      }
+    ]
+  }
+}

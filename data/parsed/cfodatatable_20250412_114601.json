@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "source_file": "data/uploads/cfodatatable.csv",
+    "extraction_date": "2025-04-12T11:46:01.521603",
+    "extractor": "spreadsheet_extractor",
+    "file_hash": "43cb06b14148fbcc2bd5954f8d3163cfee6d398114e242a19fdaa04464ddb546"
+  },
+  "document_metadata": {
+    "file_type": "CSV",
+    "encoding": "utf-8",
+    "rows": 6,
+    "columns": 2
+  },
+  "content": {
+    "text": "Year % 2021 20 2022 30 2023 20 2024 10 2025 5 ",
+    "pages": [],
+    "tables": [
+      {
+        "name": "cfodatatable.csv",
+        "headers": [
+          "Year",
+          "%"
+        ],
+        "data": [
+          [
+            2021,
+            20
+          ],
+          [
+            2022,
+            30
+          ],
+          [
+            2023,
+            20
+          ],
+          [
+            2024,
+            10
+          ],
+          [
+            2025,
+            5
+          ]
+        ],
+        "row_count": 5,
+        "column_count": 2
+      }
+    ],
+    "images": [],
+    "entities": [
+      {
+        "type": "organization",
+        "text": "Year",
+        "start": 0,
+        "end": 4,
+        "confidence": 1.0
+      },
+      {
+        "type": "location",
+        "text": "Year",
+        "start": 0,
+        "end": 4,
+        "confidence": 1.0
+      }
+    ],
+    "sheets": [
+      {
+        "name": "cfodatatable.csv",
+        "headers": [
+          "Year",
+          "%"
+        ],
+        "data": [
+          [
+            2021,
+            20
+          ],
+          [
+            2022,
+            30
+          ],
+          [
+            2023,
+            20
+          ],
+          [
+            2024,
+            10
+          ],
+          [
+            2025,
+            5
+          ]
+        ],
+        "row_count": 5,
+        "column_count": 2
+      }
+    ]
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "metadata": {
+    "source_file": "data/uploads/opincomedatatable.csv",
+    "extraction_date": "2025-04-11T22:01:47.446276",
+    "extractor": "spreadsheet_extractor",
+    "file_hash": "3dc342e9cfb1d22a34e7c745ac29355594f2307ed83dfd97f981d859dab5a6f1"
+  },
+  "document_metadata": {
+    "file_type": "CSV",
+    "encoding": "utf-8",
+    "rows": 6,
+    "columns": 2
+  },
+  "content": {
+    "text": "Year Income 2021 5 2022 10 2023 90 2024 40 2025 20 ",
+    "pages": [],
+    "tables": [
+      {
+        "name": "opincomedatatable.csv",
+        "headers": [
+          "Year",
+          "Income"
+        ],
+        "data": [
+          [
+            2021,
+            5
+          ],
+          [
+            2022,
+            10
+          ],
+          [
+            2023,
+            90
+          ],
+          [
+            2024,
+            40
+          ],
+          [
+            2025,
+            20
+          ]
+        ],
+        "row_count": 5,
+        "column_count": 2
+      }
+    ],
+    "images": [],
+    "entities": [
+      {
+        "type": "organization",
+        "text": "Year Income",
+        "start": 0,
+        "end": 11,
+        "confidence": 1.0
+      },
+      {
+        "type": "person",
+        "text": "Year Income",
+        "start": 0,
+        "end": 11,
+        "confidence": 1.0
+      },
+      {
+        "type": "location",
+        "text": "Year",
+        "start": 0,
+        "end": 4,
+        "confidence": 1.0
+      },
+      {
+        "type": "location",
+        "text": "Income",
+        "start": 5,
+        "end": 11,
+        "confidence": 1.0
+      }
+    ],
+    "sheets": [
+      {
+        "name": "opincomedatatable.csv",
+        "headers": [
+          "Year",
+          "Income"
+        ],
+        "data": [
+          [
+            2021,
+            5
+          ],
+          [
+            2022,
+            10
+          ],
+          [
+            2023,
+            90
+          ],
+          [
+            2024,
+            40
+          ],
+          [
+            2025,
+            20
+          ]
+        ],
+        "row_count": 5,
+        "column_count": 2
+      }
+    ]
+  }
+}

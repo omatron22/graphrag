@@ -1,0 +1,48 @@
+{
+  "metadata": {
+    "source_file": "data/uploads/ARR.pdf",
+    "extraction_date": "2025-04-11T22:14:59.802486",
+    "parser": "pymupdf"
+  },
+  "document_metadata": {
+    "title": "2025-03-13 15_49_28.961.pdf",
+    "author": "Mohan Maheswaran",
+    "subject": "",
+    "keywords": "",
+    "creator": "",
+    "producer": "Microsoft: Print To PDF",
+    "creation_date": "D:20250313155011-07'00'",
+    "modification_date": "D:20250313155011-07'00'",
+    "page_count": 1
+  },
+  "content": {
+    "pages": [
+      {
+        "page_number": 1,
+        "text": "",
+        "text_blocks": [],
+        "tables": [],
+        "images": [
+          {
+            "image_id": "img_0_0",
+            "xref": 4,
+            "bbox": [
+              0,
+              1429,
+              2856,
+              8
+            ],
+            "size": [
+              1429,
+              2856
+            ],
+            "format": "jpeg"
+          }
+        ]
+      }
+    ],
+    "tables": [],
+    "images": [],
+    "entities": []
+  }
+}

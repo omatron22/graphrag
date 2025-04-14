@@ -1,0 +1,115 @@
+{
+  "metadata": {
+    "source_file": "data/uploads/riskdatatable.csv",
+    "extraction_date": "2025-04-11T22:36:45.288356",
+    "extractor": "spreadsheet_extractor",
+    "file_hash": "6a2a50415c800492a0693230b2814f9d4a90914dbcee009091f67c2ad4c83043"
+  },
+  "document_metadata": {
+    "file_type": "CSV",
+    "encoding": "utf-8",
+    "rows": 6,
+    "columns": 2
+  },
+  "content": {
+    "text": "Prob Impact 1 9 2 1 3 9 4 1 5 9 ",
+    "pages": [],
+    "tables": [
+      {
+        "name": "riskdatatable.csv",
+        "headers": [
+          "Prob",
+          "Impact"
+        ],
+        "data": [
+          [
+            1,
+            9
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            9
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            5,
+            9
+          ]
+        ],
+        "row_count": 5,
+        "column_count": 2
+      }
+    ],
+    "images": [],
+    "entities": [
+      {
+        "type": "organization",
+        "text": "Prob Impact",
+        "start": 0,
+        "end": 11,
+        "confidence": 1.0
+      },
+      {
+        "type": "person",
+        "text": "Prob Impact",
+        "start": 0,
+        "end": 11,
+        "confidence": 1.0
+      },
+      {
+        "type": "location",
+        "text": "Prob",
+        "start": 0,
+        "end": 4,
+        "confidence": 1.0
+      },
+      {
+        "type": "location",
+        "text": "Impact",
+        "start": 5,
+        "end": 11,
+        "confidence": 1.0
+      }
+    ],
+    "sheets": [
+      {
+        "name": "riskdatatable.csv",
+        "headers": [
+          "Prob",
+          "Impact"
+        ],
+        "data": [
+          [
+            1,
+            9
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            9
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            5,
+            9
+          ]
+        ],
+        "row_count": 5,
+        "column_count": 2
+      }
+    ]
+  }
+}

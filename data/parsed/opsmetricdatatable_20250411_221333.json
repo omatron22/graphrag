@@ -1,0 +1,155 @@
+{
+  "metadata": {
+    "source_file": "data/uploads/opsmetricdatatable.csv",
+    "extraction_date": "2025-04-11T22:13:33.395565",
+    "extractor": "spreadsheet_extractor",
+    "file_hash": "4c3f7e2e7f42e019f4f4b78bb8609b829dba34480d0bdfee5b972f9750231c96"
+  },
+  "document_metadata": {
+    "file_type": "CSV",
+    "encoding": "utf-8",
+    "rows": 11,
+    "columns": 2
+  },
+  "content": {
+    "text": "Metric Value totalcycletime 63 inventoryturnover 6 firstpassyield 90 ontimedelivery 86 overallequipmenteffect 75 capacityutilization 90 customerreturnrate 5 througput 80 scraprate 8 supplierleadtime 33 ",
+    "pages": [],
+    "tables": [
+      {
+        "name": "opsmetricdatatable.csv",
+        "headers": [
+          "Metric",
+          "Value"
+        ],
+        "data": [
+          [
+            "totalcycletime",
+            63
+          ],
+          [
+            "inventoryturnover",
+            6
+          ],
+          [
+            "firstpassyield",
+            90
+          ],
+          [
+            "ontimedelivery",
+            86
+          ],
+          [
+            "overallequipmenteffect",
+            75
+          ],
+          [
+            "capacityutilization",
+            90
+          ],
+          [
+            "customerreturnrate",
+            5
+          ],
+          [
+            "througput",
+            80
+          ],
+          [
+            "scraprate",
+            8
+          ],
+          [
+            "supplierleadtime",
+            33
+          ]
+        ],
+        "row_count": 10,
+        "column_count": 2
+      }
+    ],
+    "images": [],
+    "entities": [
+      {
+        "type": "organization",
+        "text": "Metric Value",
+        "start": 0,
+        "end": 12,
+        "confidence": 1.0
+      },
+      {
+        "type": "person",
+        "text": "Metric Value",
+        "start": 0,
+        "end": 12,
+        "confidence": 1.0
+      },
+      {
+        "type": "location",
+        "text": "Metric",
+        "start": 0,
+        "end": 6,
+        "confidence": 1.0
+      },
+      {
+        "type": "location",
+        "text": "Value",
+        "start": 7,
+        "end": 12,
+        "confidence": 1.0
+      }
+    ],
+    "sheets": [
+      {
+        "name": "opsmetricdatatable.csv",
+        "headers": [
+          "Metric",
+          "Value"
+        ],
+        "data": [
+          [
+            "totalcycletime",
+            63
+          ],
+          [
+            "inventoryturnover",
+            6
+          ],
+          [
+            "firstpassyield",
+            90
+          ],
+          [
+            "ontimedelivery",
+            86
+          ],
+          [
+            "overallequipmenteffect",
+            75
+          ],
+          [
+            "capacityutilization",
+            90
+          ],
+          [
+            "customerreturnrate",
+            5
+          ],
+          [
+            "througput",
+            80
+          ],
+          [
+            "scraprate",
+            8
+          ],
+          [
+            "supplierleadtime",
+            33
+          ]
+        ],
+        "row_count": 10,
+        "column_count": 2
+      }
+    ]
+  }
+}

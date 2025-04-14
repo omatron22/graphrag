@@ -1,0 +1,173 @@
+[
+  {
+    "subject": "Revenue",
+    "subject_type": "companies",
+    "predicate": "increased",
+    "object": "15%",
+    "object_type": "percentages",
+    "context": "Revenue increased by 15% compared to the previous quarter,\nreaching $120 million.",
+    "extraction_method": "pattern_based"
+  },
+  {
+    "subject": "margin",
+    "subject_type": "financial_metrics",
+    "predicate": "increased",
+    "object": "18%",
+    "object_type": "percentages",
+    "context": "Net profit margin improved to 18% from 15%.",
+    "extraction_method": "pattern_based"
+  },
+  {
+    "subject": "The",
+    "subject_type": "companies",
+    "predicate": "acquired",
+    "object": "SmallTech",
+    "object_type": "companies",
+    "context": "The company acquired SmallTech Solutions\nfor $35 million to strengthen its AI capabilities.",
+    "extraction_method": "pattern_based"
+  },
+  {
+    "subject": "TechCorp Inc.",
+    "subject_type": "company",
+    "predicate": "showed",
+    "object": "strong financial performance in Q1 2025",
+    "object_type": "description",
+    "confidence": 0.95,
+    "extraction_method": "llm_based"
+  },
+  {
+    "subject": "Revenue",
+    "subject_type": "financial_metric",
+    "predicate": "increased_by",
+    "object": "15%",
+    "object_type": "percentage",
+    "confidence": 0.95,
+    "extraction_method": "llm_based"
+  },
+  {
+    "subject": "Net profit margin",
+    "subject_type": "financial_metric",
+    "predicate": "improved_to",
+    "object": "18%",
+    "object_type": "percentage",
+    "confidence": 0.95,
+    "extraction_method": "llm_based"
+  },
+  {
+    "subject": "Revenue",
+    "subject_type": "financial_metric",
+    "predicate": "reached",
+    "object": "$120 million",
+    "object_type": "monetary_value",
+    "confidence": 0.95,
+    "extraction_method": "llm_based"
+  },
+  {
+    "subject": "Operating Expenses",
+    "subject_type": "financial_metric",
+    "predicate": "increased_by",
+    "object": "5%",
+    "object_type": "percentage",
+    "confidence": 0.95,
+    "extraction_method": "llm_based"
+  },
+  {
+    "subject": "EBITDA",
+    "subject_type": "financial_metric",
+    "predicate": "improved_to",
+    "object": "$42 million",
+    "object_type": "monetary_value",
+    "confidence": 0.95,
+    "extraction_method": "llm_based"
+  },
+  {
+    "subject": "Net Profit",
+    "subject_type": "financial_metric",
+    "predicate": "increased_by",
+    "object": "38%",
+    "object_type": "percentage",
+    "confidence": 0.95,
+    "extraction_method": "llm_based"
+  },
+  {
+    "subject": "Cash Reserves",
+    "subject_type": "financial_metric",
+    "predicate": "increased_by",
+    "object": "10%",
+    "object_type": "percentage",
+    "confidence": 0.95,
+    "extraction_method": "llm_based"
+  },
+  {
+    "subject": "TechCorp Inc.",
+    "subject_type": "company",
+    "predicate": "gained",
+    "object": "2.3% market share in the enterprise software segment",
+    "object_type": "percentage",
+    "confidence": 0.95,
+    "extraction_method": "llm_based"
+  },
+  {
+    "subject": "TechCorp Inc.",
+    "subject_type": "company",
+    "predicate": "surpassed",
+    "object": "CompetitorX",
+    "object_type": "company",
+    "confidence": 0.95,
+    "extraction_method": "llm_based"
+  },
+  {
+    "subject": "MarketLeader Corp.",
+    "subject_type": "company",
+    "predicate": "ranked_second_behind",
+    "object": "TechCorp Inc.",
+    "object_type": "company",
+    "confidence": 0.95,
+    "extraction_method": "llm_based"
+  },
+  {
+    "subject": "CloudSuite Pro",
+    "subject_type": "product",
+    "predicate": "generated",
+    "object": "$65 million revenue (↑22% QoQ)",
+    "object_type": "description_with_metric",
+    "confidence": 0.95,
+    "extraction_method": "llm_based"
+  },
+  {
+    "subject": "SecureNet Enterprise",
+    "subject_type": "product",
+    "predicate": "generated",
+    "object": "$32 million revenue (↑8% QoQ)",
+    "object_type": "description_with_metric",
+    "confidence": 0.95,
+    "extraction_method": "llm_based"
+  },
+  {
+    "subject": "DataAnalyzer",
+    "subject_type": "product",
+    "predicate": "generated",
+    "object": "$23 million revenue (↑12% QoQ)",
+    "object_type": "description_with_metric",
+    "confidence": 0.95,
+    "extraction_method": "llm_based"
+  },
+  {
+    "subject": "TechCorp Inc.",
+    "subject_type": "company",
+    "predicate": "signed_partnership_agreement",
+    "object": "GlobalNet Inc.",
+    "object_type": "company",
+    "confidence": 0.95,
+    "extraction_method": "llm_based"
+  },
+  {
+    "subject": "TechCorp Inc.",
+    "subject_type": "company",
+    "predicate": "acquired",
+    "object": "SmallTech Solutions for $35 million",
+    "object_type": "description_with_monetary_value",
+    "confidence": 0.95,
+    "extraction_method": "llm_based"
+  }
+]

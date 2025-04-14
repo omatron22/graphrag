@@ -1,0 +1,115 @@
+{
+  "metadata": {
+    "source_file": "data/uploads/cacdatatable.csv",
+    "extraction_date": "2025-04-12T11:46:01.490453",
+    "extractor": "spreadsheet_extractor",
+    "file_hash": "ecc643597b48ba13b9fddb5d0164dffbb33e834d371bafa247a16f6b61235904"
+  },
+  "document_metadata": {
+    "file_type": "CSV",
+    "encoding": "utf-8",
+    "rows": 6,
+    "columns": 2
+  },
+  "content": {
+    "text": "Year Cost 2021 15 2022 30 2023 60 2024 25 2025 33 ",
+    "pages": [],
+    "tables": [
+      {
+        "name": "cacdatatable.csv",
+        "headers": [
+          "Year",
+          "Cost"
+        ],
+        "data": [
+          [
+            2021,
+            15
+          ],
+          [
+            2022,
+            30
+          ],
+          [
+            2023,
+            60
+          ],
+          [
+            2024,
+            25
+          ],
+          [
+            2025,
+            33
+          ]
+        ],
+        "row_count": 5,
+        "column_count": 2
+      }
+    ],
+    "images": [],
+    "entities": [
+      {
+        "type": "organization",
+        "text": "Year Cost",
+        "start": 0,
+        "end": 9,
+        "confidence": 1.0
+      },
+      {
+        "type": "person",
+        "text": "Year Cost",
+        "start": 0,
+        "end": 9,
+        "confidence": 1.0
+      },
+      {
+        "type": "location",
+        "text": "Year",
+        "start": 0,
+        "end": 4,
+        "confidence": 1.0
+      },
+      {
+        "type": "location",
+        "text": "Cost",
+        "start": 5,
+        "end": 9,
+        "confidence": 1.0
+      }
+    ],
+    "sheets": [
+      {
+        "name": "cacdatatable.csv",
+        "headers": [
+          "Year",
+          "Cost"
+        ],
+        "data": [
+          [
+            2021,
+            15
+          ],
+          [
+            2022,
+            30
+          ],
+          [
+            2023,
+            60
+          ],
+          [
+            2024,
+            25
+          ],
+          [
+            2025,
+            33
+          ]
+        ],
+        "row_count": 5,
+        "column_count": 2
+      }
+    ]
+  }
+}

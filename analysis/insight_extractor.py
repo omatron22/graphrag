@@ -167,7 +167,7 @@ class InsightExtractor:
         if entity_name:
             entity_query = f"""
             MATCH (e {{name: $entity_name}})-[r]-(connected)
-            WITH e, connected, type(r) as rel_type
+            WITH e, connected, r, type(r) as rel_type
             RETURN 
                 COUNT(DISTINCT connected) as connection_count,
                 COUNT(r) as relationship_count,
@@ -270,7 +270,7 @@ class InsightExtractor:
         # Pattern 3: Cyclical relationships (entities forming loops)
         cycle_query = """
         MATCH path = (a)-[r1]->(b)-[r2]->(c)-[r3]->(a)
-        WHERE id(a) < id(b) AND id(b) < id(c) // Avoid duplicates
+        WHERE elementId(a) < elementId(b) AND elementId(b) < elementId(c) // Avoid duplicates
         WITH a.name as node1, b.name as node2, c.name as node3, 
              type(r1) as rel1, type(r2) as rel2, type(r3) as rel3,
              COUNT(path) as cycle_count
@@ -418,11 +418,11 @@ class InsightExtractor:
         # Trend 3: Entity importance evolution
         entity_evolution_query = """
         MATCH (e:Entity)
-        WHERE EXISTS(e.created_at) OR EXISTS(e.mentioned_dates)
+        WHERE e.created_at IS NOT NULL OR e.mentioned_dates IS NOT NULL
         WITH e, 
-             CASE WHEN EXISTS(e.created_at) THEN e.created_at ELSE null END as created_at,
-             CASE WHEN EXISTS(e.mentioned_dates) THEN e.mentioned_dates ELSE [] END as mentioned_dates,
-             size((e)--()) as connection_count
+            CASE WHEN e.created_at IS NOT NULL THEN e.created_at ELSE null END as created_at,
+            CASE WHEN e.mentioned_dates IS NOT NULL THEN e.mentioned_dates ELSE [] END as mentioned_dates,
+            COUNT {(e)--()} as connection_count
         RETURN e.name as entity, created_at, mentioned_dates, connection_count
         ORDER BY connection_count DESC
         LIMIT 10
@@ -432,7 +432,7 @@ class InsightExtractor:
             # For a specific entity, look at its connections over time instead
             entity_evolution_query = """
             MATCH (e:Entity {name: $entity_name})-[r]-(connected)
-            WHERE EXISTS(r.timestamp)
+            WHERE r.timestamp IS NOT NULL
             WITH connected.name as connected_entity, r.timestamp as connection_time
             ORDER BY connection_time
             RETURN connected_entity, connection_time
@@ -479,8 +479,8 @@ class InsightExtractor:
               AND abs(datetime(m1.timestamp) - datetime(m2.timestamp)) < duration('P7D')
         WITH e1.name as entity1, e2.name as entity2, m1.name as metric,
              m1.value as value1, m2.value as value2
-        WHERE type(value1) = type(value2) AND (type(value1) = 'INTEGER' OR type(value1) = 'FLOAT')
-        WITH entity1, entity2, metric, COLLECT({v1: value1, v2: value2}) as value_pairs
+        WHERE (value1 IS NOT NULL AND value2 IS NOT NULL) AND 
+            ((value1 IS INTEGER AND value2 IS INTEGER) OR (value1 IS FLOAT AND value2 IS FLOAT))        WITH entity1, entity2, metric, COLLECT({v1: value1, v2: value2}) as value_pairs
         WHERE size(value_pairs) > 2
         RETURN entity1, entity2, metric, value_pairs
         LIMIT 5
@@ -495,8 +495,8 @@ class InsightExtractor:
                   AND abs(datetime(m1.timestamp) - datetime(m2.timestamp)) < duration('P7D')
             WITH e1.name as entity1, e2.name as entity2, m1.name as metric,
                  m1.value as value1, m2.value as value2
-            WHERE type(value1) = type(value2) AND (type(value1) = 'INTEGER' OR type(value1) = 'FLOAT')
-            WITH entity1, entity2, metric, COLLECT({v1: value1, v2: value2}) as value_pairs
+            WHERE (value1 IS NOT NULL AND value2 IS NOT NULL) AND 
+                ((value1 IS INTEGER AND value2 IS INTEGER) OR (value1 IS FLOAT AND value2 IS FLOAT))            WITH entity1, entity2, metric, COLLECT({v1: value1, v2: value2}) as value_pairs
             WHERE size(value_pairs) > 2
             RETURN entity1, entity2, metric, value_pairs
             """
@@ -557,7 +557,7 @@ class InsightExtractor:
         cooccurrence_query = """
         MATCH (a)-[:MENTIONED_WITH|APPEARS_WITH|RELATED_TO]->(b)
         WITH a, b, COUNT(*) as frequency
-        WHERE frequency > 2 AND id(a) < id(b) // Avoid duplicates
+        WHERE frequency > 2 AND elementId(a) < elementId(b) // Avoid duplicates
         RETURN a.name as entity1, b.name as entity2, frequency
         ORDER BY frequency DESC
         LIMIT 10
@@ -659,11 +659,11 @@ class InsightExtractor:
         # Anomaly 2: Structural anomalies (unusually connected or isolated entities)
         connection_anomaly_query = """
         MATCH (e:Entity)
-        WITH e, size((e)--()) as connection_count
+        WITH e, COUNT {(e)--()} as connection_count
         WITH AVG(connection_count) as avg_connections, 
             STDEV(connection_count) as std_connections
         MATCH (e:Entity)
-        WITH e, size((e)--()) as connection_count, avg_connections, std_connections
+        WITH e, COUNT {(e)--()} as connection_count, avg_connections, std_connections
         WHERE abs(connection_count - avg_connections) > 2 * std_connections
         RETURN e.name as entity, connection_count, 
             avg_connections, std_connections,
@@ -675,10 +675,10 @@ class InsightExtractor:
         if entity_name:
             connection_anomaly_query = """
             MATCH (e:Entity {name: $entity_name})
-            WITH e, size((e)--()) as entity_connections
+            WITH e, COUNT {(e)--()} as entity_connections
             MATCH (other:Entity)
             WHERE other.name <> $entity_name
-            WITH e, entity_connections, other, size((other)--()) as other_connections
+            WITH e, entity_connections, other, COUNT {(other)--()} as other_connections
             WITH e, entity_connections, AVG(other_connections) as avg_connections, 
                 STDEV(other_connections) as std_connections
             WHERE abs(entity_connections - avg_connections) > 1.5 * std_connections AND std_connections > 0

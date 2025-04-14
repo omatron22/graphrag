@@ -1,0 +1,115 @@
+{
+  "metadata": {
+    "source_file": "data/uploads/dwdatatable.csv",
+    "extraction_date": "2025-04-11T22:36:45.142422",
+    "extractor": "spreadsheet_extractor",
+    "file_hash": "be6eaa7fc58079931833f051bad47473c6fb5d5c85ee1e79546e034c81470d21"
+  },
+  "document_metadata": {
+    "file_type": "CSV",
+    "encoding": "utf-8",
+    "rows": 6,
+    "columns": 2
+  },
+  "content": {
+    "text": "Year Value 2021 100 2022 30 2023 60 2024 25 2025 33 ",
+    "pages": [],
+    "tables": [
+      {
+        "name": "dwdatatable.csv",
+        "headers": [
+          "Year",
+          "Value"
+        ],
+        "data": [
+          [
+            2021,
+            100
+          ],
+          [
+            2022,
+            30
+          ],
+          [
+            2023,
+            60
+          ],
+          [
+            2024,
+            25
+          ],
+          [
+            2025,
+            33
+          ]
+        ],
+        "row_count": 5,
+        "column_count": 2
+      }
+    ],
+    "images": [],
+    "entities": [
+      {
+        "type": "organization",
+        "text": "Year Value",
+        "start": 0,
+        "end": 10,
+        "confidence": 1.0
+      },
+      {
+        "type": "person",
+        "text": "Year Value",
+        "start": 0,
+        "end": 10,
+        "confidence": 1.0
+      },
+      {
+        "type": "location",
+        "text": "Year",
+        "start": 0,
+        "end": 4,
+        "confidence": 1.0
+      },
+      {
+        "type": "location",
+        "text": "Value",
+        "start": 5,
+        "end": 10,
+        "confidence": 1.0
+      }
+    ],
+    "sheets": [
+      {
+        "name": "dwdatatable.csv",
+        "headers": [
+          "Year",
+          "Value"
+        ],
+        "data": [
+          [
+            2021,
+            100
+          ],
+          [
+            2022,
+            30
+          ],
+          [
+            2023,
+            60
+          ],
+          [
+            2024,
+            25
+          ],
+          [
+            2025,
+            33
+          ]
+        ],
+        "row_count": 5,
+        "column_count": 2
+      }
+    ]
+  }
+}

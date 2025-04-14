@@ -1,0 +1,29 @@
+[
+  {
+    "subject": "Revenue",
+    "subject_type": "companies",
+    "predicate": "increased",
+    "object": "15%",
+    "object_type": "percentages",
+    "context": "Revenue increased by 15% compared to the previous quarter,\nreaching $120 million.",
+    "extraction_method": "pattern_based"
+  },
+  {
+    "subject": "margin",
+    "subject_type": "financial_metrics",
+    "predicate": "increased",
+    "object": "18%",
+    "object_type": "percentages",
+    "context": "Net profit margin improved to 18% from 15%.",
+    "extraction_method": "pattern_based"
+  },
+  {
+    "subject": "The",
+    "subject_type": "companies",
+    "predicate": "acquired",
+    "object": "SmallTech",
+    "object_type": "companies",
+    "context": "The company acquired SmallTech Solutions\nfor $35 million to strengthen its AI capabilities.",
+    "extraction_method": "pattern_based"
+  }
+]
