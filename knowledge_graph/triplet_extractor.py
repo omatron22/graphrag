@@ -259,32 +259,26 @@ class TripletExtractor:
     
     def _extract_llm_based(self, text):
         """
-        Extract triplets using large language model
-    
-        Args:
-            text (str): Document text content
-        
-        Returns:
-            list: Extracted triplets
+        Extract triplets using large language model with improved reliability
         """
         logger.info("Extracting triplets using LLM")
-    
+
         # Handle empty text
         if not text or len(text.strip()) < 50:
             logger.warning("Text too short for meaningful LLM extraction")
             return []
-    
+
         # Initialize results list
         triplets = []
-    
+
         # Process text in chunks if it's too long
-        max_chunk_size = 3000  # Adjust based on the LLM's context window
+        max_chunk_size = 2500  # Reduced chunk size for better reliability
         text_chunks = []
-    
+
         if len(text) > max_chunk_size:
             # Split text into sentences
             sentences = re.split(r'(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?|\!)\s', text)
-        
+    
             # Group sentences into chunks
             current_chunk = ""
             for sentence in sentences:
@@ -294,86 +288,106 @@ class TripletExtractor:
                     if current_chunk:
                         text_chunks.append(current_chunk.strip())
                     current_chunk = sentence + " "
-        
+    
             # Add the last chunk if it's not empty
             if current_chunk:
                 text_chunks.append(current_chunk.strip())
         else:
             text_chunks = [text]
-    
+
         logger.info(f"Processing {len(text_chunks)} text chunks with LLM")
-    
-        # Process each chunk
+
+        # Process each chunk with retry logic
         for i, chunk in enumerate(text_chunks):
             logger.info(f"Processing chunk {i+1}/{len(text_chunks)}")
         
-            # Create prompt for the LLM
-            prompt = f"""
-            You are an expert in knowledge extraction. Extract business-related subject-predicate-object triplets from the following text.
-            For each assertion in the text, identify:
+            # Add retry logic (up to 3 attempts)
+            max_retries = 3
+            retry_count = 0
         
-            1. The SUBJECT entity (who/what is the statement about)
-            2. The PREDICATE (relationship or action)
-            3. The OBJECT entity (what is being affected or related to the subject)
-        
-            Only extract triplets that represent factual business relationships or events.
-        
-            Format your response as a JSON array of triplet objects, with each having these fields:
-            - "subject": The entity that is the subject (e.g., company name, person, product)
-            - "subject_type": Category of the subject (company, person, financial_metric, product, etc.)
-            - "predicate": The relationship or action (e.g., acquired, increased, invested_in)
-            - "object": The entity that is the object of the relationship
-            - "object_type": Category of the object
-            - "confidence": A number between 0.0 and 1.0 indicating your confidence in this extraction
-        
-            Example format:
-            [
-            {{
-                "subject": "Microsoft",
-                "subject_type": "company",
-                "predicate": "acquired",
-                "object": "GitHub",
-                "object_type": "company",
-                "confidence": 0.95
-            }},
-            {{
-                "subject": "revenue",
-                "subject_type": "financial_metric",
-                "predicate": "increased_by",
-                "object": "15%",
-                "object_type": "percentage",
-                "confidence": 0.85
-            }}
-            ]
-        
-            Text to analyze:
-            {chunk}
-        
-            Respond ONLY with the JSON array of triplets. If no valid triplets can be extracted, return an empty array [].
-            """
-        
-            try:
-                # Call the LLM API (Ollama)
-                response = requests.post(
-                    self.llm_endpoint,
-                    json={
-                        "model": self.llm_name,
-                        "prompt": prompt,
-                        "stream": False,
-                        **self.llm_params
-                    }
-                )
+            while retry_count < max_retries:
+                try:
+                    # Create prompt for the LLM
+                    prompt = f"""
+                    You are an expert in knowledge extraction. Extract business-related subject-predicate-object triplets from the following text.
+                    For each assertion in the text, identify:
             
-                # Parse the response
-                result = response.json()
-                content = result.get('response', '')
+                    1. The SUBJECT entity (who/what is the statement about)
+                    2. The PREDICATE (relationship or action)
+                    3. The OBJECT entity (what is being affected or related to the subject)
             
-                # Extract JSON from the response
-                json_start = content.find('[')
-                json_end = content.rfind(']') + 1
+                    Only extract triplets that represent factual business relationships or events.
             
-                if json_start >= 0 and json_end > json_start:
-                    json_str = content[json_start:json_end]
+                    Format your response as a JSON array of triplet objects, with each having these fields:
+                    - "subject": The entity that is the subject (e.g., company name, person, product)
+                    - "subject_type": Category of the subject (company, person, financial_metric, product, etc.)
+                    - "predicate": The relationship or action (e.g., acquired, increased, invested_in)
+                    - "object": The entity that is the object of the relationship
+                    - "object_type": Category of the object
+                    - "confidence": A number between 0.0 and 1.0 indicating your confidence in this extraction
+            
+                    Example format:
+                    [
+                    {{
+                        "subject": "TechCorp Inc.",
+                        "subject_type": "company",
+                        "predicate": "acquired",
+                        "object": "SmallTech Solutions",
+                        "object_type": "company",
+                        "confidence": 0.95
+                    }},
+                    {{
+                        "subject": "Revenue",
+                        "subject_type": "financial_metric",
+                        "predicate": "increased_by",
+                        "object": "15%",
+                        "object_type": "percentage",
+                        "confidence": 0.85
+                    }}
+                    ]
+            
+                    Text to analyze:
+                    {chunk}
+            
+                    Respond ONLY with the JSON array of triplets. If no valid triplets can be extracted, return an empty array [].
+                    """
+                
+                    # Set a timeout for the request (10 seconds)
+                    timeout = 60
+                
+                    # Call the LLM API (Ollama) with timeout
+                    response = requests.post(
+                        self.llm_endpoint,
+                        json={
+                            "model": self.llm_name,
+                            "prompt": prompt,
+                            "stream": False,
+                            **self.llm_params
+                        },
+                        timeout=timeout
+                    )
+                
+                    # Parse the response
+                    result = response.json()
+                    content = result.get('response', '')
+                
+                    # Extract JSON from the response
+                    json_match = re.search(r'\[\s*\{.*\}\s*\]', content, re.DOTALL)
+                    if json_match:
+                        json_str = json_match.group(0)
+                    else:
+                        # Try to find any JSON array in the response
+                        json_start = content.find('[')
+                        json_end = content.rfind(']') + 1
+                    
+                        if json_start >= 0 and json_end > json_start:
+                            json_str = content[json_start:json_end]
+                        else:
+                            logger.warning("No valid JSON found in LLM response")
+                            # Try a different approach or retry
+                            retry_count += 1
+                            time.sleep(1)  # Wait before retrying
+                            continue
                 
                     try:
                         chunk_triplets = json.loads(json_str)
@@ -382,42 +396,88 @@ class TripletExtractor:
                         for triplet in chunk_triplets:
                             triplet["extraction_method"] = "llm_based"
                         
-                            # Extract a short context if possible
+                            # Add context if possible
                             subject = triplet.get("subject", "")
                             predicate = triplet.get("predicate", "")
                             obj = triplet.get("object", "")
-                        
+                    
                             if subject and predicate and obj:
                                 # Try to find a sentence containing all three
                                 pattern = re.compile(r'[^.!?]*(?:\b' + re.escape(subject) + r'\b.*\b' + 
-                                               re.escape(obj) + r'\b|' + r'\b' + re.escape(obj) + 
-                                               r'\b.*\b' + re.escape(subject) + r'\b)[^.!?]*[.!?]')
+                                            re.escape(obj) + r'\b|' + r'\b' + re.escape(obj) + 
+                                            r'\b.*\b' + re.escape(subject) + r'\b)[^.!?]*[.!?]')
                                 context_match = pattern.search(chunk)
                             
                                 if context_match:
                                     triplet["context"] = context_match.group(0).strip()
-                    
+                                
                         triplets.extend(chunk_triplets)
                         logger.info(f"Extracted {len(chunk_triplets)} triplets from chunk {i+1}")
+                    
+                        # Success, break retry loop
+                        break
                     
                     except json.JSONDecodeError as e:
                         logger.warning(f"Failed to parse JSON from LLM response: {e}")
                         logger.debug(f"Problematic JSON string: {json_str}")
-                else:
-                    logger.warning("No valid JSON found in LLM response")
-                
-            except Exception as e:
-                logger.error(f"Error calling LLM API: {e}")
+                    
+                        # Try to fix common JSON issues
+                        try:
+                            # Replace single quotes with double quotes
+                            fixed_json = json_str.replace("'", '"')
+                            chunk_triplets = json.loads(fixed_json)
+                        
+                            # Add extraction source metadata
+                            for triplet in chunk_triplets:
+                                triplet["extraction_method"] = "llm_based"
+                        
+                            triplets.extend(chunk_triplets)
+                            logger.info(f"Extracted {len(chunk_triplets)} triplets after fixing JSON")
+                        
+                            # Success, break retry loop
+                            break
+                        except:
+                            # If fixing failed, retry
+                            retry_count += 1
+                            time.sleep(1)  # Wait before retrying
+                            continue
+                        
+                except requests.exceptions.Timeout:
+                    logger.warning(f"LLM request timed out (retry {retry_count+1}/{max_retries})")
+                    retry_count += 1
+                    time.sleep(2)  # Wait longer before retrying after a timeout
             
-            # Throttle API calls to avoid rate limits
+                except Exception as e:
+                    logger.error(f"Error calling LLM API: {e}")
+                    retry_count += 1
+                    time.sleep(1)  # Wait before retrying
+        
+            # If we've exhausted all retries for this chunk, try pattern-based extraction
+            if retry_count >= max_retries:
+                logger.warning(f"Failed to extract triplets from chunk {i+1} after {max_retries} attempts")
+                # Fall back to pattern-based extraction for this chunk
+                pattern_triplets = self._extract_pattern_based(chunk)
+                if pattern_triplets:
+                    logger.info(f"Extracted {len(pattern_triplets)} triplets using pattern fallback")
+                    triplets.extend(pattern_triplets)
+        
+            # Add a short delay between chunks regardless of success/failure
             if i < len(text_chunks) - 1:
-                time.sleep(1)  # Add a short delay between requests
-    
+                time.sleep(1)
+
         # Filter out low-confidence triplets
-        confidence_threshold = 0.6
+        confidence_threshold = 0.5  # Lowered threshold for better recall
         filtered_triplets = [t for t in triplets if t.get("confidence", 0) >= confidence_threshold]
-    
+
         logger.info(f"LLM extraction complete. Extracted {len(filtered_triplets)} triplets with confidence >= {confidence_threshold}")
+    
+        # If no triplets were found, ensure we at least return simple pattern-based ones
+        if not filtered_triplets:
+            logger.warning("No triplets found with LLM, falling back to pattern extraction for entire text")
+            pattern_triplets = self._extract_pattern_based(text)
+            logger.info(f"Pattern extraction found {len(pattern_triplets)} triplets")
+            return pattern_triplets
+        
         return filtered_triplets
 
 # For testing

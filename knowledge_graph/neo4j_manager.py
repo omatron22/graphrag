@@ -63,7 +63,7 @@ class Neo4jManager:
             logger.info("Verified all required indexes")
             
     def execute_query(self, query, parameters=None):
-        """Execute a Cypher query and return results"""
+        """Execute a Cypher query and return results with better error handling"""
         if not self.driver:
             if not self.connect():
                 raise ConnectionError("Failed to connect to Neo4j database")
@@ -71,7 +71,9 @@ class Neo4jManager:
         try:
             with self.driver.session() as session:
                 result = session.run(query, parameters or {})
-                return [record.data() for record in result]
+                # Explicitly collect all records before closing the session
+                records = [record.data() for record in result]
+                return records
         except Exception as e:
             logger.error(f"Query execution failed: {query}")
             logger.error(f"Error: {e}")

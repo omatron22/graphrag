@@ -1,0 +1,200 @@
+[
+  {
+    "subject": "Revenue",
+    "subject_type": "companies",
+    "predicate": "increased",
+    "object": "15%",
+    "object_type": "percentages",
+    "context": "Revenue increased by 15% compared to the previous quarter,\nreaching $120 million.",
+    "extraction_method": "pattern_based"
+  },
+  {
+    "subject": "margin",
+    "subject_type": "financial_metrics",
+    "predicate": "increased",
+    "object": "18%",
+    "object_type": "percentages",
+    "context": "Net profit margin improved to 18% from 15%.",
+    "extraction_method": "pattern_based"
+  },
+  {
+    "subject": "The",
+    "subject_type": "companies",
+    "predicate": "acquired",
+    "object": "SmallTech",
+    "object_type": "companies",
+    "context": "The company acquired SmallTech Solutions\nfor $35 million to strengthen its AI capabilities.",
+    "extraction_method": "pattern_based"
+  },
+  {
+    "subject": "TechCorp Inc.",
+    "subject_type": "company",
+    "predicate": "showed",
+    "object": "strong financial performance",
+    "object_type": "financial_performance",
+    "confidence": 1.0,
+    "extraction_method": "llm_based"
+  },
+  {
+    "subject": "TechCorp Inc.",
+    "subject_type": "company",
+    "predicate": "increased_by",
+    "object": "15%",
+    "object_type": "percentage",
+    "confidence": 1.0,
+    "extraction_method": "llm_based"
+  },
+  {
+    "subject": "TechCorp Inc.",
+    "subject_type": "company",
+    "predicate": "reached",
+    "object": "$120 million",
+    "object_type": "financial_metric",
+    "confidence": 1.0,
+    "extraction_method": "llm_based"
+  },
+  {
+    "subject": "TechCorp Inc.",
+    "subject_type": "company",
+    "predicate": "improved",
+    "object": "18%",
+    "object_type": "percentage",
+    "confidence": 1.0,
+    "extraction_method": "llm_based"
+  },
+  {
+    "subject": "TechCorp Inc.",
+    "subject_type": "company",
+    "predicate": "increased_by",
+    "object": "$75 million",
+    "object_type": "financial_metric",
+    "confidence": 1.0,
+    "extraction_method": "llm_based"
+  },
+  {
+    "subject": "TechCorp Inc.",
+    "subject_type": "company",
+    "predicate": "improved",
+    "object": "28%",
+    "object_type": "percentage",
+    "confidence": 1.0,
+    "extraction_method": "llm_based"
+  },
+  {
+    "subject": "TechCorp Inc.",
+    "subject_type": "company",
+    "predicate": "increased_by",
+    "object": "$42 million",
+    "object_type": "financial_metric",
+    "confidence": 1.0,
+    "extraction_method": "llm_based"
+  },
+  {
+    "subject": "TechCorp Inc.",
+    "subject_type": "company",
+    "predicate": "improved",
+    "object": "38%",
+    "object_type": "percentage",
+    "confidence": 1.0,
+    "extraction_method": "llm_based"
+  },
+  {
+    "subject": "TechCorp Inc.",
+    "subject_type": "company",
+    "predicate": "increased_by",
+    "object": "$21.6 million",
+    "object_type": "financial_metric",
+    "confidence": 1.0,
+    "extraction_method": "llm_based"
+  },
+  {
+    "subject": "TechCorp Inc.",
+    "subject_type": "company",
+    "predicate": "increased_by",
+    "object": "10%",
+    "object_type": "percentage",
+    "confidence": 1.0,
+    "extraction_method": "llm_based"
+  },
+  {
+    "subject": "TechCorp Inc.",
+    "subject_type": "company",
+    "predicate": "gained",
+    "object": "2.3%",
+    "object_type": "percentage",
+    "confidence": 1.0,
+    "extraction_method": "llm_based"
+  },
+  {
+    "subject": "TechCorp Inc.",
+    "subject_type": "company",
+    "predicate": "surpassed",
+    "object": "CompetitorX",
+    "object_type": "company",
+    "confidence": 1.0,
+    "extraction_method": "llm_based"
+  },
+  {
+    "subject": "TechCorp Inc.",
+    "subject_type": "company",
+    "predicate": "ranks",
+    "object": "second",
+    "object_type": "position",
+    "confidence": 1.0,
+    "extraction_method": "llm_based"
+  },
+  {
+    "subject": "TechCorp Inc.",
+    "subject_type": "company",
+    "predicate": "revenue_of",
+    "object": "$65 million",
+    "object_type": "financial_metric",
+    "confidence": 1.0,
+    "extraction_method": "llm_based"
+  },
+  {
+    "subject": "CloudSuite Pro",
+    "subject_type": "product",
+    "predicate": "increased_by",
+    "object": "22%",
+    "object_type": "percentage",
+    "confidence": 1.0,
+    "extraction_method": "llm_based"
+  },
+  {
+    "subject": "TechCorp Inc.",
+    "subject_type": "company",
+    "predicate": "revenue_of",
+    "object": "$32 million",
+    "object_type": "financial_metric",
+    "confidence": 1.0,
+    "extraction_method": "llm_based"
+  },
+  {
+    "subject": "TechCorp Inc.",
+    "subject_type": "company",
+    "predicate": "increased_by",
+    "object": "18%",
+    "object_type": "percentage",
+    "confidence": 1.0,
+    "extraction_method": "llm_based"
+  },
+  {
+    "subject": "TechCorp Inc.",
+    "subject_type": "company",
+    "predicate": "revenue_of",
+    "object": "$35 million",
+    "object_type": "financial_metric",
+    "confidence": 1.0,
+    "extraction_method": "llm_based"
+  },
+  {
+    "subject": "TechCorp Inc.",
+    "subject_type": "company",
+    "predicate": "signed",
+    "object": "partnership with GlobalNet Inc.",
+    "object_type": "organization",
+    "confidence": 1.0,
+    "extraction_method": "llm_based"
+  }
+]
