@@ -15,6 +15,8 @@ from knowledge_graph.triplet_extractor import TripletExtractor
 from analysis.risk_engine import RiskAnalyzer
 from analysis.strategy_generator import StrategyGenerator
 from analysis.insight_extractor import InsightExtractor
+from strategy_assessment import StrategyAssessment
+from assessment_pdf_generator import AssessmentPDFGenerator
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, 
@@ -39,6 +41,9 @@ class Orchestrator:
         self.risk_analyzer = RiskAnalyzer(self.neo4j_manager)
         self.strategy_generator = StrategyGenerator(self.neo4j_manager, self.risk_analyzer)
         self.insight_extractor = InsightExtractor(self.neo4j_manager)
+        
+        self.strategy_assessment = StrategyAssessment(self.neo4j_manager, self.risk_analyzer, self.strategy_generator)
+        self.pdf_generator = AssessmentPDFGenerator()
         
         # Validate directories exist
         self._ensure_directories()
@@ -226,6 +231,45 @@ class Orchestrator:
             "primary_entities": primary_entities,
             "analysis_results": analysis_results,
             "parsed_data_path": parsed_path
+        }
+    
+    # Add this method to the Orchestrator class
+    def run_strategy_assessment(self, entity_name, user_inputs=None):
+        """
+        Run a comprehensive strategy assessment for an entity.
+    
+        Args:
+            entity_name: Name of the entity to assess
+            user_inputs: User provided inputs (risk tolerance, priorities, constraints)
+        
+        Returns:
+            dict: Assessment results
+        """
+        logger.info(f"Running strategy assessment for {entity_name}")
+    
+        # Use default inputs if none provided
+        if user_inputs is None:
+            user_inputs = {
+                "risk_tolerance": "Medium",
+                "priorities": [],
+                "constraints": []
+            }
+    
+        # Run assessment
+        assessment_results = self.strategy_assessment.assess(entity_name, user_inputs)
+    
+        # Generate charts
+        charts = self.strategy_assessment.generate_charts(assessment_results)
+    
+        # Generate PDF report
+        pdf_path = self.pdf_generator.generate_assessment_pdf(assessment_results, charts)
+    
+        logger.info(f"Strategy assessment complete for {entity_name}")
+    
+        return {
+            "assessment_results": assessment_results,
+            "charts": charts,
+            "pdf_path": pdf_path
         }
     
     def _store_triplets_in_graph(self, triplets):

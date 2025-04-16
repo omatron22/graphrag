@@ -183,7 +183,8 @@ def interactive_mode():
             print("3. List top entities in knowledge graph")
             print("4. Analyze an entity")
             print("5. Visualize entity network")
-            print("6. Exit system")
+            print("6. Run strategy assessment")
+            print("7. Exit system")
             print("-"*50)
             
             choice = input("Enter your choice (1-6): ").strip()
@@ -277,6 +278,93 @@ def interactive_mode():
                 visualize_entity(orchestrator, entity_name, depth)
             
             elif choice == "6":
+                # Run strategy assessment
+                print("\nStrategy Assessment")
+    
+                # Step 1: Select entity
+                entities = list_entities(orchestrator)
+    
+                if not entities:
+                    print("\nNo entities found in knowledge graph.")
+                    print("Process some documents first to populate the graph.")
+                    continue
+    
+                print("\nSelect an entity to assess:")
+                for i, entity in enumerate(entities):
+                    print(f"{i+1}. {entity.get('name', 'Unknown')}")
+    
+                entity_choice = input("\nEnter entity number, or 'c' to cancel: ").strip()
+    
+                if entity_choice.lower() == 'c':
+                    continue
+        
+                try:
+                    entity_idx = int(entity_choice) - 1
+                    if 0 <= entity_idx < len(entities):
+                        entity_name = entities[entity_idx].get("name")
+                    else:
+                        print("Invalid selection.")
+                        continue
+                except ValueError:
+                    print("Please enter a valid number.")
+                    continue
+    
+                # Step 2: Get user inputs
+                print("\nSelect risk tolerance level:")
+                print("1. Low - Conservative approach")
+                print("2. Medium - Balanced approach")
+                print("3. High - Aggressive approach")
+    
+                risk_choice = input("Enter choice (1-3, default 2): ").strip() or "2"
+                risk_mapping = {"1": "Low", "2": "Medium", "3": "High"}
+                risk_tolerance = risk_mapping.get(risk_choice, "Medium")
+    
+                print("\nEnter priorities (comma-separated, e.g., market,finance):")
+                priorities_input = input("> ").strip()
+                priorities = [p.strip() for p in priorities_input.split(",")] if priorities_input else []
+    
+                print("\nEnter constraints (comma-separated):")
+                constraints_input = input("> ").strip()
+                constraints = [c.strip() for c in constraints_input.split(",")] if constraints_input else []
+    
+                # Step 3: Run assessment
+                user_inputs = {
+                    "risk_tolerance": risk_tolerance,
+                    "priorities": priorities,
+                    "constraints": constraints
+                }
+    
+                print(f"\nRunning strategy assessment for {entity_name}...")
+                print("This may take a few minutes. Please wait...\n")
+    
+                result = orchestrator.run_strategy_assessment(entity_name, user_inputs)
+    
+                # Display results summary
+                assessment_results = result.get("assessment_results", {})
+    
+                print("\nAssessment complete!")
+                print(f"Entity: {entity_name}")
+    
+                # Show summary
+                summary = assessment_results.get("summary", {})
+                score = summary.get("overall_score", 0.5)
+                risk_level = summary.get("risk_level", "Medium")
+    
+                print(f"Overall Score: {score*100:.1f}%")
+                print(f"Risk Level: {risk_level}")
+    
+                # Show top recommendations
+                print("\nTop Recommendations:")
+                recommendations = assessment_results.get("recommendations", [])
+                for i, rec in enumerate(recommendations[:3]):
+                    print(f"{i+1}. {rec.get('title')} ({rec.get('priority', 'medium').capitalize()})")
+    
+                # Show PDF path
+                pdf_path = result.get("pdf_path")
+                if pdf_path:
+                    print(f"\nReport saved to: {pdf_path}")
+        
+            elif choice == "7":
                 # Exit
                 print("\nCleaning up and exiting...")
                 orchestrator.cleanup()
