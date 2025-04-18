@@ -6,6 +6,7 @@ Handles connection, transaction management, and query execution.
 import logging
 import json
 from datetime import datetime
+import re
 from neo4j import GraphDatabase
 from neo4j.exceptions import ServiceUnavailable, AuthError
 import config
@@ -134,7 +135,31 @@ class Neo4jManager:
         RETURN m, r, n
         """
         return self.execute_query(query, {"node_id": node_id})
+    
+    def fix_cypher_query(query):
+        """Fix common Cypher syntax issues for Neo4j 5.x compatibility"""
+        # Fix SIZE pattern expressions
+        query = re.sub(r'SIZE\(\(([a-zA-Z0-9_]+)\)--\(\)\)', r'size([(\1)--() | 1])', query)
+    
+        # Fix GROUP BY clauses
+        if "GROUP BY" in query:
+            parts = query.split("GROUP BY")
+            before_group = parts[0].strip()
+            group_clause = parts[1].strip()
         
+            # Find RETURN clause
+            return_parts = group_clause.split("RETURN")
+        
+            if len(return_parts) > 1:
+                group_columns = return_parts[0].strip()
+                return_clause = "RETURN" + return_parts[1]
+            
+                # Recreate with WITH instead of GROUP BY
+                query = f"{before_group}\nWITH {group_columns}\n{return_clause}"
+    
+        return query
+
+    
     def clear_database(self, confirm=False):
         """Delete all nodes and relationships (use with caution!)"""
         if not confirm:

@@ -1,0 +1,1274 @@
+{
+  "entity": "TechCorp",
+  "timestamp": "2025-04-16T09:04:39.895832",
+  "user_inputs": {
+    "risk_tolerance": "Medium",
+    "priorities": [
+      "market",
+      "finance"
+    ],
+    "constraints": []
+  },
+  "groups": {
+    "vision": {
+      "name": "Vision",
+      "description": "Assessment of company vision statement",
+      "questions": [
+        {
+          "question": "Is the Vision Statement Clear, concise, inspiring, future-focused, Ambitious and Achievable?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        }
+      ],
+      "findings": [],
+      "score": 0.5,
+      "risk_level": "Medium"
+    },
+    "market": {
+      "name": "Market Assessment",
+      "description": "Assessment of market segments and value proposition",
+      "questions": [
+        {
+          "question": "Are the market segments you are participating in the most attractive segments?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "Is your Value critical to the most attractive market segments?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "Can you create a new market segment that could become the most attractive segment in the industry?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "Can you disrupt the attractive market segments to increase your share in those segments or to drive market structure change in a segment or across multiple segments?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "Are your Business Competencies a strong fit for the targetted markets?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        }
+      ],
+      "findings": [],
+      "score": 0.5,
+      "risk_level": "Medium"
+    },
+    "strategic": {
+      "name": "Strategic Assessment",
+      "description": "Assessment of strategic positioning and opportunities",
+      "questions": [
+        {
+          "question": "Which Markets are most attractive?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "Do you have a strong strategic position in the most attractive markets?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "Do you have a leading Market Share in the most attractive markets? Can you further enhance your position within the overall ecosystem?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "Are any of the lesser attractive markets likely to become more attractive in the next 3 to 5 years? Can you develop a leadership position in these markets?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "Do you have a strong strategic position and leading market share in a lesser attractive market? Can you create a new ecosystem and architect its structure and operation?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "Can you enhance your strategic position in the most attractive markets?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "Can you create/develop a new market and establish a leading and defendable strategic position in this market?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "Are there sub-segments within the overall market that could be more attractive than the markets you have currently selected?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "What factors are a barrier to market growth and market size?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "What factors are a barrier to enhancing your overall strategic position?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "Can you increase the importance/weighting of your specific competencies in the overall ecosystem that drives your Business?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "Have you demonstrated an ability to create/grow/develop a new or existing market? Can you/your team execute on a market growth strategy?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "Have you demonstrated an ability to build a strong strategic position in a market? Can you/your team execute on a strategy to enhance the strategic position in a market?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "What are the main bottlenecks to growth in your business?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "What are the constraints that exist in your business that limit your ability to enhance your overall strategic position?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "Can you influence/partner with key ecosystem partners to enhance your strategic position?",
+          "answer": "Based on the available data, we found relationships with FinanceGroup through COMPETES_WITH. Further analysis would provide more specific insights on this question.",
+          "data": [
+            {
+              "n": {
+                "revenue": "1.2B",
+                "name": "FinanceGroup",
+                "industry": "Financial Services",
+                "employees": 3500
+              },
+              "relationship_type": "COMPETES_WITH",
+              "r": [
+                {},
+                "COMPETES_WITH",
+                {
+                  "revenue": "1.2B",
+                  "name": "FinanceGroup",
+                  "industry": "Financial Services",
+                  "employees": 3500
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "question": "Do you have the Balance Sheet to execute on your desired strategy?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        }
+      ],
+      "findings": [],
+      "score": 0.5,
+      "risk_level": "Medium"
+    },
+    "risk": {
+      "name": "Risk Assessment",
+      "description": "Assessment of risk factors and mitigation strategies",
+      "questions": [
+        {
+          "question": "Are any Risk Factors in the High Risk category",
+          "answer": "Based on the available data, we found relationships with  through HAS_RISK. This highlights potential risk factors that should be monitored.",
+          "data": [
+            {
+              "n": {
+                "level": 0.45,
+                "description": "talent retention issues",
+                "id": "TechCorp_operational_talent_retention_issues",
+                "type": "operational"
+              },
+              "relationship_type": "HAS_RISK",
+              "r": [
+                {},
+                "HAS_RISK",
+                {
+                  "level": 0.45,
+                  "description": "talent retention issues",
+                  "id": "TechCorp_operational_talent_retention_issues",
+                  "type": "operational"
+                }
+              ]
+            },
+            {
+              "n": {
+                "level": 0.65,
+                "description": "decreasing market share",
+                "id": "TechCorp_financial_decreasing_market_share",
+                "type": "financial"
+              },
+              "relationship_type": "HAS_RISK",
+              "r": [
+                {},
+                "HAS_RISK",
+                {
+                  "level": 0.65,
+                  "description": "decreasing market share",
+                  "id": "TechCorp_financial_decreasing_market_share",
+                  "type": "financial"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "question": "Can you reduce or mitigate the probabilty of occurrence of any High Risk Factors",
+          "answer": "Based on the available data, we found relationships with  through HAS_RISK. This highlights potential risk factors that should be monitored.",
+          "data": [
+            {
+              "n": {
+                "level": 0.45,
+                "description": "talent retention issues",
+                "id": "TechCorp_operational_talent_retention_issues",
+                "type": "operational"
+              },
+              "relationship_type": "HAS_RISK",
+              "r": [
+                {},
+                "HAS_RISK",
+                {
+                  "level": 0.45,
+                  "description": "talent retention issues",
+                  "id": "TechCorp_operational_talent_retention_issues",
+                  "type": "operational"
+                }
+              ]
+            },
+            {
+              "n": {
+                "level": 0.65,
+                "description": "decreasing market share",
+                "id": "TechCorp_financial_decreasing_market_share",
+                "type": "financial"
+              },
+              "relationship_type": "HAS_RISK",
+              "r": [
+                {},
+                "HAS_RISK",
+                {
+                  "level": 0.65,
+                  "description": "decreasing market share",
+                  "id": "TechCorp_financial_decreasing_market_share",
+                  "type": "financial"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "question": "Can you reduce or mitigate the impact of any High Risk Factors",
+          "answer": "Based on the available data, we found relationships with  through HAS_RISK. This highlights potential risk factors that should be monitored.",
+          "data": [
+            {
+              "n": {
+                "level": 0.45,
+                "description": "talent retention issues",
+                "id": "TechCorp_operational_talent_retention_issues",
+                "type": "operational"
+              },
+              "relationship_type": "HAS_RISK",
+              "r": [
+                {},
+                "HAS_RISK",
+                {
+                  "level": 0.45,
+                  "description": "talent retention issues",
+                  "id": "TechCorp_operational_talent_retention_issues",
+                  "type": "operational"
+                }
+              ]
+            },
+            {
+              "n": {
+                "level": 0.65,
+                "description": "decreasing market share",
+                "id": "TechCorp_financial_decreasing_market_share",
+                "type": "financial"
+              },
+              "relationship_type": "HAS_RISK",
+              "r": [
+                {},
+                "HAS_RISK",
+                {
+                  "level": 0.65,
+                  "description": "decreasing market share",
+                  "id": "TechCorp_financial_decreasing_market_share",
+                  "type": "financial"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "question": "What is the overall Risk impact on the Strategy?",
+          "answer": "Based on the available data, we found relationships with  through HAS_RISK. This highlights potential risk factors that should be monitored.",
+          "data": [
+            {
+              "n": {
+                "level": 0.45,
+                "description": "talent retention issues",
+                "id": "TechCorp_operational_talent_retention_issues",
+                "type": "operational"
+              },
+              "relationship_type": "HAS_RISK",
+              "r": [
+                {},
+                "HAS_RISK",
+                {
+                  "level": 0.45,
+                  "description": "talent retention issues",
+                  "id": "TechCorp_operational_talent_retention_issues",
+                  "type": "operational"
+                }
+              ]
+            },
+            {
+              "n": {
+                "level": 0.65,
+                "description": "decreasing market share",
+                "id": "TechCorp_financial_decreasing_market_share",
+                "type": "financial"
+              },
+              "relationship_type": "HAS_RISK",
+              "r": [
+                {},
+                "HAS_RISK",
+                {
+                  "level": 0.65,
+                  "description": "decreasing market share",
+                  "id": "TechCorp_financial_decreasing_market_share",
+                  "type": "financial"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "question": "Can you enhance your overall Strategic Position while maintaining or minimizing the overall Risk profile of the Business?",
+          "answer": "Based on the available data, we found relationships with  through HAS_RISK. This highlights potential risk factors that should be monitored.",
+          "data": [
+            {
+              "n": {
+                "level": 0.45,
+                "description": "talent retention issues",
+                "id": "TechCorp_operational_talent_retention_issues",
+                "type": "operational"
+              },
+              "relationship_type": "HAS_RISK",
+              "r": [
+                {},
+                "HAS_RISK",
+                {
+                  "level": 0.45,
+                  "description": "talent retention issues",
+                  "id": "TechCorp_operational_talent_retention_issues",
+                  "type": "operational"
+                }
+              ]
+            },
+            {
+              "n": {
+                "level": 0.65,
+                "description": "decreasing market share",
+                "id": "TechCorp_financial_decreasing_market_share",
+                "type": "financial"
+              },
+              "relationship_type": "HAS_RISK",
+              "r": [
+                {},
+                "HAS_RISK",
+                {
+                  "level": 0.65,
+                  "description": "decreasing market share",
+                  "id": "TechCorp_financial_decreasing_market_share",
+                  "type": "financial"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "question": "Is the company leadership/Board/shareholder base generally open to more Risky Strategies?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "Is the Risk/Reward ratio favorable for any strategic shifts?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        }
+      ],
+      "findings": [
+        {
+          "type": "risk",
+          "description": "Potential risk factor identified relating to: Are any Risk Factors in the High Risk category",
+          "importance": "high"
+        },
+        {
+          "type": "risk",
+          "description": "Potential risk factor identified relating to: Can you reduce or mitigate the probabilty of occurrence of any High Risk Factors",
+          "importance": "high"
+        },
+        {
+          "type": "risk",
+          "description": "Potential risk factor identified relating to: Can you reduce or mitigate the impact of any High Risk Factors",
+          "importance": "high"
+        },
+        {
+          "type": "risk",
+          "description": "Potential risk factor identified relating to: What is the overall Risk impact on the Strategy?",
+          "importance": "high"
+        },
+        {
+          "type": "risk",
+          "description": "Potential risk factor identified relating to: Can you enhance your overall Strategic Position while maintaining or minimizing the overall Risk profile of the Business?",
+          "importance": "high"
+        }
+      ],
+      "score": 0.0,
+      "risk_level": "High"
+    },
+    "competitive": {
+      "name": "Competitive Assessment",
+      "description": "Assessment of competitive advantages and positioning",
+      "questions": [
+        {
+          "question": "Does your Product/Service/Business have a major competitive advantage on any parameter? Can you enhance the competitive advantage further?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "Does your Product/Service/Business have a major competitive disadvantage on any parameter? Can you improve the Competitive advantage?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "How does your position compare against each of the 3 major competitors?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "Which competitor has the best competitive position for each of the critical parameters?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "Does your current Strategy take into consideration your Competitive advantage and disadvantage?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "Are all the parameters of equal importance and value to the market? Can you make your competitive advantage the most important parameter for your market?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "Can you shape/architect the future competitive position in the markets you participate in?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "Is your view of your competitive position and your competitors position homest and realistic, upto date and unbiased?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "Can you innovate and/or create more value to drive greater competitive advantage?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        }
+      ],
+      "findings": [],
+      "score": 0.5,
+      "risk_level": "Medium"
+    },
+    "portfolio": {
+      "name": "Portfolio Assessment",
+      "description": "Assessment of business portfolio balance and growth",
+      "questions": [
+        {
+          "question": "Is the Portfolio Perfectly Balanced? - small embryonic and small emerging businesses, larger early growth, Larger mid growth and larger late growth, smaller mature business and smaller declining business.",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "Is the largest business in its growth phase?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "Is the smallest business in its embryonic or emerging phase or in decline?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "What can be done to increase the size of your growth businesses?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "What can be done to ensure that your embryonic and emerging businesses become growth businesses",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "Can you make your mature and declining businesses very profitable?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "Are your investments in line with your portfolio? Largest investments should be in your emerging, and growth businesses. The smallest investments should be in your embryonic and mature and declining businesses.",
+          "answer": "Based on the available data, we found relationships with FinanceGroup through COMPETES_WITH. This indicates growth opportunities that align with the strategic direction.",
+          "data": [
+            {
+              "n": {
+                "revenue": "1.2B",
+                "name": "FinanceGroup",
+                "industry": "Financial Services",
+                "employees": 3500
+              },
+              "relationship_type": "COMPETES_WITH",
+              "r": [
+                {},
+                "COMPETES_WITH",
+                {
+                  "revenue": "1.2B",
+                  "name": "FinanceGroup",
+                  "industry": "Financial Services",
+                  "employees": 3500
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "findings": [
+        {
+          "type": "opportunity",
+          "description": "Growth opportunity identified relating to: Are your investments in line with your portfolio? Largest investments should be in your emerging, and growth businesses. The smallest investments should be in your embryonic and mature and declining businesses.",
+          "importance": "medium"
+        }
+      ],
+      "score": 0.55,
+      "risk_level": "Medium"
+    },
+    "strengths": {
+      "name": "Strengths Assessment",
+      "description": "Assessment of business strengths and advantages",
+      "questions": [
+        {
+          "question": "How much Value is there to each of your Strengths?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "Does your major strength give your business a significant competitive advantage",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "Does your portfolio of Strengths enable significant competitive advantage?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "What can you do to increase the value of your strength and turn into greater competitive advantage?",
+          "answer": "Based on the available data, we found relationships with employee turnover through HAS_METRIC. This suggests potential competitive advantages that can be leveraged.",
+          "data": [
+            {
+              "n": {
+                "date": "2024-03-31",
+                "unit": "%",
+                "name": "employee turnover",
+                "id": "TechCorp_employee turnover_2024-03-31",
+                "value": 15.3
+              },
+              "relationship_type": "HAS_METRIC",
+              "r": [
+                {},
+                "HAS_METRIC",
+                {
+                  "date": "2024-03-31",
+                  "unit": "%",
+                  "name": "employee turnover",
+                  "id": "TechCorp_employee turnover_2024-03-31",
+                  "value": 15.3
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "findings": [
+        {
+          "type": "strength",
+          "description": "Potential competitive advantage identified relating to: What can you do to increase the value of your strength and turn into greater competitive advantage?",
+          "importance": "high"
+        }
+      ],
+      "score": 0.65,
+      "risk_level": "Low"
+    },
+    "finance": {
+      "name": "Finance Dashboard",
+      "description": "Financial metrics and performance",
+      "questions": [
+        {
+          "question": "Has the Business grown revenues over the last few years?",
+          "answer": "Based on the available data, we found relationships with employee turnover through HAS_METRIC. Further analysis would provide more specific insights on this question.",
+          "data": [
+            {
+              "n": {
+                "date": "2024-03-31",
+                "unit": "%",
+                "name": "employee turnover",
+                "id": "TechCorp_employee turnover_2024-03-31",
+                "value": 15.3
+              },
+              "relationship_type": "HAS_METRIC",
+              "r": [
+                {},
+                "HAS_METRIC",
+                {
+                  "date": "2024-03-31",
+                  "unit": "%",
+                  "name": "employee turnover",
+                  "id": "TechCorp_employee turnover_2024-03-31",
+                  "value": 15.3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "question": "Are you forecasting revenue growth for the next few years?",
+          "answer": "Based on the available data, we found relationships with revenue through HAS_METRIC. This indicates growth opportunities that align with the strategic direction.",
+          "data": [
+            {
+              "n": {
+                "date": "2024-03-31",
+                "unit": "USD",
+                "name": "revenue",
+                "id": "TechCorp_revenue_2024-03-31",
+                "value": 525000000
+              },
+              "relationship_type": "HAS_METRIC",
+              "r": [
+                {},
+                "HAS_METRIC",
+                {
+                  "date": "2024-03-31",
+                  "unit": "USD",
+                  "name": "revenue",
+                  "id": "TechCorp_revenue_2024-03-31",
+                  "value": 525000000
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "question": "Has the last 2 years revenue growth been above market or below market?",
+          "answer": "Based on the available data, we found relationships with revenue through HAS_METRIC. This indicates growth opportunities that align with the strategic direction.",
+          "data": [
+            {
+              "n": {
+                "date": "2024-03-31",
+                "unit": "USD",
+                "name": "revenue",
+                "id": "TechCorp_revenue_2024-03-31",
+                "value": 525000000
+              },
+              "relationship_type": "HAS_METRIC",
+              "r": [
+                {},
+                "HAS_METRIC",
+                {
+                  "date": "2024-03-31",
+                  "unit": "USD",
+                  "name": "revenue",
+                  "id": "TechCorp_revenue_2024-03-31",
+                  "value": 525000000
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "question": "Does the strategy drive future revenue growth for the Business?",
+          "answer": "Based on the available data, we found relationships with revenue through HAS_METRIC. This indicates growth opportunities that align with the strategic direction.",
+          "data": [
+            {
+              "n": {
+                "date": "2024-03-31",
+                "unit": "USD",
+                "name": "revenue",
+                "id": "TechCorp_revenue_2024-03-31",
+                "value": 525000000
+              },
+              "relationship_type": "HAS_METRIC",
+              "r": [
+                {},
+                "HAS_METRIC",
+                {
+                  "date": "2024-03-31",
+                  "unit": "USD",
+                  "name": "revenue",
+                  "id": "TechCorp_revenue_2024-03-31",
+                  "value": 525000000
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "question": "Is the lack of revenue growth impacting the business profitabiltiy and what is the risk impact of this lack of growth?",
+          "answer": "Based on the available data, we found relationships with revenue through HAS_METRIC, HAS_RISK. This indicates growth opportunities that align with the strategic direction.",
+          "data": [
+            {
+              "n": {
+                "level": 0.45,
+                "description": "talent retention issues",
+                "id": "TechCorp_operational_talent_retention_issues",
+                "type": "operational"
+              },
+              "relationship_type": "HAS_RISK",
+              "r": [
+                {},
+                "HAS_RISK",
+                {
+                  "level": 0.45,
+                  "description": "talent retention issues",
+                  "id": "TechCorp_operational_talent_retention_issues",
+                  "type": "operational"
+                }
+              ]
+            },
+            {
+              "n": {
+                "level": 0.65,
+                "description": "decreasing market share",
+                "id": "TechCorp_financial_decreasing_market_share",
+                "type": "financial"
+              },
+              "relationship_type": "HAS_RISK",
+              "r": [
+                {},
+                "HAS_RISK",
+                {
+                  "level": 0.65,
+                  "description": "decreasing market share",
+                  "id": "TechCorp_financial_decreasing_market_share",
+                  "type": "financial"
+                }
+              ]
+            },
+            {
+              "n": {
+                "date": "2024-03-31",
+                "unit": "USD",
+                "name": "revenue",
+                "id": "TechCorp_revenue_2024-03-31",
+                "value": 525000000
+              },
+              "relationship_type": "HAS_METRIC",
+              "r": [
+                {},
+                "HAS_METRIC",
+                {
+                  "date": "2024-03-31",
+                  "unit": "USD",
+                  "name": "revenue",
+                  "id": "TechCorp_revenue_2024-03-31",
+                  "value": 525000000
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "findings": [
+        {
+          "type": "opportunity",
+          "description": "Growth opportunity identified relating to: Are you forecasting revenue growth for the next few years?",
+          "importance": "medium"
+        },
+        {
+          "type": "opportunity",
+          "description": "Growth opportunity identified relating to: Has the last 2 years revenue growth been above market or below market?",
+          "importance": "medium"
+        },
+        {
+          "type": "opportunity",
+          "description": "Growth opportunity identified relating to: Does the strategy drive future revenue growth for the Business?",
+          "importance": "medium"
+        },
+        {
+          "type": "opportunity",
+          "description": "Growth opportunity identified relating to: Is the lack of revenue growth impacting the business profitabiltiy and what is the risk impact of this lack of growth?",
+          "importance": "medium"
+        }
+      ],
+      "score": 0.7000000000000002,
+      "risk_level": "Low",
+      "metrics": {
+        "Revenue Growth": {
+          "value": "No data",
+          "unit": "",
+          "timestamp": "",
+          "trend": "unknown"
+        },
+        "Operating Income": {
+          "value": "No data",
+          "unit": "",
+          "timestamp": "",
+          "trend": "unknown"
+        },
+        "Cash Flow": {
+          "value": "No data",
+          "unit": "",
+          "timestamp": "",
+          "trend": "unknown"
+        },
+        "Gross Margin": {
+          "value": "No data",
+          "unit": "",
+          "timestamp": "",
+          "trend": "unknown"
+        },
+        "Finance Metrics": {
+          "value": "No data",
+          "unit": "",
+          "timestamp": "",
+          "trend": "unknown"
+        }
+      }
+    },
+    "hr": {
+      "name": "HR Dashboard",
+      "description": "Human resources metrics and performance",
+      "questions": [
+        {
+          "question": "Is the Time to Hire critical resources an issue for the Business?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "Is the Time to Hire critical resources in the business competitive.",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        },
+        {
+          "question": "Does the Strategy rely on hiring critical resources and if so can the time to hire critical resources be improved.",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        }
+      ],
+      "findings": [],
+      "score": 0.5,
+      "risk_level": "Medium",
+      "metrics": {
+        "Time to Hire": {
+          "value": "No data",
+          "unit": "",
+          "timestamp": "",
+          "trend": "unknown"
+        },
+        "Employee Turnover": {
+          "value": "No data",
+          "unit": "",
+          "timestamp": "",
+          "trend": "unknown"
+        },
+        "Employee Engagement": {
+          "value": "No data",
+          "unit": "",
+          "timestamp": "",
+          "trend": "unknown"
+        },
+        "Diversity": {
+          "value": "No data",
+          "unit": "",
+          "timestamp": "",
+          "trend": "unknown"
+        },
+        "HR Metrics": {
+          "value": "No data",
+          "unit": "",
+          "timestamp": "",
+          "trend": "unknown"
+        }
+      }
+    },
+    "operations": {
+      "name": "Operations Dashboard",
+      "description": "Operational metrics and performance",
+      "questions": [
+        {
+          "question": "Is the Business Inventory Turnover competitive?",
+          "answer": "Based on the available data, we found relationships with employee turnover through HAS_METRIC. Further analysis would provide more specific insights on this question.",
+          "data": [
+            {
+              "n": {
+                "date": "2024-03-31",
+                "unit": "%",
+                "name": "employee turnover",
+                "id": "TechCorp_employee turnover_2024-03-31",
+                "value": 15.3
+              },
+              "relationship_type": "HAS_METRIC",
+              "r": [
+                {},
+                "HAS_METRIC",
+                {
+                  "date": "2024-03-31",
+                  "unit": "%",
+                  "name": "employee turnover",
+                  "id": "TechCorp_employee turnover_2024-03-31",
+                  "value": 15.3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "question": "Is Inventory Turnover trending positively?",
+          "answer": "Based on the available data, we found relationships with employee turnover through HAS_METRIC. Further analysis would provide more specific insights on this question.",
+          "data": [
+            {
+              "n": {
+                "date": "2024-03-31",
+                "unit": "%",
+                "name": "employee turnover",
+                "id": "TechCorp_employee turnover_2024-03-31",
+                "value": 15.3
+              },
+              "relationship_type": "HAS_METRIC",
+              "r": [
+                {},
+                "HAS_METRIC",
+                {
+                  "date": "2024-03-31",
+                  "unit": "%",
+                  "name": "employee turnover",
+                  "id": "TechCorp_employee turnover_2024-03-31",
+                  "value": 15.3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "question": "Does the Strategy drive improved inventory turonver for the business?",
+          "answer": "Insufficient data to provide a detailed answer. Additional information needed.",
+          "data": []
+        }
+      ],
+      "findings": [],
+      "score": 0.5,
+      "risk_level": "Medium",
+      "metrics": {
+        "Inventory Turnover": {
+          "value": "No data",
+          "unit": "",
+          "timestamp": "",
+          "trend": "unknown"
+        },
+        "On Time Delivery": {
+          "value": "No data",
+          "unit": "",
+          "timestamp": "",
+          "trend": "unknown"
+        },
+        "First Pass Yield": {
+          "value": "No data",
+          "unit": "",
+          "timestamp": "",
+          "trend": "unknown"
+        },
+        "Total Cycle Time": {
+          "value": "No data",
+          "unit": "",
+          "timestamp": "",
+          "trend": "unknown"
+        },
+        "Operations Metrics": {
+          "value": "No data",
+          "unit": "",
+          "timestamp": "",
+          "trend": "unknown"
+        }
+      }
+    },
+    "sales_marketing": {
+      "name": "Sales & Marketing Dashboard",
+      "description": "Sales and marketing metrics and performance",
+      "questions": [
+        {
+          "question": "Has the Business grown annual recurring revenues over the last few years?",
+          "answer": "Based on the available data, we found relationships with employee turnover through HAS_METRIC. Further analysis would provide more specific insights on this question.",
+          "data": [
+            {
+              "n": {
+                "date": "2024-03-31",
+                "unit": "%",
+                "name": "employee turnover",
+                "id": "TechCorp_employee turnover_2024-03-31",
+                "value": 15.3
+              },
+              "relationship_type": "HAS_METRIC",
+              "r": [
+                {},
+                "HAS_METRIC",
+                {
+                  "date": "2024-03-31",
+                  "unit": "%",
+                  "name": "employee turnover",
+                  "id": "TechCorp_employee turnover_2024-03-31",
+                  "value": 15.3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "question": "Are you forecasting annual recurring revenue growth for the next few years?",
+          "answer": "Based on the available data, we found relationships with revenue through HAS_METRIC. This indicates growth opportunities that align with the strategic direction.",
+          "data": [
+            {
+              "n": {
+                "date": "2024-03-31",
+                "unit": "USD",
+                "name": "revenue",
+                "id": "TechCorp_revenue_2024-03-31",
+                "value": 525000000
+              },
+              "relationship_type": "HAS_METRIC",
+              "r": [
+                {},
+                "HAS_METRIC",
+                {
+                  "date": "2024-03-31",
+                  "unit": "USD",
+                  "name": "revenue",
+                  "id": "TechCorp_revenue_2024-03-31",
+                  "value": 525000000
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "question": "Has the last 2 years annual recurring revenue growth been above market or below market?",
+          "answer": "Based on the available data, we found relationships with revenue through HAS_METRIC. This indicates growth opportunities that align with the strategic direction.",
+          "data": [
+            {
+              "n": {
+                "date": "2024-03-31",
+                "unit": "USD",
+                "name": "revenue",
+                "id": "TechCorp_revenue_2024-03-31",
+                "value": 525000000
+              },
+              "relationship_type": "HAS_METRIC",
+              "r": [
+                {},
+                "HAS_METRIC",
+                {
+                  "date": "2024-03-31",
+                  "unit": "USD",
+                  "name": "revenue",
+                  "id": "TechCorp_revenue_2024-03-31",
+                  "value": 525000000
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "question": "Does the strategy drive future annual recurring revenue growth for the Business?",
+          "answer": "Based on the available data, we found relationships with revenue through HAS_METRIC. This indicates growth opportunities that align with the strategic direction.",
+          "data": [
+            {
+              "n": {
+                "date": "2024-03-31",
+                "unit": "USD",
+                "name": "revenue",
+                "id": "TechCorp_revenue_2024-03-31",
+                "value": 525000000
+              },
+              "relationship_type": "HAS_METRIC",
+              "r": [
+                {},
+                "HAS_METRIC",
+                {
+                  "date": "2024-03-31",
+                  "unit": "USD",
+                  "name": "revenue",
+                  "id": "TechCorp_revenue_2024-03-31",
+                  "value": 525000000
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "question": "Is the lack of annual recurring revenue growth impacting the business profitabiltiy and what is the risk impact of this lack of growth?",
+          "answer": "Based on the available data, we found relationships with revenue through HAS_METRIC, HAS_RISK. This indicates growth opportunities that align with the strategic direction.",
+          "data": [
+            {
+              "n": {
+                "level": 0.45,
+                "description": "talent retention issues",
+                "id": "TechCorp_operational_talent_retention_issues",
+                "type": "operational"
+              },
+              "relationship_type": "HAS_RISK",
+              "r": [
+                {},
+                "HAS_RISK",
+                {
+                  "level": 0.45,
+                  "description": "talent retention issues",
+                  "id": "TechCorp_operational_talent_retention_issues",
+                  "type": "operational"
+                }
+              ]
+            },
+            {
+              "n": {
+                "level": 0.65,
+                "description": "decreasing market share",
+                "id": "TechCorp_financial_decreasing_market_share",
+                "type": "financial"
+              },
+              "relationship_type": "HAS_RISK",
+              "r": [
+                {},
+                "HAS_RISK",
+                {
+                  "level": 0.65,
+                  "description": "decreasing market share",
+                  "id": "TechCorp_financial_decreasing_market_share",
+                  "type": "financial"
+                }
+              ]
+            },
+            {
+              "n": {
+                "date": "2024-03-31",
+                "unit": "USD",
+                "name": "revenue",
+                "id": "TechCorp_revenue_2024-03-31",
+                "value": 525000000
+              },
+              "relationship_type": "HAS_METRIC",
+              "r": [
+                {},
+                "HAS_METRIC",
+                {
+                  "date": "2024-03-31",
+                  "unit": "USD",
+                  "name": "revenue",
+                  "id": "TechCorp_revenue_2024-03-31",
+                  "value": 525000000
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "findings": [
+        {
+          "type": "opportunity",
+          "description": "Growth opportunity identified relating to: Are you forecasting annual recurring revenue growth for the next few years?",
+          "importance": "medium"
+        },
+        {
+          "type": "opportunity",
+          "description": "Growth opportunity identified relating to: Has the last 2 years annual recurring revenue growth been above market or below market?",
+          "importance": "medium"
+        },
+        {
+          "type": "opportunity",
+          "description": "Growth opportunity identified relating to: Does the strategy drive future annual recurring revenue growth for the Business?",
+          "importance": "medium"
+        },
+        {
+          "type": "opportunity",
+          "description": "Growth opportunity identified relating to: Is the lack of annual recurring revenue growth impacting the business profitabiltiy and what is the risk impact of this lack of growth?",
+          "importance": "medium"
+        }
+      ],
+      "score": 0.7000000000000002,
+      "risk_level": "Low",
+      "metrics": {
+        "Annual Recurring Revenue": {
+          "value": "No data",
+          "unit": "",
+          "timestamp": "",
+          "trend": "unknown"
+        },
+        "Customer Acquisition Cost": {
+          "value": "No data",
+          "unit": "",
+          "timestamp": "",
+          "trend": "unknown"
+        },
+        "Design Win": {
+          "value": "No data",
+          "unit": "",
+          "timestamp": "",
+          "trend": "unknown"
+        },
+        "Opportunities": {
+          "value": "No data",
+          "unit": "",
+          "timestamp": "",
+          "trend": "unknown"
+        },
+        "Sales & Marketing Metrics": {
+          "value": "No data",
+          "unit": "",
+          "timestamp": "",
+          "trend": "unknown"
+        }
+      }
+    }
+  },
+  "summary": {
+    "overall_score": 0.4654545454545454,
+    "risk_level": "Medium",
+    "findings_summary": {
+      "risk": 5,
+      "opportunity": 9,
+      "strength": 1
+    },
+    "top_areas": [
+      "finance",
+      "sales_marketing",
+      "strengths"
+    ],
+    "concern_areas": [
+      "risk"
+    ],
+    "key_insights": [
+      "High risk areas identified in 1 assessment groups, requiring immediate attention.",
+      "Significant improvement opportunities exist in 1 assessment areas.",
+      "Identified 1 strengths that can be leveraged for strategic advantage.",
+      "Discovered 9 opportunities for growth and improvement.",
+      "Found 5 potential risk factors that should be addressed.",
+      "Strategy aligned with key priorities: market, finance."
+    ]
+  },
+  "recommendations": []
+}

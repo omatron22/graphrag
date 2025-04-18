@@ -48,23 +48,23 @@ class GraphQueryManager:
         # Query to get entity relationships
         relationships_query = """
         MATCH (e:Entity {name: $entity_name})-[r]->(target)
-        RETURN type(r) AS relationship_type, 
-               target.name AS target_name,
-               labels(target) AS target_types, 
-               COUNT(*) AS count
-        GROUP BY type(r), target.name, labels(target)
+        WITH type(r) AS relationship_type, 
+            target.name AS target_name,
+            labels(target) AS target_types, 
+            COUNT(*) AS count
         ORDER BY count DESC
+        RETURN relationship_type, target_name, target_types, count
         """
-        
+
         # Query to get incoming relationships
         incoming_query = """
         MATCH (source)-[r]->(e:Entity {name: $entity_name})
-        RETURN type(r) AS relationship_type, 
-               source.name AS source_name,
-               labels(source) AS source_types,
-               COUNT(*) AS count
-        GROUP BY type(r), source.name, labels(source)
+        WITH type(r) AS relationship_type, 
+            source.name AS source_name,
+            labels(source) AS source_types,
+            COUNT(*) AS count
         ORDER BY count DESC
+        RETURN relationship_type, source_name, source_types, count
         """
         
         # Query to get financial metrics if they exist

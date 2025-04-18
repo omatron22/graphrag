@@ -151,19 +151,19 @@ class StrategyAssessmentCLI:
     def _get_available_entities(self) -> List[Dict[str, Any]]:
         """
         Get available entities from Neo4j.
-        
+    
         Returns:
             list: Available entities with their connection counts
         """
         query = """
         MATCH (e:Entity)
-        WITH e, SIZE((e)--()) AS connections
+        WITH e, size([(e)--() | 1]) AS connections
         WHERE connections > 0
         RETURN e.name AS name, connections
         ORDER BY connections DESC
         LIMIT 20
         """
-        
+    
         return self.neo4j_manager.execute_query(query)
     
     def _collect_user_inputs(self) -> Dict[str, Any]:
