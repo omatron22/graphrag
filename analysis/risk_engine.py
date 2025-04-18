@@ -32,7 +32,7 @@ class RiskAnalyzer:
         with self.kg_manager.driver.session() as session:
             central_entities = session.run("""
                 MATCH (e:Entity)
-                WITH e, size((e)--()) AS connections
+                WITH e, COUNT {(e)--()} AS connections
                 ORDER BY connections DESC
                 LIMIT 10
                 RETURN e.name AS entity, connections

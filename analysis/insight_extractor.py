@@ -475,12 +475,12 @@ class InsightExtractor:
         MATCH (e1:Entity)-[:HAS_METRIC]->(m1:Metric)
         MATCH (e2:Entity)-[:HAS_METRIC]->(m2:Metric)
         WHERE e1 <> e2 AND m1.name = m2.name 
-              AND m1.timestamp IS NOT NULL AND m2.timestamp IS NOT NULL
-              AND abs(datetime(m1.timestamp) - datetime(m2.timestamp)) < duration('P7D')
+            AND m1.timestamp IS NOT NULL AND m2.timestamp IS NOT NULL
+            AND duration.between(datetime(m1.timestamp), datetime(m2.timestamp)) < duration('P7D')
         WITH e1.name as entity1, e2.name as entity2, m1.name as metric,
-             m1.value as value1, m2.value as value2
-        WHERE (value1 IS NOT NULL AND value2 IS NOT NULL) AND 
-            ((value1 IS INTEGER AND value2 IS INTEGER) OR (value1 IS FLOAT AND value2 IS FLOAT))        WITH entity1, entity2, metric, COLLECT({v1: value1, v2: value2}) as value_pairs
+            m1.value as value1, m2.value as value2
+        WHERE (value1 IS NOT NULL AND value2 IS NOT NULL)
+        WITH entity1, entity2, metric, COLLECT({v1: value1, v2: value2}) as value_pairs
         WHERE size(value_pairs) > 2
         RETURN entity1, entity2, metric, value_pairs
         LIMIT 5
@@ -491,12 +491,12 @@ class InsightExtractor:
             MATCH (e1:Entity {name: $entity_name})-[:HAS_METRIC]->(m1:Metric)
             MATCH (e2:Entity)-[:HAS_METRIC]->(m2:Metric)
             WHERE e1 <> e2 AND m1.name = m2.name 
-                  AND m1.timestamp IS NOT NULL AND m2.timestamp IS NOT NULL
-                  AND abs(datetime(m1.timestamp) - datetime(m2.timestamp)) < duration('P7D')
+                AND m1.timestamp IS NOT NULL AND m2.timestamp IS NOT NULL
+                AND duration.between(datetime(m1.timestamp), datetime(m2.timestamp)) < duration('P7D')
             WITH e1.name as entity1, e2.name as entity2, m1.name as metric,
-                 m1.value as value1, m2.value as value2
-            WHERE (value1 IS NOT NULL AND value2 IS NOT NULL) AND 
-                ((value1 IS INTEGER AND value2 IS INTEGER) OR (value1 IS FLOAT AND value2 IS FLOAT))            WITH entity1, entity2, metric, COLLECT({v1: value1, v2: value2}) as value_pairs
+                m1.value as value1, m2.value as value2
+            WHERE (value1 IS NOT NULL AND value2 IS NOT NULL)
+            WITH entity1, entity2, metric, COLLECT({v1: value1, v2: value2}) as value_pairs
             WHERE size(value_pairs) > 2
             RETURN entity1, entity2, metric, value_pairs
             """

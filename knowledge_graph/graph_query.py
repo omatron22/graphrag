@@ -118,7 +118,7 @@ class GraphQueryManager:
         MATCH (e:Entity)
         WHERE e.name =~ $pattern
         RETURN e.name AS name, labels(e) AS types, 
-               SIZE((e)--()) AS connection_count
+               COUNT {(e)--()} AS connection_count
         ORDER BY connection_count DESC
         LIMIT $limit
         """
@@ -197,10 +197,10 @@ class GraphQueryManager:
     def find_strategic_opportunities(self, entity_name: str) -> List[Dict[str, Any]]:
         """
         Find strategic opportunities for an entity based on graph patterns.
-        
+    
         Args:
             entity_name: Name of the entity to analyze
-            
+        
         Returns:
             list: Strategic opportunities with supporting evidence
         """
@@ -208,13 +208,13 @@ class GraphQueryManager:
         partnership_query = """
         MATCH (e:Entity {name: $entity_name})-[:COMPETES_IN]->(m:Market)<-[:COMPETES_IN]-(partner:Entity)
         WHERE NOT (e)-[:PARTNERED_WITH]-(partner)
-        AND SIZE((partner)--()) > 5  // Only well-connected entities
+        AND COUNT {(partner)--()} > 5  // Only well-connected entities
         WITH e, partner, COUNT(m) AS shared_markets
         MATCH (partner)-[:HAS_STRENGTH]->(s:Strength)
         WHERE NOT (e)-[:HAS_STRENGTH]->(:Strength {name: s.name})
         RETURN partner.name AS potential_partner, 
-               COLLECT(DISTINCT s.name) AS complementary_strengths,
-               shared_markets
+            COLLECT(DISTINCT s.name) AS complementary_strengths,
+            shared_markets
         ORDER BY shared_markets DESC, SIZE(complementary_strengths) DESC
         LIMIT 10
         """
@@ -253,23 +253,47 @@ class GraphQueryManager:
     def export_graph_segment(self, entity_name: str, depth: int = 2) -> Dict[str, Any]:
         """
         Export a segment of the graph centered on an entity for visualization.
-        
+    
         Args:
             entity_name: Center entity name
-            depth: Traversal depth from center entity
-            
+            depth: Traversal depth from center entity (ignored in query)
+        
         Returns:
             dict: Graph data in a visualization-friendly format
         """
-        query = """
-        MATCH path = (e:Entity {name: $entity_name})-[*1..$depth]-(related)
-        WITH nodes(path) AS nodes, relationships(path) AS rels
-        UNWIND nodes AS node
-        WITH COLLECT(DISTINCT node) AS nodes, rels
-        UNWIND rels AS rel
-        WITH nodes, COLLECT(DISTINCT rel) AS relationships
-        RETURN nodes, relationships
-        """
+        # Use fixed depths in Neo4j 5.x which doesn't allow dynamic path lengths via parameters
+        max_depth = min(depth, 3)  # Limit depth to 3 max for performance
+    
+        if max_depth == 1:
+            query = """
+            MATCH path = (e:Entity {name: $entity_name})-[*1..1]-(related)
+            WITH nodes(path) AS nodes, relationships(path) AS rels
+            UNWIND nodes AS node
+            WITH COLLECT(DISTINCT node) AS nodes, rels
+            UNWIND rels AS rel
+            WITH nodes, COLLECT(DISTINCT rel) AS relationships
+            RETURN nodes, relationships
+            """
+        elif max_depth == 2:
+            query = """
+            MATCH path = (e:Entity {name: $entity_name})-[*1..2]-(related)
+            WITH nodes(path) AS nodes, relationships(path) AS rels
+            UNWIND nodes AS node
+            WITH COLLECT(DISTINCT node) AS nodes, rels
+            UNWIND rels AS rel
+            WITH nodes, COLLECT(DISTINCT rel) AS relationships
+            RETURN nodes, relationships
+            """
+        else:  # max_depth == 3
+            query = """
+            MATCH path = (e:Entity {name: $entity_name})-[*1..3]-(related)
+            WITH nodes(path) AS nodes, relationships(path) AS rels
+            UNWIND nodes AS node
+            WITH COLLECT(DISTINCT node) AS nodes, rels
+            UNWIND rels AS rel
+            WITH nodes, COLLECT(DISTINCT rel) AS relationships
+            RETURN nodes, relationships
+            """
         
         try:
             result = self.neo4j_manager.execute_query(
