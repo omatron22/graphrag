@@ -99,41 +99,41 @@ class StrategyGenerator:
         return result
     
     def _generate_llm_strategies(self, entity_name: str, entity_summary: Dict[str, Any], 
-                               risk_data: Dict[str, Any], opportunities: Dict[str, Any]) -> List[Dict[str, Any]]:
+                          risk_data: Dict[str, Any], opportunities: Dict[str, Any]) -> List[Dict[str, Any]]:
         """
-        Generate strategies using large language model.
-        
+        Generate strategies using large language model with enhanced strategic focus.
+    
         Args:
             entity_name: Name of the entity
             entity_summary: Entity data from knowledge graph
             risk_data: Risk analysis results
             opportunities: Strategic opportunities
-            
+        
         Returns:
             list: Generated strategies with details
         """
         # Format entity summary for LLM prompt
         entity_info = []
-        
+    
         # Add basic entity details
         if entity_summary.get("entity"):
             entity_info.append(f"Entity: {entity_name}")
             for key, value in entity_summary.get("entity", {}).items():
                 if key != "name" and value:
                     entity_info.append(f"- {key}: {value}")
-        
+    
         # Add financial metrics
         if entity_summary.get("financial_metrics"):
             entity_info.append("\nFinancial Metrics:")
             for metric in entity_summary["financial_metrics"]:
                 entity_info.append(f"- {metric['metric_name']}: {metric['metric_value']} {metric['metric_unit']}")
-        
+    
         # Add key relationships
         if entity_summary.get("outgoing_relationships"):
             entity_info.append("\nKey Relationships:")
             for rel in entity_summary["outgoing_relationships"][:5]:  # Top 5 relationships
                 entity_info.append(f"- {entity_name} --[{rel['relationship_type']}]--> {rel['target_name']}")
-        
+    
         # Format risk data
         risk_info = []
         if risk_data:
@@ -142,10 +142,10 @@ class StrategyGenerator:
                 if risk_type != "reasoning":
                     risk_score = risk_data.get("scores", {}).get(risk_type, 0)
                     risk_info.append(f"- {risk_type.capitalize()} Risk: {category} (Score: {risk_score:.2f})")
-            
+        
             if risk_data.get("reasoning"):
                 risk_info.append(f"\nReasoning: {risk_data['reasoning']}")
-        
+    
         # Format opportunities
         opportunity_info = []
         if opportunities:
@@ -154,62 +154,72 @@ class StrategyGenerator:
                 for partner in opportunities["partnership_opportunities"][:3]:  # Top 3
                     strengths = ", ".join(partner["complementary_strengths"])
                     opportunity_info.append(f"- Partner with {partner['potential_partner']} " + 
-                                         f"(Complementary strengths: {strengths})")
-            
+                                     f"(Complementary strengths: {strengths})")
+        
             if opportunities.get("market_expansion_opportunities"):
                 opportunity_info.append("\nMarket Expansion Opportunities:")
                 for market in opportunities["market_expansion_opportunities"][:3]:  # Top 3
                     strengths = ", ".join(market["relevant_strengths"])
                     opportunity_info.append(f"- Expand to {market['potential_market']} " + 
-                                         f"(Relevant strengths: {strengths})")
-        
+                                     f"(Relevant strengths: {strengths})")
+    
         # Combine all information for the prompt
         entity_info_text = "\n".join(entity_info)
         risk_info_text = "\n".join(risk_info)
         opportunity_info_text = "\n".join(opportunity_info)
-        
-        # Build the LLM prompt
+    
+        # Build the enhanced LLM prompt with clearer strategic focus
         prompt = f"""
-        You are an expert business strategist providing actionable recommendations.
-        Analyze the following information about {entity_name} and generate 3-5 specific, 
-        data-driven strategic recommendations.
-        
-        For each recommendation:
-        1. Provide a clear, specific action title (10 words max)
-        2. Explain the rationale based on the data (2-3 sentences)
-        3. List expected outcomes and benefits (2-3 points)
-        4. Describe implementation steps (3-5 concrete steps)
-        5. Include relevant KPIs to measure success (2-3 metrics)
-        6. Estimate implementation timeline (short/medium/long term)
-        7. Assign priority level (high/medium/low)
-        
+        You are a world-class business strategist with decades of experience advising Fortune 500 companies.
+        Your task is to develop innovative yet practical strategic recommendations for {entity_name}.
+    
+        Analyze the following information about {entity_name} and create 3-5 highly specific, 
+        data-driven strategic recommendations that address the identified risks and leverage opportunities.
+    
+        IMPORTANT GUIDELINES FOR STRATEGY DEVELOPMENT:
+    
+        1. Each strategy must be directly linked to the entity's specific situation, NOT generic advice
+        2. Focus on distinctive, competitive advantage-building strategies rather than obvious solutions
+        3. Balance short-term risk mitigation with long-term growth opportunities
+        4. Ensure recommendations are concrete and actionable, not vague or theoretical
+        5. Consider potential implementation challenges and address them in your recommendations
+    
+        For each strategy recommendation:
+        1. Provide a clear, specific action title (max 10 words)
+        2. Explain the strategic rationale with direct references to the entity's data (2-3 sentences)
+        3. Include expected outcomes with quantifiable metrics where possible (2-3 points)
+        4. Outline 3-5 specific implementation steps that are practical and achievable
+        5. Specify 2-3 key performance indicators to measure success
+        6. Set a realistic timeline (short: 0-6 months, medium: 6-18 months, long: 18+ months)
+        7. Assign an appropriate priority level (high/medium/low) based on impact and urgency
+    
         Entity Information:
         {entity_info_text}
-        
+    
         Risk Assessment:
         {risk_info_text}
-        
+    
         Strategic Opportunities:
         {opportunity_info_text}
-        
+    
         Return your analysis as a JSON array with the following structure for each recommendation:
         [
             {{
-                "title": "Recommendation title",
-                "rationale": "Reasoning behind the recommendation",
-                "benefits": ["Benefit 1", "Benefit 2"],
-                "implementation_steps": ["Step 1", "Step 2", "Step 3"],
-                "kpis": ["KPI 1", "KPI 2"],
+                "title": "Specific recommendation title",
+                "rationale": "Detailed reasoning directly referencing entity data",
+                "benefits": ["Quantifiable benefit 1", "Quantifiable benefit 2"],
+                "implementation_steps": ["Specific step 1", "Specific step 2", "Specific step 3"],
+                "kpis": ["Specific KPI 1", "Specific KPI 2"],
                 "timeline": "short|medium|long",
                 "priority": "high|medium|low"
             }},
             ...
         ]
-        
-        Focus on specific, actionable recommendations that address the identified risks and leverage opportunities.
+    
+        Focus on creating strategies that are innovative, specific to this entity's unique situation, and deliver significant competitive advantage.
         ONLY return the JSON array of recommendations and nothing else.
         """
-        
+    
         # Call the LLM
         try:
             logger.info("Calling LLM for strategy generation")
@@ -219,17 +229,19 @@ class StrategyGenerator:
                     "model": self.model_config['name'],
                     "prompt": prompt,
                     "stream": False,
-                    **self.model_config['parameters']
+                    "temperature": 0.2,  # Lower temperature for more focused output
+                    "top_p": 0.85,
+                    "max_tokens": 2048  # Increased for more detailed strategies
                 }
             )
-            
+        
             result = response.json()
             content = result.get('response', '')
-            
+        
             # Extract the JSON object from response
             start_idx = content.find('[')
             end_idx = content.rfind(']') + 1
-            
+        
             if start_idx >= 0 and end_idx > start_idx:
                 json_str = content[start_idx:end_idx]
                 strategies = json.loads(json_str)
@@ -238,130 +250,133 @@ class StrategyGenerator:
             else:
                 logger.warning("Could not extract JSON from LLM response")
                 return self._generate_fallback_strategies(entity_name, risk_data)
-                
+            
         except Exception as e:
             logger.error(f"Error in LLM strategy generation: {e}")
             return self._generate_fallback_strategies(entity_name, risk_data)
     
     def _generate_fallback_strategies(self, entity_name: str, risk_data: Dict[str, Any]) -> List[Dict[str, Any]]:
         """
-        Generate fallback strategies when LLM fails.
-        
+        Generate fallback strategies when LLM fails with improved specificity.
+    
         Args:
             entity_name: Name of the entity
             risk_data: Risk analysis results
-            
+        
         Returns:
             list: Basic strategy recommendations
         """
         logger.info("Using fallback strategy generation")
-        
+    
         # Create basic recommendations based on risk types
         strategies = []
-        
+    
         # Get risk categories
         risk_categories = risk_data.get("categories", {})
-        
+    
         # Financial risk strategies
         if risk_categories.get("financial") in ["Medium", "High"]:
             strategies.append({
-                "title": "Optimize Cash Flow Management",
-                "rationale": "Improve financial stability by focusing on cash flow management to address identified financial risks.",
+                "title": "Optimize Capital Allocation Framework",
+                "rationale": f"Address {entity_name}'s financial vulnerabilities by implementing a structured capital allocation framework that prioritizes investments based on risk-adjusted returns and strategic alignment.",
                 "benefits": [
-                    "Improved liquidity position",
-                    "Reduced financial vulnerability",
-                    "Enhanced investor confidence"
+                    "15-20% improvement in return on invested capital",
+                    "Enhanced financial flexibility during market disruptions",
+                    "30% reduction in cost of capital through optimized funding sources"
                 ],
                 "implementation_steps": [
-                    "Conduct comprehensive cash flow analysis",
-                    "Implement accounts receivable acceleration measures",
-                    "Review and optimize payment terms with suppliers",
-                    "Establish cash reserves policy"
+                    "Conduct ROI analysis of all current projects and initiatives",
+                    "Develop tiered investment criteria based on risk profiles",
+                    "Implement quarterly portfolio review process with clear KPIs",
+                    "Establish centralized capital allocation committee with cross-functional representation"
                 ],
                 "kpis": [
-                    "Days Sales Outstanding (DSO)",
-                    "Free Cash Flow",
-                    "Current Ratio"
+                    "Risk-adjusted return on invested capital",
+                    "Free cash flow conversion rate",
+                    "Funding source diversification index"
                 ],
                 "timeline": "short",
                 "priority": "high" if risk_categories.get("financial") == "High" else "medium"
             })
-        
+    
         # Operational risk strategies
         if risk_categories.get("operational") in ["Medium", "High"]:
             strategies.append({
-                "title": "Strengthen Operational Resilience",
-                "rationale": "Address operational vulnerabilities by implementing robust process improvements and contingency planning.",
+                "title": "Implement Digital Process Twin Architecture",
+                "rationale": f"Transform {entity_name}'s operational resilience by creating digital twins of critical business processes, enabling real-time monitoring, simulation, and proactive intervention.",
                 "benefits": [
-                    "Reduced operational disruptions",
-                    "Improved process efficiency",
-                    "Enhanced service delivery"
+                    "40% reduction in process disruptions",
+                    "25% improvement in resource utilization efficiency",
+                    "60% faster response to operational anomalies"
                 ],
                 "implementation_steps": [
-                    "Map critical business processes",
-                    "Identify single points of failure",
-                    "Implement redundancy for critical systems",
-                    "Develop and test business continuity plans"
+                    "Map and prioritize critical business processes based on risk impact",
+                    "Develop digital twin models for top 3 high-risk processes",
+                    "Deploy IoT sensors and real-time monitoring dashboards",
+                    "Implement predictive analytics for early warning detection",
+                    "Train cross-functional teams on intervention protocols"
                 ],
                 "kpis": [
-                    "Process Cycle Efficiency",
-                    "Downtime Frequency and Duration",
-                    "Error Rates"
+                    "Mean time between process failures",
+                    "Process variance reduction percentage",
+                    "Predictive alert accuracy rate"
                 ],
                 "timeline": "medium",
                 "priority": "high" if risk_categories.get("operational") == "High" else "medium"
             })
-        
+    
         # Market risk strategies
         if risk_categories.get("market") in ["Medium", "High"]:
             strategies.append({
-                "title": "Diversify Market Exposure",
-                "rationale": "Reduce market risk by diversifying product offerings and target markets to minimize dependency.",
+                "title": "Develop Category Disruption Playbook",
+                "rationale": f"Position {entity_name} to proactively shape market evolution rather than react to it by creating systematic approaches to identify and execute category-redefining innovations.",
                 "benefits": [
-                    "Reduced vulnerability to market changes",
-                    "Access to new revenue streams",
-                    "Improved competitive positioning"
+                    "Capture 15-20% market share in emerging segments",
+                    "Establish thought leadership position in 2-3 strategic areas",
+                    "Create 30% premium pricing power through differentiation"
                 ],
                 "implementation_steps": [
-                    "Conduct market segmentation analysis",
-                    "Identify adjacent market opportunities",
-                    "Develop pilot offerings for new markets",
-                    "Create phased market entry plan"
+                    "Conduct customer pain point ethnographic research",
+                    "Establish cross-industry innovation scanning mechanism",
+                    "Develop rapid prototyping and minimal viable product framework",
+                    "Create category management and development roadmaps",
+                    "Implement 90-day market experimentation cycles"
                 ],
                 "kpis": [
-                    "Revenue Diversification Ratio",
-                    "Market Share in New Segments",
-                    "Customer Acquisition Cost"
+                    "First-mover advantage capture rate",
+                    "Customer problem resolution score",
+                    "New category revenue percentage"
                 ],
                 "timeline": "long",
                 "priority": "high" if risk_categories.get("market") == "High" else "medium"
             })
-        
+    
         # Add a general strategy if we have fewer than 3
         if len(strategies) < 3:
             strategies.append({
-                "title": "Enhance Data-Driven Decision Making",
-                "rationale": "Improve organizational decision quality through better data collection, analysis, and integration.",
+                "title": "Establish Strategic Foresight System",
+                "rationale": f"Enable {entity_name} to systematically identify emerging opportunities and threats through an integrated approach to environmental scanning, scenario planning, and strategic option development.",
                 "benefits": [
-                    "More informed strategic decisions",
-                    "Faster response to changing conditions",
-                    "Improved resource allocation"
+                    "50% improvement in strategic decision speed and quality",
+                    "Early identification of 80% of significant market shifts",
+                    "25% increase in successful new initiative launches"
                 ],
                 "implementation_steps": [
-                    "Assess current data availability and quality",
-                    "Implement integrated business intelligence system",
-                    "Train management on data interpretation",
-                    "Establish data-driven review processes"
+                    "Deploy AI-powered competitive and market intelligence platform",
+                    "Develop quarterly scenario planning process with key stakeholders",
+                    "Create strategy option portfolio with pre-defined trigger conditions",
+                    "Implement strategy sprint methodology for rapid adaptation",
+                    "Train leadership in strategic agility principles"
                 ],
                 "kpis": [
-                    "Decision Cycle Time",
-                    "Forecast Accuracy",
-                    "Data Utilization Rate"
+                    "Strategic opportunity capitalization rate",
+                    "Scenario planning accuracy index",
+                    "Decision cycle time reduction"
                 ],
                 "timeline": "medium",
                 "priority": "medium"
             })
-        
+    
         return strategies
     
     def _prepare_visualization_data(self, entity_name: str, strategies: List[Dict[str, Any]]) -> Dict[str, Any]:
