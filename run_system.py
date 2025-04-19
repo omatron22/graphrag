@@ -126,10 +126,12 @@ def analyze_entity(orchestrator, entity_name):
         
         # Print top strategies
         strategies = report.get("strategies", [])
-        if strategies:
+        if isinstance(strategies, list) and strategies:
             print("\nTop Strategies:")
-            for i, strategy in enumerate(strategies[:3]):
+            for i, strategy in enumerate(strategies[:min(3, len(strategies))]):
                 print(f"  {i+1}. {strategy.get('title')} (Priority: {strategy.get('priority', 'medium')})")
+        else:
+            print("\nNo strategies available or invalid format.")
             
             # Print report path
             if "report_path" in report:

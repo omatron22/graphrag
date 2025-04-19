@@ -419,8 +419,8 @@ class Neo4jManager:
             list: Competitor entities with relationship data
         """
         query = """
-        MATCH (c:Entity {name: $company_name})-[:COMPETES_IN]->(m:Market)
-        MATCH (competitor:Entity)-[:COMPETES_IN]->(m)
+        MATCH (c:Entity {name: $company_name})-[:COMPETES_WITH]->(m:Market)
+        MATCH (competitor:Entity)-[:COMPETES_WITH]->(m)
         WHERE competitor <> c
         WITH competitor, count(m) as shared_markets
         
@@ -470,8 +470,8 @@ class Neo4jManager:
             """
         elif risk_type == "market":
             query = """
-            MATCH (e:Entity)-[:OPERATES_IN|COMPETES_IN]->(m)
-            MATCH (m)-[:HAS_TREND|SHOWS]->(t)
+            MATCH (e:Entity)-[:OPERATES_IN|COMPETES_WITH]->(m)
+            MATCH (m)-[:HAS_EMERGING_TREND]->(t)
             WHERE t.name CONTAINS 'declin' OR t.name CONTAINS 'decrease'
             WITH e, m, t, COUNT(*) as risk_count
             RETURN e.name as entity, m.name as market, t.name as trend, risk_count

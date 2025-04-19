@@ -555,7 +555,8 @@ class InsightExtractor:
         
         # Correlation 2: Entities that frequently appear together
         cooccurrence_query = """
-        MATCH (a)-[:MENTIONED_WITH|APPEARS_WITH|RELATED_TO]->(b)
+        MATCH (a)-[r]-(b)
+        WHERE a <> b AND (type(r) IN ['COMPETES_WITH', 'PARTNERED_WITH', 'OPERATES_IN'])
         WITH a, b, COUNT(*) as frequency
         WHERE frequency > 2 AND elementId(a) < elementId(b) // Avoid duplicates
         RETURN a.name as entity1, b.name as entity2, frequency
@@ -565,7 +566,8 @@ class InsightExtractor:
         
         if entity_name:
             cooccurrence_query = """
-            MATCH (a {name: $entity_name})-[:MENTIONED_WITH|APPEARS_WITH|RELATED_TO]->(b)
+            MATCH (a {name: $entity_name})-[r]-(b)
+            WHERE type(r) IN ['COMPETES_WITH', 'PARTNERED_WITH', 'OPERATES_IN']
             WITH a, b, COUNT(*) as frequency
             WHERE frequency > 1
             RETURN a.name as entity1, b.name as entity2, frequency

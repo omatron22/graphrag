@@ -159,27 +159,29 @@ class RiskAnalyzer:
             
             # Operational risk based on process issues
             operational_result = session.run("""
-                MATCH (e:Entity)-[:HAS_PROCESS|OPERATES]->()-[:HAS_ISSUE|PROBLEM]->()
-                WITH count(*) AS process_issues
-                
-                MATCH (e:Entity)-[:HAS_PROCESS|OPERATES]->()
-                WITH process_issues, count(*) AS total_processes
-                
+                // Use HAS_RISK relationships instead of non-existent process paths
+                MATCH (e:Entity)-[:HAS_RISK]->(r:Risk)
+                WHERE r.type = 'operational'
+                WITH COUNT(r) AS process_issues
+    
+                MATCH (e:Entity)
+                WITH process_issues, COUNT(e) AS total_entities
+    
                 RETURN 
-                    CASE WHEN total_processes > 0 
-                    THEN toFloat(process_issues) / total_processes * 0.8
+                    CASE WHEN total_entities > 0 
+                    THEN toFloat(process_issues) / total_entities * 0.8
                     ELSE 0.3 END AS risk_score
             """)
             operational_risk = operational_result.single()["risk_score"]
             
             # Market risk based on negative trends
             market_result = session.run("""
-                MATCH (e:Entity)-[:COMPETES_IN|OPERATES_IN]->(m)
-                MATCH (m)-[:HAS_TREND|SHOWS]->(t)
+                MATCH (e:Entity)-[:COMPETES_WITH|OPERATES_IN]->(m)
+                MATCH (m)-[:HAS_EMERGING_TREND]->(t)
                 WHERE t.name CONTAINS 'declin' OR t.name CONTAINS 'decrease'
                 WITH count(*) AS negative_trends
                 
-                MATCH (e:Entity)-[:COMPETES_IN|OPERATES_IN]->()
+                MATCH (e:Entity)-[:COMPETES_WITH|OPERATES_IN]->()
                 WITH negative_trends, count(*) AS total_markets
                 
                 RETURN 

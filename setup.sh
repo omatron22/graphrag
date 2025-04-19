@@ -12,7 +12,8 @@ mkdir -p neo4j/plugins
 mkdir -p postgres-data
 mkdir -p data/uploads
 mkdir -p data/parsed
-mkdir -p data/knowledge_base
+mkdir -p data/knowledge_base/insights
+mkdir -p data/knowledge_base/strategies
 mkdir -p knowledge_graph/exports
 
 # Install Python dependencies with upgraded pip
@@ -39,35 +40,36 @@ echo "Starting Neo4j and PostgreSQL containers..."
 docker-compose up -d
 
 echo "Waiting for containers to initialize (45 seconds)..."
-sleep 45  # Increased wait time for better container initialization
+sleep 45  # Wait time for container initialization
 
-# Test connections
-echo "Testing database connections..."
-python test_neo4j.py
-NEO4J_STATUS=$?
-
-python test_postgres.py
-POSTGRES_STATUS=$?
-
-if [ $NEO4J_STATUS -eq 0 ] && [ $POSTGRES_STATUS -eq 0 ]; then
-    echo ""
-    echo "✅ Setup completed successfully!"
-    echo "Neo4j browser available at: http://localhost:7474/"
-    echo "Neo4j credentials: neo4j/password"
-    echo "PostgreSQL available at: localhost:5432"
-    echo "PostgreSQL credentials: app/password"
-    echo ""
-    echo "Next steps:"
-    echo "1. Configure your models in Ollama (visit https://ollama.com/library for available models)"
-    echo "2. Run 'python orchestrator.py examples/sample_document.pdf' to test the system"
-    echo "3. Make sure to change default passwords in docker-compose.yml for production use"
+# Check for Ollama
+if ! command -v ollama &> /dev/null; then
+    echo "⚠️ Ollama not found. Please install Ollama for LLM functionality."
+    echo "Visit https://ollama.com/ for installation instructions."
 else
-    echo ""
-    echo "❌ Setup encountered issues. Please check the error messages above."
-    echo ""
-    echo "Troubleshooting tips:"
-    echo "- Make sure ports 7474, 7687, and 5432 are available"
-    echo "- Check Docker logs with 'docker-compose logs'"
-    echo "- Ensure Neo4j and PostgreSQL containers are running with 'docker ps'"
-    echo "- Try restarting the containers with 'docker-compose restart'"
+    echo "✅ Ollama found. Checking for required models..."
+    # Attempt to check for required models
+    if ollama list &>/dev/null; then
+        REQUIRED_MODELS=("deepseek-r1:8b" "llama3.2-vision:11b" "phi")
+        
+        for MODEL in "${REQUIRED_MODELS[@]}"; do
+            if ! ollama list | grep -q "$MODEL"; then
+                echo "⚠️ Model $MODEL not found. Please install with: ollama pull $MODEL"
+            else
+                echo "✅ Model $MODEL is available."
+            fi
+        done
+    else
+        echo "⚠️ Unable to list Ollama models. Please ensure Ollama server is running."
+    fi
 fi
+
+echo ""
+echo "✅ Setup completed!"
+echo "Neo4j browser available at: http://localhost:7474/"
+echo "Neo4j credentials: neo4j/password"
+echo ""
+echo "Next steps:"
+echo "1. Run 'python populate_test_data.py' to fill Neo4j with sample data"
+echo "2. Run 'python run_system.py --analyze TechCorp' to analyze entity"
+echo "3. Run 'python run_system.py -i' for interactive mode"

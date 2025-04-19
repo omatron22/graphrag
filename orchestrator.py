@@ -421,53 +421,103 @@ class Orchestrator:
         try:
             # Get entity insights
             insights = self.insight_extractor.extract_insights(entity_name)
-            
+        
             # Run risk analysis
             risk_analysis = self.risk_analyzer.analyze()
-            
+        
             # Generate strategies
             strategies = self.strategy_generator.generate_for_entity(entity_name)
-            
+        
+            # Log the structure of strategies for debugging
+            logger.info(f"Strategy type: {type(strategies)}")
+            logger.info(f"Strategy keys: {strategies.keys() if isinstance(strategies, dict) else 'Not a dict'}")
+        
+            # Extract strategies list from the strategy object if it's nested
+            strategies_list = None
+            if isinstance(strategies, dict) and "strategies" in strategies:
+                strategies_list = strategies["strategies"]
+                logger.info(f"Found strategies list with {len(strategies_list)} items")
+            elif isinstance(strategies, list):
+                strategies_list = strategies
+                logger.info(f"Strategies is already a list with {len(strategies_list)} items")
+            else:
+                logger.info(f"Could not find strategies list in: {strategies}")
+                strategies_list = []
+        
             # Generate comprehensive report
             report = self.strategy_generator.generate_comprehensive_report(entity_name)
-            
+        
             # Get connected entities
             connected_entities = self.neo4j_manager.execute_query(
                 """
                 MATCH (e:Entity {name: $name})-[r]-(connected:Entity)
                 RETURN connected.name AS entity, type(r) AS relationship, 
-                       COUNT(*) AS connection_strength
+                    COUNT(*) AS connection_strength
                 ORDER BY connection_strength DESC
                 LIMIT 10
                 """,
                 {"name": entity_name}
             )
-            
+        
             # Compile full report
             full_report = {
                 "entity": entity_name,
                 "timestamp": datetime.now().isoformat(),
                 "risks": risk_analysis,
                 "insights": insights,
-                "strategies": strategies,
+                "strategies": strategies_list,  # Use the extracted list
                 "connected_entities": connected_entities,
                 "comprehensive_report": report
             }
-            
+        
             # Save report
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
             report_filename = f"report_{entity_name.replace(' ', '_')}_{timestamp}.json"
             report_path = os.path.join("data", "knowledge_base", report_filename)
-            
+        
             with open(report_path, 'w', encoding='utf-8') as f:
                 json.dump(full_report, f, ensure_ascii=False, indent=2)
-                
+            
             logger.info(f"Generated analysis report for {entity_name}: {report_path}")
-            
+        
             return {**full_report, "report_path": report_path}
-            
+        
         except Exception as e:
             logger.error(f"Failed to generate analysis report for {entity_name}: {e}")
+            return {"error": str(e)}
+    
+    
+    def debug_strategies(self, entity_name):
+        """
+        Debug function to investigate strategy structure.
+    
+        Args:
+            entity_name: Name of the entity to analyze
+        
+        Returns:
+            dict: Debug information
+        """
+        try:
+            # Generate strategies
+            strategies = self.strategy_generator.generate_for_entity(entity_name)
+        
+            # Log structure information
+            logger.info(f"Strategy type: {type(strategies)}")
+            if isinstance(strategies, dict):
+                logger.info(f"Strategy keys: {strategies.keys()}")
+                if "strategies" in strategies:
+                    logger.info(f"strategies['strategies'] type: {type(strategies['strategies'])}")
+                    logger.info(f"strategies['strategies'] length: {len(strategies['strategies'])}")
+            elif isinstance(strategies, list):
+                logger.info(f"Strategies list length: {len(strategies)}")
+        
+            return {
+                "type": str(type(strategies)),
+                "structure": strategies
+            }
+    
+        except Exception as e:
+            logger.error(f"Debug error: {e}")
             return {"error": str(e)}
     
     def visualize_entity_network(self, entity_name, depth=2):
@@ -592,13 +642,13 @@ if __name__ == "__main__":
                             print(f"  - {risk_type.capitalize()}: {level}")
                 
                 # Print top strategies
-                strategies = report.get("strategies", [])
-                if strategies:
+                strategies = report.get("strategies", {})
+                if isinstance(strategies, list) and strategies:
                     print("\nTop Strategies:")
-                    for i, strategy in enumerate(strategies[:3]):
+                    for i, strategy in enumerate(strategies[:min(3, len(strategies))]):
                         print(f"  {i+1}. {strategy.get('title')} (Priority: {strategy.get('priority', 'medium')})")
-            else:
-                print(f"Error: {report.get('error')}")
+                else:
+                    print("\nNo strategies available.")
         
         # Generate visualization if entity is specified
         if args.visualize:

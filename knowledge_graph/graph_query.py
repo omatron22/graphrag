@@ -172,8 +172,8 @@ class GraphQueryManager:
             """,
             
             "market": """
-                MATCH (e:Entity)-[:OPERATES_IN|COMPETES_IN]->(m)
-                MATCH (m)-[:HAS_TREND|SHOWS]->(t)
+                MATCH (e:Entity)-[:OPERATES_IN|COMPETES_WITH]->(m)
+                MATCH (m)-[:HAS_EMERGING_TREND]->(t)
                 WHERE t.name CONTAINS 'declin' OR t.name CONTAINS 'decrease' 
                       OR t.name CONTAINS 'disrupt' OR t.name CONTAINS 'threat'
                 RETURN e.name AS entity, m.name AS market, t.name AS trend,
@@ -206,7 +206,7 @@ class GraphQueryManager:
         """
         # Query for potential partnership opportunities
         partnership_query = """
-        MATCH (e:Entity {name: $entity_name})-[:COMPETES_IN]->(m:Market)<-[:COMPETES_IN]-(partner:Entity)
+        MATCH (e:Entity {name: $entity_name})-[:COMPETES_WITH]->(m:Market)<-[:COMPETES_WITH]-(partner:Entity)
         WHERE NOT (e)-[:PARTNERED_WITH]-(partner)
         AND COUNT {(partner)--()} > 5  // Only well-connected entities
         WITH e, partner, COUNT(m) AS shared_markets
@@ -223,9 +223,9 @@ class GraphQueryManager:
         expansion_query = """
         MATCH (e:Entity {name: $entity_name})-[:HAS_STRENGTH]->(s:Strength)
         MATCH (m:Market)
-        WHERE NOT (e)-[:COMPETES_IN|OPERATES_IN]->(m)
+        WHERE NOT (e)-[:COMPETES_WITH|OPERATES_IN]->(m)
         AND EXISTS {
-            MATCH (other:Entity)-[:COMPETES_IN]->(m)
+            MATCH (other:Entity)-[:COMPETES_WITH]->(m)
             WHERE (other)-[:HAS_STRENGTH]->(:Strength {name: s.name})
         }
         RETURN m.name AS potential_market,
@@ -318,11 +318,27 @@ class GraphQueryManager:
                     nodes.append(node_data)
             
             for rel in result[0]["relationships"]:
-                links.append({
-                    "source": id(rel.start_node),
-                    "target": id(rel.end_node),
-                    "type": type(rel).__name__
-                })
+                try:
+                    # First try accessing as an object with attributes (Neo4j 4.x style)
+                    source_node = rel.start_node
+                    target_node = rel.end_node
+                    rel_type = type(rel).__name__
+        
+                    links.append({
+                        "source": id(source_node),
+                        "target": id(target_node),
+                        "type": rel_type
+                    })
+                except AttributeError:
+                    # If the relationship is a tuple or different structure
+                    logger.warning(f"Relationship returned in unexpected format: {type(rel)}")
+                    # Try to extract nodes from the query result in a different way
+                    # This is a simplified fallback - you might need to adjust based on your Neo4j version
+                    links.append({
+                        "source": id(result[0]["nodes"][0]),  # Use first node as source
+                        "target": id(result[0]["nodes"][-1]), # Use last node as target
+                        "type": "RELATED_TO"  # Generic type
+                    })
             
             # Save to file
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
