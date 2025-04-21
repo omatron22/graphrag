@@ -1,43 +1,43 @@
 {
   "entity": "TechCorp",
-  "timestamp": "2025-04-18T21:52:17.455189",
+  "timestamp": "2025-04-21T11:54:42.097263",
   "risks": {
     "scores": {
-      "financial": 0.2,
-      "operational": 0.3,
-      "market": 0.25,
-      "overall": 0.35,
-      "reasoning": "The business exhibits moderate financial, operational, and market risks due to the interconnected nature of TechCorp, ManufactureX, HealthServices, and FinanceGroup. The low connectivity of CloudSecure indicates potential vulnerabilities in financial management, while regional disparities suggest market adaptation challenges. Overall, while risks are present, they are not extreme."
+      "financial": 0.0,
+      "operational": 0.0,
+      "market": 0.0,
+      "overall": 0.0,
+      "reasoning": "Based on the provided knowledge graph summary, there are no explicit indicators of financial, operational, or market risks. The connections suggest relationships between entities but do not provide specific information that would indicate potential vulnerabilities in these areas. Therefore, all risk categories are assessed as having no significant risk."
     },
     "categories": {
       "financial": "Low",
       "operational": "Low",
       "market": "Low",
-      "overall": "Medium",
-      "reasoning": "The business exhibits moderate financial, operational, and market risks due to the interconnected nature of TechCorp, ManufactureX, HealthServices, and FinanceGroup. The low connectivity of CloudSecure indicates potential vulnerabilities in financial management, while regional disparities suggest market adaptation challenges. Overall, while risks are present, they are not extreme."
+      "overall": "Low",
+      "reasoning": "Based on the provided knowledge graph summary, there are no explicit indicators of financial, operational, or market risks. The connections suggest relationships between entities but do not provide specific information that would indicate potential vulnerabilities in these areas. Therefore, all risk categories are assessed as having no significant risk."
     },
-    "reasoning": "The business exhibits moderate financial, operational, and market risks due to the interconnected nature of TechCorp, ManufactureX, HealthServices, and FinanceGroup. The low connectivity of CloudSecure indicates potential vulnerabilities in financial management, while regional disparities suggest market adaptation challenges. Overall, while risks are present, they are not extreme."
+    "reasoning": "Based on the provided knowledge graph summary, there are no explicit indicators of financial, operational, or market risks. The connections suggest relationships between entities but do not provide specific information that would indicate potential vulnerabilities in these areas. Therefore, all risk categories are assessed as having no significant risk."
   },
   "insights": {
-    "timestamp": "2025-04-18T21:47:30.566023",
+    "timestamp": "2025-04-21T11:49:07.832157",
     "focus_entity": "TechCorp",
     "key_findings": [
       {
         "title": "Common Relationship Chains",
-        "explanation": "TechCorp exhibits frequent and significant relationship chains among its entities.",
-        "business_implications": "These relationships may indicate critical operational connections or integration points that could be leveraged for efficiency or strategic advantage.",
+        "explanation": "TechCorp exhibits consistent relationship chains among its entities, creating predictable patterns in connectivity.",
+        "business_implications": "This consistency can streamline operations and enable efficient resource allocation by leveraging recurring patterns.",
         "category": "pattern"
       },
       {
-        "title": "Similar Attribute Sets",
-        "explanation": "Entities within TechCorp share consistent attribute combinations, highlighting potential groups with aligned characteristics.",
-        "business_implications": "This similarity may enable targeted marketing, optimized processes, or specialized product development tailored to these groups.",
+        "title": "Similar Attribute Combinations",
+        "explanation": "Entities within TechCorp share similar attribute sets, indicating groupable clusters with shared characteristics.",
+        "business_implications": "These clusters can be targeted for personalized marketing or tailored product development strategies.",
         "category": "pattern"
       },
       {
-        "title": "Connectivity Anomaly",
-        "explanation": "TechCorp exhibits extreme connectivity anomalies, suggesting potential risks or unique opportunities in its network structure.",
-        "business_implications": "This anomaly may pose operational risks or present unexplored avenues for innovation and growth within the network ecosystem.",
+        "title": "Extreme Connectivity Anomaly",
+        "explanation": "TechCorp exhibits extreme connectivity anomaly, significantly deviating from expected network metrics.",
+        "business_implications": "This anomaly may indicate vulnerabilities or opportunities that require immediate investigation to optimize network performance and security.",
         "category": "anomaly"
       }
     ],
@@ -49,22 +49,22 @@
           {
             "type1": "COMPETES_WITH",
             "type2": "HAS_METRIC",
-            "frequency": 112
+            "frequency": 224
           },
           {
             "type1": "PARTNERED_WITH",
             "type2": "HAS_METRIC",
-            "frequency": 64
+            "frequency": 128
           },
           {
             "type1": "COMPETES_WITH",
             "type2": "HAS_RISK",
-            "frequency": 28
+            "frequency": 32
           },
           {
             "type1": "PARTNERED_WITH",
             "type2": "HAS_RISK",
-            "frequency": 14
+            "frequency": 16
           },
           {
             "type1": "OPERATES_IN",
@@ -72,7 +72,7 @@
             "frequency": 9
           }
         ],
-        "frequency": 227,
+        "frequency": 409,
         "significance": "high"
       },
       {
@@ -153,9 +153,9 @@
       {
         "type": "connectivity_anomaly",
         "entity": "TechCorp",
-        "connection_count": 89,
-        "average_connections": 10.0,
-        "z_score": 3.2,
+        "connection_count": 148,
+        "average_connections": 16.49,
+        "z_score": 3.02,
         "pattern": "highly_connected",
         "severity": "extreme",
         "significance": "high"
@@ -172,18 +172,18 @@
     },
     "metrics": {
       "overall": {
-        "node_count": 423,
-        "relationship_count": 424,
-        "density": 0.0023752702990375674
+        "node_count": 722,
+        "relationship_count": 723,
+        "density": 0.001388883552775654
       },
       "entity_distribution": [
         {
           "label": "MetricValue",
-          "count": 288
+          "count": 576
         },
         {
           "label": "Risk",
-          "count": 77
+          "count": 88
         },
         {
           "label": "Entity",
@@ -221,11 +221,11 @@
       "relationship_distribution": [
         {
           "rel_type": "HAS_METRIC",
-          "count": 288
+          "count": 576
         },
         {
           "rel_type": "HAS_RISK",
-          "count": 77
+          "count": 88
         },
         {
           "rel_type": "HAS_DOMINANT_SEGMENT",
@@ -257,8 +257,8 @@
         }
       ],
       "entity_specific": {
-        "connection_count": 88,
-        "relationship_count": 89,
+        "connection_count": 147,
+        "relationship_count": 148,
         "relationship_types": [
           "PRODUCES",
           "HAS_STRENGTH",
@@ -268,7 +268,7 @@
           "HAS_METRIC",
           "HAS_RISK"
         ],
-        "extended_network_size": 429
+        "extended_network_size": 728
       }
     },
     "visualization_data": {
@@ -315,28 +315,28 @@
         "metrics": [
           {
             "name": "Node Count",
-            "value": 423,
+            "value": 722,
             "description": "Total number of entities in the knowledge graph"
           },
           {
             "name": "Relationship Count",
-            "value": 424,
+            "value": 723,
             "description": "Total number of relationships between entities"
           },
           {
             "name": "Graph Density",
-            "value": 0.24,
+            "value": 0.14,
             "unit": "%",
             "description": "Percentage of potential connections that actually exist"
           },
           {
             "name": "Connection Count",
-            "value": 88,
+            "value": 147,
             "description": "Number of entities directly connected to the focus entity"
           },
           {
             "name": "Extended Network Size",
-            "value": 429,
+            "value": 728,
             "description": "Size of the network within 2 degrees of separation"
           },
           {
@@ -360,61 +360,61 @@
   },
   "strategies": [
     {
-      "title": "AI-Driven Security Enhancements",
-      "rationale": "Leverage TechCorp's existing cloud infrastructure to integrate advanced AI and machine learning into security solutions, enhancing threat detection and customer satisfaction.",
+      "title": "Advanced Cloud Infrastructure Innovation",
+      "rationale": "Developing proprietary cloud solutions can enhance TechCorp's market position and customer satisfaction. With current revenue of $525M and a market cap of $2.1B, investing in R&D can drive long-term growth.",
       "benefits": [
-        "Improved customer satisfaction with enhanced security features",
-        "Increased market share by offering superior security solutions"
+        "Increased Market Share",
+        "Improved Customer Satisfaction"
       ],
       "implementation_steps": [
-        "Hire a team of data scientists specializing in cybersecurity AI",
-        "Develop and integrate AI-driven threat detection tools into existing platforms",
-        "Secure certifications for cloud security solutions"
+        "Allocate 10% of R&D budget to cloud innovation",
+        "Conduct quarterly beta testing with early adopters",
+        "Introduce at least one new feature per quarter"
       ],
       "kpis": [
-        "Reduction in customer complaints related to security breaches",
-        "Increase in market share within 3 years"
+        "New product launches per quarter",
+        "Customer satisfaction score improvement"
       ],
-      "timeline": "medium",
+      "timeline": "medium|long",
       "priority": "high"
     },
     {
-      "title": "Employee Retention Program",
-      "rationale": "Implement programs to reduce employee turnover, fostering a culture of engagement and innovation.",
+      "title": "Security Solutions Expansion",
+      "rationale": "Enhancing security offerings can reduce customer acquisition cost and boost market share. Leveraging current strengths in security, TechCorp can attract more clients.",
       "benefits": [
-        "Lower employee turnover rates within 6 months",
-        "Improved employee productivity and performance metrics"
+        "Reduced Customer Acquisition Cost",
+        "Increased Market Share"
       ],
       "implementation_steps": [
-        "Launch mentorship and leadership development programs",
-        "Introduce flexible work options for remote employees",
-        "Enhance compensation packages with performance-based incentives"
+        "Hire 5 new cybersecurity experts by Q3",
+        "Launch two new security tools by H2 2024",
+        "Adopt data-driven marketing for security solutions"
       ],
       "kpis": [
-        "Reduction in employee turnover rate by 20% within a year",
-        "Improved employee satisfaction scores by 15%"
+        "Customer acquisition cost reduction",
+        "Security product adoption rate"
       ],
-      "timeline": "short",
+      "timeline": "medium|long",
       "priority": "medium"
     },
     {
-      "title": "Market Expansion Strategy",
-      "rationale": "Expand into emerging markets to increase revenue and market presence.",
+      "title": "Employee Retention Program Enhancement",
+      "rationale": "Reducing employee turnover is crucial for operational efficiency. By implementing retention strategies, TechCorp can maintain top talent and enhance productivity.",
       "benefits": [
-        "Increased global revenue from new regions",
-        "Establish TechCorp as a leading provider in target markets"
+        "Improved Employee Productivity",
+        "Enhanced Employer Brand"
       ],
       "implementation_steps": [
-        "Partner with local distributors in APAC and South America",
-        "Develop localized marketing campaigns tailored to regional preferences",
-        "Invest in infrastructure to support international expansion"
+        "Survey current employees for retention drivers",
+        "Develop non-monetary incentives like training programs",
+        "Roll out employee ownership stakes"
       ],
       "kpis": [
-        "15% increase in revenue within 3 years",
-        "Establish a significant market presence in new regions within 2 years"
+        "Employee turnover rate reduction",
+        "Employee satisfaction score improvement"
       ],
-      "timeline": "medium",
-      "priority": "medium"
+      "timeline": "long|medium",
+      "priority": "low"
     }
   ],
   "connected_entities": [
@@ -471,76 +471,116 @@
   ],
   "comprehensive_report": {
     "entity": "TechCorp",
-    "generation_date": "2025-04-18T21:52:17.424438",
-    "executive_summary": "Executive Summary for TechCorp\n        \n        This report outlines 3 strategic recommendations designed to address identified risks\n        and capitalize on opportunities. The risk assessment shows Financial: Low, Operational: Low, Market: Medium, Overall: Medium.\n        \n        0 high-priority strategies have been identified that require immediate attention.\n        The recommendations focus on addressing key operational, financial, and market challenges,\n        with detailed implementation roadmaps and expected outcomes.\n        \n        The analysis leverages data from our knowledge graph which integrates information \n        from multiple business documents and market intelligence sources.",
+    "generation_date": "2025-04-21T11:54:42.072382",
+    "executive_summary": "Executive Summary for TechCorp\n        \n        This report outlines 5 strategic recommendations designed to address identified risks\n        and capitalize on opportunities. The risk assessment shows Financial: High, Operational: High, Market: Medium, Overall: High.\n        \n        4 high-priority strategies have been identified that require immediate attention.\n        The recommendations focus on addressing key operational, financial, and market challenges,\n        with detailed implementation roadmaps and expected outcomes.\n        \n        The analysis leverages data from our knowledge graph which integrates information \n        from multiple business documents and market intelligence sources.",
     "strategies": [
       {
-        "title": "AI-Powered Threat Detection Expansion",
-        "rationale": "Integrating AI into security solutions can enhance threat detection and prevention, addressing the competitive market in cloud security. This directly leverages TechCorp's strengths in security.",
+        "title": "AI-Driven Customer Insights Enhancement",
+        "rationale": "Implement AI-driven analytics to analyze customer data and reduce Customer Acquisition Cost (CAC) by identifying high-potential customers. This will enhance our understanding of customer needs, leading to more effective marketing strategies.",
         "benefits": [
-          "Increased customer satisfaction through advanced features",
-          "Higher market share due to innovative offerings"
+          "Reduction in CAC by 20% over 6 months",
+          "15% improvement in market share within 18 months"
         ],
         "implementation_steps": [
-          "Invest 10% of R&D budget into AI research for threat detection",
-          "Hire 5 new AI specialists by Q2",
-          "Train existing security team on AI tools by Q3"
+          "Hire data scientists and integrate AI tools into the CRM system",
+          "Set up analytics dashboards to track key metrics like CAC and market share growth",
+          "Develop targeted marketing campaigns based on AI insights"
         ],
         "kpis": [
-          "New products launched annually",
-          "Customer satisfaction score improvement",
-          "Revenue growth from AI-based solutions"
-        ],
-        "timeline": "medium|6-18 months",
-        "priority": "high|Immediate competitive advantage"
-      },
-      {
-        "title": "Green Cloud Infrastructure Initiative",
-        "rationale": "Adopting sustainable practices can enhance brand reputation, attract eco-conscious customers, and align with industry trends.",
-        "benefits": [
-          "Improved customer satisfaction from eco-friendly solutions",
-          "Enhanced market share through brand differentiation"
-        ],
-        "implementation_steps": [
-          "Form a sustainability committee by Q1",
-          "Source 25% of energy from renewable sources by Q2",
-          "Implement energy-efficient hardware in cloud data centers by Q3"
-        ],
-        "kpis": [
-          "Renewable energy usage percentage",
-          "Carbon footprint reduction",
+          "CAC reduction over time",
+          "Market share growth",
           "Customer satisfaction score improvement"
         ],
         "timeline": "medium|6-18 months",
-        "priority": "high|Medium-term growth strategy"
+        "priority": "high"
       },
       {
-        "title": "Innovation through Partnerships and Academia",
-        "rationale": "Collaborating with academic institutions can drive cutting-edge innovation, attract talent, and maintain a competitive edge in the market.",
+        "title": "Customer Success Expansion Program",
+        "rationale": "Expand the customer success team to reduce employee turnover and improve customer retention. This will lead to higher revenue from existing customers and better satisfaction scores.",
         "benefits": [
-          "Accelerated product development from R&D partnerships",
-          "Improved employee retention through innovative work environment"
+          "10% reduction in employee turnover within 6 months",
+          "20% improvement in customer satisfaction score within 6 months"
         ],
         "implementation_steps": [
-          "Set up TechCorp Innovation Lab by Q1",
-          "Partner with 2 universities for R&D projects by Q2",
-          "Host a company-wide hackathon in Q3"
+          "Develop a comprehensive training program for new hires",
+          "Create a dedicated Success department with account managers",
+          "Implement regular touchpoints like webinars and check-ins"
         ],
         "kpis": [
-          "Number of new innovations from partnerships",
-          "Employee retention rate improvement",
-          "Revenue growth from innovative solutions"
+          "Employee turnover reduction",
+          "Customer satisfaction score improvement",
+          "Revenue growth from expanding accounts"
         ],
-        "timeline": "long|18+ months",
-        "priority": "high|Long-term competitive strategy"
+        "timeline": "short|1-3 months",
+        "priority": "medium"
+      },
+      {
+        "title": "Supply Chain Optimization Initiative",
+        "rationale": "Optimize the supply chain to improve operational efficiency and reduce lead times. This will enhance our ability to meet customer demands more effectively.",
+        "benefits": [
+          "15% reduction in lead times within 6 months",
+          "10% improvement in order fulfillment accuracy"
+        ],
+        "implementation_steps": [
+          "Implement automated order management system",
+          "Negotiate better vendor terms and conditions",
+          "Conduct regular supply chain audits"
+        ],
+        "kpis": [
+          "Lead time reduction",
+          "Order fulfillment accuracy",
+          "Customer delivery satisfaction score improvement"
+        ],
+        "timeline": "medium|6-18 months",
+        "priority": "high"
+      },
+      {
+        "title": "Market-Focused R&D Investment",
+        "rationale": "Invest in research and development focused on specific market needs to enhance product offerings. This will improve our ability to cater to high-demand industries.",
+        "benefits": [
+          "10% increase in relevant product development within 18 months",
+          "20% improvement in market share for targeted products"
+        ],
+        "implementation_steps": [
+          "Identify key industry trends and allocate resources accordingly",
+          "Collaborate with customers to understand their specific needs",
+          "Develop and release new products based on R&D findings"
+        ],
+        "kpis": [
+          "Product development cycle time reduction",
+          "Market share growth for targeted products",
+          "Customer acquisition rate improvement for new offerings"
+        ],
+        "timeline": "long|12-24 months",
+        "priority": "high"
+      },
+      {
+        "title": "Employee Retention and Development Program",
+        "rationale": "Implement retention programs to reduce employee turnover and improve productivity. This will lead to better customer satisfaction and higher revenue.",
+        "benefits": [
+          "15% reduction in employee turnover within 6 months",
+          "20% improvement in team productivity within 12 months"
+        ],
+        "implementation_steps": [
+          "Create mentorship programs for existing employees",
+          "Offer professional development opportunities through workshops and certifications",
+          "Implement flexible work arrangements to enhance job satisfaction"
+        ],
+        "kpis": [
+          "Employee retention rate improvement",
+          "Team productivity enhancement",
+          "Customer satisfaction score growth"
+        ],
+        "timeline": "medium|6-18 months",
+        "priority": "high"
       }
     ],
     "risk_assessment": {
-      "financial": "Low",
-      "operational": "Low",
+      "financial": "High",
+      "operational": "High",
       "market": "Medium",
-      "overall": "Medium",
-      "reasoning": "The financial risk is low due to moderate integration among entities and lack of extreme dependencies. Operational risk is slightly higher, primarily due to the critical nature of CloudSecure with limited connections. Market risk is moderate, as TechCorp and ManufactureX dominate but face competition. Overall risk is moderate, considering balanced factors."
+      "overall": "High",
+      "reasoning": "The business graph exhibits a high degree of interconnectedness among key entities, particularly ManufactureX and TechCorp, which are central to the operations and financial stability. The presence of FinanceGroup with numerous connections suggests strong financial ties, increasing the risk of financial instability. Operational risks are heightened due to extensive dependencies across sectors, while market risks arise from competition dynamics and customer demands in interconnected markets."
     },
     "visualizations": {
       "strategy_prioritization": {
@@ -548,25 +588,39 @@
         "description": "Strategy prioritization by impact, effort, and priority",
         "data": [
           {
-            "title": "AI-Powered Threat Detection Expansion",
-            "impact": 0.5,
+            "title": "AI-Driven Customer Insights Enhancement",
+            "impact": 0.6,
             "effort": 0.6,
-            "priority": "high|Immediate competitive advantage",
-            "size": 30
+            "priority": "high",
+            "size": 50
           },
           {
-            "title": "Green Cloud Infrastructure Initiative",
+            "title": "Customer Success Expansion Program",
             "impact": 0.7,
             "effort": 0.8999999999999999,
-            "priority": "high|Medium-term growth strategy",
+            "priority": "medium",
             "size": 30
           },
           {
-            "title": "Innovation through Partnerships and Academia",
-            "impact": 0.9,
+            "title": "Supply Chain Optimization Initiative",
+            "impact": 0.95,
             "effort": 0.3,
-            "priority": "high|Long-term competitive strategy",
-            "size": 30
+            "priority": "high",
+            "size": 50
+          },
+          {
+            "title": "Market-Focused R&D Investment",
+            "impact": 0.6,
+            "effort": 0.6,
+            "priority": "high",
+            "size": 50
+          },
+          {
+            "title": "Employee Retention and Development Program",
+            "impact": 0.7999999999999999,
+            "effort": 0.8999999999999999,
+            "priority": "high",
+            "size": 50
           }
         ]
       },
@@ -575,25 +629,39 @@
         "description": "Implementation timeline for recommended strategies",
         "data": [
           {
-            "title": "AI-Powered Threat Detection Expansion",
+            "title": "AI-Driven Customer Insights Enhancement",
             "start_days": 0,
             "end_days": 180,
-            "priority": "high|Immediate competitive advantage",
+            "priority": "high",
             "group": 0
           },
           {
-            "title": "Green Cloud Infrastructure Initiative",
+            "title": "Customer Success Expansion Program",
             "start_days": 90,
             "end_days": 270,
-            "priority": "high|Medium-term growth strategy",
+            "priority": "medium",
             "group": 0
           },
           {
-            "title": "Innovation through Partnerships and Academia",
+            "title": "Supply Chain Optimization Initiative",
             "start_days": 180,
             "end_days": 360,
-            "priority": "high|Long-term competitive strategy",
+            "priority": "high",
             "group": 1
+          },
+          {
+            "title": "Market-Focused R&D Investment",
+            "start_days": 270,
+            "end_days": 450,
+            "priority": "high",
+            "group": 1
+          },
+          {
+            "title": "Employee Retention and Development Program",
+            "start_days": 360,
+            "end_days": 540,
+            "priority": "high",
+            "group": 2
           }
         ]
       },
@@ -609,19 +677,19 @@
         ],
         "datasets": [
           {
-            "label": "AI-Powered Threat Detection Expansion",
+            "label": "AI-Driven Customer Insights Enhancement",
             "data": [
-              0.1,
-              0.1,
               0.30000000000000004,
               0.1,
+              0.30000000000000004,
+              0.20000000000000004,
               0.1
             ]
           },
           {
-            "label": "Green Cloud Infrastructure Initiative",
+            "label": "Customer Success Expansion Program",
             "data": [
-              0.1,
+              0.4,
               0.1,
               0.4,
               0.30000000000000004,
@@ -629,13 +697,33 @@
             ]
           },
           {
-            "label": "Innovation through Partnerships and Academia",
+            "label": "Supply Chain Optimization Initiative",
             "data": [
               0.2,
-              0.2,
               0.5,
-              0.2,
+              0.5,
+              0.4,
               0.2
+            ]
+          },
+          {
+            "label": "Market-Focused R&D Investment",
+            "data": [
+              0.1,
+              0.30000000000000004,
+              0.30000000000000004,
+              0.1,
+              0.1
+            ]
+          },
+          {
+            "label": "Employee Retention and Development Program",
+            "data": [
+              0.4,
+              0.4,
+              0.4,
+              0.30000000000000004,
+              0.1
             ]
           }
         ]
@@ -644,25 +732,31 @@
         "type": "bar_chart",
         "description": "Projected financial impact of strategies",
         "labels": [
-          "AI-Powered Threat Detection Expansion",
-          "Green Cloud Infrastructure Initiative",
-          "Innovation through Partnerships and Academia"
+          "AI-Driven Customer Insights Enhancement",
+          "Customer Success Expansion Program",
+          "Supply Chain Optimization Initiative",
+          "Market-Focused R&D Investment",
+          "Employee Retention and Development Program"
         ],
         "datasets": [
           {
             "label": "Revenue Impact (%)",
             "data": [
-              2.0,
+              5.0,
               3.0,
-              4.0
+              7.0,
+              5.0,
+              6.0
             ]
           },
           {
             "label": "Cost Savings (%)",
             "data": [
-              2.0,
+              4.0,
               3.0,
-              1.0
+              3.0,
+              4.0,
+              5.0
             ]
           }
         ]
@@ -686,7 +780,7 @@
             "ceo": "Sarah Chen",
             "business_model": "SaaS",
             "employees": 1200,
-            "id": 4434148416
+            "id": 4392794112
           },
           {
             "level": 0.45,
@@ -695,17 +789,17 @@
             "mitigation_status": "Early Stage",
             "type": "operational",
             "impact_area": "Product Development",
-            "id": 4434147840
+            "id": 4392794048
           }
         ],
         "links": [
           {
-            "source": 4434148416,
-            "target": 4434147840,
+            "source": 4392794112,
+            "target": 4392794048,
             "type": "RELATED_TO"
           }
         ],
-        "exported_file": "knowledge_graph/exports/entity_TechCorp_20250418_215217.json"
+        "exported_file": "knowledge_graph/exports/entity_TechCorp_20250421_115442.json"
       },
       "market_context": {
         "market_size": "$10B",

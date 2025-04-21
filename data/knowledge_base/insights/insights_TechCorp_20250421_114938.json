@@ -1,23 +1,23 @@
 {
-  "timestamp": "2025-04-18T21:43:11.238620",
+  "timestamp": "2025-04-21T11:49:07.832157",
   "focus_entity": "TechCorp",
   "key_findings": [
     {
       "title": "Common Relationship Chains",
-      "explanation": "TechCorp exhibits frequent common relationship chains between entities.",
-      "business_implications": "Efficient and integrated operations based on established connections, enabling streamlined decision-making.",
+      "explanation": "TechCorp exhibits consistent relationship chains among its entities, creating predictable patterns in connectivity.",
+      "business_implications": "This consistency can streamline operations and enable efficient resource allocation by leveraging recurring patterns.",
       "category": "pattern"
     },
     {
-      "title": "Similar Attribute Sets",
-      "explanation": "Entities within TechCorp share similar attribute combinations frequently.",
-      "business_implications": "Identifies groups with shared characteristics for targeted strategies and services optimization.",
+      "title": "Similar Attribute Combinations",
+      "explanation": "Entities within TechCorp share similar attribute sets, indicating groupable clusters with shared characteristics.",
+      "business_implications": "These clusters can be targeted for personalized marketing or tailored product development strategies.",
       "category": "pattern"
     },
     {
-      "title": "Connectivity Anomaly",
-      "explanation": "TechCorp experiences extreme connectivity anomalies, significantly deviating from normal patterns.",
-      "business_implications": "Addresses potential bottlenecks and enhances network performance for scalability and resilience.",
+      "title": "Extreme Connectivity Anomaly",
+      "explanation": "TechCorp exhibits extreme connectivity anomaly, significantly deviating from expected network metrics.",
+      "business_implications": "This anomaly may indicate vulnerabilities or opportunities that require immediate investigation to optimize network performance and security.",
       "category": "anomaly"
     }
   ],
@@ -29,22 +29,22 @@
         {
           "type1": "COMPETES_WITH",
           "type2": "HAS_METRIC",
-          "frequency": 112
+          "frequency": 224
         },
         {
           "type1": "PARTNERED_WITH",
           "type2": "HAS_METRIC",
-          "frequency": 64
+          "frequency": 128
         },
         {
           "type1": "COMPETES_WITH",
           "type2": "HAS_RISK",
-          "frequency": 28
+          "frequency": 32
         },
         {
           "type1": "PARTNERED_WITH",
           "type2": "HAS_RISK",
-          "frequency": 14
+          "frequency": 16
         },
         {
           "type1": "OPERATES_IN",
@@ -52,7 +52,7 @@
           "frequency": 9
         }
       ],
-      "frequency": 227,
+      "frequency": 409,
       "significance": "high"
     },
     {
@@ -133,9 +133,9 @@
     {
       "type": "connectivity_anomaly",
       "entity": "TechCorp",
-      "connection_count": 89,
-      "average_connections": 10.0,
-      "z_score": 3.2,
+      "connection_count": 148,
+      "average_connections": 16.49,
+      "z_score": 3.02,
       "pattern": "highly_connected",
       "severity": "extreme",
       "significance": "high"
@@ -152,18 +152,18 @@
   },
   "metrics": {
     "overall": {
-      "node_count": 423,
-      "relationship_count": 424,
-      "density": 0.0023752702990375674
+      "node_count": 722,
+      "relationship_count": 723,
+      "density": 0.001388883552775654
     },
     "entity_distribution": [
       {
         "label": "MetricValue",
-        "count": 288
+        "count": 576
       },
       {
         "label": "Risk",
-        "count": 77
+        "count": 88
       },
       {
         "label": "Entity",
@@ -201,11 +201,11 @@
     "relationship_distribution": [
       {
         "rel_type": "HAS_METRIC",
-        "count": 288
+        "count": 576
       },
       {
         "rel_type": "HAS_RISK",
-        "count": 77
+        "count": 88
       },
       {
         "rel_type": "HAS_DOMINANT_SEGMENT",
@@ -237,8 +237,8 @@
       }
     ],
     "entity_specific": {
-      "connection_count": 88,
-      "relationship_count": 89,
+      "connection_count": 147,
+      "relationship_count": 148,
       "relationship_types": [
         "PRODUCES",
         "HAS_STRENGTH",
@@ -248,7 +248,7 @@
         "HAS_METRIC",
         "HAS_RISK"
       ],
-      "extended_network_size": 429
+      "extended_network_size": 728
     }
   },
   "visualization_data": {
@@ -295,28 +295,28 @@
       "metrics": [
         {
           "name": "Node Count",
-          "value": 423,
+          "value": 722,
           "description": "Total number of entities in the knowledge graph"
         },
         {
           "name": "Relationship Count",
-          "value": 424,
+          "value": 723,
           "description": "Total number of relationships between entities"
         },
         {
           "name": "Graph Density",
-          "value": 0.24,
+          "value": 0.14,
           "unit": "%",
           "description": "Percentage of potential connections that actually exist"
         },
         {
           "name": "Connection Count",
-          "value": 88,
+          "value": 147,
           "description": "Number of entities directly connected to the focus entity"
         },
         {
           "name": "Extended Network Size",
-          "value": 429,
+          "value": 728,
           "description": "Size of the network within 2 degrees of separation"
         },
         {

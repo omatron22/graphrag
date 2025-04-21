@@ -1,0 +1,33 @@
+{
+  "nodes": [
+    {
+      "headquarters": "San Francisco",
+      "revenue": "525M",
+      "market_cap": "2.1B",
+      "name": "TechCorp",
+      "founded": "2005",
+      "description": "Enterprise software solutions focusing on cloud infrastructure and security",
+      "industry": "Technology",
+      "ceo": "Sarah Chen",
+      "business_model": "SaaS",
+      "employees": 1200,
+      "id": 4392794112
+    },
+    {
+      "level": 0.45,
+      "probability": "Medium",
+      "description": "Higher than industry average turnover among senior engineers",
+      "mitigation_status": "Early Stage",
+      "type": "operational",
+      "impact_area": "Product Development",
+      "id": 4392794048
+    }
+  ],
+  "links": [
+    {
+      "source": 4392794112,
+      "target": 4392794048,
+      "type": "RELATED_TO"
+    }
+  ]
+}
