@@ -653,19 +653,20 @@ def populate_test_data():
             })
         ]
         
+        # First, create all risk nodes (this is your existing code)
         for company, risk_type, description, level, properties in risks:
             risk_id = f"{company}_{risk_type}_{description.replace(' ', '_')}"
-            
+    
             # Create base risk properties
             risk_properties = {
                 "type": risk_type,
                 "description": description,
                 "level": level
             }
-            
+    
             # Add additional properties
             risk_properties.update(properties)
-            
+    
             neo4j.execute_query(
                 """
                 MATCH (c:Entity {name: $company})
@@ -678,7 +679,51 @@ def populate_test_data():
                     "properties": risk_properties
                 }
             )
-        
+
+        # AFTER the risk creation loop completes, create Process nodes
+        print("Creating Process nodes and relationships...")
+        process_data = [
+            # TechCorp processes
+            ("TechCorp", "Software Development", "talent retention issues in engineering"),
+            ("TechCorp", "Product Management", "decreasing market share in legacy products"),
+            ("TechCorp", "Market Analysis", "new market entrants with disruptive technology"),
+    
+            # FinanceGroup processes
+            ("FinanceGroup", "Regulatory Compliance", "regulatory changes in EU markets"),
+            ("FinanceGroup", "System Integration", "legacy system integration challenges"),
+    
+            # ManufactureX processes
+            ("ManufactureX", "Supply Chain Management", "supply chain disruption"),
+            ("ManufactureX", "Cost Management", "increasing raw material costs"),
+    
+            # RetailPro processes
+            ("RetailPro", "Financial Planning", "high debt levels"),
+            ("RetailPro", "Market Strategy", "e-commerce competition"),
+    
+            # HealthServices processes
+            ("HealthServices", "Market Research", "new entrants in telehealth"),
+            ("HealthServices", "Data Security", "data security compliance")
+        ]
+
+        # Create Process nodes and connect them to entities and risks
+        for company, process_name, risk_desc in process_data:
+            # Create process node and relationships
+            process_query = """
+            MATCH (c:Entity {name: $company})
+            MATCH (r:Risk)
+            WHERE r.description CONTAINS $risk_desc AND (c)-[:HAS_RISK]->(r)
+            MERGE (p:Process {name: $process_name})
+            MERGE (c)-[:HAS_PROCESS]->(p)
+            MERGE (p)-[:HAS_ISSUE]->(r)
+            """
+    
+            neo4j.execute_query(process_query, {
+                "company": company,
+                "process_name": process_name,
+                "risk_desc": risk_desc
+            })
+
+        # Now print success message
         print("Enhanced sample data added successfully!")
         
         # Count entities and relationships

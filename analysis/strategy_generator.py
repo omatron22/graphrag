@@ -99,41 +99,91 @@ class StrategyGenerator:
         return result
     
     def _generate_llm_strategies(self, entity_name: str, entity_summary: Dict[str, Any], 
-                          risk_data: Dict[str, Any], opportunities: Dict[str, Any]) -> List[Dict[str, Any]]:
+                       risk_data: Dict[str, Any], opportunities: Dict[str, Any]) -> List[Dict[str, Any]]:
         """
-        Generate strategies using large language model with enhanced strategic focus.
-    
+        Generate strategies using large language model with enhanced strategic focus and improved reliability.
+
         Args:
             entity_name: Name of the entity
             entity_summary: Entity data from knowledge graph
             risk_data: Risk analysis results
             opportunities: Strategic opportunities
-        
+    
         Returns:
             list: Generated strategies with details
         """
         # Format entity summary for LLM prompt
         entity_info = []
-    
+
         # Add basic entity details
         if entity_summary.get("entity"):
             entity_info.append(f"Entity: {entity_name}")
             for key, value in entity_summary.get("entity", {}).items():
                 if key != "name" and value:
                     entity_info.append(f"- {key}: {value}")
-    
+
         # Add financial metrics
         if entity_summary.get("financial_metrics"):
             entity_info.append("\nFinancial Metrics:")
             for metric in entity_summary["financial_metrics"]:
                 entity_info.append(f"- {metric['metric_name']}: {metric['metric_value']} {metric['metric_unit']}")
-    
+
         # Add key relationships
         if entity_summary.get("outgoing_relationships"):
             entity_info.append("\nKey Relationships:")
             for rel in entity_summary["outgoing_relationships"][:5]:  # Top 5 relationships
                 entity_info.append(f"- {entity_name} --[{rel['relationship_type']}]--> {rel['target_name']}")
-    
+
+        # Get entity strengths (new addition)
+        strengths_info = []
+        try:
+            strengths_query = """
+            MATCH (e:Entity {name: $entity_name})-[:HAS_STRENGTH]->(s:Strength)
+            RETURN s.name as name, s.description as description, s.importance as importance
+            """
+            strengths = self.neo4j_manager.execute_query(strengths_query, {"entity_name": entity_name})
+            if strengths:
+                entity_info.append("\nKey Strengths:")
+                for strength in strengths:
+                    entity_info.append(f"- {strength.get('name', 'Unknown')}: {strength.get('description', '')} " +
+                                    f"(Importance: {strength.get('importance', 'Medium')})")
+        except Exception as e:
+            logger.warning(f"Error retrieving strengths: {e}")
+
+        # Get products (new addition)
+        products_info = []
+        try:
+            products_query = """
+            MATCH (e:Entity {name: $entity_name})-[:PRODUCES]->(p:Product)
+            RETURN p.name as name, p.description as description, p.revenue as revenue, 
+                p.growth_rate as growth_rate, p.market_share as market_share
+            """
+            products = self.neo4j_manager.execute_query(products_query, {"entity_name": entity_name})
+            if products:
+                entity_info.append("\nProducts:")
+                for product in products:
+                    entity_info.append(f"- {product.get('name', 'Unknown')}: {product.get('description', '')} " +
+                                    f"(Revenue: {product.get('revenue', 'N/A')}, Growth: {product.get('growth_rate', 'N/A')})")
+        except Exception as e:
+            logger.warning(f"Error retrieving products: {e}")
+
+        # Get markets (new addition)
+        markets_info = []
+        try:
+            markets_query = """
+            MATCH (e:Entity {name: $entity_name})-[r:OPERATES_IN]->(m:Market)
+            RETURN m.name as name, m.size as size, m.growth_rate as growth_rate, 
+                r.market_position as position, r.years_present as years
+            """
+            markets = self.neo4j_manager.execute_query(markets_query, {"entity_name": entity_name})
+            if markets:
+                entity_info.append("\nMarkets:")
+                for market in markets:
+                    entity_info.append(f"- {market.get('name', 'Unknown')}: {market.get('size', 'N/A')} market, " +
+                                    f"{market.get('growth_rate', 'N/A')} growth, Position: {market.get('position', 'N/A')}")
+        except Exception as e:
+            logger.warning(f"Error retrieving markets: {e}")
+
         # Format risk data
         risk_info = []
         if risk_data:
@@ -142,48 +192,83 @@ class StrategyGenerator:
                 if risk_type != "reasoning":
                     risk_score = risk_data.get("scores", {}).get(risk_type, 0)
                     risk_info.append(f"- {risk_type.capitalize()} Risk: {category} (Score: {risk_score:.2f})")
-        
+    
             if risk_data.get("reasoning"):
                 risk_info.append(f"\nReasoning: {risk_data['reasoning']}")
-    
+
+        # Get specific risks
+        risks_query = """
+        MATCH (e:Entity {name: $entity_name})-[:HAS_RISK]->(r:Risk)
+        RETURN r.type as type, r.description as description, r.level as level, 
+            r.impact_area as impact_area, r.probability as probability
+        """
+        try:
+            risks = self.neo4j_manager.execute_query(risks_query, {"entity_name": entity_name})
+            if risks:
+                risk_info.append("\nSpecific Risks:")
+                for risk in risks:
+                    risk_info.append(f"- {risk.get('type', 'Unknown').capitalize()}: {risk.get('description', '')} " +
+                                f"(Level: {risk.get('level', 'N/A')}, Area: {risk.get('impact_area', 'N/A')})")
+        except Exception as e:
+            logger.warning(f"Error retrieving specific risks: {e}")
+
         # Format opportunities
         opportunity_info = []
         if opportunities:
             if opportunities.get("partnership_opportunities"):
                 opportunity_info.append("Partnership Opportunities:")
                 for partner in opportunities["partnership_opportunities"][:3]:  # Top 3
-                    strengths = ", ".join(partner["complementary_strengths"])
-                    opportunity_info.append(f"- Partner with {partner['potential_partner']} " + 
-                                     f"(Complementary strengths: {strengths})")
-        
+                    strengths = ", ".join(partner.get("complementary_strengths", []))
+                    opportunity_info.append(f"- Partner with {partner.get('potential_partner', 'Unknown')} " + 
+                                    f"(Complementary strengths: {strengths})")
+    
             if opportunities.get("market_expansion_opportunities"):
                 opportunity_info.append("\nMarket Expansion Opportunities:")
                 for market in opportunities["market_expansion_opportunities"][:3]:  # Top 3
-                    strengths = ", ".join(market["relevant_strengths"])
-                    opportunity_info.append(f"- Expand to {market['potential_market']} " + 
-                                     f"(Relevant strengths: {strengths})")
-    
+                    strengths = ", ".join(market.get("relevant_strengths", []))
+                    opportunity_info.append(f"- Expand to {market.get('potential_market', 'Unknown')} " + 
+                                    f"(Relevant strengths: {strengths})")
+
+        # Get competitor information (new addition)
+        competitor_info = []
+        try:
+            competitor_query = """
+            MATCH (e:Entity {name: $entity_name})-[r:COMPETES_WITH]->(c:Entity)
+            RETURN c.name as name, c.industry as industry, r.intensity as intensity, 
+                r.overlap_areas as overlap_areas
+            """
+            competitors = self.neo4j_manager.execute_query(competitor_query, {"entity_name": entity_name})
+            if competitors:
+                opportunity_info.append("\nCompetitive Landscape:")
+                for competitor in competitors:
+                    opportunity_info.append(f"- Competitor: {competitor.get('name', 'Unknown')} " +
+                                    f"(Industry: {competitor.get('industry', 'N/A')}, " +
+                                    f"Intensity: {competitor.get('intensity', 'N/A')}, " +
+                                    f"Overlap: {competitor.get('overlap_areas', 'N/A')})")
+        except Exception as e:
+            logger.warning(f"Error retrieving competitors: {e}")
+
         # Combine all information for the prompt
         entity_info_text = "\n".join(entity_info)
         risk_info_text = "\n".join(risk_info)
         opportunity_info_text = "\n".join(opportunity_info)
-    
+
         # Build the enhanced LLM prompt with clearer strategic focus
         prompt = f"""
         You are a world-class business strategist with decades of experience advising Fortune 500 companies.
         Your task is to develop innovative yet practical strategic recommendations for {entity_name}.
-    
-        Analyze the following information about {entity_name} and create 3-5 highly specific, 
+
+        Analyze the following detailed information about {entity_name} and create 3-5 highly specific, 
         data-driven strategic recommendations that address the identified risks and leverage opportunities.
-    
+
         IMPORTANT GUIDELINES FOR STRATEGY DEVELOPMENT:
-    
+
         1. Each strategy must be directly linked to the entity's specific situation, NOT generic advice
         2. Focus on distinctive, competitive advantage-building strategies rather than obvious solutions
         3. Balance short-term risk mitigation with long-term growth opportunities
         4. Ensure recommendations are concrete and actionable, not vague or theoretical
         5. Consider potential implementation challenges and address them in your recommendations
-    
+
         For each strategy recommendation:
         1. Provide a clear, specific action title (max 10 words)
         2. Explain the strategic rationale with direct references to the entity's data (2-3 sentences)
@@ -192,16 +277,16 @@ class StrategyGenerator:
         5. Specify 2-3 key performance indicators to measure success
         6. Set a realistic timeline (short: 0-6 months, medium: 6-18 months, long: 18+ months)
         7. Assign an appropriate priority level (high/medium/low) based on impact and urgency
-    
+
         Entity Information:
         {entity_info_text}
-    
+
         Risk Assessment:
         {risk_info_text}
-    
+
         Strategic Opportunities:
         {opportunity_info_text}
-    
+
         Return your analysis as a JSON array with the following structure for each recommendation:
         [
             {{
@@ -215,11 +300,11 @@ class StrategyGenerator:
             }},
             ...
         ]
-    
+
         Focus on creating strategies that are innovative, specific to this entity's unique situation, and deliver significant competitive advantage.
         ONLY return the JSON array of recommendations and nothing else.
         """
-    
+
         # Call the LLM
         try:
             logger.info("Calling LLM for strategy generation")
@@ -234,14 +319,14 @@ class StrategyGenerator:
                     "max_tokens": 2048  # Increased for more detailed strategies
                 }
             )
-        
+    
             result = response.json()
             content = result.get('response', '')
-        
+    
             # Extract the JSON object from response
             start_idx = content.find('[')
             end_idx = content.rfind(']') + 1
-        
+    
             if start_idx >= 0 and end_idx > start_idx:
                 json_str = content[start_idx:end_idx]
                 strategies = json.loads(json_str)
@@ -249,8 +334,19 @@ class StrategyGenerator:
                 return strategies
             else:
                 logger.warning("Could not extract JSON from LLM response")
-                return self._generate_fallback_strategies(entity_name, risk_data)
+                # Try a more aggressive JSON extraction
+                import re
+                json_match = re.search(r'\[\s*\{.*\}\s*\]', content, re.DOTALL)
+                if json_match:
+                    try:
+                        strategies = json.loads(json_match.group(0))
+                        logger.info(f"Generated {len(strategies)} strategy recommendations using regex extraction")
+                        return strategies
+                    except json.JSONDecodeError:
+                        pass
             
+                return self._generate_fallback_strategies(entity_name, risk_data)
+        
         except Exception as e:
             logger.error(f"Error in LLM strategy generation: {e}")
             return self._generate_fallback_strategies(entity_name, risk_data)

@@ -138,69 +138,91 @@ class RiskAnalyzer:
             return self._calculate_rule_based_risk()
     
     def _calculate_rule_based_risk(self):
-        """Calculate risk scores based on graph metrics as fallback."""
-        # Simple rule-based risk calculation from graph metrics
-        with self.kg_manager.driver.session() as session:
-            # Financial risk based on negative financial indicators
-            financial_result = session.run("""
-                MATCH (e:Entity)-[:HAS_REVENUE|HAS_PROFIT|HAS_CASH_FLOW]->(v)
-                WHERE exists((v)<-[:DECREASED|DECLINED]-())
-                WITH count(*) AS negative_indicators
-                
-                MATCH (e:Entity)-[:HAS_REVENUE|HAS_PROFIT|HAS_CASH_FLOW]->()
-                WITH negative_indicators, count(*) AS total_indicators
-                
-                RETURN 
-                    CASE WHEN total_indicators > 0 
-                    THEN toFloat(negative_indicators) / total_indicators 
-                    ELSE 0.3 END AS risk_score
-            """)
-            financial_risk = financial_result.single()["risk_score"]
-            
-            # Operational risk based on process issues
-            operational_result = session.run("""
-                // Use HAS_RISK relationships instead of non-existent process paths
-                MATCH (e:Entity)-[:HAS_RISK]->(r:Risk)
-                WHERE r.type = 'operational'
-                WITH COUNT(r) AS process_issues
-    
-                MATCH (e:Entity)
-                WITH process_issues, COUNT(e) AS total_entities
-    
-                RETURN 
-                    CASE WHEN total_entities > 0 
-                    THEN toFloat(process_issues) / total_entities * 0.8
-                    ELSE 0.3 END AS risk_score
-            """)
-            operational_risk = operational_result.single()["risk_score"]
-            
-            # Market risk based on negative trends
-            market_result = session.run("""
-                MATCH (e:Entity)-[:COMPETES_WITH|OPERATES_IN]->(m)
-                MATCH (m)-[:HAS_EMERGING_TREND]->(t)
-                WHERE t.name CONTAINS 'declin' OR t.name CONTAINS 'decrease'
-                WITH count(*) AS negative_trends
-                
-                MATCH (e:Entity)-[:COMPETES_WITH|OPERATES_IN]->()
-                WITH negative_trends, count(*) AS total_markets
-                
-                RETURN 
-                    CASE WHEN total_markets > 0 
-                    THEN toFloat(negative_trends) / total_markets * 0.9
-                    ELSE 0.3 END AS risk_score
-            """)
-            market_risk = market_result.single()["risk_score"]
+        """Calculate risk scores based on graph metrics as fallback with improved error handling."""
+        try:
+            # Initialize default risk values (medium-low instead of low)
+            financial_risk = 0.4
+            operational_risk = 0.5
+            market_risk = 0.45
         
-        # Calculate overall risk (weighted average)
-        overall_risk = (financial_risk * 0.4 + operational_risk * 0.3 + market_risk * 0.3)
+            with self.kg_manager.driver.session() as session:
+                # Financial risk based on entities with financial risk type
+                try:
+                    financial_result = session.run("""
+                        MATCH (e:Entity)-[:HAS_RISK]->(r:Risk)
+                        WHERE r.type = 'financial'
+                        WITH AVG(r.level) as avg_risk_level
+                        RETURN 
+                            CASE WHEN avg_risk_level IS NOT NULL 
+                            THEN avg_risk_level
+                            ELSE 0.4 END AS risk_score
+                    """)
+                    financial_record = financial_result.single()
+                    if financial_record:
+                        financial_risk = financial_record["risk_score"]
+                except Exception as e:
+                    self.logger.warning(f"Error calculating financial risk: {e}")
+            
+                # Operational risk based on operational risk entities
+                try:
+                    operational_result = session.run("""
+                        MATCH (e:Entity)-[:HAS_RISK]->(r:Risk)
+                        WHERE r.type = 'operational'
+                        WITH AVG(r.level) as avg_risk_level
+                        RETURN 
+                            CASE WHEN avg_risk_level IS NOT NULL 
+                            THEN avg_risk_level
+                            ELSE 0.5 END AS risk_score
+                    """)
+                    operational_record = operational_result.single()
+                    if operational_record:
+                        operational_risk = operational_record["risk_score"]
+                except Exception as e:
+                    self.logger.warning(f"Error calculating operational risk: {e}")
+            
+                # Market risk based on market risk entities and trends
+                try:
+                    market_result = session.run("""
+                        MATCH (e:Entity)-[:HAS_RISK]->(r:Risk)
+                        WHERE r.type = 'market'
+                        WITH AVG(r.level) as avg_risk_level
+                        RETURN 
+                            CASE WHEN avg_risk_level IS NOT NULL 
+                            THEN avg_risk_level
+                            ELSE 0.45 END AS risk_score
+                    """)
+                    market_record = market_result.single()
+                    if market_record:
+                        market_risk = market_record["risk_score"]
+                except Exception as e:
+                    self.logger.warning(f"Error calculating market risk: {e}")
         
-        return {
-            "financial": min(financial_risk, 1.0),
-            "operational": min(operational_risk, 1.0),
-            "market": min(market_risk, 1.0),
-            "overall": min(overall_risk, 1.0),
-            "reasoning": "Risk calculated using rule-based graph metrics."
-        }
+            # Calculate overall risk (weighted average)
+            overall_risk = (financial_risk * 0.4 + operational_risk * 0.3 + market_risk * 0.3)
+        
+            # Ensure all values are between 0 and 1
+            financial_risk = min(max(financial_risk, 0.0), 1.0)
+            operational_risk = min(max(operational_risk, 0.0), 1.0) 
+            market_risk = min(max(market_risk, 0.0), 1.0)
+            overall_risk = min(max(overall_risk, 0.0), 1.0)
+        
+            return {
+                "financial": financial_risk,
+                "operational": operational_risk,
+                "market": market_risk,
+                "overall": overall_risk,
+                "reasoning": "Risk calculated based on explicit risk nodes and relationships in the knowledge graph."
+            }
+        except Exception as e:
+            self.logger.error(f"Error in rule-based risk calculation: {e}")
+            # Return medium risk as fallback
+            return {
+                "financial": 0.4,    # Medium-low
+                "operational": 0.5,  # Medium
+                "market": 0.45,      # Medium
+                "overall": 0.45,     # Medium
+                "reasoning": "Risk calculated using fallback values due to data retrieval issues."
+            }
     
     def analyze(self):
         """Run complete risk analysis."""

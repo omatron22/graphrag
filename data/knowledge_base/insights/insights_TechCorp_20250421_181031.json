@@ -1,23 +1,23 @@
 {
-  "timestamp": "2025-04-21T11:49:07.832157",
+  "timestamp": "2025-04-21T18:09:56.158648",
   "focus_entity": "TechCorp",
   "key_findings": [
     {
       "title": "Common Relationship Chains",
-      "explanation": "TechCorp exhibits consistent relationship chains among its entities, creating predictable patterns in connectivity.",
-      "business_implications": "This consistency can streamline operations and enable efficient resource allocation by leveraging recurring patterns.",
+      "explanation": "TechCorp exhibits recurring relationship chains among its entities, indicating structured connections.",
+      "business_implications": "These consistent relationships support strategic partnerships and supply chain optimization.",
       "category": "pattern"
     },
     {
-      "title": "Similar Attribute Combinations",
-      "explanation": "Entities within TechCorp share similar attribute sets, indicating groupable clusters with shared characteristics.",
-      "business_implications": "These clusters can be targeted for personalized marketing or tailored product development strategies.",
+      "title": "Similar Attribute Sets",
+      "explanation": "Entities within TechCorp share similar attribute sets, highlighting potential for targeted marketing or product alignment.",
+      "business_implications": "Identifying these shared attributes can enhance customer segmentation and personalized marketing efforts.",
       "category": "pattern"
     },
     {
       "title": "Extreme Connectivity Anomaly",
-      "explanation": "TechCorp exhibits extreme connectivity anomaly, significantly deviating from expected network metrics.",
-      "business_implications": "This anomaly may indicate vulnerabilities or opportunities that require immediate investigation to optimize network performance and security.",
+      "explanation": "TechCorp's network exhibits extreme connectivity anomalies, suggesting potential collaboration bottlenecks.",
+      "business_implications": "Addressing this anomaly is critical for maintaining operational efficiency and cross-functional teamwork.",
       "category": "anomaly"
     }
   ],
@@ -39,12 +39,12 @@
         {
           "type1": "COMPETES_WITH",
           "type2": "HAS_RISK",
-          "frequency": 32
+          "frequency": 36
         },
         {
           "type1": "PARTNERED_WITH",
           "type2": "HAS_RISK",
-          "frequency": 16
+          "frequency": 18
         },
         {
           "type1": "OPERATES_IN",
@@ -52,7 +52,7 @@
           "frequency": 9
         }
       ],
-      "frequency": 409,
+      "frequency": 415,
       "significance": "high"
     },
     {
@@ -133,9 +133,9 @@
     {
       "type": "connectivity_anomaly",
       "entity": "TechCorp",
-      "connection_count": 148,
-      "average_connections": 16.49,
-      "z_score": 3.02,
+      "connection_count": 151,
+      "average_connections": 16.73,
+      "z_score": 3.03,
       "pattern": "highly_connected",
       "severity": "extreme",
       "significance": "high"
@@ -152,9 +152,9 @@
   },
   "metrics": {
     "overall": {
-      "node_count": 722,
-      "relationship_count": 723,
-      "density": 0.001388883552775654
+      "node_count": 734,
+      "relationship_count": 744,
+      "density": 0.001382843080766214
     },
     "entity_distribution": [
       {
@@ -163,7 +163,7 @@
       },
       {
         "label": "Risk",
-        "count": 88
+        "count": 99
       },
       {
         "label": "Entity",
@@ -196,6 +196,10 @@
       {
         "label": "Market",
         "count": 4
+      },
+      {
+        "label": "Process",
+        "count": 1
       }
     ],
     "relationship_distribution": [
@@ -205,7 +209,7 @@
       },
       {
         "rel_type": "HAS_RISK",
-        "count": 88
+        "count": 99
       },
       {
         "rel_type": "HAS_DOMINANT_SEGMENT",
@@ -224,6 +228,10 @@
         "count": 11
       },
       {
+        "rel_type": "HAS_ISSUE",
+        "count": 9
+      },
+      {
         "rel_type": "PRODUCES",
         "count": 6
       },
@@ -234,11 +242,15 @@
       {
         "rel_type": "PARTNERED_WITH",
         "count": 3
+      },
+      {
+        "rel_type": "HAS_PROCESS",
+        "count": 1
       }
     ],
     "entity_specific": {
-      "connection_count": 147,
-      "relationship_count": 148,
+      "connection_count": 150,
+      "relationship_count": 151,
       "relationship_types": [
         "PRODUCES",
         "HAS_STRENGTH",
@@ -248,7 +260,7 @@
         "HAS_METRIC",
         "HAS_RISK"
       ],
-      "extended_network_size": 728
+      "extended_network_size": 740
     }
   },
   "visualization_data": {
@@ -295,12 +307,12 @@
       "metrics": [
         {
           "name": "Node Count",
-          "value": 722,
+          "value": 734,
           "description": "Total number of entities in the knowledge graph"
         },
         {
           "name": "Relationship Count",
-          "value": 723,
+          "value": 744,
           "description": "Total number of relationships between entities"
         },
         {
@@ -311,12 +323,12 @@
         },
         {
           "name": "Connection Count",
-          "value": 147,
+          "value": 150,
           "description": "Number of entities directly connected to the focus entity"
         },
         {
           "name": "Extended Network Size",
-          "value": 728,
+          "value": 740,
           "description": "Size of the network within 2 degrees of separation"
         },
         {

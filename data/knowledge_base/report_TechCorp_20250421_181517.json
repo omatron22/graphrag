@@ -1,0 +1,654 @@
+{
+  "entity": "TechCorp",
+  "timestamp": "2025-04-21T18:15:17.672799",
+  "risks": {
+    "scores": {
+      "financial": 0.0,
+      "operational": 1.0,
+      "market": 0.0,
+      "overall": 1.0,
+      "reasoning": "The operational risk is high due to global supply chain disruptions affecting key component availability for ManufactureX, which is mentioned multiple times. There are no direct financial issues or market-related problems indicated."
+    },
+    "categories": {
+      "financial": "Low",
+      "operational": "High",
+      "market": "Low",
+      "overall": "High",
+      "reasoning": "The operational risk is high due to global supply chain disruptions affecting key component availability for ManufactureX, which is mentioned multiple times. There are no direct financial issues or market-related problems indicated."
+    },
+    "reasoning": "The operational risk is high due to global supply chain disruptions affecting key component availability for ManufactureX, which is mentioned multiple times. There are no direct financial issues or market-related problems indicated."
+  },
+  "insights": {
+    "timestamp": "2025-04-21T18:09:56.158648",
+    "focus_entity": "TechCorp",
+    "key_findings": [
+      {
+        "title": "Common Relationship Chains",
+        "explanation": "TechCorp exhibits recurring relationship chains among its entities, indicating structured connections.",
+        "business_implications": "These consistent relationships support strategic partnerships and supply chain optimization.",
+        "category": "pattern"
+      },
+      {
+        "title": "Similar Attribute Sets",
+        "explanation": "Entities within TechCorp share similar attribute sets, highlighting potential for targeted marketing or product alignment.",
+        "business_implications": "Identifying these shared attributes can enhance customer segmentation and personalized marketing efforts.",
+        "category": "pattern"
+      },
+      {
+        "title": "Extreme Connectivity Anomaly",
+        "explanation": "TechCorp's network exhibits extreme connectivity anomalies, suggesting potential collaboration bottlenecks.",
+        "business_implications": "Addressing this anomaly is critical for maintaining operational efficiency and cross-functional teamwork.",
+        "category": "anomaly"
+      }
+    ],
+    "patterns": [
+      {
+        "type": "relationship_chain",
+        "description": "Common relationship chains from TechCorp",
+        "instances": [
+          {
+            "type1": "COMPETES_WITH",
+            "type2": "HAS_METRIC",
+            "frequency": 224
+          },
+          {
+            "type1": "PARTNERED_WITH",
+            "type2": "HAS_METRIC",
+            "frequency": 128
+          },
+          {
+            "type1": "COMPETES_WITH",
+            "type2": "HAS_RISK",
+            "frequency": 36
+          },
+          {
+            "type1": "PARTNERED_WITH",
+            "type2": "HAS_RISK",
+            "frequency": 18
+          },
+          {
+            "type1": "OPERATES_IN",
+            "type2": "HAS_EMERGING_TREND",
+            "frequency": 9
+          }
+        ],
+        "frequency": 415,
+        "significance": "high"
+      },
+      {
+        "type": "attribute_combination",
+        "description": "Entities with similar attribute sets",
+        "instances": [
+          {
+            "attributes": [
+              "category",
+              "revenue",
+              "launch_date",
+              "description",
+              "growth_rate",
+              "market_share",
+              "name"
+            ],
+            "entity_count": 6
+          },
+          {
+            "attributes": [
+              "ceo",
+              "business_model",
+              "description",
+              "industry",
+              "employees",
+              "headquarters",
+              "market_cap",
+              "name",
+              "revenue",
+              "founded"
+            ],
+            "entity_count": 3
+          },
+          {
+            "attributes": [
+              "name",
+              "consumer_spending",
+              "regulatory_environment",
+              "growth_rate",
+              "size",
+              "competition_level"
+            ],
+            "entity_count": 2
+          }
+        ],
+        "frequency": 11,
+        "significance": "high"
+      },
+      {
+        "type": "relationship_cycle",
+        "description": "Entities forming relationship cycles",
+        "instances": [
+          {
+            "node1": "TechCorp",
+            "node2": "FinanceGroup",
+            "node3": "HealthServices",
+            "rel1": "COMPETES_WITH",
+            "rel2": "COMPETES_WITH",
+            "rel3": "PARTNERED_WITH",
+            "cycle_count": 1
+          }
+        ],
+        "frequency": 1,
+        "significance": "low"
+      }
+    ],
+    "trends": [],
+    "correlations": [
+      {
+        "type": "co_occurrence",
+        "entity1": "TechCorp",
+        "entity2": "HealthServices",
+        "frequency": 2,
+        "significance": "low"
+      }
+    ],
+    "anomalies": [
+      {
+        "type": "connectivity_anomaly",
+        "entity": "TechCorp",
+        "connection_count": 151,
+        "average_connections": 16.73,
+        "z_score": 3.03,
+        "pattern": "highly_connected",
+        "severity": "extreme",
+        "significance": "high"
+      }
+    ],
+    "networks": {
+      "graph_size": {
+        "nodes": 22,
+        "edges": 31
+      },
+      "centrality": [],
+      "communities": [],
+      "clusters": []
+    },
+    "metrics": {
+      "overall": {
+        "node_count": 734,
+        "relationship_count": 744,
+        "density": 0.001382843080766214
+      },
+      "entity_distribution": [
+        {
+          "label": "MetricValue",
+          "count": 576
+        },
+        {
+          "label": "Risk",
+          "count": 99
+        },
+        {
+          "label": "Entity",
+          "count": 38
+        },
+        {
+          "label": "Trend",
+          "count": 12
+        },
+        {
+          "label": "Metric",
+          "count": 12
+        },
+        {
+          "label": "Strength",
+          "count": 11
+        },
+        {
+          "label": "Segment",
+          "count": 8
+        },
+        {
+          "label": "Product",
+          "count": 6
+        },
+        {
+          "label": "Company",
+          "count": 5
+        },
+        {
+          "label": "Market",
+          "count": 4
+        },
+        {
+          "label": "Process",
+          "count": 1
+        }
+      ],
+      "relationship_distribution": [
+        {
+          "rel_type": "HAS_METRIC",
+          "count": 576
+        },
+        {
+          "rel_type": "HAS_RISK",
+          "count": 99
+        },
+        {
+          "rel_type": "HAS_DOMINANT_SEGMENT",
+          "count": 12
+        },
+        {
+          "rel_type": "HAS_EMERGING_TREND",
+          "count": 12
+        },
+        {
+          "rel_type": "HAS_STRENGTH",
+          "count": 11
+        },
+        {
+          "rel_type": "OPERATES_IN",
+          "count": 11
+        },
+        {
+          "rel_type": "HAS_ISSUE",
+          "count": 9
+        },
+        {
+          "rel_type": "PRODUCES",
+          "count": 6
+        },
+        {
+          "rel_type": "COMPETES_WITH",
+          "count": 4
+        },
+        {
+          "rel_type": "PARTNERED_WITH",
+          "count": 3
+        },
+        {
+          "rel_type": "HAS_PROCESS",
+          "count": 1
+        }
+      ],
+      "entity_specific": {
+        "connection_count": 150,
+        "relationship_count": 151,
+        "relationship_types": [
+          "PRODUCES",
+          "HAS_STRENGTH",
+          "OPERATES_IN",
+          "COMPETES_WITH",
+          "PARTNERED_WITH",
+          "HAS_METRIC",
+          "HAS_RISK"
+        ],
+        "extended_network_size": 740
+      }
+    },
+    "visualization_data": {
+      "network_graph": {
+        "type": "network_graph",
+        "title": "Entity Relationship Network",
+        "description": "Network visualization of entity relationships and communities",
+        "data": {
+          "nodes": [],
+          "links": []
+        }
+      },
+      "trend_charts": {
+        "type": "line_chart",
+        "title": "Metric Trends Over Time",
+        "description": "Visualization of how metrics change over time",
+        "datasets": []
+      },
+      "anomaly_charts": {
+        "type": "scatter_plot",
+        "title": "Metric Anomalies",
+        "description": "Visualization of metric values that deviate significantly from average",
+        "datasets": []
+      },
+      "correlation_matrix": {
+        "type": "correlation_matrix",
+        "title": "Entity Correlations",
+        "description": "Matrix visualization of correlations between entities",
+        "data": [
+          {
+            "entity1": "TechCorp",
+            "entity2": "HealthServices",
+            "metric": "co-occurrence",
+            "coefficient": 0.2,
+            "strength": 0.2,
+            "color": "blue"
+          }
+        ]
+      },
+      "key_metrics": {
+        "type": "metrics_dashboard",
+        "title": "Key Knowledge Graph Metrics",
+        "description": "Summary of important metrics and statistics",
+        "metrics": [
+          {
+            "name": "Node Count",
+            "value": 734,
+            "description": "Total number of entities in the knowledge graph"
+          },
+          {
+            "name": "Relationship Count",
+            "value": 744,
+            "description": "Total number of relationships between entities"
+          },
+          {
+            "name": "Graph Density",
+            "value": 0.14,
+            "unit": "%",
+            "description": "Percentage of potential connections that actually exist"
+          },
+          {
+            "name": "Connection Count",
+            "value": 150,
+            "description": "Number of entities directly connected to the focus entity"
+          },
+          {
+            "name": "Extended Network Size",
+            "value": 740,
+            "description": "Size of the network within 2 degrees of separation"
+          },
+          {
+            "name": "Patterns Detected",
+            "value": 3,
+            "description": "Number of repeating patterns identified in the graph"
+          },
+          {
+            "name": "Trends Identified",
+            "value": 0,
+            "description": "Number of temporal trends identified in the data"
+          },
+          {
+            "name": "Anomalies Found",
+            "value": 1,
+            "description": "Number of outliers and anomalies detected"
+          }
+        ]
+      }
+    }
+  },
+  "strategies": [
+    {
+      "title": "Strengthen Product Development Teams",
+      "rationale": "Addressing high employee turnover in product development through improved recruitment and retention strategies will enhance innovation and product quality.",
+      "benefits": [
+        "Reduced employee turnover",
+        "Increased productivity"
+      ],
+      "implementation_steps": [
+        "Implement retention programs targeting key talent",
+        "Enhance onboarding processes for new hires",
+        "Create mentorship and career advancement opportunities"
+      ],
+      "kpis": [
+        "Employee retention rate",
+        "Time-to-productivity for new hires"
+      ],
+      "timeline": "medium",
+      "priority": "high"
+    },
+    {
+      "title": "Expand Cloud Security Offerings with AI",
+      "rationale": "Leveraging TechCorp's security expertise to develop cutting-edge AI-driven solutions will enhance their market position and attract tech-savvy clients.",
+      "benefits": [
+        "Increased customer base",
+        "Differentiated offerings"
+      ],
+      "implementation_steps": [
+        "Integrate AI algorithms into existing security products",
+        "Develop new AI-based threat detection systems",
+        "Launch targeted marketing campaigns"
+      ],
+      "kpis": [
+        "Customer acquisition rate",
+        "New product revenue growth"
+      ],
+      "timeline": "long",
+      "priority": "high"
+    },
+    {
+      "title": "Leverage Data Analytics for Predictive Insights",
+      "rationale": "Using TechCorp's data analytics capabilities to offer predictive solutions will add significant value, enhancing customer satisfaction and retention.",
+      "benefits": [
+        "Improved decision-making",
+        "Increased customer loyalty"
+      ],
+      "implementation_steps": [
+        "Develop AI-powered predictive tools",
+        "Integrate these tools into existing platforms",
+        "Create a dedicated data insights division"
+      ],
+      "kpis": [
+        "Customer satisfaction rate",
+        "Client retention rate"
+      ],
+      "timeline": "medium",
+      "priority": "high"
+    }
+  ],
+  "connected_entities": [
+    {
+      "entity": "DataAnalyzer",
+      "relationship": "PRODUCES",
+      "connection_strength": 1
+    },
+    {
+      "entity": "Cloud Security Expertise",
+      "relationship": "HAS_STRENGTH",
+      "connection_strength": 1
+    },
+    {
+      "entity": "Scalable Infrastructure",
+      "relationship": "HAS_STRENGTH",
+      "connection_strength": 1
+    },
+    {
+      "entity": "Data Analytics Capabilities",
+      "relationship": "HAS_STRENGTH",
+      "connection_strength": 1
+    },
+    {
+      "entity": "North America",
+      "relationship": "OPERATES_IN",
+      "connection_strength": 1
+    },
+    {
+      "entity": "Europe",
+      "relationship": "OPERATES_IN",
+      "connection_strength": 1
+    },
+    {
+      "entity": "Asia Pacific",
+      "relationship": "OPERATES_IN",
+      "connection_strength": 1
+    },
+    {
+      "entity": "FinanceGroup",
+      "relationship": "COMPETES_WITH",
+      "connection_strength": 1
+    },
+    {
+      "entity": "HealthServices",
+      "relationship": "COMPETES_WITH",
+      "connection_strength": 1
+    },
+    {
+      "entity": "CloudSecure",
+      "relationship": "PRODUCES",
+      "connection_strength": 1
+    }
+  ],
+  "comprehensive_report": {
+    "entity": "TechCorp",
+    "generation_date": "2025-04-21T18:15:17.652133",
+    "executive_summary": "Executive Summary for TechCorp\n        \n        This report outlines 1 strategic recommendations designed to address identified risks\n        and capitalize on opportunities. The risk assessment shows Financial: Low, Operational: Low, Market: Low, Overall: Low.\n        \n        0 high-priority strategies have been identified that require immediate attention.\n        The recommendations focus on addressing key operational, financial, and market challenges,\n        with detailed implementation roadmaps and expected outcomes.\n        \n        The analysis leverages data from our knowledge graph which integrates information \n        from multiple business documents and market intelligence sources.",
+    "strategies": [
+      {
+        "title": "Establish Strategic Foresight System",
+        "rationale": "Enable TechCorp to systematically identify emerging opportunities and threats through an integrated approach to environmental scanning, scenario planning, and strategic option development.",
+        "benefits": [
+          "50% improvement in strategic decision speed and quality",
+          "Early identification of 80% of significant market shifts",
+          "25% increase in successful new initiative launches"
+        ],
+        "implementation_steps": [
+          "Deploy AI-powered competitive and market intelligence platform",
+          "Develop quarterly scenario planning process with key stakeholders",
+          "Create strategy option portfolio with pre-defined trigger conditions",
+          "Implement strategy sprint methodology for rapid adaptation",
+          "Train leadership in strategic agility principles"
+        ],
+        "kpis": [
+          "Strategic opportunity capitalization rate",
+          "Scenario planning accuracy index",
+          "Decision cycle time reduction"
+        ],
+        "timeline": "medium",
+        "priority": "medium"
+      }
+    ],
+    "risk_assessment": {
+      "financial": "Low",
+      "operational": "Low",
+      "market": "Low",
+      "overall": "Low",
+      "reasoning": "The business data provided does not directly indicate significant risks in the financial, market, or overall risk categories. However, there is a notable operational risk associated with ManufactureX's supply chain management issues, which could potentially impact its operational efficiency and indirectly affect financial performance if unresolved. The lack of information on specific financial, market, or customer-related issues justifies assigning low scores to these categories."
+    },
+    "visualizations": {
+      "strategy_prioritization": {
+        "type": "bubble_chart",
+        "description": "Strategy prioritization by impact, effort, and priority",
+        "data": [
+          {
+            "title": "Establish Strategic Foresight System",
+            "impact": 0.5,
+            "effort": 0.6,
+            "priority": "medium",
+            "size": 30
+          }
+        ]
+      },
+      "implementation_timeline": {
+        "type": "gantt_chart",
+        "description": "Implementation timeline for recommended strategies",
+        "data": [
+          {
+            "title": "Establish Strategic Foresight System",
+            "start_days": 0,
+            "end_days": 180,
+            "priority": "medium",
+            "group": 0
+          }
+        ]
+      },
+      "risk_mitigation_impact": {
+        "type": "radar_chart",
+        "description": "Expected risk reduction by category",
+        "categories": [
+          "Financial",
+          "Operational",
+          "Market",
+          "Reputational",
+          "Legal"
+        ],
+        "datasets": [
+          {
+            "label": "Establish Strategic Foresight System",
+            "data": [
+              0.1,
+              0.1,
+              0.1,
+              0.1,
+              0.1
+            ]
+          }
+        ]
+      },
+      "financial_impact": {
+        "type": "bar_chart",
+        "description": "Projected financial impact of strategies",
+        "labels": [
+          "Establish Strategic Foresight System"
+        ],
+        "datasets": [
+          {
+            "label": "Revenue Impact (%)",
+            "data": [
+              2.0
+            ]
+          },
+          {
+            "label": "Cost Savings (%)",
+            "data": [
+              2.0
+            ]
+          }
+        ]
+      }
+    },
+    "opportunities": {
+      "partnership_opportunities": [],
+      "market_expansion_opportunities": []
+    },
+    "supporting_data": {
+      "entity_graph": {
+        "nodes": [
+          {
+            "headquarters": "San Francisco",
+            "revenue": "525M",
+            "market_cap": "2.1B",
+            "name": "TechCorp",
+            "founded": "2005",
+            "description": "Enterprise software solutions focusing on cloud infrastructure and security",
+            "industry": "Technology",
+            "ceo": "Sarah Chen",
+            "business_model": "SaaS",
+            "employees": 1200,
+            "id": 4433602368
+          },
+          {
+            "level": 0.45,
+            "probability": "Medium",
+            "description": "Higher than industry average turnover among senior engineers",
+            "mitigation_status": "Early Stage",
+            "type": "operational",
+            "impact_area": "Product Development",
+            "id": 4433606976
+          }
+        ],
+        "links": [
+          {
+            "source": 4433602368,
+            "target": 4433606976,
+            "type": "RELATED_TO"
+          }
+        ],
+        "exported_file": "knowledge_graph/exports/entity_TechCorp_20250421_181517.json"
+      },
+      "market_context": {
+        "market_size": "$10B",
+        "growth_rate": "5.2%",
+        "competitive_landscape": {
+          "major_players": [
+            "Competitor A",
+            "Competitor B",
+            "Competitor C"
+          ],
+          "market_shares": [
+            23,
+            18,
+            15
+          ]
+        },
+        "key_trends": [
+          "Digital transformation across the industry",
+          "Increasing regulatory scrutiny",
+          "Shift toward sustainable practices"
+        ]
+      }
+    }
+  }
+}
