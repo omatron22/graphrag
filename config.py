@@ -18,9 +18,9 @@ MODELS = {
         'name': 'deepseek-r1:8b',  # Upgraded from llama3:8b for better reasoning capabilities
         'endpoint': 'http://localhost:11434/api/generate',
         'parameters': {
-            'temperature': 0.2,
+            'temperature': 0.1,
             'top_p': 0.9,
-            'max_tokens': 1024
+            'max_tokens': 2048
         }
     },
     'vision': {

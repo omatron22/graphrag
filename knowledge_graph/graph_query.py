@@ -317,19 +317,41 @@ class GraphQueryManager:
                         node_data["labels"] = list(node.labels)
                     nodes.append(node_data)
             
+            # Update the relationship handling section
             for rel in result[0]["relationships"]:
                 try:
-                    # First try accessing as an object with attributes (Neo4j 4.x style)
-                    source_node = rel.start_node
-                    target_node = rel.end_node
-                    rel_type = type(rel).__name__
-        
-                    links.append({
-                        "source": id(source_node),
-                        "target": id(target_node),
-                        "type": rel_type
-                    })
-                except AttributeError:
+                    # Handle different relationship formats
+                    if hasattr(rel, "start_node") and hasattr(rel, "end_node"):
+                        # Neo4j 4.x style
+                        source_node = rel.start_node
+                        target_node = rel.end_node
+                        rel_type = type(rel).__name__
+                
+                        links.append({
+                            "source": id(source_node),
+                            "target": id(target_node),
+                            "type": rel_type
+                        })
+                    elif isinstance(rel, tuple) and len(rel) >= 2:
+                        # Handle tuple format
+                        logger.info("Processing relationship in tuple format")
+                        # Assuming the tuple contains (start_node, end_node) or similar
+                        source_node = rel[0]
+                        target_node = rel[1]
+                        rel_type = "RELATED_TO"  # Default type
+                
+                        links.append({
+                            "source": id(source_node),
+                            "target": id(target_node),
+                            "type": rel_type
+                        })
+                    else:
+                        logger.warning(f"Relationship returned in unexpected format: {type(rel)}")
+                        # Try to extract the relationship from the query result
+                        # This is a simplified fallback
+                except AttributeError as e:
+                    logger.warning(f"AttributeError handling relationship: {e}")
+                    # Fallback relationship handling
                     # If the relationship is a tuple or different structure
                     logger.warning(f"Relationship returned in unexpected format: {type(rel)}")
                     # Try to extract nodes from the query result in a different way

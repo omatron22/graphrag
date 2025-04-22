@@ -314,39 +314,51 @@ class StrategyGenerator:
                     "model": self.model_config['name'],
                     "prompt": prompt,
                     "stream": False,
-                    "temperature": 0.2,  # Lower temperature for more focused output
-                    "top_p": 0.85,
-                    "max_tokens": 2048  # Increased for more detailed strategies
+                    **self.model_config['parameters']
                 }
             )
-    
+        
             result = response.json()
             content = result.get('response', '')
-    
-            # Extract the JSON object from response
+        
+            # First try with regular extraction
             start_idx = content.find('[')
             end_idx = content.rfind(']') + 1
-    
-            if start_idx >= 0 and end_idx > start_idx:
-                json_str = content[start_idx:end_idx]
-                strategies = json.loads(json_str)
-                logger.info(f"Generated {len(strategies)} strategy recommendations")
-                return strategies
-            else:
-                logger.warning("Could not extract JSON from LLM response")
-                # Try a more aggressive JSON extraction
-                import re
-                json_match = re.search(r'\[\s*\{.*\}\s*\]', content, re.DOTALL)
-                if json_match:
-                    try:
-                        strategies = json.loads(json_match.group(0))
-                        logger.info(f"Generated {len(strategies)} strategy recommendations using regex extraction")
-                        return strategies
-                    except json.JSONDecodeError:
-                        pass
-            
-                return self._generate_fallback_strategies(entity_name, risk_data)
         
+            if start_idx >= 0 and end_idx > start_idx:
+                try:
+                    json_str = content[start_idx:end_idx]
+                    strategies = json.loads(json_str)
+                    logger.info(f"Generated {len(strategies)} strategy recommendations")
+                    return strategies
+                except json.JSONDecodeError:
+                    logger.warning("JSON extraction failed, trying with regex")
+        
+            # If that fails, try more aggressive JSON extraction
+            import re
+            json_pattern = r'\[\s*\{.*?\}\s*\]'
+            json_match = re.search(json_pattern, content, re.DOTALL)
+            if json_match:
+                try:
+                    strategies = json.loads(json_match.group(0))
+                    logger.info(f"Generated {len(strategies)} strategy recommendations using regex")
+                    return strategies
+                except json.JSONDecodeError:
+                    logger.warning("Regex extraction failed, trying alternative approach")
+        
+            # If both methods fail, try to fix common JSON issues
+            fixed_content = content.replace("'", '"')  # Replace single quotes with double quotes
+            json_match = re.search(r'\[\s*\{.*?\}\s*\]', fixed_content, re.DOTALL)
+            if json_match:
+                try:
+                    strategies = json.loads(json_match.group(0))
+                    logger.info(f"Generated {len(strategies)} strategy recommendations after fixing quotes")
+                    return strategies
+                except json.JSONDecodeError:
+                    logger.warning("All extraction methods failed, using fallback strategy generation")
+        
+            return self._generate_fallback_strategies(entity_name, risk_data)
+    
         except Exception as e:
             logger.error(f"Error in LLM strategy generation: {e}")
             return self._generate_fallback_strategies(entity_name, risk_data)

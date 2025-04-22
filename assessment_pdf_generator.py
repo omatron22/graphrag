@@ -36,51 +36,86 @@ class AssessmentPDFGenerator:
         """Initialize PDF generation library."""
         # Try to import ReportLab
         try:
-            from reportlab.lib.pagesizes import letter, A4
-            from reportlab.lib import colors
-            from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-            from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, Image
-            from reportlab.graphics.charts.piecharts import Pie
-            from reportlab.graphics.charts.barcharts import VerticalBarChart
-            from reportlab.graphics.charts.linecharts import HorizontalLineChart
-            from reportlab.graphics.shapes import Drawing
+            # First check if we can import the base reportlab package
+            try:
+                import reportlab
+                logger.info(f"Found reportlab version: {reportlab.__version__}")
+                logger.info(f"Reportlab path: {reportlab.__file__}")
+            except (ImportError, AttributeError) as e:
+                logger.warning(f"Error importing reportlab base package: {e}")
+        
+            # Now try importing specific reportlab modules
+            try:
+                from reportlab.lib.pagesizes import letter, A4
+                logger.info("Successfully imported reportlab.lib.pagesizes")
             
-            self.pdf_lib = {
-                "pagesizes": {"letter": letter, "A4": A4},
-                "colors": colors,
-                "styles": getSampleStyleSheet(),
-                "SimpleDocTemplate": SimpleDocTemplate,
-                "Paragraph": Paragraph,
-                "Spacer": Spacer,
-                "Table": Table,
-                "TableStyle": TableStyle,
-                "Image": Image,
-                "charts": {
-                    "Pie": Pie,
-                    "VerticalBarChart": VerticalBarChart,
-                    "HorizontalLineChart": HorizontalLineChart
-                },
-                "Drawing": Drawing
-            }
+                from reportlab.lib import colors
+                logger.info("Successfully imported reportlab.lib.colors")
             
-            # Add custom styles
-            self.pdf_lib["styles"].add(ParagraphStyle(
-                name='Heading1Center',
-                parent=self.pdf_lib["styles"]['Heading1'],
-                alignment=1  # Center alignment
-            ))
+                from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+                logger.info("Successfully imported reportlab.lib.styles")
             
-            self.pdf_lib["styles"].add(ParagraphStyle(
-                name='Normal-Bold',
-                parent=self.pdf_lib["styles"]['Normal'],
-                fontName='Helvetica-Bold'
-            ))
+                from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, Image
+                logger.info("Successfully imported reportlab.platypus")
             
-            logger.info("ReportLab PDF library initialized")
-            self.pdf_engine = "reportlab"
+                from reportlab.graphics.charts.piecharts import Pie
+                logger.info("Successfully imported reportlab.graphics.charts.piecharts")
             
-        except ImportError:
-            logger.warning("ReportLab not installed. Using fallback PDF engine.")
+                from reportlab.graphics.charts.barcharts import VerticalBarChart
+                logger.info("Successfully imported reportlab.graphics.charts.barcharts")
+            
+                from reportlab.graphics.charts.linecharts import HorizontalLineChart
+                logger.info("Successfully imported reportlab.graphics.charts.linecharts")
+            
+                from reportlab.graphics.shapes import Drawing
+                logger.info("Successfully imported reportlab.graphics.shapes")
+            
+                # Continue with initialization if all imports succeed
+                self.pdf_lib = {
+                    "pagesizes": {"letter": letter, "A4": A4},
+                    "colors": colors,
+                    "styles": getSampleStyleSheet(),
+                    "SimpleDocTemplate": SimpleDocTemplate,
+                    "Paragraph": Paragraph,
+                    "Spacer": Spacer,
+                    "Table": Table,
+                    "TableStyle": TableStyle,
+                    "Image": Image,
+                    "charts": {
+                        "Pie": Pie,
+                        "VerticalBarChart": VerticalBarChart,
+                        "HorizontalLineChart": HorizontalLineChart
+                    },
+                    "Drawing": Drawing
+                }
+            
+                # Add custom styles
+                self.pdf_lib["styles"].add(ParagraphStyle(
+                    name='Heading1Center',
+                    parent=self.pdf_lib["styles"]['Heading1'],
+                    alignment=1  # Center alignment
+                ))
+            
+                self.pdf_lib["styles"].add(ParagraphStyle(
+                    name='Normal-Bold',
+                    parent=self.pdf_lib["styles"]['Normal'],
+                    fontName='Helvetica-Bold'
+                ))
+            
+                # Log Python environment information
+                import sys
+                logger.info(f"Python executable: {sys.executable}")
+                logger.info(f"Python version: {sys.version}")
+            
+                logger.info("ReportLab PDF library initialized")
+                self.pdf_engine = "reportlab"
+            
+            except ImportError as e:
+                logger.warning(f"Specific ReportLab module import error: {e}")
+                self.pdf_engine = "fallback"
+        
+        except Exception as e:
+            logger.warning(f"Unexpected error initializing ReportLab: {e}")
             self.pdf_engine = "fallback"
     
     def generate_assessment_pdf(self, assessment_results: Dict[str, Any], charts: Dict[str, Dict[str, Any]]) -> str:

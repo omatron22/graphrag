@@ -797,15 +797,15 @@ class InsightExtractor:
     def _analyze_network(self, entity_name: Optional[str] = None) -> Dict[str, Any]:
         """
         Analyze network properties of the knowledge graph with better error handling
-    
+
         Args:
             entity_name: Optional entity to focus on
-        
+    
         Returns:
             dict: Network analysis results
         """
         logger.info("Performing network analysis")
-    
+
         # Prepare query to get graph data for network analysis
         if entity_name:
             # Focused subgraph for specific entity
@@ -816,7 +816,7 @@ class InsightExtractor:
             WHERE source:Entity AND target:Entity
             RETURN source.name as source, target.name as target, rel_type
             """
-        
+    
             params = {"name": entity_name}
         else:
             # Full entity graph (limited to a reasonable size)
@@ -825,9 +825,9 @@ class InsightExtractor:
             RETURN source.name as source, target.name as target, type(rel) as rel_type
             LIMIT 1000
             """
-        
-            params = {}
     
+            params = {}
+
         # Execute query with better error handling
         try:
             relationships = self.neo4j_manager.execute_query(graph_query, params)
@@ -839,7 +839,7 @@ class InsightExtractor:
                 "communities": [],
                 "clusters": []
             }
-        
+    
         # If no relationships found, return empty results
         if not relationships:
             return {
@@ -847,20 +847,20 @@ class InsightExtractor:
                 "communities": [],
                 "clusters": []
             }
-    
+
         try:
             # Build NetworkX graph
             G = nx.DiGraph()
-        
+    
             # Add edges
             for rel in relationships:
                 source = rel["source"]
                 target = rel["target"]
                 rel_type = rel["rel_type"]
-            
+        
                 if source and target:  # Make sure both exist
                     G.add_edge(source, target, type=rel_type)
-        
+    
             # Calculate network metrics
             results = {
                 "graph_size": {
@@ -871,75 +871,120 @@ class InsightExtractor:
                 "communities": [],
                 "clusters": []
             }
-        
+    
             # Only proceed if we have nodes
             if G.number_of_nodes() > 0:
+                # Store PageRank globally to avoid scope issues
+                pagerank_values = {}
+            
                 # Calculate centrality measures (who's most important)
                 try:
                     # Degree centrality
                     degree_centrality = nx.degree_centrality(G)
-                
+            
                     # Betweenness centrality (limited to prevent long calculation times)
-                    if G.number_of_nodes() <= 100:  # Reduced threshold
-                        betweenness_centrality = nx.betweenness_centrality(G, k=min(G.number_of_nodes()//2, 10))
-                    else:
-                        betweenness_centrality = {}
-                    
-                    # PageRank (influence) with limited iterations
-                    pagerank = nx.pagerank(G, alpha=0.85, max_iter=50)
+                    betweenness_centrality = {}
+                    try:
+                        if G.number_of_nodes() <= 100:  # Reduced threshold
+                            betweenness_centrality = nx.betweenness_centrality(G, k=min(G.number_of_nodes()//2, 10))
+                    except Exception as e:
+                        logger.warning(f"Error calculating betweenness centrality: {e}")
                 
+                    # PageRank (influence) with limited iterations
+                    try:
+                        # Store PageRank in our global variable
+                        pagerank_values = nx.pagerank(G, alpha=0.85, max_iter=50)
+                    except Exception as e:
+                        logger.warning(f"Error calculating PageRank: {e}")
+                        # Initialize with empty dictionary if it fails
+                        pagerank_values = {node: 0.0 for node in G.nodes()}
+            
                     # Combine centrality measures
                     centrality_results = []
                     for node in G.nodes():
-                        centrality_results.append({
-                            "entity": node,
-                            "degree_centrality": round(degree_centrality.get(node, 0), 3),
-                            "betweenness_centrality": round(betweenness_centrality.get(node, 0), 3),
-                            "pagerank": round(pagerank.get(node, 0), 3),
-                            "overall_importance": round(
-                                degree_centrality.get(node, 0) * 0.3 + 
-                                betweenness_centrality.get(node, 0) * 0.3 + 
-                                pagerank.get(node, 0) * 0.4, 
-                                3
-                            )
-                        })
-                
+                        try:
+                            centrality_results.append({
+                                "entity": node,
+                                "degree_centrality": round(degree_centrality.get(node, 0), 3),
+                                "betweenness_centrality": round(betweenness_centrality.get(node, 0), 3),
+                                "pagerank": round(pagerank_values.get(node, 0), 3),
+                                "overall_importance": round(
+                                    degree_centrality.get(node, 0) * 0.3 + 
+                                    betweenness_centrality.get(node, 0) * 0.3 + 
+                                    pagerank_values.get(node, 0) * 0.4, 
+                                    3
+                                )
+                            })
+                        except Exception as e:
+                            logger.warning(f"Error processing centrality for node {node}: {e}")
+            
                     # Sort by overall importance
                     centrality_results.sort(key=lambda x: x["overall_importance"], reverse=True)
                     results["centrality"] = centrality_results[:10]  # Reduced from 20 to 10
                 except Exception as e:
                     logger.warning(f"Error calculating centrality metrics: {e}")
-            
+        
                 # Only perform community detection for smaller graphs
                 if G.number_of_nodes() <= 100:
                     try:
                         # Convert to undirected graph for community detection
                         G_undir = G.to_undirected()
-                    
-                        # Use Louvain community detection algorithm
-                        communities = nx.community.louvain_communities(G_undir)
-                    
-                        # Format communities
+                
+                        # We need to handle communities differently since the nx.community API
+                        # might be different depending on NetworkX version
                         community_results = []
-                        for i, comm in enumerate(communities):
-                            if len(comm) > 1:  # Only include communities with more than one entity
-                                community_results.append({
-                                    "id": i + 1,
-                                    "size": len(comm),
-                                    "entities": list(comm)[:5],  # Limit to 5 entities per community
-                                    "key_entities": list(sorted(
-                                        comm, 
-                                        key=lambda x: pagerank.get(x, 0), 
-                                        reverse=True
-                                    ))[:3]  # Top 3 entities by PageRank
-                                })
                     
+                        # First try with the newer NetworkX API
+                        try:
+                            # Use Louvain community detection algorithm
+                            communities = nx.community.louvain_communities(G_undir)
+                        
+                            # Format communities
+                            for i, comm in enumerate(communities):
+                                if len(comm) > 1:  # Only include communities with more than one entity
+                                    # Make sure comm is list-like
+                                    comm_list = list(comm)
+                                    community_results.append({
+                                        "id": i + 1,
+                                        "size": len(comm_list),
+                                        "entities": comm_list[:5],  # Limit to 5 entities per community
+                                        "key_entities": sorted(
+                                            comm_list, 
+                                            key=lambda x: pagerank_values.get(x, 0), 
+                                            reverse=True
+                                        )[:3]  # Top 3 entities by PageRank
+                                    })
+                        except AttributeError:
+                            # Fallback for older NetworkX versions
+                            logger.info("Using fallback community detection method")
+                            try:
+                                # Alternative community detection algorithm
+                                from networkx.algorithms import community
+                                communities_iter = community.greedy_modularity_communities(G_undir)
+                                communities = list(communities_iter)
+                            
+                                for i, comm in enumerate(communities):
+                                    if len(comm) > 1:
+                                        comm_list = list(comm)
+                                        community_results.append({
+                                            "id": i + 1,
+                                            "size": len(comm_list),
+                                            "entities": comm_list[:5],
+                                            "key_entities": sorted(
+                                                comm_list, 
+                                                key=lambda x: pagerank_values.get(x, 0), 
+                                                reverse=True
+                                            )[:3]
+                                        })
+                            except Exception as e:
+                                logger.warning(f"Fallback community detection failed: {e}")
+                
                         results["communities"] = community_results
                     except Exception as e:
                         logger.warning(f"Error detecting communities: {e}")
-        
-            return results
     
+            return results
+
         except Exception as e:
             logger.error(f"Error in network analysis: {e}")
             # Return minimal results

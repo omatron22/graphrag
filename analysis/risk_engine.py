@@ -73,23 +73,23 @@ class RiskAnalyzer:
     def _use_llm_for_risk_analysis(self):
         """Use LLM to analyze the graph for risks."""
         model_config = MODELS['reasoning']
-        
+    
         # Get graph summary for LLM
         graph_summary = self._get_graph_summary()
-        
+    
         prompt = f"""
         You are a business risk analysis expert. Analyze the following business data 
         represented as a knowledge graph summary.
-        
+    
         Based on these relationships, assess the risk levels in these categories:
         1. Financial Risk - Issues related to revenue, profit, budget, cash flow, etc.
         2. Operational Risk - Issues related to processes, staff, equipment, supply chain, etc.
         3. Market Risk - Issues related to competition, market trends, customer demand, etc.
         4. Overall Risk - A comprehensive assessment considering all factors.
-        
+    
         Knowledge Graph Summary:
         {graph_summary}
-        
+    
         Return your analysis as a JSON object with scores between 0.0 (no risk) and 1.0 (extreme risk):
         {{
             "financial": 0.0,
@@ -98,10 +98,10 @@ class RiskAnalyzer:
             "overall": 0.0,
             "reasoning": "Your detailed explanation here"
         }}
-        
+    
         ONLY return the JSON object and nothing else.
         """
-        
+    
         # Call the LLM
         try:
             self.logger.info("Calling LLM for risk analysis")
@@ -114,28 +114,39 @@ class RiskAnalyzer:
                     **model_config['parameters']
                 }
             )
-            
+        
             result = response.json()
             content = result.get('response', '')
-            
+        
             # Find the JSON object in the response
             start_idx = content.find('{')
             end_idx = content.rfind('}') + 1
-            
+        
             if start_idx >= 0 and end_idx > start_idx:
                 json_str = content[start_idx:end_idx]
                 risk_data = json.loads(json_str)
+            
+                # Add detailed logging to understand risk values
+                self.logger.info(f"Raw risk data from LLM: {risk_data}")
+                # Log all risk values explicitly
+                self.logger.info(f"Financial risk: {risk_data.get('financial', 'not set')}")
+                self.logger.info(f"Operational risk: {risk_data.get('operational', 'not set')}")
+                self.logger.info(f"Market risk: {risk_data.get('market', 'not set')}")
+                self.logger.info(f"Overall risk: {risk_data.get('overall', 'not set')}")
+            
                 self.logger.info("Successfully parsed LLM risk analysis")
                 return risk_data
             else:
                 self.logger.warning("Could not extract JSON from LLM response")
                 # Fallback to rule-based calculation
                 return self._calculate_rule_based_risk()
-                
+            
         except Exception as e:
             self.logger.error(f"Error in LLM risk analysis: {e}")
             # Fallback to rule-based analysis
             return self._calculate_rule_based_risk()
+        
+        
     
     def _calculate_rule_based_risk(self):
         """Calculate risk scores based on graph metrics as fallback with improved error handling."""

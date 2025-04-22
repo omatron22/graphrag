@@ -1,0 +1,602 @@
+{
+  "timestamp": "2025-04-22T11:27:09.073279",
+  "focus_entity": "TechCorp",
+  "key_findings": [
+    {
+      "title": "TechCorp Relationship Chains",
+      "explanation": "Common relationship chains found in TechCorp's network.",
+      "business_implications": "High interconnectedness may indicate operational efficiency or dependency risks.",
+      "category": "pattern"
+    },
+    {
+      "title": "Similar Attribute Entities",
+      "explanation": "Entities with similar attribute sets identified.",
+      "business_implications": "Identifying such groups can aid in targeted marketing or service optimization.",
+      "category": "pattern"
+    },
+    {
+      "title": "TechCorp Connectivity Anomaly",
+      "explanation": "Significant anomaly detected in TechCorp's connectivity metrics.",
+      "business_implications": "This may indicate potential structural issues or unique opportunities within the network.",
+      "category": "anomaly"
+    },
+    {
+      "title": "HealthServices Centrality",
+      "explanation": "High centrality of HealthServices in the network.",
+      "business_implications": "This entity is a key player, possibly holding critical information or functions.",
+      "category": "network"
+    },
+    {
+      "title": "FinanceGroup Centrality",
+      "explanation": "High centrality of FinanceGroup in the network.",
+      "business_implications": "This group's importance suggests it may play a pivotal role in operations.",
+      "category": "network"
+    }
+  ],
+  "patterns": [
+    {
+      "type": "relationship_chain",
+      "description": "Common relationship chains from TechCorp",
+      "instances": [
+        {
+          "type1": "COMPETES_WITH",
+          "type2": "HAS_METRIC",
+          "frequency": 336
+        },
+        {
+          "type1": "PARTNERED_WITH",
+          "type2": "HAS_METRIC",
+          "frequency": 192
+        },
+        {
+          "type1": "COMPETES_WITH",
+          "type2": "HAS_RISK",
+          "frequency": 48
+        },
+        {
+          "type1": "PARTNERED_WITH",
+          "type2": "HAS_RISK",
+          "frequency": 24
+        },
+        {
+          "type1": "OPERATES_IN",
+          "type2": "HAS_EMERGING_TREND",
+          "frequency": 9
+        }
+      ],
+      "frequency": 609,
+      "significance": "high"
+    },
+    {
+      "type": "attribute_combination",
+      "description": "Entities with similar attribute sets",
+      "instances": [
+        {
+          "attributes": [
+            "category",
+            "revenue",
+            "launch_date",
+            "description",
+            "growth_rate",
+            "market_share",
+            "name"
+          ],
+          "entity_count": 6
+        },
+        {
+          "attributes": [
+            "ceo",
+            "business_model",
+            "description",
+            "industry",
+            "employees",
+            "headquarters",
+            "market_cap",
+            "name",
+            "revenue",
+            "founded"
+          ],
+          "entity_count": 3
+        },
+        {
+          "attributes": [
+            "name",
+            "consumer_spending",
+            "regulatory_environment",
+            "growth_rate",
+            "size",
+            "competition_level"
+          ],
+          "entity_count": 2
+        }
+      ],
+      "frequency": 11,
+      "significance": "high"
+    },
+    {
+      "type": "relationship_cycle",
+      "description": "Entities forming relationship cycles",
+      "instances": [
+        {
+          "node1": "TechCorp",
+          "node2": "FinanceGroup",
+          "node3": "HealthServices",
+          "rel1": "COMPETES_WITH",
+          "rel2": "COMPETES_WITH",
+          "rel3": "PARTNERED_WITH",
+          "cycle_count": 1
+        }
+      ],
+      "frequency": 1,
+      "significance": "low"
+    }
+  ],
+  "trends": [],
+  "correlations": [
+    {
+      "type": "co_occurrence",
+      "entity1": "TechCorp",
+      "entity2": "HealthServices",
+      "frequency": 2,
+      "significance": "low"
+    }
+  ],
+  "anomalies": [
+    {
+      "type": "connectivity_anomaly",
+      "entity": "TechCorp",
+      "connection_count": 216,
+      "average_connections": 23.65,
+      "z_score": 2.99,
+      "pattern": "highly_connected",
+      "severity": "significant",
+      "significance": "medium"
+    }
+  ],
+  "networks": {
+    "graph_size": {
+      "nodes": 22,
+      "edges": 31
+    },
+    "centrality": [
+      {
+        "entity": "TechCorp",
+        "degree_centrality": 0.571,
+        "betweenness_centrality": 0.0,
+        "pagerank": 0.043,
+        "overall_importance": 0.189
+      },
+      {
+        "entity": "HealthServices",
+        "degree_centrality": 0.381,
+        "betweenness_centrality": 0.016,
+        "pagerank": 0.045,
+        "overall_importance": 0.137
+      },
+      {
+        "entity": "FinanceGroup",
+        "degree_centrality": 0.381,
+        "betweenness_centrality": 0.018,
+        "pagerank": 0.04,
+        "overall_importance": 0.136
+      },
+      {
+        "entity": "ManufactureX",
+        "degree_centrality": 0.333,
+        "betweenness_centrality": 0.018,
+        "pagerank": 0.04,
+        "overall_importance": 0.122
+      },
+      {
+        "entity": "North America",
+        "degree_centrality": 0.238,
+        "betweenness_centrality": 0.0,
+        "pagerank": 0.098,
+        "overall_importance": 0.111
+      },
+      {
+        "entity": "Europe",
+        "degree_centrality": 0.143,
+        "betweenness_centrality": 0.0,
+        "pagerank": 0.052,
+        "overall_importance": 0.064
+      },
+      {
+        "entity": "RetailPro",
+        "degree_centrality": 0.143,
+        "betweenness_centrality": 0.0,
+        "pagerank": 0.048,
+        "overall_importance": 0.062
+      },
+      {
+        "entity": "Asia Pacific",
+        "degree_centrality": 0.095,
+        "betweenness_centrality": 0.0,
+        "pagerank": 0.046,
+        "overall_importance": 0.047
+      },
+      {
+        "entity": "Healthcare Interoperability",
+        "degree_centrality": 0.048,
+        "betweenness_centrality": 0.0,
+        "pagerank": 0.043,
+        "overall_importance": 0.032
+      },
+      {
+        "entity": "Clinical Data Management",
+        "degree_centrality": 0.048,
+        "betweenness_centrality": 0.0,
+        "pagerank": 0.043,
+        "overall_importance": 0.032
+      }
+    ],
+    "communities": [
+      {
+        "id": 1,
+        "size": 5,
+        "entities": [
+          "Asia Pacific",
+          "ManufactureX",
+          "Manufacturing Automation",
+          "Supply Chain Optimization",
+          "ManufactureOS"
+        ],
+        "key_entities": [
+          "Asia Pacific",
+          "Manufacturing Automation",
+          "Supply Chain Optimization"
+        ]
+      },
+      {
+        "id": 2,
+        "size": 6,
+        "entities": [
+          "RetailPro",
+          "Financial Risk Management",
+          "Regulatory Compliance Framework",
+          "InvestPro",
+          "FinanceGroup"
+        ],
+        "key_entities": [
+          "North America",
+          "RetailPro",
+          "Financial Risk Management"
+        ]
+      },
+      {
+        "id": 3,
+        "size": 5,
+        "entities": [
+          "Europe",
+          "HealthServices",
+          "Healthcare Interoperability",
+          "Clinical Data Management",
+          "HealthTrack"
+        ],
+        "key_entities": [
+          "Europe",
+          "HealthServices",
+          "Healthcare Interoperability"
+        ]
+      },
+      {
+        "id": 4,
+        "size": 6,
+        "entities": [
+          "CloudSecure",
+          "DataAnalyzer",
+          "Data Analytics Capabilities",
+          "Cloud Security Expertise",
+          "TechCorp"
+        ],
+        "key_entities": [
+          "TechCorp",
+          "CloudSecure",
+          "DataAnalyzer"
+        ]
+      }
+    ],
+    "clusters": []
+  },
+  "metrics": {
+    "overall": {
+      "node_count": 1055,
+      "relationship_count": 1068,
+      "density": 0.0009604575663012491
+    },
+    "entity_distribution": [
+      {
+        "label": "MetricValue",
+        "count": 864
+      },
+      {
+        "label": "Risk",
+        "count": 132
+      },
+      {
+        "label": "Entity",
+        "count": 38
+      },
+      {
+        "label": "Trend",
+        "count": 12
+      },
+      {
+        "label": "Metric",
+        "count": 12
+      },
+      {
+        "label": "Strength",
+        "count": 11
+      },
+      {
+        "label": "Segment",
+        "count": 8
+      },
+      {
+        "label": "Product",
+        "count": 6
+      },
+      {
+        "label": "Company",
+        "count": 5
+      },
+      {
+        "label": "Market",
+        "count": 4
+      },
+      {
+        "label": "Process",
+        "count": 1
+      }
+    ],
+    "relationship_distribution": [
+      {
+        "rel_type": "HAS_METRIC",
+        "count": 864
+      },
+      {
+        "rel_type": "HAS_RISK",
+        "count": 132
+      },
+      {
+        "rel_type": "HAS_DOMINANT_SEGMENT",
+        "count": 12
+      },
+      {
+        "rel_type": "HAS_EMERGING_TREND",
+        "count": 12
+      },
+      {
+        "rel_type": "HAS_ISSUE",
+        "count": 12
+      },
+      {
+        "rel_type": "HAS_STRENGTH",
+        "count": 11
+      },
+      {
+        "rel_type": "OPERATES_IN",
+        "count": 11
+      },
+      {
+        "rel_type": "PRODUCES",
+        "count": 6
+      },
+      {
+        "rel_type": "COMPETES_WITH",
+        "count": 4
+      },
+      {
+        "rel_type": "PARTNERED_WITH",
+        "count": 3
+      },
+      {
+        "rel_type": "HAS_PROCESS",
+        "count": 1
+      }
+    ],
+    "entity_specific": {
+      "connection_count": 215,
+      "relationship_count": 216,
+      "relationship_types": [
+        "PRODUCES",
+        "HAS_STRENGTH",
+        "OPERATES_IN",
+        "COMPETES_WITH",
+        "PARTNERED_WITH",
+        "HAS_METRIC",
+        "HAS_RISK"
+      ],
+      "extended_network_size": 1061
+    }
+  },
+  "visualization_data": {
+    "network_graph": {
+      "type": "network_graph",
+      "title": "Entity Relationship Network",
+      "description": "Network visualization of entity relationships and communities",
+      "data": {
+        "nodes": [
+          {
+            "id": "TechCorp",
+            "name": "TechCorp",
+            "importance": 0.189,
+            "size": 18.9,
+            "group": 4
+          },
+          {
+            "id": "HealthServices",
+            "name": "HealthServices",
+            "importance": 0.137,
+            "size": 13.700000000000001,
+            "group": 3
+          },
+          {
+            "id": "FinanceGroup",
+            "name": "FinanceGroup",
+            "importance": 0.136,
+            "size": 13.600000000000001,
+            "group": 2
+          },
+          {
+            "id": "ManufactureX",
+            "name": "ManufactureX",
+            "importance": 0.122,
+            "size": 12.2,
+            "group": 1
+          },
+          {
+            "id": "North America",
+            "name": "North America",
+            "importance": 0.111,
+            "size": 11.1,
+            "group": 1
+          },
+          {
+            "id": "Europe",
+            "name": "Europe",
+            "importance": 0.064,
+            "size": 10,
+            "group": 3
+          },
+          {
+            "id": "RetailPro",
+            "name": "RetailPro",
+            "importance": 0.062,
+            "size": 10,
+            "group": 2
+          },
+          {
+            "id": "Asia Pacific",
+            "name": "Asia Pacific",
+            "importance": 0.047,
+            "size": 10,
+            "group": 1
+          },
+          {
+            "id": "Healthcare Interoperability",
+            "name": "Healthcare Interoperability",
+            "importance": 0.032,
+            "size": 10,
+            "group": 3
+          },
+          {
+            "id": "Clinical Data Management",
+            "name": "Clinical Data Management",
+            "importance": 0.032,
+            "size": 10,
+            "group": 3
+          }
+        ],
+        "links": [
+          {
+            "source": "Europe",
+            "target": "RetailPro",
+            "value": 336,
+            "type": "COMPETES_WITH → HAS_METRIC"
+          },
+          {
+            "source": "Europe",
+            "target": "RetailPro",
+            "value": 192,
+            "type": "PARTNERED_WITH → HAS_METRIC"
+          },
+          {
+            "source": "Europe",
+            "target": "RetailPro",
+            "value": 48,
+            "type": "COMPETES_WITH → HAS_RISK"
+          },
+          {
+            "source": "Europe",
+            "target": "RetailPro",
+            "value": 24,
+            "type": "PARTNERED_WITH → HAS_RISK"
+          },
+          {
+            "source": "Europe",
+            "target": "RetailPro",
+            "value": 9,
+            "type": "OPERATES_IN → HAS_EMERGING_TREND"
+          }
+        ]
+      }
+    },
+    "trend_charts": {
+      "type": "line_chart",
+      "title": "Metric Trends Over Time",
+      "description": "Visualization of how metrics change over time",
+      "datasets": []
+    },
+    "anomaly_charts": {
+      "type": "scatter_plot",
+      "title": "Metric Anomalies",
+      "description": "Visualization of metric values that deviate significantly from average",
+      "datasets": []
+    },
+    "correlation_matrix": {
+      "type": "correlation_matrix",
+      "title": "Entity Correlations",
+      "description": "Matrix visualization of correlations between entities",
+      "data": [
+        {
+          "entity1": "TechCorp",
+          "entity2": "HealthServices",
+          "metric": "co-occurrence",
+          "coefficient": 0.2,
+          "strength": 0.2,
+          "color": "blue"
+        }
+      ]
+    },
+    "key_metrics": {
+      "type": "metrics_dashboard",
+      "title": "Key Knowledge Graph Metrics",
+      "description": "Summary of important metrics and statistics",
+      "metrics": [
+        {
+          "name": "Node Count",
+          "value": 1055,
+          "description": "Total number of entities in the knowledge graph"
+        },
+        {
+          "name": "Relationship Count",
+          "value": 1068,
+          "description": "Total number of relationships between entities"
+        },
+        {
+          "name": "Graph Density",
+          "value": 0.1,
+          "unit": "%",
+          "description": "Percentage of potential connections that actually exist"
+        },
+        {
+          "name": "Connection Count",
+          "value": 215,
+          "description": "Number of entities directly connected to the focus entity"
+        },
+        {
+          "name": "Extended Network Size",
+          "value": 1061,
+          "description": "Size of the network within 2 degrees of separation"
+        },
+        {
+          "name": "Patterns Detected",
+          "value": 3,
+          "description": "Number of repeating patterns identified in the graph"
+        },
+        {
+          "name": "Trends Identified",
+          "value": 0,
+          "description": "Number of temporal trends identified in the data"
+        },
+        {
+          "name": "Anomalies Found",
+          "value": 1,
+          "description": "Number of outliers and anomalies detected"
+        }
+      ]
+    }
+  }
+}
