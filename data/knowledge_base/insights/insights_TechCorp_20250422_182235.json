@@ -1,36 +1,30 @@
 {
-  "timestamp": "2025-04-22T11:27:09.073279",
+  "timestamp": "2025-04-22T18:21:54.097129",
   "focus_entity": "TechCorp",
   "key_findings": [
     {
-      "title": "TechCorp Relationship Chains",
-      "explanation": "Common relationship chains found in TechCorp's network.",
-      "business_implications": "High interconnectedness may indicate operational efficiency or dependency risks.",
-      "category": "pattern"
-    },
-    {
-      "title": "Similar Attribute Entities",
-      "explanation": "Entities with similar attribute sets identified.",
-      "business_implications": "Identifying such groups can aid in targeted marketing or service optimization.",
-      "category": "pattern"
-    },
-    {
-      "title": "TechCorp Connectivity Anomaly",
-      "explanation": "Significant anomaly detected in TechCorp's connectivity metrics.",
-      "business_implications": "This may indicate potential structural issues or unique opportunities within the network.",
+      "title": "Connectivity Anomaly in TechCorp",
+      "explanation": "TechCorp exhibits extreme connectivity anomaly with a z-score of 3.03.",
+      "business_implications": "This indicates a significant departure from typical network behavior, potentially impacting collaboration and efficiency.",
       "category": "anomaly"
     },
     {
-      "title": "HealthServices Centrality",
-      "explanation": "High centrality of HealthServices in the network.",
-      "business_implications": "This entity is a key player, possibly holding critical information or functions.",
+      "title": "Common Relationship Chains",
+      "explanation": "TechCorp frequently exhibits common relationship chains across entities with high significance.",
+      "business_implications": "This suggests a recurring pattern in operations or partnerships that can be leveraged for strategic advantage.",
+      "category": "pattern"
+    },
+    {
+      "title": "Centrality of TechCorp",
+      "explanation": "TechCorp holds medium centrality in the network, indicating its importance to overall operations.",
+      "business_implications": "Its central role implies that decisions affecting TechCorp could have broad implications across the organization.",
       "category": "network"
     },
     {
-      "title": "FinanceGroup Centrality",
-      "explanation": "High centrality of FinanceGroup in the network.",
-      "business_implications": "This group's importance suggests it may play a pivotal role in operations.",
-      "category": "network"
+      "title": "Attribute Combination Pattern",
+      "explanation": "Entities within TechCorp share similar attribute combinations with high frequency and significance.",
+      "business_implications": "This indicates a potential for standardization or optimization in how entities are defined or categorized within the system.",
+      "category": "pattern"
     }
   ],
   "patterns": [
@@ -51,12 +45,12 @@
         {
           "type1": "COMPETES_WITH",
           "type2": "HAS_RISK",
-          "frequency": 48
+          "frequency": 60
         },
         {
           "type1": "PARTNERED_WITH",
           "type2": "HAS_RISK",
-          "frequency": 24
+          "frequency": 30
         },
         {
           "type1": "OPERATES_IN",
@@ -64,7 +58,7 @@
           "frequency": 9
         }
       ],
-      "frequency": 609,
+      "frequency": 627,
       "significance": "high"
     },
     {
@@ -145,12 +139,12 @@
     {
       "type": "connectivity_anomaly",
       "entity": "TechCorp",
-      "connection_count": 216,
-      "average_connections": 23.65,
-      "z_score": 2.99,
+      "connection_count": 225,
+      "average_connections": 24.3,
+      "z_score": 3.03,
       "pattern": "highly_connected",
-      "severity": "significant",
-      "significance": "medium"
+      "severity": "extreme",
+      "significance": "high"
     }
   ],
   "networks": {
@@ -169,23 +163,23 @@
       {
         "entity": "HealthServices",
         "degree_centrality": 0.381,
-        "betweenness_centrality": 0.016,
+        "betweenness_centrality": 0.0,
         "pagerank": 0.045,
-        "overall_importance": 0.137
+        "overall_importance": 0.132
       },
       {
         "entity": "FinanceGroup",
         "degree_centrality": 0.381,
-        "betweenness_centrality": 0.018,
+        "betweenness_centrality": 0.0,
         "pagerank": 0.04,
-        "overall_importance": 0.136
+        "overall_importance": 0.13
       },
       {
         "entity": "ManufactureX",
         "degree_centrality": 0.333,
-        "betweenness_centrality": 0.018,
+        "betweenness_centrality": 0.0,
         "pagerank": 0.04,
-        "overall_importance": 0.122
+        "overall_importance": 0.116
       },
       {
         "entity": "North America",
@@ -233,66 +227,66 @@
     "communities": [
       {
         "id": 1,
-        "size": 5,
+        "size": 6,
         "entities": [
-          "Asia Pacific",
-          "ManufactureX",
-          "Manufacturing Automation",
-          "Supply Chain Optimization",
-          "ManufactureOS"
+          "Scalable Infrastructure",
+          "CloudSecure",
+          "Cloud Security Expertise",
+          "Data Analytics Capabilities",
+          "TechCorp"
         ],
         "key_entities": [
-          "Asia Pacific",
-          "Manufacturing Automation",
-          "Supply Chain Optimization"
+          "TechCorp",
+          "Scalable Infrastructure",
+          "CloudSecure"
         ]
       },
       {
         "id": 2,
-        "size": 6,
+        "size": 5,
         "entities": [
-          "RetailPro",
-          "Financial Risk Management",
-          "Regulatory Compliance Framework",
-          "InvestPro",
-          "FinanceGroup"
+          "Supply Chain Optimization",
+          "Asia Pacific",
+          "ManufactureX",
+          "Manufacturing Automation",
+          "ManufactureOS"
         ],
         "key_entities": [
-          "North America",
-          "RetailPro",
-          "Financial Risk Management"
+          "Asia Pacific",
+          "Supply Chain Optimization",
+          "Manufacturing Automation"
         ]
       },
       {
         "id": 3,
         "size": 5,
         "entities": [
-          "Europe",
           "HealthServices",
-          "Healthcare Interoperability",
+          "Europe",
           "Clinical Data Management",
-          "HealthTrack"
+          "HealthTrack",
+          "Healthcare Interoperability"
         ],
         "key_entities": [
           "Europe",
           "HealthServices",
-          "Healthcare Interoperability"
+          "Clinical Data Management"
         ]
       },
       {
         "id": 4,
         "size": 6,
         "entities": [
-          "CloudSecure",
-          "DataAnalyzer",
-          "Data Analytics Capabilities",
-          "Cloud Security Expertise",
-          "TechCorp"
+          "FinanceGroup",
+          "Financial Risk Management",
+          "InvestPro",
+          "Regulatory Compliance Framework",
+          "North America"
         ],
         "key_entities": [
-          "TechCorp",
-          "CloudSecure",
-          "DataAnalyzer"
+          "North America",
+          "RetailPro",
+          "Financial Risk Management"
         ]
       }
     ],
@@ -300,9 +294,9 @@
   },
   "metrics": {
     "overall": {
-      "node_count": 1055,
-      "relationship_count": 1068,
-      "density": 0.0009604575663012491
+      "node_count": 1088,
+      "relationship_count": 1104,
+      "density": 0.0009334920720818226
     },
     "entity_distribution": [
       {
@@ -311,7 +305,7 @@
       },
       {
         "label": "Risk",
-        "count": 132
+        "count": 165
       },
       {
         "label": "Entity",
@@ -357,7 +351,11 @@
       },
       {
         "rel_type": "HAS_RISK",
-        "count": 132
+        "count": 165
+      },
+      {
+        "rel_type": "HAS_ISSUE",
+        "count": 15
       },
       {
         "rel_type": "HAS_DOMINANT_SEGMENT",
@@ -365,10 +363,6 @@
       },
       {
         "rel_type": "HAS_EMERGING_TREND",
-        "count": 12
-      },
-      {
-        "rel_type": "HAS_ISSUE",
         "count": 12
       },
       {
@@ -397,8 +391,8 @@
       }
     ],
     "entity_specific": {
-      "connection_count": 215,
-      "relationship_count": 216,
+      "connection_count": 224,
+      "relationship_count": 225,
       "relationship_types": [
         "PRODUCES",
         "HAS_STRENGTH",
@@ -408,7 +402,7 @@
         "HAS_METRIC",
         "HAS_RISK"
       ],
-      "extended_network_size": 1061
+      "extended_network_size": 1094
     }
   },
   "visualization_data": {
@@ -423,35 +417,35 @@
             "name": "TechCorp",
             "importance": 0.189,
             "size": 18.9,
-            "group": 4
+            "group": 1
           },
           {
             "id": "HealthServices",
             "name": "HealthServices",
-            "importance": 0.137,
-            "size": 13.700000000000001,
+            "importance": 0.132,
+            "size": 13.200000000000001,
             "group": 3
           },
           {
             "id": "FinanceGroup",
             "name": "FinanceGroup",
-            "importance": 0.136,
-            "size": 13.600000000000001,
-            "group": 2
+            "importance": 0.13,
+            "size": 13.0,
+            "group": 4
           },
           {
             "id": "ManufactureX",
             "name": "ManufactureX",
-            "importance": 0.122,
-            "size": 12.2,
-            "group": 1
+            "importance": 0.116,
+            "size": 11.600000000000001,
+            "group": 2
           },
           {
             "id": "North America",
             "name": "North America",
             "importance": 0.111,
             "size": 11.1,
-            "group": 1
+            "group": 4
           },
           {
             "id": "Europe",
@@ -465,14 +459,14 @@
             "name": "RetailPro",
             "importance": 0.062,
             "size": 10,
-            "group": 2
+            "group": 1
           },
           {
             "id": "Asia Pacific",
             "name": "Asia Pacific",
             "importance": 0.047,
             "size": 10,
-            "group": 1
+            "group": 2
           },
           {
             "id": "Healthcare Interoperability",
@@ -491,32 +485,32 @@
         ],
         "links": [
           {
-            "source": "Europe",
-            "target": "RetailPro",
+            "source": "Asia Pacific",
+            "target": "Europe",
             "value": 336,
             "type": "COMPETES_WITH → HAS_METRIC"
           },
           {
-            "source": "Europe",
-            "target": "RetailPro",
+            "source": "Asia Pacific",
+            "target": "Europe",
             "value": 192,
             "type": "PARTNERED_WITH → HAS_METRIC"
           },
           {
-            "source": "Europe",
-            "target": "RetailPro",
-            "value": 48,
+            "source": "Asia Pacific",
+            "target": "Europe",
+            "value": 60,
             "type": "COMPETES_WITH → HAS_RISK"
           },
           {
-            "source": "Europe",
-            "target": "RetailPro",
-            "value": 24,
+            "source": "Asia Pacific",
+            "target": "Europe",
+            "value": 30,
             "type": "PARTNERED_WITH → HAS_RISK"
           },
           {
-            "source": "Europe",
-            "target": "RetailPro",
+            "source": "Asia Pacific",
+            "target": "Europe",
             "value": 9,
             "type": "OPERATES_IN → HAS_EMERGING_TREND"
           }
@@ -557,28 +551,28 @@
       "metrics": [
         {
           "name": "Node Count",
-          "value": 1055,
+          "value": 1088,
           "description": "Total number of entities in the knowledge graph"
         },
         {
           "name": "Relationship Count",
-          "value": 1068,
+          "value": 1104,
           "description": "Total number of relationships between entities"
         },
         {
           "name": "Graph Density",
-          "value": 0.1,
+          "value": 0.09,
           "unit": "%",
           "description": "Percentage of potential connections that actually exist"
         },
         {
           "name": "Connection Count",
-          "value": 215,
+          "value": 224,
           "description": "Number of entities directly connected to the focus entity"
         },
         {
           "name": "Extended Network Size",
-          "value": 1061,
+          "value": 1094,
           "description": "Size of the network within 2 degrees of separation"
         },
         {

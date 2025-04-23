@@ -132,10 +132,14 @@ def analyze_entity(orchestrator, entity_name):
                 print(f"  {i+1}. {strategy.get('title')} (Priority: {strategy.get('priority', 'medium')})")
         else:
             print("\nNo strategies available or invalid format.")
-            
-            # Print report path
-            if "report_path" in report:
-                print(f"\nFull report saved to: {report.get('report_path')}")
+        
+        # Print report paths
+        if "report_path" in report:
+            print(f"\nFull JSON report saved to: {report.get('report_path')}")
+        
+        # Add this line to show PDF path information
+        if "pdf_path" in report:
+            print(f"\nDetailed PDF report saved to: {report.get('pdf_path')}")
         
         return report
     else:

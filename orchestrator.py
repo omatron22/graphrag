@@ -507,7 +507,7 @@ class Orchestrator:
     
         Args:
             entity_name: Name of the entity to analyze
-        
+    
         Returns:
             dict: Analysis report data
         """
@@ -516,23 +516,23 @@ class Orchestrator:
             "MATCH (e:Entity {name: $name}) RETURN e", 
             {"name": entity_name}
         )
-    
+
         if not entity_summary:
             return {"error": f"Entity not found: {entity_name}"}
-    
+
         try:
             # Get entity insights
             insights = self.insight_extractor.extract_insights(entity_name)
-    
+
             # Run risk analysis
             risk_analysis = self.risk_analyzer.analyze()
             logger.info(f"Risk analysis results: {risk_analysis}")
-    
+
             # Generate strategies (do this only once)
             strategies = self.strategy_generator.generate_for_entity(entity_name)
             logger.info(f"Strategy type: {type(strategies)}")
             logger.info(f"Strategy keys: {strategies.keys() if isinstance(strategies, dict) else 'Not a dict'}")
-    
+
             # Extract strategies list (keep this consistent)
             if isinstance(strategies, dict) and "strategies" in strategies:
                 strategies_list = strategies["strategies"]
@@ -542,9 +542,8 @@ class Orchestrator:
             logger.info(f"Strategies list contains {len(strategies_list)} strategies")
             for i, strategy in enumerate(strategies_list):
                 logger.info(f"Strategy {i+1}: {strategy.get('title', 'Untitled')}")
-    
+
             # Use the SAME strategies object for comprehensive report
-            # Do NOT generate strategies again
             report = {
                 "entity": entity_name,
                 "generation_date": datetime.now().isoformat(),
@@ -558,7 +557,7 @@ class Orchestrator:
                     "market_context": self._get_market_context(entity_name)
                 }
             }
-    
+
             # Get connected entities
             connected_entities = self.neo4j_manager.execute_query(
                 """
@@ -570,35 +569,195 @@ class Orchestrator:
                 """,
                 {"name": entity_name}
             )
-    
+
             # Compile full report
             full_report = {
                 "entity": entity_name,
                 "timestamp": datetime.now().isoformat(),
                 "risks": risk_analysis,
                 "insights": insights,
-                "strategies": strategies_list,  # Use the extracted list
+                "strategies": strategies_list,
                 "connected_entities": connected_entities,
                 "comprehensive_report": report
             }
-    
+
             # Save report
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
             report_filename = f"report_{entity_name.replace(' ', '_')}_{timestamp}.json"
             report_path = os.path.join("data", "knowledge_base", report_filename)
-    
+
             with open(report_path, 'w', encoding='utf-8') as f:
                 json.dump(full_report, f, ensure_ascii=False, indent=2)
         
             logger.info(f"Generated analysis report for {entity_name}: {report_path}")
+
+            # Process insights for PDF - be very careful with data types
+            key_insights = []
+            if isinstance(insights, dict) and "key_findings" in insights:
+                for finding in insights["key_findings"]:
+                    if isinstance(finding, dict):
+                        title = finding.get("title", "")
+                        explanation = finding.get("explanation", "")
+                        if title and explanation:
+                            key_insights.append(f"{title}: {explanation}")
+                        elif title:
+                            key_insights.append(title)
+        
+            # Create assessment results in the format expected by the PDF generator
+            assessment_results = {
+                "entity": entity_name,
+                "summary": {
+                    "overall_score": 0.7,  # This is a placeholder
+                    "risk_level": risk_analysis.get("categories", {}).get("overall", "Medium"),
+                    "key_insights": key_insights[:5]  # Use processed insights
+                },
+                "recommendations": strategies_list,
+                "groups": {
+                    "risk": {
+                        "name": "Risk Assessment",
+                        "description": "Assessment of business risks across multiple dimensions",
+                        "score": 0.7,
+                        "risk_level": risk_analysis.get("categories", {}).get("overall", "Medium"),
+                        "findings": {}  # Initialize as empty dict
+                    },
+                    "market": {
+                        "name": "Market Assessment",
+                        "description": "Evaluation of market position and opportunities",
+                        "score": 0.65,
+                        "risk_level": "Medium",
+                        "findings": []
+                    }
+                }
+            }
+        
+            # Safely populate risk findings
+            if isinstance(risk_analysis, dict) and "categories" in risk_analysis:
+                risk_findings = {}
+                for k, v in risk_analysis["categories"].items():
+                    if k != "reasoning":
+                        risk_findings[k] = v
+                assessment_results["groups"]["risk"]["findings"] = risk_findings
+        
+            try:
+                # Generate charts for visualizations - wrap in try block
+                logger.info("Generating charts for PDF report")
+                charts = self._generate_charts_for_report(assessment_results, strategies)
     
-            return {**full_report, "report_path": report_path}
+                # Generate PDF report
+                logger.info("Generating PDF report")
+                pdf_path = self.pdf_generator.generate_assessment_pdf(assessment_results, charts)
+                logger.info(f"Generated PDF report for {entity_name}: {pdf_path}")
     
+                # Add PDF path to return values
+                return {**full_report, "report_path": report_path, "pdf_path": pdf_path}
+    
+            except Exception as e:
+                # If PDF generation fails, still return the JSON report
+                logger.error(f"PDF generation failed: {e}")
+                import traceback
+                logger.error(f"Traceback: {traceback.format_exc()}")
+                return {**full_report, "report_path": report_path}
+
         except Exception as e:
             logger.error(f"Failed to generate analysis report for {entity_name}: {e}")
             return {"error": str(e)}
     
+    def _generate_charts_for_report(self, assessment_results, strategies_data):
+        """
+        Generate chart data for the PDF report.
     
+        Args:
+            assessment_results: Assessment results data
+            strategies_data: Strategy data with visualization information
+        
+        Returns:
+            dict: Charts for report visualization
+        """
+        charts = {}
+    
+        # Log data types to help debug
+        logger.info(f"strategies_data type: {type(strategies_data)}")
+        if isinstance(strategies_data, dict) and "visualization_data" in strategies_data:
+            logger.info(f"visualization_data type: {type(strategies_data['visualization_data'])}")
+    
+        # Risk Levels chart - handle various data formats safely
+        risk_data = {}
+        if isinstance(assessment_results, dict) and "groups" in assessment_results:
+            risk_group = assessment_results["groups"].get("risk", {})
+            if isinstance(risk_group, dict):
+                risk_data = risk_group.get("findings", {})
+    
+        if risk_data and isinstance(risk_data, dict):
+            risk_levels_data = []
+            for risk_type, level in risk_data.items():
+                if risk_type != "reasoning":
+                    risk_levels_data.append({"label": f"{risk_type.capitalize()}: {level}", "value": 1})
+        
+            if risk_levels_data:
+                charts["risk_levels"] = {
+                    "type": "pie_chart",
+                    "title": "Risk Assessment",
+                    "data": risk_levels_data
+                }
+    
+        # Strategy priority chart
+        if isinstance(assessment_results, dict) and "recommendations" in assessment_results:
+            recommendations = assessment_results["recommendations"]
+            if isinstance(recommendations, list):
+                priority_counts = {"high": 0, "medium": 0, "low": 0}
+                for strategy in recommendations:
+                    if isinstance(strategy, dict):
+                        priority = strategy.get("priority", "medium").lower()
+                        if priority in priority_counts:
+                            priority_counts[priority] += 1
+            
+                priority_data = [
+                    {"label": "High Priority", "value": priority_counts["high"]},
+                    {"label": "Medium Priority", "value": priority_counts["medium"]},
+                    {"label": "Low Priority", "value": priority_counts["low"]}
+                ]
+            
+                charts["strategy_priorities"] = {
+                    "type": "bar_chart",
+                    "title": "Strategy Priorities",
+                    "data": priority_data
+                }
+    
+        # Add financial impact chart if available in strategies data
+        if isinstance(strategies_data, dict) and "visualization_data" in strategies_data:
+            viz_data = strategies_data["visualization_data"]
+        
+            # Financial impact chart - check each item's type
+            if isinstance(viz_data, dict) and "financial_impact" in viz_data:
+                financial_impact = viz_data["financial_impact"]
+                logger.info(f"financial_impact type: {type(financial_impact)}")
+                # Only add if it's actually a dictionary
+                if isinstance(financial_impact, dict):
+                    charts["financial_impact"] = financial_impact
+        
+            # Implementation timeline - check type
+            if isinstance(viz_data, dict) and "implementation_timeline" in viz_data:
+                implementation_timeline = viz_data["implementation_timeline"]
+                logger.info(f"implementation_timeline type: {type(implementation_timeline)}")
+                # Only add if it's actually a dictionary
+                if isinstance(implementation_timeline, dict):
+                    charts["implementation_timeline"] = implementation_timeline
+        
+            # Risk mitigation impact - check type
+            if isinstance(viz_data, dict) and "risk_mitigation_impact" in viz_data:
+                risk_mitigation = viz_data["risk_mitigation_impact"]
+                logger.info(f"risk_mitigation_impact type: {type(risk_mitigation)}")
+                # Only add if it's actually a dictionary
+                if isinstance(risk_mitigation, dict):
+                    charts["risk_mitigation_impact"] = risk_mitigation
+    
+        # Log final chart structure
+        logger.info(f"Generated {len(charts)} charts")
+        for chart_name in charts.keys():
+            logger.info(f"Chart included: {chart_name}")
+    
+        return charts
+
     def debug_strategies(self, entity_name):
         """
         Debug function to investigate strategy structure.
