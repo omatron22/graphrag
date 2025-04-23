@@ -346,6 +346,44 @@ class StrategyAssessmentCLI:
         except ValueError:
             print("Invalid input.")
     
+    
+    def _determine_risk_level(self, score: float, risk_tolerance: str) -> str:
+        """
+        Determine risk level based on score and tolerance.
+    
+        Args:
+            score: Group score between 0.0 and 1.0
+            risk_tolerance: User's risk tolerance (Low, Medium, High)
+        
+        Returns:
+            str: Risk level (Low, Medium, High)
+        """
+        # Adjust thresholds based on risk tolerance
+        if risk_tolerance == "Low":
+            # Conservative thresholds
+            if score >= 0.7:
+                return "Low"
+            elif score >= 0.4:
+                return "Medium"
+            else:
+                return "High"
+        elif risk_tolerance == "High":
+            # Aggressive thresholds
+            if score >= 0.6:
+                return "Low"
+            elif score >= 0.3:
+                return "Medium"
+            else:
+                return "High"
+        else:
+            # Medium tolerance (default)
+            if score >= 0.65:
+                return "Low"
+            elif score >= 0.35:
+                return "Medium"
+            else:
+                return "High"
+        
     def _display_assessment_report(self, file_path: str):
         """
         Display an assessment report.

@@ -335,20 +335,19 @@ class Orchestrator:
             "parsed_data_path": parsed_path
         }
     
-    # Add this method to the Orchestrator class
     def run_strategy_assessment(self, entity_name, user_inputs=None):
         """
         Run a comprehensive strategy assessment for an entity.
-    
+
         Args:
             entity_name: Name of the entity to assess
             user_inputs: User provided inputs (risk tolerance, priorities, constraints)
-        
+    
         Returns:
             dict: Assessment results
         """
         logger.info(f"Running strategy assessment for {entity_name}")
-    
+
         # Use default inputs if none provided
         if user_inputs is None:
             user_inputs = {
@@ -356,18 +355,19 @@ class Orchestrator:
                 "priorities": [],
                 "constraints": []
             }
-    
-        # Run assessment
+
+        # Add user_inputs to assessment results for context
         assessment_results = self.strategy_assessment.assess(entity_name, user_inputs)
-    
+        assessment_results["user_inputs"] = user_inputs
+
         # Generate charts
         charts = self.strategy_assessment.generate_charts(assessment_results)
-    
+
         # Generate PDF report
         pdf_path = self.pdf_generator.generate_assessment_pdf(assessment_results, charts)
-    
+
         logger.info(f"Strategy assessment complete for {entity_name}")
-    
+
         return {
             "assessment_results": assessment_results,
             "charts": charts,

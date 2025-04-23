@@ -142,12 +142,12 @@ class AssessmentPDFGenerator:
     def _generate_with_reportlab(self, assessment_results: Dict[str, Any], charts: Dict[str, Dict[str, Any]], filepath: str) -> str:
         """
         Generate PDF with ReportLab.
-        
+    
         Args:
             assessment_results: Assessment results
             charts: Chart configurations for visualization
             filepath: Path to save the PDF
-            
+        
         Returns:
             str: Path to the generated PDF
         """
@@ -159,40 +159,76 @@ class AssessmentPDFGenerator:
         from reportlab.graphics.charts.piecharts import Pie
         from reportlab.graphics.charts.linecharts import LineChart
         from reportlab.graphics.charts.spider import SpiderChart
-        
+    
         # Create PDF document
         doc = SimpleDocTemplate(filepath, pagesize=letter)
         styles = self.pdf_lib["styles"]
         elements = []
-        
-        # Add title
+    
+        # Add title and cover page
         entity_name = assessment_results.get("entity", "Unknown Entity")
         title = f"Strategy Assessment Report: {entity_name}"
         elements.append(Paragraph(title, styles["Heading1Center"]))
-        elements.append(Spacer(1, 12))
-        
+        elements.append(Spacer(1, 24))
+    
         # Add timestamp
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         elements.append(Paragraph(f"Generated: {timestamp}", styles["Normal"]))
-        elements.append(Spacer(1, 24))
-        
+        elements.append(Spacer(1, 36))
+    
+        # Add explanation of the report structure
+        elements.append(Paragraph("About This Report", styles["Heading3"]))
+        elements.append(Paragraph(
+            "This report is divided into two main sections:", 
+            styles["Normal"]
+        ))
+        elements.append(Spacer(1, 6))
+        elements.append(Paragraph(
+            "1. <b>Current Situation Analysis</b>: An assessment of the company's current state, risks, and opportunities.", 
+            styles["Normal"]
+        ))
+        elements.append(Paragraph(
+            "2. <b>Strategic Recommendations</b>: Tailored strategies based on the analysis and your specified risk tolerance.", 
+            styles["Normal"]
+        ))
+        elements.append(Spacer(1, 12))
+        elements.append(Paragraph(
+            "All scores range from 0% to 100%, where higher scores indicate better performance. Risk levels (Low/Medium/High) indicate areas of concern.",
+            styles["Normal"]
+        ))
+    
+        elements.append(PageBreak())
+    
+        # SECTION 1: CURRENT SITUATION ANALYSIS
+        elements.append(Paragraph("SECTION 1: CURRENT SITUATION ANALYSIS", styles["Heading1"]))
+        elements.append(Spacer(1, 12))
+    
         # Add executive summary
         elements.append(Paragraph("Executive Summary", styles["Heading2"]))
         elements.append(Spacer(1, 6))
-        
+    
         summary = assessment_results.get("summary", {})
         overall_score = summary.get("overall_score", 0.5)
         risk_level = summary.get("risk_level", "Medium")
-        
+    
         # Format score as percentage
         score_percent = f"{overall_score * 100:.1f}%"
-        
-        # Add summary table
+    
+        # Add current state explanation
+        elements.append(Paragraph(
+            f"Based on our analysis, {entity_name} currently has an overall performance score of {score_percent} with " +
+            f"an overall risk level assessed as {risk_level}. The score represents the company's current health " +
+            f"across all measured business dimensions, where higher percentages indicate better performance.",
+            styles["Normal"]
+        ))
+        elements.append(Spacer(1, 12))
+    
+        # Add summary table with better explanation
         summary_data = [
-            ["Overall Assessment Score", "Risk Level"],
+            ["Overall Performance Score", "Current Risk Level"],
             [score_percent, risk_level]
         ]
-        
+    
         summary_table = Table(summary_data, colWidths=[250, 250])
         summary_table.setStyle(TableStyle([
             ('BACKGROUND', (0, 0), (1, 0), colors.lightgrey),
@@ -201,39 +237,106 @@ class AssessmentPDFGenerator:
             ('FONTNAME', (0, 0), (1, 0), 'Helvetica-Bold'),
             ('BOTTOMPADDING', (0, 0), (1, 0), 12),
             ('BACKGROUND', (0, 1), (0, 1), 
-             colors.lightgreen if overall_score > 0.7 else 
-             colors.lightyellow if overall_score > 0.4 else colors.lightcoral),
+            colors.lightgreen if overall_score > 0.7 else 
+            colors.lightyellow if overall_score > 0.4 else colors.lightcoral),
             ('BACKGROUND', (1, 1), (1, 1), 
-             colors.lightgreen if risk_level == "Low" else 
-             colors.lightyellow if risk_level == "Medium" else colors.lightcoral),
+            colors.lightgreen if risk_level == "Low" else 
+            colors.lightyellow if risk_level == "Medium" else colors.lightcoral),
             ('ALIGN', (0, 1), (1, 1), 'CENTER'),
             ('FONTNAME', (0, 1), (1, 1), 'Helvetica-Bold'),
             ('GRID', (0, 0), (1, 1), 1, colors.black)
         ]))
-        
+    
         elements.append(summary_table)
         elements.append(Spacer(1, 12))
-        
-        # Add key insights
-        elements.append(Paragraph("Key Insights", styles["Heading3"]))
+    
+        # Add color legend
+        elements.append(Paragraph("Score & Risk Level Color Legend:", styles["Normal-Bold"]))
         elements.append(Spacer(1, 6))
-        
+    
+        legend_data = [
+            ["", "Low Risk/Good Performance", "Medium Risk/Average Performance", "High Risk/Poor Performance"],
+            ["Color", "", "", ""]
+        ]
+    
+        legend_table = Table(legend_data, colWidths=[80, 150, 150, 150])
+        legend_table.setStyle(TableStyle([
+            ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
+            ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+            ('BACKGROUND', (1, 1), (1, 1), colors.lightgreen),
+            ('BACKGROUND', (2, 1), (2, 1), colors.lightyellow),
+            ('BACKGROUND', (3, 1), (3, 1), colors.lightcoral),
+            ('GRID', (0, 0), (-1, -1), 1, colors.black),
+        ]))
+    
+        elements.append(legend_table)
+        elements.append(Spacer(1, 18))
+    
+        # Add key insights
+        elements.append(Paragraph("Key Insights from Current Analysis", styles["Heading3"]))
+        elements.append(Spacer(1, 6))
+    
         insights = summary.get("key_insights", [])
         for insight in insights:
             elements.append(Paragraph(f"• {insight}", styles["Normal"]))
             elements.append(Spacer(1, 3))
-        
-        elements.append(Spacer(1, 12))
-        
-        # Add visualization charts
-        elements.append(Paragraph("Assessment Charts", styles["Heading2"]))
+    
+        elements.append(Spacer(1, 18))
+    
+        # Add risk breakdown section
+        elements.append(Paragraph("Risk Assessment Breakdown", styles["Heading3"]))
         elements.append(Spacer(1, 6))
+    
+        # Extract risk data
+        risk_data = {}
+        if isinstance(assessment_results, dict) and "groups" in assessment_results:
+            risk_group = assessment_results["groups"].get("risk", {})
+            if isinstance(risk_group, dict):
+                risk_data = risk_group.get("findings", {})
+    
+        if risk_data and isinstance(risk_data, dict):
+            risk_table_data = [["Risk Category", "Current Risk Level"]]
         
+            for risk_type, level in risk_data.items():
+                if risk_type != "reasoning":
+                    risk_table_data.append([risk_type.capitalize(), level])
+        
+            risk_table = Table(risk_table_data, colWidths=[250, 250])
+            risk_styles = [
+                ('BACKGROUND', (0, 0), (1, 0), colors.lightgrey),
+                ('TEXTCOLOR', (0, 0), (1, 0), colors.black),
+                ('ALIGN', (0, 0), (1, 0), 'CENTER'),
+                ('FONTNAME', (0, 0), (1, 0), 'Helvetica-Bold'),
+                ('BOTTOMPADDING', (0, 0), (1, 0), 12),
+                ('GRID', (0, 0), (1, len(risk_table_data)-1), 1, colors.black)
+            ]
+        
+            # Add color coding for risk levels
+            for i in range(1, len(risk_table_data)):
+                level = risk_table_data[i][1]
+                if level == "Low":
+                    risk_styles.append(('BACKGROUND', (1, i), (1, i), colors.lightgreen))
+                elif level == "Medium":
+                    risk_styles.append(('BACKGROUND', (1, i), (1, i), colors.lightyellow))
+                elif level == "High":
+                    risk_styles.append(('BACKGROUND', (1, i), (1, i), colors.lightcoral))
+        
+            risk_table.setStyle(TableStyle(risk_styles))
+            elements.append(risk_table)
+        else:
+            elements.append(Paragraph("No detailed risk data available.", styles["Normal"]))
+    
+        elements.append(Spacer(1, 18))
+    
+        # Add visualization charts
+        elements.append(Paragraph("Performance Analysis Charts", styles["Heading3"]))
+        elements.append(Spacer(1, 6))
+    
         # Add Risk Levels chart
         if "risk_levels" in charts:
-            elements.append(Paragraph("Risk Levels by Assessment Area", styles["Heading3"]))
+            elements.append(Paragraph("Risk Levels by Assessment Area", styles["Normal-Bold"]))
             elements.append(Spacer(1, 6))
-            
+        
             # Create pie chart
             drawing = Drawing(400, 200)
             pie = Pie()
@@ -244,27 +347,27 @@ class AssessmentPDFGenerator:
             pie.data = [item["value"] for item in charts["risk_levels"]["data"]]
             pie.labels = [item["label"] for item in charts["risk_levels"]["data"]]
             pie.slices.strokeWidth = 1
-            
+        
             # Set colors based on risk levels
             risk_colors = {
                 "High": colors.lightcoral,
                 "Medium": colors.lightyellow,
                 "Low": colors.lightgreen
             }
-            
+        
             for i, label in enumerate(pie.labels):
                 if label in risk_colors:
                     pie.slices[i].fillColor = risk_colors[label]
-            
+        
             drawing.add(pie)
             elements.append(drawing)
-            elements.append(Spacer(1, 12))
-        
+            elements.append(Spacer(1, 18))
+    
         # Add Group Scores chart
         if "group_scores" in charts:
-            elements.append(Paragraph("Assessment Area Scores", styles["Heading3"]))
+            elements.append(Paragraph("Assessment Area Performance Scores", styles["Normal-Bold"]))
             elements.append(Spacer(1, 6))
-            
+        
             # Create bar chart
             data = charts["group_scores"]["data"]
             drawing = Drawing(500, 250)
@@ -279,87 +382,162 @@ class AssessmentPDFGenerator:
             bc.valueAxis.valueMax = 1
             bc.valueAxis.valueStep = 0.2
             bc.bars[0].fillColor = colors.steelblue
-            
+        
             # Rotate labels for better fit
             bc.categoryAxis.labels.boxAnchor = 'ne'
             bc.categoryAxis.labels.dx = 8
             bc.categoryAxis.labels.dy = -2
             bc.categoryAxis.labels.angle = 30
-            
+        
             drawing.add(bc)
             elements.append(drawing)
-            elements.append(Spacer(1, 12))
+            elements.append(Spacer(1, 6))
+            elements.append(Paragraph("Higher scores (closer to 1.0) indicate better performance in each area.", styles["Normal"]))
+            elements.append(Spacer(1, 18))
+    
+        # Add financial impact chart if available
+        if "financial_impact" in charts and isinstance(charts["financial_impact"], dict):
+            elements.append(Paragraph("Financial Performance Metrics", styles["Normal-Bold"]))
         
+            # Create financial chart based on available data
+            # Implementation would depend on the specific data structure
+            # This is just a placeholder
+            elements.append(Paragraph("Financial metrics visualization would appear here.", styles["Normal"]))
+            elements.append(Spacer(1, 18))
+    
         # Add page break before recommendations
         elements.append(PageBreak())
-        
+    
+        # SECTION 2: STRATEGIC RECOMMENDATIONS
+        elements.append(Paragraph("SECTION 2: STRATEGIC RECOMMENDATIONS", styles["Heading1"]))
+        elements.append(Spacer(1, 12))
+    
+        # Add explanation of recommendations
+        user_inputs = assessment_results.get("user_inputs", {})
+        risk_tolerance = user_inputs.get("risk_tolerance", "Medium")
+        priorities = user_inputs.get("priorities", [])
+    
+        elements.append(Paragraph("Strategy Development Approach", styles["Heading3"]))
+        elements.append(Spacer(1, 6))
+    
+        elements.append(Paragraph(
+            f"The following strategic recommendations have been tailored to {entity_name}'s current situation " +
+            f"with a <b>{risk_tolerance} risk tolerance</b> approach. " +
+            (f"Priority areas include: <b>{', '.join(priorities)}</b>." if priorities else ""),
+            styles["Normal"]
+        ))
+        elements.append(Spacer(1, 6))
+    
+        elements.append(Paragraph(
+            f"<b>{risk_tolerance} risk tolerance</b> means: " +
+            ("Taking aggressive approaches that prioritize growth opportunities over safety." if risk_tolerance == "High" else
+             "Balancing risk mitigation with growth opportunities." if risk_tolerance == "Medium" else
+             "Prioritizing stability and risk mitigation over aggressive growth."),
+            styles["Normal"]
+        ))
+        elements.append(Spacer(1, 18))
+    
         # Add recommendations
         elements.append(Paragraph("Strategic Recommendations", styles["Heading2"]))
-        elements.append(Spacer(1, 6))
-        
+        elements.append(Spacer(1, 12))
+    
         recommendations = assessment_results.get("recommendations", [])
         for i, rec in enumerate(recommendations):
             # Recommendation header
             elements.append(Paragraph(f"{i+1}. {rec.get('title')}", styles["Heading3"]))
             elements.append(Spacer(1, 3))
-            
+        
             # Priority and timeline
             priority = rec.get('priority', 'medium').capitalize()
             timeline = rec.get('timeline', 'medium').capitalize()
             priority_color = (colors.lightcoral if priority == "High" else 
-                             colors.lightyellow if priority == "Medium" else colors.lightgreen)
-            
+                            colors.lightyellow if priority == "Medium" else colors.lightgreen)
+        
             elements.append(Paragraph(
                 f"Priority: <font color='{priority_color}'>{priority}</font> | Timeline: {timeline}", 
                 styles["Normal"])
             )
             elements.append(Spacer(1, 6))
-            
-            # Rationale
+        
+            # Rationale with better formatting
             elements.append(Paragraph("Rationale:", styles["Normal-Bold"]))
             elements.append(Paragraph(rec.get('rationale', ''), styles["Normal"]))
             elements.append(Spacer(1, 6))
-            
+        
             # Benefits
-            elements.append(Paragraph("Benefits:", styles["Normal-Bold"]))
+            elements.append(Paragraph("Expected Benefits:", styles["Normal-Bold"]))
             for benefit in rec.get('benefits', []):
                 elements.append(Paragraph(f"• {benefit}", styles["Normal"]))
             elements.append(Spacer(1, 6))
-            
+        
             # Implementation steps
             elements.append(Paragraph("Implementation Steps:", styles["Normal-Bold"]))
             for step in rec.get('implementation_steps', []):
                 elements.append(Paragraph(f"• {step}", styles["Normal"]))
             elements.append(Spacer(1, 6))
-            
+        
             # KPIs
-            elements.append(Paragraph("KPIs:", styles["Normal-Bold"]))
+            elements.append(Paragraph("Success Metrics (KPIs):", styles["Normal-Bold"]))
             for kpi in rec.get('kpis', []):
                 elements.append(Paragraph(f"• {kpi}", styles["Normal"]))
-            
+        
             # Space between recommendations
             elements.append(Spacer(1, 24))
+    
+        # Add strategy priority chart if available
+        if "strategy_priorities" in charts:
+            elements.append(Paragraph("Strategy Priority Distribution", styles["Heading3"]))
+            elements.append(Spacer(1, 6))
         
-        # Add assessment details
+            # Create the strategy priority chart
+            priority_data = charts["strategy_priorities"]["data"]
+            drawing = Drawing(400, 200)
+            bc = VerticalBarChart()
+            bc.x = 100
+            bc.y = 50
+            bc.height = 125
+            bc.width = 200
+            bc.data = [[item["value"] for item in priority_data]]
+            bc.categoryAxis.categoryNames = [item["label"] for item in priority_data]
+            bc.valueAxis.valueMin = 0
+            bc.valueAxis.valueMax = max([item["value"] for item in priority_data]) + 1
+            bc.valueAxis.valueStep = 1
+        
+            # Color bars by priority
+            colorMap = {
+                'High Priority': colors.lightcoral,
+                'Medium Priority': colors.lightyellow,
+                'Low Priority': colors.lightgreen
+            }
+        
+            for i, label in enumerate([item["label"] for item in priority_data]):
+                if label in colorMap:
+                    bc.bars[0][i].fillColor = colorMap[label]
+        
+            drawing.add(bc)
+            elements.append(drawing)
+            elements.append(Spacer(1, 18))
+    
+        # Add appendix with detailed assessments
         elements.append(PageBreak())
-        elements.append(Paragraph("Assessment Details by Area", styles["Heading2"]))
-        elements.append(Spacer(1, 6))
-        
+        elements.append(Paragraph("APPENDIX: DETAILED ASSESSMENT DATA", styles["Heading1"]))
+        elements.append(Spacer(1, 12))
+    
         # Add details for each assessment group
         for group_id, group_data in assessment_results.get("groups", {}).items():
             # Group header
             elements.append(Paragraph(group_data.get("name", group_id.capitalize()), styles["Heading3"]))
             elements.append(Spacer(1, 3))
-            
+        
             # Group description
             elements.append(Paragraph(group_data.get("description", ""), styles["Normal"]))
             elements.append(Spacer(1, 6))
-            
+        
             # Group score and risk level
             score = group_data.get("score", 0.5)
             risk_level = group_data.get("risk_level", "Medium")
             score_percent = f"{score * 100:.1f}%"
-            
+        
             score_table = Table([["Score", "Risk Level"], [score_percent, risk_level]], colWidths=[250, 250])
             score_table.setStyle(TableStyle([
                 ('BACKGROUND', (0, 0), (1, 0), colors.lightgrey),
@@ -377,10 +555,10 @@ class AssessmentPDFGenerator:
                 ('FONTNAME', (0, 1), (1, 1), 'Helvetica-Bold'),
                 ('GRID', (0, 0), (1, 1), 1, colors.black)
             ]))
-            
+        
             elements.append(score_table)
             elements.append(Spacer(1, 12))
-            
+        
             # Key findings
             findings = group_data.get("findings", [])
             if findings:
@@ -402,7 +580,7 @@ class AssessmentPDFGenerator:
             metrics = group_data.get("metrics", {})
             if metrics:
                 elements.append(Paragraph("Metrics:", styles["Normal-Bold"]))
-                
+            
                 # Create metrics table
                 metrics_data = [["Metric", "Value", "Trend"]]
                 for metric_name, metric_data in metrics.items():
@@ -410,10 +588,10 @@ class AssessmentPDFGenerator:
                     unit = metric_data.get("unit", "")
                     if unit:
                         value = f"{value} {unit}"
-                    
+                
                     trend = metric_data.get("trend", "stable")
                     metrics_data.append([metric_name, value, trend])
-                
+            
                 # Create and style the table
                 metrics_table = Table(metrics_data, colWidths=[200, 150, 150])
                 metrics_table.setStyle(TableStyle([
@@ -424,17 +602,17 @@ class AssessmentPDFGenerator:
                     ('BOTTOMPADDING', (0, 0), (2, 0), 12),
                     ('GRID', (0, 0), (2, len(metrics_data)-1), 1, colors.black)
                 ]))
-                
+            
                 elements.append(metrics_table)
                 elements.append(Spacer(1, 12))
-            
+        
             # Add space between groups
             elements.append(Spacer(1, 24))
-        
+    
         # Build PDF
         doc.build(elements)
         logger.info(f"Generated assessment PDF: {filepath}")
-        
+    
         return filepath
     
     def _generate_with_fallback(self, assessment_results: Dict[str, Any], charts: Dict[str, Dict[str, Any]], filepath: str) -> str:
