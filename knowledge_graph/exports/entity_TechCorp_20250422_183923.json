@@ -11,7 +11,7 @@
       "ceo": "Sarah Chen",
       "business_model": "SaaS",
       "employees": 1200,
-      "id": 4857297984
+      "id": 4427538688
     },
     {
       "level": 0.45,
@@ -20,13 +20,13 @@
       "mitigation_status": "Early Stage",
       "type": "operational",
       "impact_area": "Product Development",
-      "id": 4857293760
+      "id": 4427530496
     }
   ],
   "links": [
     {
-      "source": 4857293440,
-      "target": 4857293680,
+      "source": 4427532672,
+      "target": 4427538544,
       "type": "RELATED_TO"
     }
   ]

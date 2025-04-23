@@ -386,10 +386,17 @@ class AssessmentPDFGenerator:
             if findings:
                 elements.append(Paragraph("Key Findings:", styles["Normal-Bold"]))
                 for finding in findings:
-                    finding_type = finding.get("type", "other").capitalize()
-                    description = finding.get("description", "")
-                    elements.append(Paragraph(f"• {finding_type}: {description}", styles["Normal"]))
-                elements.append(Spacer(1, 12))
+                    if isinstance(finding, dict):
+                        # Handle dictionary-type finding
+                        finding_type = finding.get("type", "other").capitalize()
+                        description = finding.get("description", "")
+                        elements.append(Paragraph(f"• {finding_type}: {description}", styles["Normal"]))
+                    elif isinstance(finding, str):
+                        # Handle string-type finding
+                        elements.append(Paragraph(f"• {finding}", styles["Normal"]))
+                    else:
+                        # Handle other types (unlikely, but for safety)
+                        elements.append(Paragraph(f"• {str(finding)}", styles["Normal"]))
             
             # Add metrics if available
             metrics = group_data.get("metrics", {})
