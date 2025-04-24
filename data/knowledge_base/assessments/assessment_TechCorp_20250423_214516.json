@@ -1,6 +1,6 @@
 {
   "entity": "TechCorp",
-  "timestamp": "2025-04-23T12:00:54.234216",
+  "timestamp": "2025-04-23T21:43:32.467652",
   "user_inputs": {
     "risk_tolerance": "High",
     "priorities": [
@@ -60,7 +60,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2025-01-23",
-                "value": 11.894414446497159,
+                "value": 12.262363189049129,
                 "timestamp": "2025-01-23",
                 "quarter": "Q4 2024"
               },
@@ -72,7 +72,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2025-01-23",
-                  "value": 11.894414446497159,
+                  "value": 12.262363189049129,
                   "timestamp": "2025-01-23",
                   "quarter": "Q4 2024"
                 }
@@ -83,7 +83,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-10-25",
-                "value": 11.110866717898357,
+                "value": 12.010858778533972,
                 "timestamp": "2024-10-25",
                 "quarter": "Q3 2024"
               },
@@ -95,7 +95,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-10-25",
-                  "value": 11.110866717898357,
+                  "value": 12.010858778533972,
                   "timestamp": "2024-10-25",
                   "quarter": "Q3 2024"
                 }
@@ -106,7 +106,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-07-27",
-                "value": 10.560130188913424,
+                "value": 10.501634075028468,
                 "timestamp": "2024-07-27",
                 "quarter": "Q2 2024"
               },
@@ -118,7 +118,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-07-27",
-                  "value": 10.560130188913424,
+                  "value": 10.501634075028468,
                   "timestamp": "2024-07-27",
                   "quarter": "Q2 2024"
                 }
@@ -129,7 +129,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-04-28",
-                "value": 10.370629368922243,
+                "value": 10.463072579975506,
                 "timestamp": "2024-04-28",
                 "quarter": "Q1 2024"
               },
@@ -141,7 +141,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-04-28",
-                  "value": 10.370629368922243,
+                  "value": 10.463072579975506,
                   "timestamp": "2024-04-28",
                   "quarter": "Q1 2024"
                 }
@@ -152,7 +152,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-01-29",
-                "value": 10.073136012376995,
+                "value": 9.881368520344207,
                 "timestamp": "2024-01-29",
                 "quarter": "Q4 2023"
               },
@@ -164,7 +164,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-01-29",
-                  "value": 10.073136012376995,
+                  "value": 9.881368520344207,
                   "timestamp": "2024-01-29",
                   "quarter": "Q4 2023"
                 }
@@ -175,7 +175,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-10-31",
-                "value": 9.94603937076936,
+                "value": 9.551436872635996,
                 "timestamp": "2023-10-31",
                 "quarter": "Q3 2023"
               },
@@ -187,7 +187,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-10-31",
-                  "value": 9.94603937076936,
+                  "value": 9.551436872635996,
                   "timestamp": "2023-10-31",
                   "quarter": "Q3 2023"
                 }
@@ -198,7 +198,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-08-02",
-                "value": 8.65718873822195,
+                "value": 8.970202934029116,
                 "timestamp": "2023-08-02",
                 "quarter": "Q2 2023"
               },
@@ -210,7 +210,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-08-02",
-                  "value": 8.65718873822195,
+                  "value": 8.970202934029116,
                   "timestamp": "2023-08-02",
                   "quarter": "Q2 2023"
                 }
@@ -221,7 +221,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-05-04",
-                "value": 8.401751740624249,
+                "value": 8.576960421843411,
                 "timestamp": "2023-05-04",
                 "quarter": "Q1 2023"
               },
@@ -233,7 +233,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-05-04",
-                  "value": 8.401751740624249,
+                  "value": 8.576960421843411,
                   "timestamp": "2023-05-04",
                   "quarter": "Q1 2023"
                 }
@@ -526,7 +526,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2025-01-23",
-                "value": 11.894414446497159,
+                "value": 12.262363189049129,
                 "timestamp": "2025-01-23",
                 "quarter": "Q4 2024"
               },
@@ -538,7 +538,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2025-01-23",
-                  "value": 11.894414446497159,
+                  "value": 12.262363189049129,
                   "timestamp": "2025-01-23",
                   "quarter": "Q4 2024"
                 }
@@ -549,7 +549,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-10-25",
-                "value": 11.110866717898357,
+                "value": 12.010858778533972,
                 "timestamp": "2024-10-25",
                 "quarter": "Q3 2024"
               },
@@ -561,7 +561,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-10-25",
-                  "value": 11.110866717898357,
+                  "value": 12.010858778533972,
                   "timestamp": "2024-10-25",
                   "quarter": "Q3 2024"
                 }
@@ -572,7 +572,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-07-27",
-                "value": 10.560130188913424,
+                "value": 10.501634075028468,
                 "timestamp": "2024-07-27",
                 "quarter": "Q2 2024"
               },
@@ -584,7 +584,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-07-27",
-                  "value": 10.560130188913424,
+                  "value": 10.501634075028468,
                   "timestamp": "2024-07-27",
                   "quarter": "Q2 2024"
                 }
@@ -595,7 +595,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-04-28",
-                "value": 10.370629368922243,
+                "value": 10.463072579975506,
                 "timestamp": "2024-04-28",
                 "quarter": "Q1 2024"
               },
@@ -607,7 +607,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-04-28",
-                  "value": 10.370629368922243,
+                  "value": 10.463072579975506,
                   "timestamp": "2024-04-28",
                   "quarter": "Q1 2024"
                 }
@@ -618,7 +618,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-01-29",
-                "value": 10.073136012376995,
+                "value": 9.881368520344207,
                 "timestamp": "2024-01-29",
                 "quarter": "Q4 2023"
               },
@@ -630,7 +630,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-01-29",
-                  "value": 10.073136012376995,
+                  "value": 9.881368520344207,
                   "timestamp": "2024-01-29",
                   "quarter": "Q4 2023"
                 }
@@ -641,7 +641,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-10-31",
-                "value": 9.94603937076936,
+                "value": 9.551436872635996,
                 "timestamp": "2023-10-31",
                 "quarter": "Q3 2023"
               },
@@ -653,7 +653,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-10-31",
-                  "value": 9.94603937076936,
+                  "value": 9.551436872635996,
                   "timestamp": "2023-10-31",
                   "quarter": "Q3 2023"
                 }
@@ -664,7 +664,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-08-02",
-                "value": 8.65718873822195,
+                "value": 8.970202934029116,
                 "timestamp": "2023-08-02",
                 "quarter": "Q2 2023"
               },
@@ -676,7 +676,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-08-02",
-                  "value": 8.65718873822195,
+                  "value": 8.970202934029116,
                   "timestamp": "2023-08-02",
                   "quarter": "Q2 2023"
                 }
@@ -687,7 +687,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-05-04",
-                "value": 8.401751740624249,
+                "value": 8.576960421843411,
                 "timestamp": "2023-05-04",
                 "quarter": "Q1 2023"
               },
@@ -699,7 +699,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-05-04",
-                  "value": 8.401751740624249,
+                  "value": 8.576960421843411,
                   "timestamp": "2023-05-04",
                   "quarter": "Q1 2023"
                 }
@@ -992,7 +992,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2025-01-23",
-                "value": 11.894414446497159,
+                "value": 12.262363189049129,
                 "timestamp": "2025-01-23",
                 "quarter": "Q4 2024"
               },
@@ -1004,7 +1004,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2025-01-23",
-                  "value": 11.894414446497159,
+                  "value": 12.262363189049129,
                   "timestamp": "2025-01-23",
                   "quarter": "Q4 2024"
                 }
@@ -1015,7 +1015,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-10-25",
-                "value": 11.110866717898357,
+                "value": 12.010858778533972,
                 "timestamp": "2024-10-25",
                 "quarter": "Q3 2024"
               },
@@ -1027,7 +1027,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-10-25",
-                  "value": 11.110866717898357,
+                  "value": 12.010858778533972,
                   "timestamp": "2024-10-25",
                   "quarter": "Q3 2024"
                 }
@@ -1038,7 +1038,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-07-27",
-                "value": 10.560130188913424,
+                "value": 10.501634075028468,
                 "timestamp": "2024-07-27",
                 "quarter": "Q2 2024"
               },
@@ -1050,7 +1050,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-07-27",
-                  "value": 10.560130188913424,
+                  "value": 10.501634075028468,
                   "timestamp": "2024-07-27",
                   "quarter": "Q2 2024"
                 }
@@ -1061,7 +1061,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-04-28",
-                "value": 10.370629368922243,
+                "value": 10.463072579975506,
                 "timestamp": "2024-04-28",
                 "quarter": "Q1 2024"
               },
@@ -1073,7 +1073,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-04-28",
-                  "value": 10.370629368922243,
+                  "value": 10.463072579975506,
                   "timestamp": "2024-04-28",
                   "quarter": "Q1 2024"
                 }
@@ -1084,7 +1084,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-01-29",
-                "value": 10.073136012376995,
+                "value": 9.881368520344207,
                 "timestamp": "2024-01-29",
                 "quarter": "Q4 2023"
               },
@@ -1096,7 +1096,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-01-29",
-                  "value": 10.073136012376995,
+                  "value": 9.881368520344207,
                   "timestamp": "2024-01-29",
                   "quarter": "Q4 2023"
                 }
@@ -1107,7 +1107,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-10-31",
-                "value": 9.94603937076936,
+                "value": 9.551436872635996,
                 "timestamp": "2023-10-31",
                 "quarter": "Q3 2023"
               },
@@ -1119,7 +1119,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-10-31",
-                  "value": 9.94603937076936,
+                  "value": 9.551436872635996,
                   "timestamp": "2023-10-31",
                   "quarter": "Q3 2023"
                 }
@@ -1130,7 +1130,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-08-02",
-                "value": 8.65718873822195,
+                "value": 8.970202934029116,
                 "timestamp": "2023-08-02",
                 "quarter": "Q2 2023"
               },
@@ -1142,7 +1142,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-08-02",
-                  "value": 8.65718873822195,
+                  "value": 8.970202934029116,
                   "timestamp": "2023-08-02",
                   "quarter": "Q2 2023"
                 }
@@ -1153,7 +1153,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-05-04",
-                "value": 8.401751740624249,
+                "value": 8.576960421843411,
                 "timestamp": "2023-05-04",
                 "quarter": "Q1 2023"
               },
@@ -1165,7 +1165,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-05-04",
-                  "value": 8.401751740624249,
+                  "value": 8.576960421843411,
                   "timestamp": "2023-05-04",
                   "quarter": "Q1 2023"
                 }
@@ -1428,7 +1428,7 @@
         },
         {
           "question": "Can you disrupt the attractive market segments to increase your share in those segments or to drive market structure change in a segment or across multiple segments?",
-          "answer": "Based on the available data, we found relationships with Scalable Infrastructure, market share through HAS_STRENGTH, HAS_METRIC. Further analysis would provide more specific insights on this question.",
+          "answer": "Based on the available data, we found relationships with Scalable Infrastructure, market share through HAS_METRIC, HAS_STRENGTH. Further analysis would provide more specific insights on this question.",
           "data": [
             {
               "n": {
@@ -1475,7 +1475,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2025-01-23",
-                "value": 11.894414446497159,
+                "value": 12.262363189049129,
                 "timestamp": "2025-01-23",
                 "quarter": "Q4 2024"
               },
@@ -1487,7 +1487,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2025-01-23",
-                  "value": 11.894414446497159,
+                  "value": 12.262363189049129,
                   "timestamp": "2025-01-23",
                   "quarter": "Q4 2024"
                 }
@@ -1498,7 +1498,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-10-25",
-                "value": 11.110866717898357,
+                "value": 12.010858778533972,
                 "timestamp": "2024-10-25",
                 "quarter": "Q3 2024"
               },
@@ -1510,7 +1510,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-10-25",
-                  "value": 11.110866717898357,
+                  "value": 12.010858778533972,
                   "timestamp": "2024-10-25",
                   "quarter": "Q3 2024"
                 }
@@ -1521,7 +1521,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-07-27",
-                "value": 10.560130188913424,
+                "value": 10.501634075028468,
                 "timestamp": "2024-07-27",
                 "quarter": "Q2 2024"
               },
@@ -1533,7 +1533,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-07-27",
-                  "value": 10.560130188913424,
+                  "value": 10.501634075028468,
                   "timestamp": "2024-07-27",
                   "quarter": "Q2 2024"
                 }
@@ -1544,7 +1544,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-04-28",
-                "value": 10.370629368922243,
+                "value": 10.463072579975506,
                 "timestamp": "2024-04-28",
                 "quarter": "Q1 2024"
               },
@@ -1556,7 +1556,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-04-28",
-                  "value": 10.370629368922243,
+                  "value": 10.463072579975506,
                   "timestamp": "2024-04-28",
                   "quarter": "Q1 2024"
                 }
@@ -1567,7 +1567,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-01-29",
-                "value": 10.073136012376995,
+                "value": 9.881368520344207,
                 "timestamp": "2024-01-29",
                 "quarter": "Q4 2023"
               },
@@ -1579,7 +1579,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-01-29",
-                  "value": 10.073136012376995,
+                  "value": 9.881368520344207,
                   "timestamp": "2024-01-29",
                   "quarter": "Q4 2023"
                 }
@@ -1590,7 +1590,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-10-31",
-                "value": 9.94603937076936,
+                "value": 9.551436872635996,
                 "timestamp": "2023-10-31",
                 "quarter": "Q3 2023"
               },
@@ -1602,7 +1602,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-10-31",
-                  "value": 9.94603937076936,
+                  "value": 9.551436872635996,
                   "timestamp": "2023-10-31",
                   "quarter": "Q3 2023"
                 }
@@ -1613,7 +1613,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-08-02",
-                "value": 8.65718873822195,
+                "value": 8.970202934029116,
                 "timestamp": "2023-08-02",
                 "quarter": "Q2 2023"
               },
@@ -1625,7 +1625,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-08-02",
-                  "value": 8.65718873822195,
+                  "value": 8.970202934029116,
                   "timestamp": "2023-08-02",
                   "quarter": "Q2 2023"
                 }
@@ -1636,7 +1636,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-05-04",
-                "value": 8.401751740624249,
+                "value": 8.576960421843411,
                 "timestamp": "2023-05-04",
                 "quarter": "Q1 2023"
               },
@@ -1648,7 +1648,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-05-04",
-                  "value": 8.401751740624249,
+                  "value": 8.576960421843411,
                   "timestamp": "2023-05-04",
                   "quarter": "Q1 2023"
                 }
@@ -1942,7 +1942,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2025-01-23",
-                "value": 11.894414446497159,
+                "value": 12.262363189049129,
                 "timestamp": "2025-01-23",
                 "quarter": "Q4 2024"
               },
@@ -1954,7 +1954,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2025-01-23",
-                  "value": 11.894414446497159,
+                  "value": 12.262363189049129,
                   "timestamp": "2025-01-23",
                   "quarter": "Q4 2024"
                 }
@@ -1965,7 +1965,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-10-25",
-                "value": 11.110866717898357,
+                "value": 12.010858778533972,
                 "timestamp": "2024-10-25",
                 "quarter": "Q3 2024"
               },
@@ -1977,7 +1977,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-10-25",
-                  "value": 11.110866717898357,
+                  "value": 12.010858778533972,
                   "timestamp": "2024-10-25",
                   "quarter": "Q3 2024"
                 }
@@ -1988,7 +1988,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-07-27",
-                "value": 10.560130188913424,
+                "value": 10.501634075028468,
                 "timestamp": "2024-07-27",
                 "quarter": "Q2 2024"
               },
@@ -2000,7 +2000,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-07-27",
-                  "value": 10.560130188913424,
+                  "value": 10.501634075028468,
                   "timestamp": "2024-07-27",
                   "quarter": "Q2 2024"
                 }
@@ -2011,7 +2011,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-04-28",
-                "value": 10.370629368922243,
+                "value": 10.463072579975506,
                 "timestamp": "2024-04-28",
                 "quarter": "Q1 2024"
               },
@@ -2023,7 +2023,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-04-28",
-                  "value": 10.370629368922243,
+                  "value": 10.463072579975506,
                   "timestamp": "2024-04-28",
                   "quarter": "Q1 2024"
                 }
@@ -2034,7 +2034,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-01-29",
-                "value": 10.073136012376995,
+                "value": 9.881368520344207,
                 "timestamp": "2024-01-29",
                 "quarter": "Q4 2023"
               },
@@ -2046,7 +2046,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-01-29",
-                  "value": 10.073136012376995,
+                  "value": 9.881368520344207,
                   "timestamp": "2024-01-29",
                   "quarter": "Q4 2023"
                 }
@@ -2057,7 +2057,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-10-31",
-                "value": 9.94603937076936,
+                "value": 9.551436872635996,
                 "timestamp": "2023-10-31",
                 "quarter": "Q3 2023"
               },
@@ -2069,7 +2069,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-10-31",
-                  "value": 9.94603937076936,
+                  "value": 9.551436872635996,
                   "timestamp": "2023-10-31",
                   "quarter": "Q3 2023"
                 }
@@ -2080,7 +2080,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-08-02",
-                "value": 8.65718873822195,
+                "value": 8.970202934029116,
                 "timestamp": "2023-08-02",
                 "quarter": "Q2 2023"
               },
@@ -2092,7 +2092,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-08-02",
-                  "value": 8.65718873822195,
+                  "value": 8.970202934029116,
                   "timestamp": "2023-08-02",
                   "quarter": "Q2 2023"
                 }
@@ -2103,7 +2103,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-05-04",
-                "value": 8.401751740624249,
+                "value": 8.576960421843411,
                 "timestamp": "2023-05-04",
                 "quarter": "Q1 2023"
               },
@@ -2115,7 +2115,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-05-04",
-                  "value": 8.401751740624249,
+                  "value": 8.576960421843411,
                   "timestamp": "2023-05-04",
                   "quarter": "Q1 2023"
                 }
@@ -2383,7 +2383,7 @@
         },
         {
           "question": "Do you have a strong strategic position and leading market share in a lesser attractive market? Can you create a new ecosystem and architect its structure and operation?",
-          "answer": "Based on the available data, we found relationships with Scalable Infrastructure, market share through HAS_STRENGTH, HAS_METRIC. Further analysis would provide more specific insights on this question.",
+          "answer": "Based on the available data, we found relationships with Scalable Infrastructure, market share through HAS_METRIC, HAS_STRENGTH. Further analysis would provide more specific insights on this question.",
           "data": [
             {
               "n": {
@@ -2430,7 +2430,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2025-01-23",
-                "value": 11.894414446497159,
+                "value": 12.262363189049129,
                 "timestamp": "2025-01-23",
                 "quarter": "Q4 2024"
               },
@@ -2442,7 +2442,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2025-01-23",
-                  "value": 11.894414446497159,
+                  "value": 12.262363189049129,
                   "timestamp": "2025-01-23",
                   "quarter": "Q4 2024"
                 }
@@ -2453,7 +2453,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-10-25",
-                "value": 11.110866717898357,
+                "value": 12.010858778533972,
                 "timestamp": "2024-10-25",
                 "quarter": "Q3 2024"
               },
@@ -2465,7 +2465,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-10-25",
-                  "value": 11.110866717898357,
+                  "value": 12.010858778533972,
                   "timestamp": "2024-10-25",
                   "quarter": "Q3 2024"
                 }
@@ -2476,7 +2476,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-07-27",
-                "value": 10.560130188913424,
+                "value": 10.501634075028468,
                 "timestamp": "2024-07-27",
                 "quarter": "Q2 2024"
               },
@@ -2488,7 +2488,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-07-27",
-                  "value": 10.560130188913424,
+                  "value": 10.501634075028468,
                   "timestamp": "2024-07-27",
                   "quarter": "Q2 2024"
                 }
@@ -2499,7 +2499,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-04-28",
-                "value": 10.370629368922243,
+                "value": 10.463072579975506,
                 "timestamp": "2024-04-28",
                 "quarter": "Q1 2024"
               },
@@ -2511,7 +2511,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-04-28",
-                  "value": 10.370629368922243,
+                  "value": 10.463072579975506,
                   "timestamp": "2024-04-28",
                   "quarter": "Q1 2024"
                 }
@@ -2522,7 +2522,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-01-29",
-                "value": 10.073136012376995,
+                "value": 9.881368520344207,
                 "timestamp": "2024-01-29",
                 "quarter": "Q4 2023"
               },
@@ -2534,7 +2534,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-01-29",
-                  "value": 10.073136012376995,
+                  "value": 9.881368520344207,
                   "timestamp": "2024-01-29",
                   "quarter": "Q4 2023"
                 }
@@ -2545,7 +2545,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-10-31",
-                "value": 9.94603937076936,
+                "value": 9.551436872635996,
                 "timestamp": "2023-10-31",
                 "quarter": "Q3 2023"
               },
@@ -2557,7 +2557,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-10-31",
-                  "value": 9.94603937076936,
+                  "value": 9.551436872635996,
                   "timestamp": "2023-10-31",
                   "quarter": "Q3 2023"
                 }
@@ -2568,7 +2568,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-08-02",
-                "value": 8.65718873822195,
+                "value": 8.970202934029116,
                 "timestamp": "2023-08-02",
                 "quarter": "Q2 2023"
               },
@@ -2580,7 +2580,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-08-02",
-                  "value": 8.65718873822195,
+                  "value": 8.970202934029116,
                   "timestamp": "2023-08-02",
                   "quarter": "Q2 2023"
                 }
@@ -2591,7 +2591,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-05-04",
-                "value": 8.401751740624249,
+                "value": 8.576960421843411,
                 "timestamp": "2023-05-04",
                 "quarter": "Q1 2023"
               },
@@ -2603,7 +2603,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-05-04",
-                  "value": 8.401751740624249,
+                  "value": 8.576960421843411,
                   "timestamp": "2023-05-04",
                   "quarter": "Q1 2023"
                 }
@@ -2878,7 +2878,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2025-01-23",
-                "value": 11.894414446497159,
+                "value": 12.262363189049129,
                 "timestamp": "2025-01-23",
                 "quarter": "Q4 2024"
               },
@@ -2890,7 +2890,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2025-01-23",
-                  "value": 11.894414446497159,
+                  "value": 12.262363189049129,
                   "timestamp": "2025-01-23",
                   "quarter": "Q4 2024"
                 }
@@ -2901,7 +2901,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-10-25",
-                "value": 11.110866717898357,
+                "value": 12.010858778533972,
                 "timestamp": "2024-10-25",
                 "quarter": "Q3 2024"
               },
@@ -2913,7 +2913,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-10-25",
-                  "value": 11.110866717898357,
+                  "value": 12.010858778533972,
                   "timestamp": "2024-10-25",
                   "quarter": "Q3 2024"
                 }
@@ -2924,7 +2924,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-07-27",
-                "value": 10.560130188913424,
+                "value": 10.501634075028468,
                 "timestamp": "2024-07-27",
                 "quarter": "Q2 2024"
               },
@@ -2936,7 +2936,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-07-27",
-                  "value": 10.560130188913424,
+                  "value": 10.501634075028468,
                   "timestamp": "2024-07-27",
                   "quarter": "Q2 2024"
                 }
@@ -2947,7 +2947,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-04-28",
-                "value": 10.370629368922243,
+                "value": 10.463072579975506,
                 "timestamp": "2024-04-28",
                 "quarter": "Q1 2024"
               },
@@ -2959,7 +2959,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-04-28",
-                  "value": 10.370629368922243,
+                  "value": 10.463072579975506,
                   "timestamp": "2024-04-28",
                   "quarter": "Q1 2024"
                 }
@@ -2970,7 +2970,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-01-29",
-                "value": 10.073136012376995,
+                "value": 9.881368520344207,
                 "timestamp": "2024-01-29",
                 "quarter": "Q4 2023"
               },
@@ -2982,7 +2982,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-01-29",
-                  "value": 10.073136012376995,
+                  "value": 9.881368520344207,
                   "timestamp": "2024-01-29",
                   "quarter": "Q4 2023"
                 }
@@ -2993,7 +2993,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-10-31",
-                "value": 9.94603937076936,
+                "value": 9.551436872635996,
                 "timestamp": "2023-10-31",
                 "quarter": "Q3 2023"
               },
@@ -3005,7 +3005,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-10-31",
-                  "value": 9.94603937076936,
+                  "value": 9.551436872635996,
                   "timestamp": "2023-10-31",
                   "quarter": "Q3 2023"
                 }
@@ -3016,7 +3016,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-08-02",
-                "value": 8.65718873822195,
+                "value": 8.970202934029116,
                 "timestamp": "2023-08-02",
                 "quarter": "Q2 2023"
               },
@@ -3028,7 +3028,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-08-02",
-                  "value": 8.65718873822195,
+                  "value": 8.970202934029116,
                   "timestamp": "2023-08-02",
                   "quarter": "Q2 2023"
                 }
@@ -3039,7 +3039,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-05-04",
-                "value": 8.401751740624249,
+                "value": 8.576960421843411,
                 "timestamp": "2023-05-04",
                 "quarter": "Q1 2023"
               },
@@ -3051,7 +3051,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-05-04",
-                  "value": 8.401751740624249,
+                  "value": 8.576960421843411,
                   "timestamp": "2023-05-04",
                   "quarter": "Q1 2023"
                 }
@@ -3344,7 +3344,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2025-01-23",
-                "value": 11.894414446497159,
+                "value": 12.262363189049129,
                 "timestamp": "2025-01-23",
                 "quarter": "Q4 2024"
               },
@@ -3356,7 +3356,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2025-01-23",
-                  "value": 11.894414446497159,
+                  "value": 12.262363189049129,
                   "timestamp": "2025-01-23",
                   "quarter": "Q4 2024"
                 }
@@ -3367,7 +3367,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-10-25",
-                "value": 11.110866717898357,
+                "value": 12.010858778533972,
                 "timestamp": "2024-10-25",
                 "quarter": "Q3 2024"
               },
@@ -3379,7 +3379,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-10-25",
-                  "value": 11.110866717898357,
+                  "value": 12.010858778533972,
                   "timestamp": "2024-10-25",
                   "quarter": "Q3 2024"
                 }
@@ -3390,7 +3390,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-07-27",
-                "value": 10.560130188913424,
+                "value": 10.501634075028468,
                 "timestamp": "2024-07-27",
                 "quarter": "Q2 2024"
               },
@@ -3402,7 +3402,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-07-27",
-                  "value": 10.560130188913424,
+                  "value": 10.501634075028468,
                   "timestamp": "2024-07-27",
                   "quarter": "Q2 2024"
                 }
@@ -3413,7 +3413,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-04-28",
-                "value": 10.370629368922243,
+                "value": 10.463072579975506,
                 "timestamp": "2024-04-28",
                 "quarter": "Q1 2024"
               },
@@ -3425,7 +3425,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-04-28",
-                  "value": 10.370629368922243,
+                  "value": 10.463072579975506,
                   "timestamp": "2024-04-28",
                   "quarter": "Q1 2024"
                 }
@@ -3436,7 +3436,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-01-29",
-                "value": 10.073136012376995,
+                "value": 9.881368520344207,
                 "timestamp": "2024-01-29",
                 "quarter": "Q4 2023"
               },
@@ -3448,7 +3448,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-01-29",
-                  "value": 10.073136012376995,
+                  "value": 9.881368520344207,
                   "timestamp": "2024-01-29",
                   "quarter": "Q4 2023"
                 }
@@ -3459,7 +3459,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-10-31",
-                "value": 9.94603937076936,
+                "value": 9.551436872635996,
                 "timestamp": "2023-10-31",
                 "quarter": "Q3 2023"
               },
@@ -3471,7 +3471,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-10-31",
-                  "value": 9.94603937076936,
+                  "value": 9.551436872635996,
                   "timestamp": "2023-10-31",
                   "quarter": "Q3 2023"
                 }
@@ -3482,7 +3482,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-08-02",
-                "value": 8.65718873822195,
+                "value": 8.970202934029116,
                 "timestamp": "2023-08-02",
                 "quarter": "Q2 2023"
               },
@@ -3494,7 +3494,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-08-02",
-                  "value": 8.65718873822195,
+                  "value": 8.970202934029116,
                   "timestamp": "2023-08-02",
                   "quarter": "Q2 2023"
                 }
@@ -3505,7 +3505,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-05-04",
-                "value": 8.401751740624249,
+                "value": 8.576960421843411,
                 "timestamp": "2023-05-04",
                 "quarter": "Q1 2023"
               },
@@ -3517,7 +3517,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-05-04",
-                  "value": 8.401751740624249,
+                  "value": 8.576960421843411,
                   "timestamp": "2023-05-04",
                   "quarter": "Q1 2023"
                 }
@@ -3810,7 +3810,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2025-01-23",
-                "value": 11.894414446497159,
+                "value": 12.262363189049129,
                 "timestamp": "2025-01-23",
                 "quarter": "Q4 2024"
               },
@@ -3822,7 +3822,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2025-01-23",
-                  "value": 11.894414446497159,
+                  "value": 12.262363189049129,
                   "timestamp": "2025-01-23",
                   "quarter": "Q4 2024"
                 }
@@ -3833,7 +3833,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-10-25",
-                "value": 11.110866717898357,
+                "value": 12.010858778533972,
                 "timestamp": "2024-10-25",
                 "quarter": "Q3 2024"
               },
@@ -3845,7 +3845,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-10-25",
-                  "value": 11.110866717898357,
+                  "value": 12.010858778533972,
                   "timestamp": "2024-10-25",
                   "quarter": "Q3 2024"
                 }
@@ -3856,7 +3856,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-07-27",
-                "value": 10.560130188913424,
+                "value": 10.501634075028468,
                 "timestamp": "2024-07-27",
                 "quarter": "Q2 2024"
               },
@@ -3868,7 +3868,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-07-27",
-                  "value": 10.560130188913424,
+                  "value": 10.501634075028468,
                   "timestamp": "2024-07-27",
                   "quarter": "Q2 2024"
                 }
@@ -3879,7 +3879,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-04-28",
-                "value": 10.370629368922243,
+                "value": 10.463072579975506,
                 "timestamp": "2024-04-28",
                 "quarter": "Q1 2024"
               },
@@ -3891,7 +3891,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-04-28",
-                  "value": 10.370629368922243,
+                  "value": 10.463072579975506,
                   "timestamp": "2024-04-28",
                   "quarter": "Q1 2024"
                 }
@@ -3902,7 +3902,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-01-29",
-                "value": 10.073136012376995,
+                "value": 9.881368520344207,
                 "timestamp": "2024-01-29",
                 "quarter": "Q4 2023"
               },
@@ -3914,7 +3914,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-01-29",
-                  "value": 10.073136012376995,
+                  "value": 9.881368520344207,
                   "timestamp": "2024-01-29",
                   "quarter": "Q4 2023"
                 }
@@ -3925,7 +3925,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-10-31",
-                "value": 9.94603937076936,
+                "value": 9.551436872635996,
                 "timestamp": "2023-10-31",
                 "quarter": "Q3 2023"
               },
@@ -3937,7 +3937,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-10-31",
-                  "value": 9.94603937076936,
+                  "value": 9.551436872635996,
                   "timestamp": "2023-10-31",
                   "quarter": "Q3 2023"
                 }
@@ -3948,7 +3948,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-08-02",
-                "value": 8.65718873822195,
+                "value": 8.970202934029116,
                 "timestamp": "2023-08-02",
                 "quarter": "Q2 2023"
               },
@@ -3960,7 +3960,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-08-02",
-                  "value": 8.65718873822195,
+                  "value": 8.970202934029116,
                   "timestamp": "2023-08-02",
                   "quarter": "Q2 2023"
                 }
@@ -3971,7 +3971,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-05-04",
-                "value": 8.401751740624249,
+                "value": 8.576960421843411,
                 "timestamp": "2023-05-04",
                 "quarter": "Q1 2023"
               },
@@ -3983,7 +3983,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-05-04",
-                  "value": 8.401751740624249,
+                  "value": 8.576960421843411,
                   "timestamp": "2023-05-04",
                   "quarter": "Q1 2023"
                 }
@@ -4286,7 +4286,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2025-01-23",
-                "value": 11.894414446497159,
+                "value": 12.262363189049129,
                 "timestamp": "2025-01-23",
                 "quarter": "Q4 2024"
               },
@@ -4298,7 +4298,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2025-01-23",
-                  "value": 11.894414446497159,
+                  "value": 12.262363189049129,
                   "timestamp": "2025-01-23",
                   "quarter": "Q4 2024"
                 }
@@ -4309,7 +4309,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-10-25",
-                "value": 11.110866717898357,
+                "value": 12.010858778533972,
                 "timestamp": "2024-10-25",
                 "quarter": "Q3 2024"
               },
@@ -4321,7 +4321,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-10-25",
-                  "value": 11.110866717898357,
+                  "value": 12.010858778533972,
                   "timestamp": "2024-10-25",
                   "quarter": "Q3 2024"
                 }
@@ -4332,7 +4332,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-07-27",
-                "value": 10.560130188913424,
+                "value": 10.501634075028468,
                 "timestamp": "2024-07-27",
                 "quarter": "Q2 2024"
               },
@@ -4344,7 +4344,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-07-27",
-                  "value": 10.560130188913424,
+                  "value": 10.501634075028468,
                   "timestamp": "2024-07-27",
                   "quarter": "Q2 2024"
                 }
@@ -4355,7 +4355,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-04-28",
-                "value": 10.370629368922243,
+                "value": 10.463072579975506,
                 "timestamp": "2024-04-28",
                 "quarter": "Q1 2024"
               },
@@ -4367,7 +4367,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-04-28",
-                  "value": 10.370629368922243,
+                  "value": 10.463072579975506,
                   "timestamp": "2024-04-28",
                   "quarter": "Q1 2024"
                 }
@@ -4378,7 +4378,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-01-29",
-                "value": 10.073136012376995,
+                "value": 9.881368520344207,
                 "timestamp": "2024-01-29",
                 "quarter": "Q4 2023"
               },
@@ -4390,7 +4390,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-01-29",
-                  "value": 10.073136012376995,
+                  "value": 9.881368520344207,
                   "timestamp": "2024-01-29",
                   "quarter": "Q4 2023"
                 }
@@ -4401,7 +4401,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-10-31",
-                "value": 9.94603937076936,
+                "value": 9.551436872635996,
                 "timestamp": "2023-10-31",
                 "quarter": "Q3 2023"
               },
@@ -4413,7 +4413,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-10-31",
-                  "value": 9.94603937076936,
+                  "value": 9.551436872635996,
                   "timestamp": "2023-10-31",
                   "quarter": "Q3 2023"
                 }
@@ -4424,7 +4424,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-08-02",
-                "value": 8.65718873822195,
+                "value": 8.970202934029116,
                 "timestamp": "2023-08-02",
                 "quarter": "Q2 2023"
               },
@@ -4436,7 +4436,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-08-02",
-                  "value": 8.65718873822195,
+                  "value": 8.970202934029116,
                   "timestamp": "2023-08-02",
                   "quarter": "Q2 2023"
                 }
@@ -4447,7 +4447,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-05-04",
-                "value": 8.401751740624249,
+                "value": 8.576960421843411,
                 "timestamp": "2023-05-04",
                 "quarter": "Q1 2023"
               },
@@ -4459,7 +4459,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-05-04",
-                  "value": 8.401751740624249,
+                  "value": 8.576960421843411,
                   "timestamp": "2023-05-04",
                   "quarter": "Q1 2023"
                 }
@@ -4752,7 +4752,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2025-01-23",
-                "value": 11.894414446497159,
+                "value": 12.262363189049129,
                 "timestamp": "2025-01-23",
                 "quarter": "Q4 2024"
               },
@@ -4764,7 +4764,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2025-01-23",
-                  "value": 11.894414446497159,
+                  "value": 12.262363189049129,
                   "timestamp": "2025-01-23",
                   "quarter": "Q4 2024"
                 }
@@ -4775,7 +4775,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-10-25",
-                "value": 11.110866717898357,
+                "value": 12.010858778533972,
                 "timestamp": "2024-10-25",
                 "quarter": "Q3 2024"
               },
@@ -4787,7 +4787,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-10-25",
-                  "value": 11.110866717898357,
+                  "value": 12.010858778533972,
                   "timestamp": "2024-10-25",
                   "quarter": "Q3 2024"
                 }
@@ -4798,7 +4798,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-07-27",
-                "value": 10.560130188913424,
+                "value": 10.501634075028468,
                 "timestamp": "2024-07-27",
                 "quarter": "Q2 2024"
               },
@@ -4810,7 +4810,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-07-27",
-                  "value": 10.560130188913424,
+                  "value": 10.501634075028468,
                   "timestamp": "2024-07-27",
                   "quarter": "Q2 2024"
                 }
@@ -4821,7 +4821,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-04-28",
-                "value": 10.370629368922243,
+                "value": 10.463072579975506,
                 "timestamp": "2024-04-28",
                 "quarter": "Q1 2024"
               },
@@ -4833,7 +4833,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-04-28",
-                  "value": 10.370629368922243,
+                  "value": 10.463072579975506,
                   "timestamp": "2024-04-28",
                   "quarter": "Q1 2024"
                 }
@@ -4844,7 +4844,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-01-29",
-                "value": 10.073136012376995,
+                "value": 9.881368520344207,
                 "timestamp": "2024-01-29",
                 "quarter": "Q4 2023"
               },
@@ -4856,7 +4856,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-01-29",
-                  "value": 10.073136012376995,
+                  "value": 9.881368520344207,
                   "timestamp": "2024-01-29",
                   "quarter": "Q4 2023"
                 }
@@ -4867,7 +4867,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-10-31",
-                "value": 9.94603937076936,
+                "value": 9.551436872635996,
                 "timestamp": "2023-10-31",
                 "quarter": "Q3 2023"
               },
@@ -4879,7 +4879,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-10-31",
-                  "value": 9.94603937076936,
+                  "value": 9.551436872635996,
                   "timestamp": "2023-10-31",
                   "quarter": "Q3 2023"
                 }
@@ -4890,7 +4890,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-08-02",
-                "value": 8.65718873822195,
+                "value": 8.970202934029116,
                 "timestamp": "2023-08-02",
                 "quarter": "Q2 2023"
               },
@@ -4902,7 +4902,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-08-02",
-                  "value": 8.65718873822195,
+                  "value": 8.970202934029116,
                   "timestamp": "2023-08-02",
                   "quarter": "Q2 2023"
                 }
@@ -4913,7 +4913,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-05-04",
-                "value": 8.401751740624249,
+                "value": 8.576960421843411,
                 "timestamp": "2023-05-04",
                 "quarter": "Q1 2023"
               },
@@ -4925,7 +4925,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-05-04",
-                  "value": 8.401751740624249,
+                  "value": 8.576960421843411,
                   "timestamp": "2023-05-04",
                   "quarter": "Q1 2023"
                 }
@@ -5198,7 +5198,7 @@
         },
         {
           "question": "Can you influence/partner with key ecosystem partners to enhance your strategic position?",
-          "answer": "Based on the available data, we found relationships with ManufactureX, HealthServices, FinanceGroup through COMPETES_WITH, PARTNERED_WITH. Further analysis would provide more specific insights on this question.",
+          "answer": "Based on the available data, we found relationships with HealthServices, ManufactureX, FinanceGroup through PARTNERED_WITH, COMPETES_WITH. Further analysis would provide more specific insights on this question.",
           "data": [
             {
               "n": {
@@ -7695,28 +7695,516 @@
       "findings": [
         {
           "type": "risk",
-          "description": "Potential risk factor identified relating to: Are any Risk Factors in the High Risk category",
-          "importance": "high"
+          "risk_type": "financial",
+          "level": 0.65,
+          "description": "Market share for legacy software products is declining as competitors offer cloud-native alternatives",
+          "impact_area": "Revenue",
+          "probability": "Medium",
+          "mitigation_status": "In Progress"
         },
         {
           "type": "risk",
-          "description": "Potential risk factor identified relating to: Can you reduce or mitigate the probabilty of occurrence of any High Risk Factors",
-          "importance": "high"
+          "risk_type": "market",
+          "level": 0.58,
+          "description": "Startups with AI-driven security solutions are gaining traction in key markets",
+          "impact_area": "Market Position",
+          "probability": "Medium",
+          "mitigation_status": "Monitoring"
         },
         {
           "type": "risk",
-          "description": "Potential risk factor identified relating to: Can you reduce or mitigate the impact of any High Risk Factors",
-          "importance": "high"
+          "risk_type": "operational",
+          "level": 0.45,
+          "description": "Higher than industry average turnover among senior engineers",
+          "impact_area": "Product Development",
+          "probability": "Medium",
+          "mitigation_status": "Early Stage"
         },
         {
           "type": "risk",
-          "description": "Potential risk factor identified relating to: What is the overall Risk impact on the Strategy?",
-          "importance": "high"
+          "risk_type": "financial",
+          "level": 0.65,
+          "description": "Market share for legacy software products is declining as competitors offer cloud-native alternatives",
+          "impact_area": "Revenue",
+          "probability": "Medium",
+          "mitigation_status": "In Progress"
         },
         {
           "type": "risk",
-          "description": "Potential risk factor identified relating to: Can you enhance your overall Strategic Position while maintaining or minimizing the overall Risk profile of the Business?",
-          "importance": "high"
+          "risk_type": "market",
+          "level": 0.58,
+          "description": "Startups with AI-driven security solutions are gaining traction in key markets",
+          "impact_area": "Market Position",
+          "probability": "Medium",
+          "mitigation_status": "Monitoring"
+        },
+        {
+          "type": "risk",
+          "risk_type": "operational",
+          "level": 0.45,
+          "description": "Higher than industry average turnover among senior engineers",
+          "impact_area": "Product Development",
+          "probability": "Medium",
+          "mitigation_status": "Early Stage"
+        },
+        {
+          "type": "risk",
+          "risk_type": "financial",
+          "level": 0.65,
+          "description": "Market share for legacy software products is declining as competitors offer cloud-native alternatives",
+          "impact_area": "Revenue",
+          "probability": "Medium",
+          "mitigation_status": "In Progress"
+        },
+        {
+          "type": "risk",
+          "risk_type": "market",
+          "level": 0.58,
+          "description": "Startups with AI-driven security solutions are gaining traction in key markets",
+          "impact_area": "Market Position",
+          "probability": "Medium",
+          "mitigation_status": "Monitoring"
+        },
+        {
+          "type": "risk",
+          "risk_type": "operational",
+          "level": 0.45,
+          "description": "Higher than industry average turnover among senior engineers",
+          "impact_area": "Product Development",
+          "probability": "Medium",
+          "mitigation_status": "Early Stage"
+        },
+        {
+          "type": "risk",
+          "risk_type": "financial",
+          "level": 0.65,
+          "description": "Market share for legacy software products is declining as competitors offer cloud-native alternatives",
+          "impact_area": "Revenue",
+          "probability": "Medium",
+          "mitigation_status": "In Progress"
+        },
+        {
+          "type": "risk",
+          "risk_type": "market",
+          "level": 0.58,
+          "description": "Startups with AI-driven security solutions are gaining traction in key markets",
+          "impact_area": "Market Position",
+          "probability": "Medium",
+          "mitigation_status": "Monitoring"
+        },
+        {
+          "type": "risk",
+          "risk_type": "operational",
+          "level": 0.45,
+          "description": "Higher than industry average turnover among senior engineers",
+          "impact_area": "Product Development",
+          "probability": "Medium",
+          "mitigation_status": "Early Stage"
+        },
+        {
+          "type": "risk",
+          "risk_type": "financial",
+          "level": 0.65,
+          "description": "Market share for legacy software products is declining as competitors offer cloud-native alternatives",
+          "impact_area": "Revenue",
+          "probability": "Medium",
+          "mitigation_status": "In Progress"
+        },
+        {
+          "type": "risk",
+          "risk_type": "market",
+          "level": 0.58,
+          "description": "Startups with AI-driven security solutions are gaining traction in key markets",
+          "impact_area": "Market Position",
+          "probability": "Medium",
+          "mitigation_status": "Monitoring"
+        },
+        {
+          "type": "risk",
+          "risk_type": "operational",
+          "level": 0.45,
+          "description": "Higher than industry average turnover among senior engineers",
+          "impact_area": "Product Development",
+          "probability": "Medium",
+          "mitigation_status": "Early Stage"
+        },
+        {
+          "type": "risk",
+          "risk_type": "financial",
+          "level": 0.65,
+          "description": "Market share for legacy software products is declining as competitors offer cloud-native alternatives",
+          "impact_area": "Revenue",
+          "probability": "Medium",
+          "mitigation_status": "In Progress"
+        },
+        {
+          "type": "risk",
+          "risk_type": "market",
+          "level": 0.58,
+          "description": "Startups with AI-driven security solutions are gaining traction in key markets",
+          "impact_area": "Market Position",
+          "probability": "Medium",
+          "mitigation_status": "Monitoring"
+        },
+        {
+          "type": "risk",
+          "risk_type": "operational",
+          "level": 0.45,
+          "description": "Higher than industry average turnover among senior engineers",
+          "impact_area": "Product Development",
+          "probability": "Medium",
+          "mitigation_status": "Early Stage"
+        },
+        {
+          "type": "risk",
+          "risk_type": "financial",
+          "level": 0.65,
+          "description": "Market share for legacy software products is declining as competitors offer cloud-native alternatives",
+          "impact_area": "Revenue",
+          "probability": "Medium",
+          "mitigation_status": "In Progress"
+        },
+        {
+          "type": "risk",
+          "risk_type": "market",
+          "level": 0.58,
+          "description": "Startups with AI-driven security solutions are gaining traction in key markets",
+          "impact_area": "Market Position",
+          "probability": "Medium",
+          "mitigation_status": "Monitoring"
+        },
+        {
+          "type": "risk",
+          "risk_type": "operational",
+          "level": 0.45,
+          "description": "Higher than industry average turnover among senior engineers",
+          "impact_area": "Product Development",
+          "probability": "Medium",
+          "mitigation_status": "Early Stage"
+        },
+        {
+          "type": "risk",
+          "risk_type": "financial",
+          "level": 0.65,
+          "description": "Market share for legacy software products is declining as competitors offer cloud-native alternatives",
+          "impact_area": "Revenue",
+          "probability": "Medium",
+          "mitigation_status": "In Progress"
+        },
+        {
+          "type": "risk",
+          "risk_type": "market",
+          "level": 0.58,
+          "description": "Startups with AI-driven security solutions are gaining traction in key markets",
+          "impact_area": "Market Position",
+          "probability": "Medium",
+          "mitigation_status": "Monitoring"
+        },
+        {
+          "type": "risk",
+          "risk_type": "operational",
+          "level": 0.45,
+          "description": "Higher than industry average turnover among senior engineers",
+          "impact_area": "Product Development",
+          "probability": "Medium",
+          "mitigation_status": "Early Stage"
+        },
+        {
+          "type": "risk",
+          "risk_type": "financial",
+          "level": 0.65,
+          "description": "Market share for legacy software products is declining as competitors offer cloud-native alternatives",
+          "impact_area": "Revenue",
+          "probability": "Medium",
+          "mitigation_status": "In Progress"
+        },
+        {
+          "type": "risk",
+          "risk_type": "market",
+          "level": 0.58,
+          "description": "Startups with AI-driven security solutions are gaining traction in key markets",
+          "impact_area": "Market Position",
+          "probability": "Medium",
+          "mitigation_status": "Monitoring"
+        },
+        {
+          "type": "risk",
+          "risk_type": "operational",
+          "level": 0.45,
+          "description": "Higher than industry average turnover among senior engineers",
+          "impact_area": "Product Development",
+          "probability": "Medium",
+          "mitigation_status": "Early Stage"
+        },
+        {
+          "type": "risk",
+          "risk_type": "financial",
+          "level": 0.65,
+          "description": "Market share for legacy software products is declining as competitors offer cloud-native alternatives",
+          "impact_area": "Revenue",
+          "probability": "Medium",
+          "mitigation_status": "In Progress"
+        },
+        {
+          "type": "risk",
+          "risk_type": "market",
+          "level": 0.58,
+          "description": "Startups with AI-driven security solutions are gaining traction in key markets",
+          "impact_area": "Market Position",
+          "probability": "Medium",
+          "mitigation_status": "Monitoring"
+        },
+        {
+          "type": "risk",
+          "risk_type": "operational",
+          "level": 0.45,
+          "description": "Higher than industry average turnover among senior engineers",
+          "impact_area": "Product Development",
+          "probability": "Medium",
+          "mitigation_status": "Early Stage"
+        },
+        {
+          "type": "risk",
+          "risk_type": "financial",
+          "level": 0.65,
+          "description": "Market share for legacy software products is declining as competitors offer cloud-native alternatives",
+          "impact_area": "Revenue",
+          "probability": "Medium",
+          "mitigation_status": "In Progress"
+        },
+        {
+          "type": "risk",
+          "risk_type": "market",
+          "level": 0.58,
+          "description": "Startups with AI-driven security solutions are gaining traction in key markets",
+          "impact_area": "Market Position",
+          "probability": "Medium",
+          "mitigation_status": "Monitoring"
+        },
+        {
+          "type": "risk",
+          "risk_type": "operational",
+          "level": 0.45,
+          "description": "Higher than industry average turnover among senior engineers",
+          "impact_area": "Product Development",
+          "probability": "Medium",
+          "mitigation_status": "Early Stage"
+        },
+        {
+          "type": "risk",
+          "risk_type": "financial",
+          "level": 0.65,
+          "description": "Market share for legacy software products is declining as competitors offer cloud-native alternatives",
+          "impact_area": "Revenue",
+          "probability": "Medium",
+          "mitigation_status": "In Progress"
+        },
+        {
+          "type": "risk",
+          "risk_type": "market",
+          "level": 0.58,
+          "description": "Startups with AI-driven security solutions are gaining traction in key markets",
+          "impact_area": "Market Position",
+          "probability": "Medium",
+          "mitigation_status": "Monitoring"
+        },
+        {
+          "type": "risk",
+          "risk_type": "operational",
+          "level": 0.45,
+          "description": "Higher than industry average turnover among senior engineers",
+          "impact_area": "Product Development",
+          "probability": "Medium",
+          "mitigation_status": "Early Stage"
+        },
+        {
+          "type": "risk",
+          "risk_type": "financial",
+          "level": 0.65,
+          "description": "Market share for legacy software products is declining as competitors offer cloud-native alternatives",
+          "impact_area": "Revenue",
+          "probability": "Medium",
+          "mitigation_status": "In Progress"
+        },
+        {
+          "type": "risk",
+          "risk_type": "market",
+          "level": 0.58,
+          "description": "Startups with AI-driven security solutions are gaining traction in key markets",
+          "impact_area": "Market Position",
+          "probability": "Medium",
+          "mitigation_status": "Monitoring"
+        },
+        {
+          "type": "risk",
+          "risk_type": "operational",
+          "level": 0.45,
+          "description": "Higher than industry average turnover among senior engineers",
+          "impact_area": "Product Development",
+          "probability": "Medium",
+          "mitigation_status": "Early Stage"
+        },
+        {
+          "type": "risk",
+          "risk_type": "financial",
+          "level": 0.65,
+          "description": "Market share for legacy software products is declining as competitors offer cloud-native alternatives",
+          "impact_area": "Revenue",
+          "probability": "Medium",
+          "mitigation_status": "In Progress"
+        },
+        {
+          "type": "risk",
+          "risk_type": "market",
+          "level": 0.58,
+          "description": "Startups with AI-driven security solutions are gaining traction in key markets",
+          "impact_area": "Market Position",
+          "probability": "Medium",
+          "mitigation_status": "Monitoring"
+        },
+        {
+          "type": "risk",
+          "risk_type": "operational",
+          "level": 0.45,
+          "description": "Higher than industry average turnover among senior engineers",
+          "impact_area": "Product Development",
+          "probability": "Medium",
+          "mitigation_status": "Early Stage"
+        },
+        {
+          "type": "risk",
+          "risk_type": "financial",
+          "level": 0.65,
+          "description": "Market share for legacy software products is declining as competitors offer cloud-native alternatives",
+          "impact_area": "Revenue",
+          "probability": "Medium",
+          "mitigation_status": "In Progress"
+        },
+        {
+          "type": "risk",
+          "risk_type": "market",
+          "level": 0.58,
+          "description": "Startups with AI-driven security solutions are gaining traction in key markets",
+          "impact_area": "Market Position",
+          "probability": "Medium",
+          "mitigation_status": "Monitoring"
+        },
+        {
+          "type": "risk",
+          "risk_type": "operational",
+          "level": 0.45,
+          "description": "Higher than industry average turnover among senior engineers",
+          "impact_area": "Product Development",
+          "probability": "Medium",
+          "mitigation_status": "Early Stage"
+        },
+        {
+          "type": "risk",
+          "risk_type": "financial",
+          "level": 0.65,
+          "description": "Market share for legacy software products is declining as competitors offer cloud-native alternatives",
+          "impact_area": "Revenue",
+          "probability": "Medium",
+          "mitigation_status": "In Progress"
+        },
+        {
+          "type": "risk",
+          "risk_type": "market",
+          "level": 0.58,
+          "description": "Startups with AI-driven security solutions are gaining traction in key markets",
+          "impact_area": "Market Position",
+          "probability": "Medium",
+          "mitigation_status": "Monitoring"
+        },
+        {
+          "type": "risk",
+          "risk_type": "operational",
+          "level": 0.45,
+          "description": "Higher than industry average turnover among senior engineers",
+          "impact_area": "Product Development",
+          "probability": "Medium",
+          "mitigation_status": "Early Stage"
+        },
+        {
+          "type": "risk",
+          "risk_type": "financial",
+          "level": 0.65,
+          "description": "Market share for legacy software products is declining as competitors offer cloud-native alternatives",
+          "impact_area": "Revenue",
+          "probability": "Medium",
+          "mitigation_status": "In Progress"
+        },
+        {
+          "type": "risk",
+          "risk_type": "market",
+          "level": 0.58,
+          "description": "Startups with AI-driven security solutions are gaining traction in key markets",
+          "impact_area": "Market Position",
+          "probability": "Medium",
+          "mitigation_status": "Monitoring"
+        },
+        {
+          "type": "risk",
+          "risk_type": "operational",
+          "level": 0.45,
+          "description": "Higher than industry average turnover among senior engineers",
+          "impact_area": "Product Development",
+          "probability": "Medium",
+          "mitigation_status": "Early Stage"
+        },
+        {
+          "type": "risk",
+          "risk_type": "financial",
+          "level": 0.65,
+          "description": "Market share for legacy software products is declining as competitors offer cloud-native alternatives",
+          "impact_area": "Revenue",
+          "probability": "Medium",
+          "mitigation_status": "In Progress"
+        },
+        {
+          "type": "risk",
+          "risk_type": "market",
+          "level": 0.58,
+          "description": "Startups with AI-driven security solutions are gaining traction in key markets",
+          "impact_area": "Market Position",
+          "probability": "Medium",
+          "mitigation_status": "Monitoring"
+        },
+        {
+          "type": "risk",
+          "risk_type": "operational",
+          "level": 0.45,
+          "description": "Higher than industry average turnover among senior engineers",
+          "impact_area": "Product Development",
+          "probability": "Medium",
+          "mitigation_status": "Early Stage"
+        },
+        {
+          "type": "risk",
+          "risk_type": "financial",
+          "level": 0.65,
+          "description": "Market share for legacy software products is declining as competitors offer cloud-native alternatives",
+          "impact_area": "Revenue",
+          "probability": "Medium",
+          "mitigation_status": "In Progress"
+        },
+        {
+          "type": "risk",
+          "risk_type": "market",
+          "level": 0.58,
+          "description": "Startups with AI-driven security solutions are gaining traction in key markets",
+          "impact_area": "Market Position",
+          "probability": "Medium",
+          "mitigation_status": "Monitoring"
+        },
+        {
+          "type": "risk",
+          "risk_type": "operational",
+          "level": 0.45,
+          "description": "Higher than industry average turnover among senior engineers",
+          "impact_area": "Product Development",
+          "probability": "Medium",
+          "mitigation_status": "Early Stage"
         }
       ],
       "score": 0.0,
@@ -7783,7 +8271,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2025-01-23",
-                "value": 11.894414446497159,
+                "value": 12.262363189049129,
                 "timestamp": "2025-01-23",
                 "quarter": "Q4 2024"
               },
@@ -7795,7 +8283,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2025-01-23",
-                  "value": 11.894414446497159,
+                  "value": 12.262363189049129,
                   "timestamp": "2025-01-23",
                   "quarter": "Q4 2024"
                 }
@@ -7806,7 +8294,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-10-25",
-                "value": 11.110866717898357,
+                "value": 12.010858778533972,
                 "timestamp": "2024-10-25",
                 "quarter": "Q3 2024"
               },
@@ -7818,7 +8306,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-10-25",
-                  "value": 11.110866717898357,
+                  "value": 12.010858778533972,
                   "timestamp": "2024-10-25",
                   "quarter": "Q3 2024"
                 }
@@ -7829,7 +8317,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-07-27",
-                "value": 10.560130188913424,
+                "value": 10.501634075028468,
                 "timestamp": "2024-07-27",
                 "quarter": "Q2 2024"
               },
@@ -7841,7 +8329,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-07-27",
-                  "value": 10.560130188913424,
+                  "value": 10.501634075028468,
                   "timestamp": "2024-07-27",
                   "quarter": "Q2 2024"
                 }
@@ -7852,7 +8340,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-04-28",
-                "value": 10.370629368922243,
+                "value": 10.463072579975506,
                 "timestamp": "2024-04-28",
                 "quarter": "Q1 2024"
               },
@@ -7864,7 +8352,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-04-28",
-                  "value": 10.370629368922243,
+                  "value": 10.463072579975506,
                   "timestamp": "2024-04-28",
                   "quarter": "Q1 2024"
                 }
@@ -7875,7 +8363,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-01-29",
-                "value": 10.073136012376995,
+                "value": 9.881368520344207,
                 "timestamp": "2024-01-29",
                 "quarter": "Q4 2023"
               },
@@ -7887,7 +8375,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-01-29",
-                  "value": 10.073136012376995,
+                  "value": 9.881368520344207,
                   "timestamp": "2024-01-29",
                   "quarter": "Q4 2023"
                 }
@@ -7898,7 +8386,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-10-31",
-                "value": 9.94603937076936,
+                "value": 9.551436872635996,
                 "timestamp": "2023-10-31",
                 "quarter": "Q3 2023"
               },
@@ -7910,7 +8398,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-10-31",
-                  "value": 9.94603937076936,
+                  "value": 9.551436872635996,
                   "timestamp": "2023-10-31",
                   "quarter": "Q3 2023"
                 }
@@ -7921,7 +8409,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-08-02",
-                "value": 8.65718873822195,
+                "value": 8.970202934029116,
                 "timestamp": "2023-08-02",
                 "quarter": "Q2 2023"
               },
@@ -7933,7 +8421,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-08-02",
-                  "value": 8.65718873822195,
+                  "value": 8.970202934029116,
                   "timestamp": "2023-08-02",
                   "quarter": "Q2 2023"
                 }
@@ -7944,7 +8432,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-05-04",
-                "value": 8.401751740624249,
+                "value": 8.576960421843411,
                 "timestamp": "2023-05-04",
                 "quarter": "Q1 2023"
               },
@@ -7956,7 +8444,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-05-04",
-                  "value": 8.401751740624249,
+                  "value": 8.576960421843411,
                   "timestamp": "2023-05-04",
                   "quarter": "Q1 2023"
                 }
@@ -8279,7 +8767,7 @@
         },
         {
           "question": "Are your investments in line with your portfolio? Largest investments should be in your emerging, and growth businesses. The smallest investments should be in your embryonic and mature and declining businesses.",
-          "answer": "Based on the available data, we found relationships with ManufactureX, HealthServices, FinanceGroup through COMPETES_WITH, PARTNERED_WITH. This indicates growth opportunities that align with the strategic direction.",
+          "answer": "Based on the available data, we found relationships with HealthServices, ManufactureX, FinanceGroup through PARTNERED_WITH, COMPETES_WITH. This indicates growth opportunities that align with the strategic direction.",
           "data": [
             {
               "n": {
@@ -8429,7 +8917,7 @@
         },
         {
           "question": "Does your major strength give your business a significant competitive advantage",
-          "answer": "Based on the available data, we found relationships with Cloud Security Expertise, Scalable Infrastructure, Data Analytics Capabilities through HAS_STRENGTH. This suggests potential competitive advantages that can be leveraged.",
+          "answer": "Based on the available data, we found relationships with Scalable Infrastructure, Cloud Security Expertise, Data Analytics Capabilities through HAS_STRENGTH. This suggests potential competitive advantages that can be leveraged.",
           "data": [
             {
               "n": {
@@ -8491,7 +8979,7 @@
         },
         {
           "question": "What can you do to increase the value of your strength and turn into greater competitive advantage?",
-          "answer": "Based on the available data, we found relationships with Cloud Security Expertise, employee turnover, Scalable Infrastructure through HAS_STRENGTH, HAS_METRIC. This suggests potential competitive advantages that can be leveraged.",
+          "answer": "Based on the available data, we found relationships with employee turnover, Scalable Infrastructure, Cloud Security Expertise through HAS_METRIC, HAS_STRENGTH. This suggests potential competitive advantages that can be leveraged.",
           "data": [
             {
               "n": {
@@ -8549,7 +9037,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2025-01-23",
-                "value": 14.313871620092247,
+                "value": 13.833362166625234,
                 "timestamp": "2025-01-23",
                 "quarter": "Q4 2024"
               },
@@ -8561,7 +9049,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2025-01-23",
-                  "value": 14.313871620092247,
+                  "value": 13.833362166625234,
                   "timestamp": "2025-01-23",
                   "quarter": "Q4 2024"
                 }
@@ -8572,7 +9060,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2024-10-25",
-                "value": 15.519091377601871,
+                "value": 14.61703741904639,
                 "timestamp": "2024-10-25",
                 "quarter": "Q3 2024"
               },
@@ -8584,7 +9072,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2024-10-25",
-                  "value": 15.519091377601871,
+                  "value": 14.61703741904639,
                   "timestamp": "2024-10-25",
                   "quarter": "Q3 2024"
                 }
@@ -8595,7 +9083,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2024-07-27",
-                "value": 14.759665578633564,
+                "value": 16.17082832537967,
                 "timestamp": "2024-07-27",
                 "quarter": "Q2 2024"
               },
@@ -8607,7 +9095,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2024-07-27",
-                  "value": 14.759665578633564,
+                  "value": 16.17082832537967,
                   "timestamp": "2024-07-27",
                   "quarter": "Q2 2024"
                 }
@@ -8618,7 +9106,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2024-04-28",
-                "value": 16.678499640359817,
+                "value": 15.21252406713402,
                 "timestamp": "2024-04-28",
                 "quarter": "Q1 2024"
               },
@@ -8630,7 +9118,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2024-04-28",
-                  "value": 16.678499640359817,
+                  "value": 15.21252406713402,
                   "timestamp": "2024-04-28",
                   "quarter": "Q1 2024"
                 }
@@ -8641,7 +9129,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2024-01-29",
-                "value": 16.706700563414643,
+                "value": 17.077963696465513,
                 "timestamp": "2024-01-29",
                 "quarter": "Q4 2023"
               },
@@ -8653,7 +9141,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2024-01-29",
-                  "value": 16.706700563414643,
+                  "value": 17.077963696465513,
                   "timestamp": "2024-01-29",
                   "quarter": "Q4 2023"
                 }
@@ -8664,7 +9152,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2023-10-31",
-                "value": 16.860248523134512,
+                "value": 16.383746981801984,
                 "timestamp": "2023-10-31",
                 "quarter": "Q3 2023"
               },
@@ -8676,7 +9164,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2023-10-31",
-                  "value": 16.860248523134512,
+                  "value": 16.383746981801984,
                   "timestamp": "2023-10-31",
                   "quarter": "Q3 2023"
                 }
@@ -8687,7 +9175,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2023-08-02",
-                "value": 17.818020523017637,
+                "value": 16.754305704985292,
                 "timestamp": "2023-08-02",
                 "quarter": "Q2 2023"
               },
@@ -8699,7 +9187,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2023-08-02",
-                  "value": 17.818020523017637,
+                  "value": 16.754305704985292,
                   "timestamp": "2023-08-02",
                   "quarter": "Q2 2023"
                 }
@@ -8710,7 +9198,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2023-05-04",
-                "value": 17.760048414225512,
+                "value": 18.306424281780263,
                 "timestamp": "2023-05-04",
                 "quarter": "Q1 2023"
               },
@@ -8722,7 +9210,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2023-05-04",
-                  "value": 17.760048414225512,
+                  "value": 18.306424281780263,
                   "timestamp": "2023-05-04",
                   "quarter": "Q1 2023"
                 }
@@ -8966,7 +9454,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2025-01-23",
-                "value": 14.313871620092247,
+                "value": 13.833362166625234,
                 "timestamp": "2025-01-23",
                 "quarter": "Q4 2024"
               },
@@ -8978,7 +9466,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2025-01-23",
-                  "value": 14.313871620092247,
+                  "value": 13.833362166625234,
                   "timestamp": "2025-01-23",
                   "quarter": "Q4 2024"
                 }
@@ -8989,7 +9477,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2024-10-25",
-                "value": 15.519091377601871,
+                "value": 14.61703741904639,
                 "timestamp": "2024-10-25",
                 "quarter": "Q3 2024"
               },
@@ -9001,7 +9489,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2024-10-25",
-                  "value": 15.519091377601871,
+                  "value": 14.61703741904639,
                   "timestamp": "2024-10-25",
                   "quarter": "Q3 2024"
                 }
@@ -9012,7 +9500,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2024-07-27",
-                "value": 14.759665578633564,
+                "value": 16.17082832537967,
                 "timestamp": "2024-07-27",
                 "quarter": "Q2 2024"
               },
@@ -9024,7 +9512,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2024-07-27",
-                  "value": 14.759665578633564,
+                  "value": 16.17082832537967,
                   "timestamp": "2024-07-27",
                   "quarter": "Q2 2024"
                 }
@@ -9035,7 +9523,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2024-04-28",
-                "value": 16.678499640359817,
+                "value": 15.21252406713402,
                 "timestamp": "2024-04-28",
                 "quarter": "Q1 2024"
               },
@@ -9047,7 +9535,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2024-04-28",
-                  "value": 16.678499640359817,
+                  "value": 15.21252406713402,
                   "timestamp": "2024-04-28",
                   "quarter": "Q1 2024"
                 }
@@ -9058,7 +9546,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2024-01-29",
-                "value": 16.706700563414643,
+                "value": 17.077963696465513,
                 "timestamp": "2024-01-29",
                 "quarter": "Q4 2023"
               },
@@ -9070,7 +9558,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2024-01-29",
-                  "value": 16.706700563414643,
+                  "value": 17.077963696465513,
                   "timestamp": "2024-01-29",
                   "quarter": "Q4 2023"
                 }
@@ -9081,7 +9569,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2023-10-31",
-                "value": 16.860248523134512,
+                "value": 16.383746981801984,
                 "timestamp": "2023-10-31",
                 "quarter": "Q3 2023"
               },
@@ -9093,7 +9581,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2023-10-31",
-                  "value": 16.860248523134512,
+                  "value": 16.383746981801984,
                   "timestamp": "2023-10-31",
                   "quarter": "Q3 2023"
                 }
@@ -9104,7 +9592,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2023-08-02",
-                "value": 17.818020523017637,
+                "value": 16.754305704985292,
                 "timestamp": "2023-08-02",
                 "quarter": "Q2 2023"
               },
@@ -9116,7 +9604,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2023-08-02",
-                  "value": 17.818020523017637,
+                  "value": 16.754305704985292,
                   "timestamp": "2023-08-02",
                   "quarter": "Q2 2023"
                 }
@@ -9127,7 +9615,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2023-05-04",
-                "value": 17.760048414225512,
+                "value": 18.306424281780263,
                 "timestamp": "2023-05-04",
                 "quarter": "Q1 2023"
               },
@@ -9139,7 +9627,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2023-05-04",
-                  "value": 17.760048414225512,
+                  "value": 18.306424281780263,
                   "timestamp": "2023-05-04",
                   "quarter": "Q1 2023"
                 }
@@ -9432,7 +9920,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2025-01-23",
-                "value": 158617298.5502567,
+                "value": 153945258.00955534,
                 "timestamp": "2025-01-23",
                 "quarter": "Q4 2024"
               },
@@ -9444,7 +9932,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2025-01-23",
-                  "value": 158617298.5502567,
+                  "value": 153945258.00955534,
                   "timestamp": "2025-01-23",
                   "quarter": "Q4 2024"
                 }
@@ -9455,7 +9943,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2024-10-25",
-                "value": 157028270.44488114,
+                "value": 146587784.09520626,
                 "timestamp": "2024-10-25",
                 "quarter": "Q3 2024"
               },
@@ -9467,7 +9955,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2024-10-25",
-                  "value": 157028270.44488114,
+                  "value": 146587784.09520626,
                   "timestamp": "2024-10-25",
                   "quarter": "Q3 2024"
                 }
@@ -9478,7 +9966,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2024-07-27",
-                "value": 142721865.64244205,
+                "value": 149081289.65547195,
                 "timestamp": "2024-07-27",
                 "quarter": "Q2 2024"
               },
@@ -9490,7 +9978,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2024-07-27",
-                  "value": 142721865.64244205,
+                  "value": 149081289.65547195,
                   "timestamp": "2024-07-27",
                   "quarter": "Q2 2024"
                 }
@@ -9501,7 +9989,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2024-04-28",
-                "value": 145518724.20515513,
+                "value": 137306864.20848033,
                 "timestamp": "2024-04-28",
                 "quarter": "Q1 2024"
               },
@@ -9513,7 +10001,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2024-04-28",
-                  "value": 145518724.20515513,
+                  "value": 137306864.20848033,
                   "timestamp": "2024-04-28",
                   "quarter": "Q1 2024"
                 }
@@ -9524,7 +10012,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2024-01-29",
-                "value": 128862328.52330299,
+                "value": 133360598.0955086,
                 "timestamp": "2024-01-29",
                 "quarter": "Q4 2023"
               },
@@ -9536,7 +10024,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2024-01-29",
-                  "value": 128862328.52330299,
+                  "value": 133360598.0955086,
                   "timestamp": "2024-01-29",
                   "quarter": "Q4 2023"
                 }
@@ -9547,7 +10035,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2023-10-31",
-                "value": 133546193.66455476,
+                "value": 126320786.29619104,
                 "timestamp": "2023-10-31",
                 "quarter": "Q3 2023"
               },
@@ -9559,7 +10047,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2023-10-31",
-                  "value": 133546193.66455476,
+                  "value": 126320786.29619104,
                   "timestamp": "2023-10-31",
                   "quarter": "Q3 2023"
                 }
@@ -9570,7 +10058,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2023-08-02",
-                "value": 121978311.76069924,
+                "value": 121675662.4528047,
                 "timestamp": "2023-08-02",
                 "quarter": "Q2 2023"
               },
@@ -9582,7 +10070,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2023-08-02",
-                  "value": 121978311.76069924,
+                  "value": 121675662.4528047,
                   "timestamp": "2023-08-02",
                   "quarter": "Q2 2023"
                 }
@@ -9593,7 +10081,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2023-05-04",
-                "value": 125058609.62991326,
+                "value": 121207537.11296152,
                 "timestamp": "2023-05-04",
                 "quarter": "Q1 2023"
               },
@@ -9605,7 +10093,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2023-05-04",
-                  "value": 125058609.62991326,
+                  "value": 121207537.11296152,
                   "timestamp": "2023-05-04",
                   "quarter": "Q1 2023"
                 }
@@ -9921,7 +10409,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2025-01-23",
-                "value": 11.894414446497159,
+                "value": 12.262363189049129,
                 "timestamp": "2025-01-23",
                 "quarter": "Q4 2024"
               },
@@ -9933,7 +10421,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2025-01-23",
-                  "value": 11.894414446497159,
+                  "value": 12.262363189049129,
                   "timestamp": "2025-01-23",
                   "quarter": "Q4 2024"
                 }
@@ -9944,7 +10432,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-10-25",
-                "value": 11.110866717898357,
+                "value": 12.010858778533972,
                 "timestamp": "2024-10-25",
                 "quarter": "Q3 2024"
               },
@@ -9956,7 +10444,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-10-25",
-                  "value": 11.110866717898357,
+                  "value": 12.010858778533972,
                   "timestamp": "2024-10-25",
                   "quarter": "Q3 2024"
                 }
@@ -9967,7 +10455,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-07-27",
-                "value": 10.560130188913424,
+                "value": 10.501634075028468,
                 "timestamp": "2024-07-27",
                 "quarter": "Q2 2024"
               },
@@ -9979,7 +10467,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-07-27",
-                  "value": 10.560130188913424,
+                  "value": 10.501634075028468,
                   "timestamp": "2024-07-27",
                   "quarter": "Q2 2024"
                 }
@@ -9990,7 +10478,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-04-28",
-                "value": 10.370629368922243,
+                "value": 10.463072579975506,
                 "timestamp": "2024-04-28",
                 "quarter": "Q1 2024"
               },
@@ -10002,7 +10490,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-04-28",
-                  "value": 10.370629368922243,
+                  "value": 10.463072579975506,
                   "timestamp": "2024-04-28",
                   "quarter": "Q1 2024"
                 }
@@ -10013,7 +10501,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-01-29",
-                "value": 10.073136012376995,
+                "value": 9.881368520344207,
                 "timestamp": "2024-01-29",
                 "quarter": "Q4 2023"
               },
@@ -10025,7 +10513,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-01-29",
-                  "value": 10.073136012376995,
+                  "value": 9.881368520344207,
                   "timestamp": "2024-01-29",
                   "quarter": "Q4 2023"
                 }
@@ -10036,7 +10524,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-10-31",
-                "value": 9.94603937076936,
+                "value": 9.551436872635996,
                 "timestamp": "2023-10-31",
                 "quarter": "Q3 2023"
               },
@@ -10048,7 +10536,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-10-31",
-                  "value": 9.94603937076936,
+                  "value": 9.551436872635996,
                   "timestamp": "2023-10-31",
                   "quarter": "Q3 2023"
                 }
@@ -10059,7 +10547,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-08-02",
-                "value": 8.65718873822195,
+                "value": 8.970202934029116,
                 "timestamp": "2023-08-02",
                 "quarter": "Q2 2023"
               },
@@ -10071,7 +10559,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-08-02",
-                  "value": 8.65718873822195,
+                  "value": 8.970202934029116,
                   "timestamp": "2023-08-02",
                   "quarter": "Q2 2023"
                 }
@@ -10082,7 +10570,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-05-04",
-                "value": 8.401751740624249,
+                "value": 8.576960421843411,
                 "timestamp": "2023-05-04",
                 "quarter": "Q1 2023"
               },
@@ -10094,7 +10582,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-05-04",
-                  "value": 8.401751740624249,
+                  "value": 8.576960421843411,
                   "timestamp": "2023-05-04",
                   "quarter": "Q1 2023"
                 }
@@ -10105,7 +10593,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2025-01-23",
-                "value": 158617298.5502567,
+                "value": 153945258.00955534,
                 "timestamp": "2025-01-23",
                 "quarter": "Q4 2024"
               },
@@ -10117,7 +10605,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2025-01-23",
-                  "value": 158617298.5502567,
+                  "value": 153945258.00955534,
                   "timestamp": "2025-01-23",
                   "quarter": "Q4 2024"
                 }
@@ -10128,7 +10616,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2024-10-25",
-                "value": 157028270.44488114,
+                "value": 146587784.09520626,
                 "timestamp": "2024-10-25",
                 "quarter": "Q3 2024"
               },
@@ -10140,7 +10628,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2024-10-25",
-                  "value": 157028270.44488114,
+                  "value": 146587784.09520626,
                   "timestamp": "2024-10-25",
                   "quarter": "Q3 2024"
                 }
@@ -10151,7 +10639,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2024-07-27",
-                "value": 142721865.64244205,
+                "value": 149081289.65547195,
                 "timestamp": "2024-07-27",
                 "quarter": "Q2 2024"
               },
@@ -10163,7 +10651,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2024-07-27",
-                  "value": 142721865.64244205,
+                  "value": 149081289.65547195,
                   "timestamp": "2024-07-27",
                   "quarter": "Q2 2024"
                 }
@@ -10174,7 +10662,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2024-04-28",
-                "value": 145518724.20515513,
+                "value": 137306864.20848033,
                 "timestamp": "2024-04-28",
                 "quarter": "Q1 2024"
               },
@@ -10186,7 +10674,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2024-04-28",
-                  "value": 145518724.20515513,
+                  "value": 137306864.20848033,
                   "timestamp": "2024-04-28",
                   "quarter": "Q1 2024"
                 }
@@ -10197,7 +10685,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2024-01-29",
-                "value": 128862328.52330299,
+                "value": 133360598.0955086,
                 "timestamp": "2024-01-29",
                 "quarter": "Q4 2023"
               },
@@ -10209,7 +10697,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2024-01-29",
-                  "value": 128862328.52330299,
+                  "value": 133360598.0955086,
                   "timestamp": "2024-01-29",
                   "quarter": "Q4 2023"
                 }
@@ -10220,7 +10708,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2023-10-31",
-                "value": 133546193.66455476,
+                "value": 126320786.29619104,
                 "timestamp": "2023-10-31",
                 "quarter": "Q3 2023"
               },
@@ -10232,7 +10720,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2023-10-31",
-                  "value": 133546193.66455476,
+                  "value": 126320786.29619104,
                   "timestamp": "2023-10-31",
                   "quarter": "Q3 2023"
                 }
@@ -10243,7 +10731,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2023-08-02",
-                "value": 121978311.76069924,
+                "value": 121675662.4528047,
                 "timestamp": "2023-08-02",
                 "quarter": "Q2 2023"
               },
@@ -10255,7 +10743,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2023-08-02",
-                  "value": 121978311.76069924,
+                  "value": 121675662.4528047,
                   "timestamp": "2023-08-02",
                   "quarter": "Q2 2023"
                 }
@@ -10266,7 +10754,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2023-05-04",
-                "value": 125058609.62991326,
+                "value": 121207537.11296152,
                 "timestamp": "2023-05-04",
                 "quarter": "Q1 2023"
               },
@@ -10278,7 +10766,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2023-05-04",
-                  "value": 125058609.62991326,
+                  "value": 121207537.11296152,
                   "timestamp": "2023-05-04",
                   "quarter": "Q1 2023"
                 }
@@ -10364,7 +10852,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2025-01-23",
-                "value": 158617298.5502567,
+                "value": 153945258.00955534,
                 "timestamp": "2025-01-23",
                 "quarter": "Q4 2024"
               },
@@ -10376,7 +10864,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2025-01-23",
-                  "value": 158617298.5502567,
+                  "value": 153945258.00955534,
                   "timestamp": "2025-01-23",
                   "quarter": "Q4 2024"
                 }
@@ -10387,7 +10875,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2024-10-25",
-                "value": 157028270.44488114,
+                "value": 146587784.09520626,
                 "timestamp": "2024-10-25",
                 "quarter": "Q3 2024"
               },
@@ -10399,7 +10887,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2024-10-25",
-                  "value": 157028270.44488114,
+                  "value": 146587784.09520626,
                   "timestamp": "2024-10-25",
                   "quarter": "Q3 2024"
                 }
@@ -10410,7 +10898,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2024-07-27",
-                "value": 142721865.64244205,
+                "value": 149081289.65547195,
                 "timestamp": "2024-07-27",
                 "quarter": "Q2 2024"
               },
@@ -10422,7 +10910,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2024-07-27",
-                  "value": 142721865.64244205,
+                  "value": 149081289.65547195,
                   "timestamp": "2024-07-27",
                   "quarter": "Q2 2024"
                 }
@@ -10433,7 +10921,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2024-04-28",
-                "value": 145518724.20515513,
+                "value": 137306864.20848033,
                 "timestamp": "2024-04-28",
                 "quarter": "Q1 2024"
               },
@@ -10445,7 +10933,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2024-04-28",
-                  "value": 145518724.20515513,
+                  "value": 137306864.20848033,
                   "timestamp": "2024-04-28",
                   "quarter": "Q1 2024"
                 }
@@ -10456,7 +10944,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2024-01-29",
-                "value": 128862328.52330299,
+                "value": 133360598.0955086,
                 "timestamp": "2024-01-29",
                 "quarter": "Q4 2023"
               },
@@ -10468,7 +10956,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2024-01-29",
-                  "value": 128862328.52330299,
+                  "value": 133360598.0955086,
                   "timestamp": "2024-01-29",
                   "quarter": "Q4 2023"
                 }
@@ -10479,7 +10967,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2023-10-31",
-                "value": 133546193.66455476,
+                "value": 126320786.29619104,
                 "timestamp": "2023-10-31",
                 "quarter": "Q3 2023"
               },
@@ -10491,7 +10979,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2023-10-31",
-                  "value": 133546193.66455476,
+                  "value": 126320786.29619104,
                   "timestamp": "2023-10-31",
                   "quarter": "Q3 2023"
                 }
@@ -10502,7 +10990,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2023-08-02",
-                "value": 121978311.76069924,
+                "value": 121675662.4528047,
                 "timestamp": "2023-08-02",
                 "quarter": "Q2 2023"
               },
@@ -10514,7 +11002,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2023-08-02",
-                  "value": 121978311.76069924,
+                  "value": 121675662.4528047,
                   "timestamp": "2023-08-02",
                   "quarter": "Q2 2023"
                 }
@@ -10525,7 +11013,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2023-05-04",
-                "value": 125058609.62991326,
+                "value": 121207537.11296152,
                 "timestamp": "2023-05-04",
                 "quarter": "Q1 2023"
               },
@@ -10537,7 +11025,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2023-05-04",
-                  "value": 125058609.62991326,
+                  "value": 121207537.11296152,
                   "timestamp": "2023-05-04",
                   "quarter": "Q1 2023"
                 }
@@ -10830,7 +11318,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2025-01-23",
-                "value": 158617298.5502567,
+                "value": 153945258.00955534,
                 "timestamp": "2025-01-23",
                 "quarter": "Q4 2024"
               },
@@ -10842,7 +11330,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2025-01-23",
-                  "value": 158617298.5502567,
+                  "value": 153945258.00955534,
                   "timestamp": "2025-01-23",
                   "quarter": "Q4 2024"
                 }
@@ -10853,7 +11341,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2024-10-25",
-                "value": 157028270.44488114,
+                "value": 146587784.09520626,
                 "timestamp": "2024-10-25",
                 "quarter": "Q3 2024"
               },
@@ -10865,7 +11353,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2024-10-25",
-                  "value": 157028270.44488114,
+                  "value": 146587784.09520626,
                   "timestamp": "2024-10-25",
                   "quarter": "Q3 2024"
                 }
@@ -10876,7 +11364,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2024-07-27",
-                "value": 142721865.64244205,
+                "value": 149081289.65547195,
                 "timestamp": "2024-07-27",
                 "quarter": "Q2 2024"
               },
@@ -10888,7 +11376,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2024-07-27",
-                  "value": 142721865.64244205,
+                  "value": 149081289.65547195,
                   "timestamp": "2024-07-27",
                   "quarter": "Q2 2024"
                 }
@@ -10899,7 +11387,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2024-04-28",
-                "value": 145518724.20515513,
+                "value": 137306864.20848033,
                 "timestamp": "2024-04-28",
                 "quarter": "Q1 2024"
               },
@@ -10911,7 +11399,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2024-04-28",
-                  "value": 145518724.20515513,
+                  "value": 137306864.20848033,
                   "timestamp": "2024-04-28",
                   "quarter": "Q1 2024"
                 }
@@ -10922,7 +11410,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2024-01-29",
-                "value": 128862328.52330299,
+                "value": 133360598.0955086,
                 "timestamp": "2024-01-29",
                 "quarter": "Q4 2023"
               },
@@ -10934,7 +11422,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2024-01-29",
-                  "value": 128862328.52330299,
+                  "value": 133360598.0955086,
                   "timestamp": "2024-01-29",
                   "quarter": "Q4 2023"
                 }
@@ -10945,7 +11433,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2023-10-31",
-                "value": 133546193.66455476,
+                "value": 126320786.29619104,
                 "timestamp": "2023-10-31",
                 "quarter": "Q3 2023"
               },
@@ -10957,7 +11445,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2023-10-31",
-                  "value": 133546193.66455476,
+                  "value": 126320786.29619104,
                   "timestamp": "2023-10-31",
                   "quarter": "Q3 2023"
                 }
@@ -10968,7 +11456,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2023-08-02",
-                "value": 121978311.76069924,
+                "value": 121675662.4528047,
                 "timestamp": "2023-08-02",
                 "quarter": "Q2 2023"
               },
@@ -10980,7 +11468,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2023-08-02",
-                  "value": 121978311.76069924,
+                  "value": 121675662.4528047,
                   "timestamp": "2023-08-02",
                   "quarter": "Q2 2023"
                 }
@@ -10991,7 +11479,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2023-05-04",
-                "value": 125058609.62991326,
+                "value": 121207537.11296152,
                 "timestamp": "2023-05-04",
                 "quarter": "Q1 2023"
               },
@@ -11003,7 +11491,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2023-05-04",
-                  "value": 125058609.62991326,
+                  "value": 121207537.11296152,
                   "timestamp": "2023-05-04",
                   "quarter": "Q1 2023"
                 }
@@ -11414,7 +11902,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2025-01-23",
-                "value": 14.313871620092247,
+                "value": 13.833362166625234,
                 "timestamp": "2025-01-23",
                 "quarter": "Q4 2024"
               },
@@ -11426,7 +11914,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2025-01-23",
-                  "value": 14.313871620092247,
+                  "value": 13.833362166625234,
                   "timestamp": "2025-01-23",
                   "quarter": "Q4 2024"
                 }
@@ -11437,7 +11925,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2024-10-25",
-                "value": 15.519091377601871,
+                "value": 14.61703741904639,
                 "timestamp": "2024-10-25",
                 "quarter": "Q3 2024"
               },
@@ -11449,7 +11937,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2024-10-25",
-                  "value": 15.519091377601871,
+                  "value": 14.61703741904639,
                   "timestamp": "2024-10-25",
                   "quarter": "Q3 2024"
                 }
@@ -11460,7 +11948,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2024-07-27",
-                "value": 14.759665578633564,
+                "value": 16.17082832537967,
                 "timestamp": "2024-07-27",
                 "quarter": "Q2 2024"
               },
@@ -11472,7 +11960,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2024-07-27",
-                  "value": 14.759665578633564,
+                  "value": 16.17082832537967,
                   "timestamp": "2024-07-27",
                   "quarter": "Q2 2024"
                 }
@@ -11483,7 +11971,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2024-04-28",
-                "value": 16.678499640359817,
+                "value": 15.21252406713402,
                 "timestamp": "2024-04-28",
                 "quarter": "Q1 2024"
               },
@@ -11495,7 +11983,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2024-04-28",
-                  "value": 16.678499640359817,
+                  "value": 15.21252406713402,
                   "timestamp": "2024-04-28",
                   "quarter": "Q1 2024"
                 }
@@ -11506,7 +11994,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2024-01-29",
-                "value": 16.706700563414643,
+                "value": 17.077963696465513,
                 "timestamp": "2024-01-29",
                 "quarter": "Q4 2023"
               },
@@ -11518,7 +12006,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2024-01-29",
-                  "value": 16.706700563414643,
+                  "value": 17.077963696465513,
                   "timestamp": "2024-01-29",
                   "quarter": "Q4 2023"
                 }
@@ -11529,7 +12017,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2023-10-31",
-                "value": 16.860248523134512,
+                "value": 16.383746981801984,
                 "timestamp": "2023-10-31",
                 "quarter": "Q3 2023"
               },
@@ -11541,7 +12029,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2023-10-31",
-                  "value": 16.860248523134512,
+                  "value": 16.383746981801984,
                   "timestamp": "2023-10-31",
                   "quarter": "Q3 2023"
                 }
@@ -11552,7 +12040,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2023-08-02",
-                "value": 17.818020523017637,
+                "value": 16.754305704985292,
                 "timestamp": "2023-08-02",
                 "quarter": "Q2 2023"
               },
@@ -11564,7 +12052,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2023-08-02",
-                  "value": 17.818020523017637,
+                  "value": 16.754305704985292,
                   "timestamp": "2023-08-02",
                   "quarter": "Q2 2023"
                 }
@@ -11575,7 +12063,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2023-05-04",
-                "value": 17.760048414225512,
+                "value": 18.306424281780263,
                 "timestamp": "2023-05-04",
                 "quarter": "Q1 2023"
               },
@@ -11587,7 +12075,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2023-05-04",
-                  "value": 17.760048414225512,
+                  "value": 18.306424281780263,
                   "timestamp": "2023-05-04",
                   "quarter": "Q1 2023"
                 }
@@ -11880,7 +12368,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2025-01-23",
-                "value": 14.313871620092247,
+                "value": 13.833362166625234,
                 "timestamp": "2025-01-23",
                 "quarter": "Q4 2024"
               },
@@ -11892,7 +12380,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2025-01-23",
-                  "value": 14.313871620092247,
+                  "value": 13.833362166625234,
                   "timestamp": "2025-01-23",
                   "quarter": "Q4 2024"
                 }
@@ -11903,7 +12391,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2024-10-25",
-                "value": 15.519091377601871,
+                "value": 14.61703741904639,
                 "timestamp": "2024-10-25",
                 "quarter": "Q3 2024"
               },
@@ -11915,7 +12403,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2024-10-25",
-                  "value": 15.519091377601871,
+                  "value": 14.61703741904639,
                   "timestamp": "2024-10-25",
                   "quarter": "Q3 2024"
                 }
@@ -11926,7 +12414,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2024-07-27",
-                "value": 14.759665578633564,
+                "value": 16.17082832537967,
                 "timestamp": "2024-07-27",
                 "quarter": "Q2 2024"
               },
@@ -11938,7 +12426,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2024-07-27",
-                  "value": 14.759665578633564,
+                  "value": 16.17082832537967,
                   "timestamp": "2024-07-27",
                   "quarter": "Q2 2024"
                 }
@@ -11949,7 +12437,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2024-04-28",
-                "value": 16.678499640359817,
+                "value": 15.21252406713402,
                 "timestamp": "2024-04-28",
                 "quarter": "Q1 2024"
               },
@@ -11961,7 +12449,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2024-04-28",
-                  "value": 16.678499640359817,
+                  "value": 15.21252406713402,
                   "timestamp": "2024-04-28",
                   "quarter": "Q1 2024"
                 }
@@ -11972,7 +12460,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2024-01-29",
-                "value": 16.706700563414643,
+                "value": 17.077963696465513,
                 "timestamp": "2024-01-29",
                 "quarter": "Q4 2023"
               },
@@ -11984,7 +12472,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2024-01-29",
-                  "value": 16.706700563414643,
+                  "value": 17.077963696465513,
                   "timestamp": "2024-01-29",
                   "quarter": "Q4 2023"
                 }
@@ -11995,7 +12483,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2023-10-31",
-                "value": 16.860248523134512,
+                "value": 16.383746981801984,
                 "timestamp": "2023-10-31",
                 "quarter": "Q3 2023"
               },
@@ -12007,7 +12495,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2023-10-31",
-                  "value": 16.860248523134512,
+                  "value": 16.383746981801984,
                   "timestamp": "2023-10-31",
                   "quarter": "Q3 2023"
                 }
@@ -12018,7 +12506,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2023-08-02",
-                "value": 17.818020523017637,
+                "value": 16.754305704985292,
                 "timestamp": "2023-08-02",
                 "quarter": "Q2 2023"
               },
@@ -12030,7 +12518,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2023-08-02",
-                  "value": 17.818020523017637,
+                  "value": 16.754305704985292,
                   "timestamp": "2023-08-02",
                   "quarter": "Q2 2023"
                 }
@@ -12041,7 +12529,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2023-05-04",
-                "value": 17.760048414225512,
+                "value": 18.306424281780263,
                 "timestamp": "2023-05-04",
                 "quarter": "Q1 2023"
               },
@@ -12053,7 +12541,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2023-05-04",
-                  "value": 17.760048414225512,
+                  "value": 18.306424281780263,
                   "timestamp": "2023-05-04",
                   "quarter": "Q1 2023"
                 }
@@ -12392,7 +12880,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2025-01-23",
-                "value": 14.313871620092247,
+                "value": 13.833362166625234,
                 "timestamp": "2025-01-23",
                 "quarter": "Q4 2024"
               },
@@ -12404,7 +12892,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2025-01-23",
-                  "value": 14.313871620092247,
+                  "value": 13.833362166625234,
                   "timestamp": "2025-01-23",
                   "quarter": "Q4 2024"
                 }
@@ -12415,7 +12903,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2024-10-25",
-                "value": 15.519091377601871,
+                "value": 14.61703741904639,
                 "timestamp": "2024-10-25",
                 "quarter": "Q3 2024"
               },
@@ -12427,7 +12915,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2024-10-25",
-                  "value": 15.519091377601871,
+                  "value": 14.61703741904639,
                   "timestamp": "2024-10-25",
                   "quarter": "Q3 2024"
                 }
@@ -12438,7 +12926,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2024-07-27",
-                "value": 14.759665578633564,
+                "value": 16.17082832537967,
                 "timestamp": "2024-07-27",
                 "quarter": "Q2 2024"
               },
@@ -12450,7 +12938,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2024-07-27",
-                  "value": 14.759665578633564,
+                  "value": 16.17082832537967,
                   "timestamp": "2024-07-27",
                   "quarter": "Q2 2024"
                 }
@@ -12461,7 +12949,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2024-04-28",
-                "value": 16.678499640359817,
+                "value": 15.21252406713402,
                 "timestamp": "2024-04-28",
                 "quarter": "Q1 2024"
               },
@@ -12473,7 +12961,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2024-04-28",
-                  "value": 16.678499640359817,
+                  "value": 15.21252406713402,
                   "timestamp": "2024-04-28",
                   "quarter": "Q1 2024"
                 }
@@ -12484,7 +12972,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2024-01-29",
-                "value": 16.706700563414643,
+                "value": 17.077963696465513,
                 "timestamp": "2024-01-29",
                 "quarter": "Q4 2023"
               },
@@ -12496,7 +12984,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2024-01-29",
-                  "value": 16.706700563414643,
+                  "value": 17.077963696465513,
                   "timestamp": "2024-01-29",
                   "quarter": "Q4 2023"
                 }
@@ -12507,7 +12995,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2023-10-31",
-                "value": 16.860248523134512,
+                "value": 16.383746981801984,
                 "timestamp": "2023-10-31",
                 "quarter": "Q3 2023"
               },
@@ -12519,7 +13007,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2023-10-31",
-                  "value": 16.860248523134512,
+                  "value": 16.383746981801984,
                   "timestamp": "2023-10-31",
                   "quarter": "Q3 2023"
                 }
@@ -12530,7 +13018,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2023-08-02",
-                "value": 17.818020523017637,
+                "value": 16.754305704985292,
                 "timestamp": "2023-08-02",
                 "quarter": "Q2 2023"
               },
@@ -12542,7 +13030,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2023-08-02",
-                  "value": 17.818020523017637,
+                  "value": 16.754305704985292,
                   "timestamp": "2023-08-02",
                   "quarter": "Q2 2023"
                 }
@@ -12553,7 +13041,7 @@
                 "unit": "%",
                 "name": "employee turnover",
                 "id": "TechCorp_employee turnover_2023-05-04",
-                "value": 17.760048414225512,
+                "value": 18.306424281780263,
                 "timestamp": "2023-05-04",
                 "quarter": "Q1 2023"
               },
@@ -12565,7 +13053,7 @@
                   "unit": "%",
                   "name": "employee turnover",
                   "id": "TechCorp_employee turnover_2023-05-04",
-                  "value": 17.760048414225512,
+                  "value": 18.306424281780263,
                   "timestamp": "2023-05-04",
                   "quarter": "Q1 2023"
                 }
@@ -12858,7 +13346,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2025-01-23",
-                "value": 158617298.5502567,
+                "value": 153945258.00955534,
                 "timestamp": "2025-01-23",
                 "quarter": "Q4 2024"
               },
@@ -12870,7 +13358,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2025-01-23",
-                  "value": 158617298.5502567,
+                  "value": 153945258.00955534,
                   "timestamp": "2025-01-23",
                   "quarter": "Q4 2024"
                 }
@@ -12881,7 +13369,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2024-10-25",
-                "value": 157028270.44488114,
+                "value": 146587784.09520626,
                 "timestamp": "2024-10-25",
                 "quarter": "Q3 2024"
               },
@@ -12893,7 +13381,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2024-10-25",
-                  "value": 157028270.44488114,
+                  "value": 146587784.09520626,
                   "timestamp": "2024-10-25",
                   "quarter": "Q3 2024"
                 }
@@ -12904,7 +13392,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2024-07-27",
-                "value": 142721865.64244205,
+                "value": 149081289.65547195,
                 "timestamp": "2024-07-27",
                 "quarter": "Q2 2024"
               },
@@ -12916,7 +13404,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2024-07-27",
-                  "value": 142721865.64244205,
+                  "value": 149081289.65547195,
                   "timestamp": "2024-07-27",
                   "quarter": "Q2 2024"
                 }
@@ -12927,7 +13415,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2024-04-28",
-                "value": 145518724.20515513,
+                "value": 137306864.20848033,
                 "timestamp": "2024-04-28",
                 "quarter": "Q1 2024"
               },
@@ -12939,7 +13427,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2024-04-28",
-                  "value": 145518724.20515513,
+                  "value": 137306864.20848033,
                   "timestamp": "2024-04-28",
                   "quarter": "Q1 2024"
                 }
@@ -12950,7 +13438,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2024-01-29",
-                "value": 128862328.52330299,
+                "value": 133360598.0955086,
                 "timestamp": "2024-01-29",
                 "quarter": "Q4 2023"
               },
@@ -12962,7 +13450,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2024-01-29",
-                  "value": 128862328.52330299,
+                  "value": 133360598.0955086,
                   "timestamp": "2024-01-29",
                   "quarter": "Q4 2023"
                 }
@@ -12973,7 +13461,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2023-10-31",
-                "value": 133546193.66455476,
+                "value": 126320786.29619104,
                 "timestamp": "2023-10-31",
                 "quarter": "Q3 2023"
               },
@@ -12985,7 +13473,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2023-10-31",
-                  "value": 133546193.66455476,
+                  "value": 126320786.29619104,
                   "timestamp": "2023-10-31",
                   "quarter": "Q3 2023"
                 }
@@ -12996,7 +13484,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2023-08-02",
-                "value": 121978311.76069924,
+                "value": 121675662.4528047,
                 "timestamp": "2023-08-02",
                 "quarter": "Q2 2023"
               },
@@ -13008,7 +13496,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2023-08-02",
-                  "value": 121978311.76069924,
+                  "value": 121675662.4528047,
                   "timestamp": "2023-08-02",
                   "quarter": "Q2 2023"
                 }
@@ -13019,7 +13507,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2023-05-04",
-                "value": 125058609.62991326,
+                "value": 121207537.11296152,
                 "timestamp": "2023-05-04",
                 "quarter": "Q1 2023"
               },
@@ -13031,7 +13519,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2023-05-04",
-                  "value": 125058609.62991326,
+                  "value": 121207537.11296152,
                   "timestamp": "2023-05-04",
                   "quarter": "Q1 2023"
                 }
@@ -13347,7 +13835,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2025-01-23",
-                "value": 11.894414446497159,
+                "value": 12.262363189049129,
                 "timestamp": "2025-01-23",
                 "quarter": "Q4 2024"
               },
@@ -13359,7 +13847,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2025-01-23",
-                  "value": 11.894414446497159,
+                  "value": 12.262363189049129,
                   "timestamp": "2025-01-23",
                   "quarter": "Q4 2024"
                 }
@@ -13370,7 +13858,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-10-25",
-                "value": 11.110866717898357,
+                "value": 12.010858778533972,
                 "timestamp": "2024-10-25",
                 "quarter": "Q3 2024"
               },
@@ -13382,7 +13870,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-10-25",
-                  "value": 11.110866717898357,
+                  "value": 12.010858778533972,
                   "timestamp": "2024-10-25",
                   "quarter": "Q3 2024"
                 }
@@ -13393,7 +13881,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-07-27",
-                "value": 10.560130188913424,
+                "value": 10.501634075028468,
                 "timestamp": "2024-07-27",
                 "quarter": "Q2 2024"
               },
@@ -13405,7 +13893,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-07-27",
-                  "value": 10.560130188913424,
+                  "value": 10.501634075028468,
                   "timestamp": "2024-07-27",
                   "quarter": "Q2 2024"
                 }
@@ -13416,7 +13904,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-04-28",
-                "value": 10.370629368922243,
+                "value": 10.463072579975506,
                 "timestamp": "2024-04-28",
                 "quarter": "Q1 2024"
               },
@@ -13428,7 +13916,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-04-28",
-                  "value": 10.370629368922243,
+                  "value": 10.463072579975506,
                   "timestamp": "2024-04-28",
                   "quarter": "Q1 2024"
                 }
@@ -13439,7 +13927,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2024-01-29",
-                "value": 10.073136012376995,
+                "value": 9.881368520344207,
                 "timestamp": "2024-01-29",
                 "quarter": "Q4 2023"
               },
@@ -13451,7 +13939,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2024-01-29",
-                  "value": 10.073136012376995,
+                  "value": 9.881368520344207,
                   "timestamp": "2024-01-29",
                   "quarter": "Q4 2023"
                 }
@@ -13462,7 +13950,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-10-31",
-                "value": 9.94603937076936,
+                "value": 9.551436872635996,
                 "timestamp": "2023-10-31",
                 "quarter": "Q3 2023"
               },
@@ -13474,7 +13962,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-10-31",
-                  "value": 9.94603937076936,
+                  "value": 9.551436872635996,
                   "timestamp": "2023-10-31",
                   "quarter": "Q3 2023"
                 }
@@ -13485,7 +13973,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-08-02",
-                "value": 8.65718873822195,
+                "value": 8.970202934029116,
                 "timestamp": "2023-08-02",
                 "quarter": "Q2 2023"
               },
@@ -13497,7 +13985,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-08-02",
-                  "value": 8.65718873822195,
+                  "value": 8.970202934029116,
                   "timestamp": "2023-08-02",
                   "quarter": "Q2 2023"
                 }
@@ -13508,7 +13996,7 @@
                 "unit": "%",
                 "name": "market share",
                 "id": "TechCorp_market share_2023-05-04",
-                "value": 8.401751740624249,
+                "value": 8.576960421843411,
                 "timestamp": "2023-05-04",
                 "quarter": "Q1 2023"
               },
@@ -13520,7 +14008,7 @@
                   "unit": "%",
                   "name": "market share",
                   "id": "TechCorp_market share_2023-05-04",
-                  "value": 8.401751740624249,
+                  "value": 8.576960421843411,
                   "timestamp": "2023-05-04",
                   "quarter": "Q1 2023"
                 }
@@ -13531,7 +14019,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2025-01-23",
-                "value": 158617298.5502567,
+                "value": 153945258.00955534,
                 "timestamp": "2025-01-23",
                 "quarter": "Q4 2024"
               },
@@ -13543,7 +14031,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2025-01-23",
-                  "value": 158617298.5502567,
+                  "value": 153945258.00955534,
                   "timestamp": "2025-01-23",
                   "quarter": "Q4 2024"
                 }
@@ -13554,7 +14042,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2024-10-25",
-                "value": 157028270.44488114,
+                "value": 146587784.09520626,
                 "timestamp": "2024-10-25",
                 "quarter": "Q3 2024"
               },
@@ -13566,7 +14054,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2024-10-25",
-                  "value": 157028270.44488114,
+                  "value": 146587784.09520626,
                   "timestamp": "2024-10-25",
                   "quarter": "Q3 2024"
                 }
@@ -13577,7 +14065,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2024-07-27",
-                "value": 142721865.64244205,
+                "value": 149081289.65547195,
                 "timestamp": "2024-07-27",
                 "quarter": "Q2 2024"
               },
@@ -13589,7 +14077,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2024-07-27",
-                  "value": 142721865.64244205,
+                  "value": 149081289.65547195,
                   "timestamp": "2024-07-27",
                   "quarter": "Q2 2024"
                 }
@@ -13600,7 +14088,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2024-04-28",
-                "value": 145518724.20515513,
+                "value": 137306864.20848033,
                 "timestamp": "2024-04-28",
                 "quarter": "Q1 2024"
               },
@@ -13612,7 +14100,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2024-04-28",
-                  "value": 145518724.20515513,
+                  "value": 137306864.20848033,
                   "timestamp": "2024-04-28",
                   "quarter": "Q1 2024"
                 }
@@ -13623,7 +14111,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2024-01-29",
-                "value": 128862328.52330299,
+                "value": 133360598.0955086,
                 "timestamp": "2024-01-29",
                 "quarter": "Q4 2023"
               },
@@ -13635,7 +14123,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2024-01-29",
-                  "value": 128862328.52330299,
+                  "value": 133360598.0955086,
                   "timestamp": "2024-01-29",
                   "quarter": "Q4 2023"
                 }
@@ -13646,7 +14134,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2023-10-31",
-                "value": 133546193.66455476,
+                "value": 126320786.29619104,
                 "timestamp": "2023-10-31",
                 "quarter": "Q3 2023"
               },
@@ -13658,7 +14146,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2023-10-31",
-                  "value": 133546193.66455476,
+                  "value": 126320786.29619104,
                   "timestamp": "2023-10-31",
                   "quarter": "Q3 2023"
                 }
@@ -13669,7 +14157,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2023-08-02",
-                "value": 121978311.76069924,
+                "value": 121675662.4528047,
                 "timestamp": "2023-08-02",
                 "quarter": "Q2 2023"
               },
@@ -13681,7 +14169,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2023-08-02",
-                  "value": 121978311.76069924,
+                  "value": 121675662.4528047,
                   "timestamp": "2023-08-02",
                   "quarter": "Q2 2023"
                 }
@@ -13692,7 +14180,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2023-05-04",
-                "value": 125058609.62991326,
+                "value": 121207537.11296152,
                 "timestamp": "2023-05-04",
                 "quarter": "Q1 2023"
               },
@@ -13704,7 +14192,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2023-05-04",
-                  "value": 125058609.62991326,
+                  "value": 121207537.11296152,
                   "timestamp": "2023-05-04",
                   "quarter": "Q1 2023"
                 }
@@ -13790,7 +14278,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2025-01-23",
-                "value": 158617298.5502567,
+                "value": 153945258.00955534,
                 "timestamp": "2025-01-23",
                 "quarter": "Q4 2024"
               },
@@ -13802,7 +14290,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2025-01-23",
-                  "value": 158617298.5502567,
+                  "value": 153945258.00955534,
                   "timestamp": "2025-01-23",
                   "quarter": "Q4 2024"
                 }
@@ -13813,7 +14301,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2024-10-25",
-                "value": 157028270.44488114,
+                "value": 146587784.09520626,
                 "timestamp": "2024-10-25",
                 "quarter": "Q3 2024"
               },
@@ -13825,7 +14313,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2024-10-25",
-                  "value": 157028270.44488114,
+                  "value": 146587784.09520626,
                   "timestamp": "2024-10-25",
                   "quarter": "Q3 2024"
                 }
@@ -13836,7 +14324,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2024-07-27",
-                "value": 142721865.64244205,
+                "value": 149081289.65547195,
                 "timestamp": "2024-07-27",
                 "quarter": "Q2 2024"
               },
@@ -13848,7 +14336,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2024-07-27",
-                  "value": 142721865.64244205,
+                  "value": 149081289.65547195,
                   "timestamp": "2024-07-27",
                   "quarter": "Q2 2024"
                 }
@@ -13859,7 +14347,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2024-04-28",
-                "value": 145518724.20515513,
+                "value": 137306864.20848033,
                 "timestamp": "2024-04-28",
                 "quarter": "Q1 2024"
               },
@@ -13871,7 +14359,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2024-04-28",
-                  "value": 145518724.20515513,
+                  "value": 137306864.20848033,
                   "timestamp": "2024-04-28",
                   "quarter": "Q1 2024"
                 }
@@ -13882,7 +14370,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2024-01-29",
-                "value": 128862328.52330299,
+                "value": 133360598.0955086,
                 "timestamp": "2024-01-29",
                 "quarter": "Q4 2023"
               },
@@ -13894,7 +14382,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2024-01-29",
-                  "value": 128862328.52330299,
+                  "value": 133360598.0955086,
                   "timestamp": "2024-01-29",
                   "quarter": "Q4 2023"
                 }
@@ -13905,7 +14393,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2023-10-31",
-                "value": 133546193.66455476,
+                "value": 126320786.29619104,
                 "timestamp": "2023-10-31",
                 "quarter": "Q3 2023"
               },
@@ -13917,7 +14405,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2023-10-31",
-                  "value": 133546193.66455476,
+                  "value": 126320786.29619104,
                   "timestamp": "2023-10-31",
                   "quarter": "Q3 2023"
                 }
@@ -13928,7 +14416,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2023-08-02",
-                "value": 121978311.76069924,
+                "value": 121675662.4528047,
                 "timestamp": "2023-08-02",
                 "quarter": "Q2 2023"
               },
@@ -13940,7 +14428,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2023-08-02",
-                  "value": 121978311.76069924,
+                  "value": 121675662.4528047,
                   "timestamp": "2023-08-02",
                   "quarter": "Q2 2023"
                 }
@@ -13951,7 +14439,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2023-05-04",
-                "value": 125058609.62991326,
+                "value": 121207537.11296152,
                 "timestamp": "2023-05-04",
                 "quarter": "Q1 2023"
               },
@@ -13963,7 +14451,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2023-05-04",
-                  "value": 125058609.62991326,
+                  "value": 121207537.11296152,
                   "timestamp": "2023-05-04",
                   "quarter": "Q1 2023"
                 }
@@ -14256,7 +14744,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2025-01-23",
-                "value": 158617298.5502567,
+                "value": 153945258.00955534,
                 "timestamp": "2025-01-23",
                 "quarter": "Q4 2024"
               },
@@ -14268,7 +14756,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2025-01-23",
-                  "value": 158617298.5502567,
+                  "value": 153945258.00955534,
                   "timestamp": "2025-01-23",
                   "quarter": "Q4 2024"
                 }
@@ -14279,7 +14767,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2024-10-25",
-                "value": 157028270.44488114,
+                "value": 146587784.09520626,
                 "timestamp": "2024-10-25",
                 "quarter": "Q3 2024"
               },
@@ -14291,7 +14779,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2024-10-25",
-                  "value": 157028270.44488114,
+                  "value": 146587784.09520626,
                   "timestamp": "2024-10-25",
                   "quarter": "Q3 2024"
                 }
@@ -14302,7 +14790,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2024-07-27",
-                "value": 142721865.64244205,
+                "value": 149081289.65547195,
                 "timestamp": "2024-07-27",
                 "quarter": "Q2 2024"
               },
@@ -14314,7 +14802,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2024-07-27",
-                  "value": 142721865.64244205,
+                  "value": 149081289.65547195,
                   "timestamp": "2024-07-27",
                   "quarter": "Q2 2024"
                 }
@@ -14325,7 +14813,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2024-04-28",
-                "value": 145518724.20515513,
+                "value": 137306864.20848033,
                 "timestamp": "2024-04-28",
                 "quarter": "Q1 2024"
               },
@@ -14337,7 +14825,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2024-04-28",
-                  "value": 145518724.20515513,
+                  "value": 137306864.20848033,
                   "timestamp": "2024-04-28",
                   "quarter": "Q1 2024"
                 }
@@ -14348,7 +14836,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2024-01-29",
-                "value": 128862328.52330299,
+                "value": 133360598.0955086,
                 "timestamp": "2024-01-29",
                 "quarter": "Q4 2023"
               },
@@ -14360,7 +14848,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2024-01-29",
-                  "value": 128862328.52330299,
+                  "value": 133360598.0955086,
                   "timestamp": "2024-01-29",
                   "quarter": "Q4 2023"
                 }
@@ -14371,7 +14859,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2023-10-31",
-                "value": 133546193.66455476,
+                "value": 126320786.29619104,
                 "timestamp": "2023-10-31",
                 "quarter": "Q3 2023"
               },
@@ -14383,7 +14871,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2023-10-31",
-                  "value": 133546193.66455476,
+                  "value": 126320786.29619104,
                   "timestamp": "2023-10-31",
                   "quarter": "Q3 2023"
                 }
@@ -14394,7 +14882,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2023-08-02",
-                "value": 121978311.76069924,
+                "value": 121675662.4528047,
                 "timestamp": "2023-08-02",
                 "quarter": "Q2 2023"
               },
@@ -14406,7 +14894,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2023-08-02",
-                  "value": 121978311.76069924,
+                  "value": 121675662.4528047,
                   "timestamp": "2023-08-02",
                   "quarter": "Q2 2023"
                 }
@@ -14417,7 +14905,7 @@
                 "unit": "USD",
                 "name": "revenue",
                 "id": "TechCorp_revenue_2023-05-04",
-                "value": 125058609.62991326,
+                "value": 121207537.11296152,
                 "timestamp": "2023-05-04",
                 "quarter": "Q1 2023"
               },
@@ -14429,7 +14917,7 @@
                   "unit": "USD",
                   "name": "revenue",
                   "id": "TechCorp_revenue_2023-05-04",
-                  "value": 125058609.62991326,
+                  "value": 121207537.11296152,
                   "timestamp": "2023-05-04",
                   "quarter": "Q1 2023"
                 }
@@ -14777,7 +15265,7 @@
     "risk_level": "Medium",
     "findings_summary": {
       "opportunity": 11,
-      "risk": 5,
+      "risk": 57,
       "strength": 3
     },
     "top_areas": [
@@ -14793,66 +15281,85 @@
       "Significant improvement opportunities exist in 1 assessment areas.",
       "Identified 3 strengths that can be leveraged for strategic advantage.",
       "Discovered 11 opportunities for growth and improvement.",
-      "Found 5 potential risk factors that should be addressed.",
+      "Found 57 potential risk factors that should be addressed.",
       "Strategy aligned with key priorities: market, finance."
     ]
   },
   "recommendations": [
     {
-      "title": "AI-Driven Digital Transformation Initiative",
-      "rationale": "Leverage the entity's strong R&D capabilities and operational efficiency by integrating AI-driven tools across core operations and customer experiences.",
+      "title": "Strategic Partnerships for Market Expansion",
+      "rationale": "Partnering with fintech companies can provide access to cutting-edge technology and expand market reach.",
       "benefits": [
-        "Increased customer satisfaction through personalized, real-time solutions.",
-        "Reduction in operational costs via optimized workflows."
+        "Increased revenue from new partnerships",
+        "Access to advanced technological solutions"
       ],
       "implementation_steps": [
-        "Develop custom AI solutions tailored to the entity's specific needs.",
-        "Train internal teams on AI technologies and tools.",
-        "Pilot AI-driven innovations across key business units."
+        "Identify and approach potential fintech partners",
+        "Negotiate terms and finalize partnerships",
+        "Integrate partner technologies into existing systems"
       ],
       "kpis": [
-        "Customer satisfaction score improvement by 20% within 18 months.",
-        "Operational cost reduction by 15% in 24 months."
+        "New product launches",
+        "Market share growth"
       ],
       "timeline": "medium",
       "priority": "high"
     },
     {
-      "title": "Expansion into High-Growth Markets",
-      "rationale": "Target emerging markets such as cybersecurity solutions in fintech and telemedicine platforms in healthcare to diversify revenue streams.",
+      "title": "IT Infrastructure Modernization",
+      "rationale": "Upgrading IT systems will enhance efficiency and enable advanced analytics, crucial for staying competitive.",
       "benefits": [
-        "Entry into high-growth industries with significant upside potential.",
-        "Diversification of revenue sources."
+        "Improved operational efficiency",
+        "Enhanced customer experience"
       ],
       "implementation_steps": [
-        "Conduct market research on target markets (e.g., cybersecurity for fintech).",
-        "Form partnerships with local companies or startups in these sectors.",
-        "Acquire complementary startups to accelerate market entry."
+        "Assess current IT infrastructure",
+        "Identify areas for modernization",
+        "Implement updates and optimizations"
       ],
       "kpis": [
-        "New revenue streams contributing 10% of total revenue within 36 months.",
-        "Customer acquisition growth rate of 20% in target markets."
+        "Reduction in operational costs",
+        "Customer satisfaction levels"
       ],
       "timeline": "long",
-      "priority": "medium"
+      "priority": "high"
     },
     {
-      "title": "Supply Chain Optimization and Lean Manufacturing",
-      "rationale": "Implement lean manufacturing practices to reduce operational costs and improve efficiency in supply chain management.",
+      "title": "Customer-Centric Product Innovation",
+      "rationale": "Developing innovative products tailored to customer needs can drive growth and market leadership.",
       "benefits": [
-        "Significant cost reduction through streamlined processes.",
-        "Enhanced flexibility and scalability of operations."
+        "Increased customer loyalty",
+        "Higher revenue from new offerings"
       ],
       "implementation_steps": [
-        "Adopt lean principles across production lines and logistics.",
-        "Invest in automation technologies to enhance productivity.",
-        "Train employees on lean methodologies for better process optimization."
+        "Conduct customer surveys and feedback sessions",
+        "Use data analytics to identify trends",
+        "Develop and launch new products"
       ],
       "kpis": [
-        "Operational cost reduction by 12% within 24 months.",
-        "Supply chain lead time reduction by 15% in 18 months."
+        "New product launches",
+        "Customer retention rates"
       ],
       "timeline": "medium",
+      "priority": "high"
+    },
+    {
+      "title": "Data Analytics Capability Enhancement",
+      "rationale": "Improved data analytics will provide insights for better decision-making and innovation.",
+      "benefits": [
+        "Informed strategic decisions",
+        "Enhanced product development"
+      ],
+      "implementation_steps": [
+        "Invest in advanced analytics tools",
+        "Train staff on new technologies",
+        "Implement data-driven strategies"
+      ],
+      "kpis": [
+        "Customer acquisition rate",
+        "Product market fit"
+      ],
+      "timeline": "long",
       "priority": "high"
     }
   ]

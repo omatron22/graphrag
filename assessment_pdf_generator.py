@@ -286,41 +286,71 @@ class AssessmentPDFGenerator:
         # Add risk breakdown section
         elements.append(Paragraph("Risk Assessment Breakdown", styles["Heading3"]))
         elements.append(Spacer(1, 6))
-    
+
         # Extract risk data
         risk_data = {}
         if isinstance(assessment_results, dict) and "groups" in assessment_results:
             risk_group = assessment_results["groups"].get("risk", {})
             if isinstance(risk_group, dict):
                 risk_data = risk_group.get("findings", {})
+
+        if risk_data and (isinstance(risk_data, dict) or (isinstance(risk_data, list) and risk_data)):
+            # Check if it's a list of detailed risk entries or just key-value pairs
+            if isinstance(risk_data, list):
+                # Detailed risk data in list format
+                risk_table_data = [["Risk Type", "Description", "Impact Area", "Level", "Probability", "Status"]]
+        
+                for risk in risk_data:
+                    if isinstance(risk, dict):
+                        risk_level = risk.get('level', 0)
+                        if isinstance(risk_level, (int, float)):
+                            risk_level_str = f"{float(risk_level) * 100:.0f}%"
+                        else:
+                            risk_level_str = str(risk_level)
+                
+                        risk_table_data.append([
+                            risk.get("risk_type", "Unknown").capitalize(),
+                            risk.get("description", ""),
+                            risk.get("impact_area", ""),
+                            risk_level_str,
+                            risk.get("probability", ""),
+                            risk.get("mitigation_status", "")
+                        ])
+            else:
+                # Simple risk categories in dict format
+                risk_table_data = [["Risk Category", "Current Risk Level"]]
+        
+                for risk_type, level in risk_data.items():
+                    if risk_type != "reasoning":
+                        risk_table_data.append([risk_type.capitalize(), level])
     
-        if risk_data and isinstance(risk_data, dict):
-            risk_table_data = [["Risk Category", "Current Risk Level"]]
-        
-            for risk_type, level in risk_data.items():
-                if risk_type != "reasoning":
-                    risk_table_data.append([risk_type.capitalize(), level])
-        
-            risk_table = Table(risk_table_data, colWidths=[250, 250])
+            # Calculate appropriate column widths
+            if len(risk_table_data[0]) == 2:  # Simple format
+                colWidths = [250, 250]
+            else:  # Detailed format
+                colWidths = None  # Auto-size columns
+    
+            risk_table = Table(risk_table_data, colWidths=colWidths)
             risk_styles = [
-                ('BACKGROUND', (0, 0), (1, 0), colors.lightgrey),
-                ('TEXTCOLOR', (0, 0), (1, 0), colors.black),
-                ('ALIGN', (0, 0), (1, 0), 'CENTER'),
-                ('FONTNAME', (0, 0), (1, 0), 'Helvetica-Bold'),
-                ('BOTTOMPADDING', (0, 0), (1, 0), 12),
-                ('GRID', (0, 0), (1, len(risk_table_data)-1), 1, colors.black)
+                ('BACKGROUND', (0, 0), (-1, 0), colors.lightgrey),
+                ('TEXTCOLOR', (0, 0), (-1, 0), colors.black),
+                ('ALIGN', (0, 0), (-1, 0), 'CENTER'),
+                ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+                ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
+                ('GRID', (0, 0), (-1, len(risk_table_data)-1), 1, colors.black)
             ]
-        
-            # Add color coding for risk levels
-            for i in range(1, len(risk_table_data)):
-                level = risk_table_data[i][1]
-                if level == "Low":
-                    risk_styles.append(('BACKGROUND', (1, i), (1, i), colors.lightgreen))
-                elif level == "Medium":
-                    risk_styles.append(('BACKGROUND', (1, i), (1, i), colors.lightyellow))
-                elif level == "High":
-                    risk_styles.append(('BACKGROUND', (1, i), (1, i), colors.lightcoral))
-        
+
+            # Add color coding for risk levels if using the simple format
+            if len(risk_table_data[0]) == 2:  # Simple format with just category and level
+                for i in range(1, len(risk_table_data)):
+                    level = risk_table_data[i][1]
+                    if level == "Low":
+                        risk_styles.append(('BACKGROUND', (1, i), (1, i), colors.lightgreen))
+                    elif level == "Medium":
+                        risk_styles.append(('BACKGROUND', (1, i), (1, i), colors.lightyellow))
+                    elif level == "High":
+                        risk_styles.append(('BACKGROUND', (1, i), (1, i), colors.lightcoral))
+
             risk_table.setStyle(TableStyle(risk_styles))
             elements.append(risk_table)
         else:

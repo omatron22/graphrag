@@ -272,18 +272,18 @@ class StrategyAssessment:
     def _assess_group(self, entity_name: str, group_id: str, group_data: Dict[str, Any], user_inputs: Dict[str, Any]) -> Dict[str, Any]:
         """
         Assess an entity for a specific group.
-        
+    
         Args:
             entity_name: Name of the entity
             group_id: ID of the assessment group
             group_data: Assessment group data and questions
             user_inputs: User provided inputs
-            
+        
         Returns:
             dict: Group assessment results
         """
         logger.info(f"Assessing {group_id} for entity: {entity_name}")
-        
+    
         # Initialize group result
         group_result = {
             "name": group_data.get("name", group_id.capitalize()),
@@ -293,33 +293,59 @@ class StrategyAssessment:
             "score": 0,
             "risk_level": "Low"
         }
-        
+    
         # Process each question in the group
         for question in group_data.get("questions", []):
             # Use the knowledge graph to find relevant data
             relevant_data = self._find_relevant_data(entity_name, group_id, question)
-            
+        
             # Formulate answer using the data
             answer = self._formulate_answer(question, relevant_data, user_inputs)
-            
+        
             # Add to results
             group_result["questions"].append({
                 "question": question,
                 "answer": answer,
                 "data": relevant_data
             })
-        
+    
         # For dashboard groups, calculate metrics
         if "metrics" in group_data:
             group_result["metrics"] = self._calculate_metrics(entity_name, group_id, group_data.get("metrics", []))
+    
+        # Special handling for risk group to extract detailed risk data
+        if group_id == "risk":
+            # Get detailed risk data from Neo4j
+            detailed_risks_query = """
+            MATCH (e:Entity {name: $entity_name})-[:HAS_RISK]->(r:Risk)
+            RETURN r.type as risk_type, r.level as risk_level, r.description as description,
+                r.impact_area as impact_area, r.probability as probability,
+                r.mitigation_status as mitigation_status
+            """
+            detailed_risks = self.neo4j_manager.execute_query(
+                detailed_risks_query, {"entity_name": entity_name}
+            )
         
-        # Generate key findings for this group
-        group_result["findings"] = self._generate_group_findings(entity_name, group_id, group_result)
-        
+            # Add the detailed risks to the findings
+            if detailed_risks:
+                for risk in detailed_risks:
+                    group_result["findings"].append({
+                        "type": "risk",
+                        "risk_type": risk.get("risk_type", "unknown"),
+                        "level": risk.get("risk_level", 0.5),
+                        "description": risk.get("description", ""),
+                        "impact_area": risk.get("impact_area", ""),
+                        "probability": risk.get("probability", ""),
+                        "mitigation_status": risk.get("mitigation_status", "")
+                    })
+        else:
+            # Generate key findings for non-risk groups
+            group_result["findings"] = self._generate_group_findings(entity_name, group_id, group_result)
+    
         # Calculate overall group score and risk level
         group_result["score"] = self._calculate_group_score(group_result)
         group_result["risk_level"] = self._determine_risk_level(group_result["score"], user_inputs.get("risk_tolerance", "Medium"))
-        
+    
         return group_result
     
     def _find_relevant_data(self, entity_name: str, group_id: str, question: str) -> List[Dict[str, Any]]:
