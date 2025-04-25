@@ -315,17 +315,18 @@ class StrategyAssessment:
     
         # Special handling for risk group to extract detailed risk data
         if group_id == "risk":
-            # Get detailed risk data from Neo4j
+            # Get detailed risk data from Neo4j with deduplication
             detailed_risks_query = """
             MATCH (e:Entity {name: $entity_name})-[:HAS_RISK]->(r:Risk)
-            RETURN r.type as risk_type, r.level as risk_level, r.description as description,
+            WITH DISTINCT r.type as risk_type, r.level as risk_level, r.description as description,
                 r.impact_area as impact_area, r.probability as probability,
                 r.mitigation_status as mitigation_status
+            RETURN risk_type, risk_level, description, impact_area, probability, mitigation_status
             """
             detailed_risks = self.neo4j_manager.execute_query(
                 detailed_risks_query, {"entity_name": entity_name}
             )
-        
+    
             # Add the detailed risks to the findings
             if detailed_risks:
                 for risk in detailed_risks:
@@ -557,54 +558,54 @@ class StrategyAssessment:
     def _calculate_group_score(self, group_result: Dict[str, Any]) -> float:
         """
         Calculate an overall score for an assessment group.
-        
+    
         Args:
             group_result: Assessment results for the group
-            
+        
         Returns:
             float: Score between 0.0 and 1.0
         """
         # In a real implementation, this would use more sophisticated scoring logic
         # For now, use a simple approach based on findings
-        
+    
         # Default score
         score = 0.5
-        
+    
         # Adjust based on findings
         finding_scores = {
             "strength": 0.1,
             "opportunity": 0.05,
-            "risk": -0.1,
+            "risk": -0.05,  # Reduced from -0.1 to prevent scores from going too low
             "positive_trend": 0.05,
             "negative_trend": -0.05
         }
-        
+    
         for finding in group_result.get("findings", []):
             finding_type = finding.get("type", "")
             importance = finding.get("importance", "medium")
-            
+        
             # Apply importance multiplier
             multiplier = 1.0
             if importance == "high":
                 multiplier = 1.5
             elif importance == "low":
                 multiplier = 0.5
-                
+            
             # Add to score
             if finding_type in finding_scores:
                 score += finding_scores[finding_type] * multiplier
-        
-        # Ensure score is between 0.0 and 1.0
-        return max(0.0, min(1.0, score))
+    
+        # Ensure score is between 0.1 and 1.0 (minimum 0.1 instead of 0.0)
+        return max(0.1, min(1.0, score))
     
     def _determine_risk_level(self, score: float, risk_tolerance: str) -> str:
         """
         Determine risk level based on score and tolerance.
-        
+    
         Args:
             score: Group score between 0.0 and 1.0
             risk_tolerance: User's risk tolerance (Low, Medium, High)
-            
+        
         Returns:
             str: Risk level (Low, Medium, High)
         """
@@ -618,10 +619,10 @@ class StrategyAssessment:
             else:
                 return "High"
         elif risk_tolerance == "High":
-            # Aggressive thresholds
-            if score >= 0.6:
+            # Aggressive thresholds (more lenient)
+            if score >= 0.5:
                 return "Low"
-            elif score >= 0.3:
+            elif score >= 0.25:
                 return "Medium"
             else:
                 return "High"

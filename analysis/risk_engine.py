@@ -173,7 +173,7 @@ class RiskAnalyzer:
                         financial_risk = financial_record["risk_score"]
                 except Exception as e:
                     self.logger.warning(f"Error calculating financial risk: {e}")
-            
+        
                 # Operational risk based on operational risk entities
                 try:
                     operational_result = session.run("""
@@ -190,7 +190,7 @@ class RiskAnalyzer:
                         operational_risk = operational_record["risk_score"]
                 except Exception as e:
                     self.logger.warning(f"Error calculating operational risk: {e}")
-            
+        
                 # Market risk based on market risk entities and trends
                 try:
                     market_result = session.run("""

@@ -297,39 +297,50 @@ class AssessmentPDFGenerator:
         if risk_data and (isinstance(risk_data, dict) or (isinstance(risk_data, list) and risk_data)):
             # Check if it's a list of detailed risk entries or just key-value pairs
             if isinstance(risk_data, list):
-                # Detailed risk data in list format
-                risk_table_data = [["Risk Type", "Description", "Impact Area", "Level", "Probability", "Status"]]
-        
+                # Create a dictionary to ensure uniqueness by description
+                unique_risks = {}
                 for risk in risk_data:
                     if isinstance(risk, dict):
-                        risk_level = risk.get('level', 0)
-                        if isinstance(risk_level, (int, float)):
-                            risk_level_str = f"{float(risk_level) * 100:.0f}%"
-                        else:
-                            risk_level_str = str(risk_level)
-                
-                        risk_table_data.append([
-                            risk.get("risk_type", "Unknown").capitalize(),
-                            risk.get("description", ""),
-                            risk.get("impact_area", ""),
-                            risk_level_str,
-                            risk.get("probability", ""),
-                            risk.get("mitigation_status", "")
-                        ])
+                        # Use description as the unique key
+                        key = risk.get('description', 'Unknown')
+                        if key not in unique_risks:
+                            unique_risks[key] = risk
+        
+                # Convert back to list for table creation
+                deduped_risk_data = list(unique_risks.values())
+        
+                # Detailed risk data in list format
+                risk_table_data = [["Risk Type", "Description", "Impact Area", "Level", "Probability", "Status"]]
+
+                for risk in deduped_risk_data:
+                    risk_level = risk.get('level', 0)
+                    if isinstance(risk_level, (int, float)):
+                        risk_level_str = f"{float(risk_level) * 100:.0f}%"
+                    else:
+                        risk_level_str = str(risk_level)
+        
+                    risk_table_data.append([
+                        risk.get("risk_type", "Unknown").capitalize(),
+                        risk.get("description", ""),
+                        risk.get("impact_area", ""),
+                        risk_level_str,
+                        risk.get("probability", ""),
+                        risk.get("mitigation_status", "")
+                    ])
             else:
                 # Simple risk categories in dict format
                 risk_table_data = [["Risk Category", "Current Risk Level"]]
-        
+
                 for risk_type, level in risk_data.items():
                     if risk_type != "reasoning":
                         risk_table_data.append([risk_type.capitalize(), level])
-    
+
             # Calculate appropriate column widths
             if len(risk_table_data[0]) == 2:  # Simple format
                 colWidths = [250, 250]
             else:  # Detailed format
                 colWidths = None  # Auto-size columns
-    
+
             risk_table = Table(risk_table_data, colWidths=colWidths)
             risk_styles = [
                 ('BACKGROUND', (0, 0), (-1, 0), colors.lightgrey),
