@@ -37,75 +37,79 @@ class StrategyAssessment:
     
     def _initialize_assessment_groups(self) -> Dict[str, Dict[str, Any]]:
         """
-        Initialize the assessment groups structure based on paste.txt.
-        
+        Initialize the 30 assessment groups structure based on Qmirac Engine Guidelines.
+    
         Returns:
-            dict: Assessment groups with their questions and metrics
+            dict: Assessment groups with their questions
         """
-        groups = {
-            "vision": {
-                "name": "Vision",
-                "description": "Assessment of company vision statement",
-                "questions": [
-                    "Is the Vision Statement Clear, concise, inspiring, future-focused, Ambitious and Achievable?"
-                ]
-            },
-            "market": {
-                "name": "Market Assessment",
-                "description": "Assessment of market segments and value proposition",
-                "questions": [
-                    "Are the market segments you are participating in the most attractive segments?",
-                    "Is your Value critical to the most attractive market segments?",
-                    "Can you create a new market segment that could become the most attractive segment in the industry?",
-                    "Can you disrupt the attractive market segments to increase your share in those segments or to drive market structure change in a segment or across multiple segments?",
-                    "Are your Business Competencies a strong fit for the targetted markets?"
-                ]
-            },
-            "strategic": {
-                "name": "Strategic Assessment",
-                "description": "Assessment of strategic positioning and opportunities",
-                "questions": [
-                    "Which Markets are most attractive?",
-                    "Do you have a strong strategic position in the most attractive markets?",
-                    "Do you have a leading Market Share in the most attractive markets? Can you further enhance your position within the overall ecosystem?",
-                    "Are any of the lesser attractive markets likely to become more attractive in the next 3 to 5 years? Can you develop a leadership position in these markets?",
-                    "Do you have a strong strategic position and leading market share in a lesser attractive market? Can you create a new ecosystem and architect its structure and operation?",
-                    "Can you enhance your strategic position in the most attractive markets?",
-                    "Can you create/develop a new market and establish a leading and defendable strategic position in this market?",
-                    "Are there sub-segments within the overall market that could be more attractive than the markets you have currently selected?",
-                    "What factors are a barrier to market growth and market size?",
-                    "What factors are a barrier to enhancing your overall strategic position?",
-                    "Can you increase the importance/weighting of your specific competencies in the overall ecosystem that drives your Business?",
-                    "Have you demonstrated an ability to create/grow/develop a new or existing market? Can you/your team execute on a market growth strategy?",
-                    "Have you demonstrated an ability to build a strong strategic position in a market? Can you/your team execute on a strategy to enhance the strategic position in a market?",
-                    "What are the main bottlenecks to growth in your business?",
-                    "What are the constraints that exist in your business that limit your ability to enhance your overall strategic position?",
-                    "Can you influence/partner with key ecosystem partners to enhance your strategic position?",
-                    "Do you have the Balance Sheet to execute on your desired strategy?"
-                ]
-            }
-        }
-        
-        # Add other assessment groups based on paste.txt
-        # Risk Assessment
-        groups["risk"] = {
-            "name": "Risk Assessment",
-            "description": "Assessment of risk factors and mitigation strategies",
+        groups = {}
+    
+        # Group 1 - Vision
+        groups["vision"] = {
+            "name": "Vision",
+            "description": "Vision Statement Output",
             "questions": [
-                "Are any Risk Factors in the High Risk category",
-                "Can you reduce or mitigate the probabilty of occurrence of any High Risk Factors",
-                "Can you reduce or mitigate the impact of any High Risk Factors",
+                "Is the Vision Statement Clear, concise, inspiring, future-focused, Ambitious and Achievable?"
+            ]
+        }
+    
+        # Group 2 - Market Assessment
+        groups["market_assessment"] = {
+            "name": "Market Assessment",
+            "description": "Market Segment Selection Output",
+            "questions": [
+                "Are the market segments you are participating in the most attractive segments?",
+                "Is your Value critical to the most attractive market segments?",
+                "Can you create a new market segment that could become the most attractive segment in the industry?",
+                "Can you disrupt the attractive market segments to increase your share in those segments or to drive market structure change in a segment or across multiple segments?",
+                "Are your Business Competencies a strong fit for the targetted markets?"
+            ]
+        }
+    
+        # Group 3 - Strategic Assessment
+        groups["strategic_assessment"] = {
+            "name": "Strategic Assessment",
+            "description": "Strategy Framework Output PDF",
+            "questions": [
+                "Which Markets are most attractive?",
+                "Do you have a strong strategic position in the most attractive markets?",
+                "Do you have a leading Market Share in the most attractive markets? Can you further enhance your position within the overall ecosystem?",
+                "Are any of the lesser attractive markets likely to become more attractive in the next 3 to 5 years? Can you develop a leadership position in these markets?",
+                "Do you have a strong strategic position and leading market share in a lesser attractive market? Can you create a new ecosystem and architect its structure and operation?",
+                "Can you enhance your strategic position in the most attractive markets?",
+                "Can you create/develop a new market and establish a leading and defendable strategic position in this market?",
+                "Are there sub-segments within the overall market that could be more attractive than the markets you have currently selected?",
+                "What factors are a barrier to market growth and market size?",
+                "What factors are a barrier to enhancing your overall strategic position?",
+                "Can you increase the importance/weighting of your specific competencies in the overall ecosystem that drives your Business?",
+                "Have you demonstrated an ability to create/grow/develop a new or existing market? Can you/your team execute on a market growth strategy?",
+                "Have you demonstrated an ability to build a strong strategic position in a market? Can you/your team execute on a strategy to enhance the strategic position in a market?",
+                "What are the main bottlenecks to growth in your business?",
+                "What are the constraints that exist in your business that limit your ability to enhance your overall strategic position?",
+                "Can you influence/partner with key ecosystem partners to enhance your strategic position?",
+                "Do you have the Balance Sheet to execute on your desired strategy?"
+            ]
+        }
+    
+        # Group 4 - Risk Assessment
+        groups["risk_assessment"] = {
+            "name": "Risk Assessment",
+            "description": "Risk Assessment Output",
+            "questions": [
+                "Are any Risk Factors in the High Risk category?",
+                "Can you reduce or mitigate the probability of occurrence of any High Risk Factors?",
+                "Can you reduce or mitigate the impact of any High Risk Factors?",
                 "What is the overall Risk impact on the Strategy?",
                 "Can you enhance your overall Strategic Position while maintaining or minimizing the overall Risk profile of the Business?",
                 "Is the company leadership/Board/shareholder base generally open to more Risky Strategies?",
                 "Is the Risk/Reward ratio favorable for any strategic shifts?"
             ]
         }
-        
-        # Competitive Assessment
-        groups["competitive"] = {
+    
+        # Group 5 - Competitive Assessment
+        groups["competitive_assessment"] = {
             "name": "Competitive Assessment",
-            "description": "Assessment of competitive advantages and positioning",
+            "description": "Competitive Assessment Output",
             "questions": [
                 "Does your Product/Service/Business have a major competitive advantage on any parameter? Can you enhance the competitive advantage further?",
                 "Does your Product/Service/Business have a major competitive disadvantage on any parameter? Can you improve the Competitive advantage?",
@@ -114,115 +118,313 @@ class StrategyAssessment:
                 "Does your current Strategy take into consideration your Competitive advantage and disadvantage?",
                 "Are all the parameters of equal importance and value to the market? Can you make your competitive advantage the most important parameter for your market?",
                 "Can you shape/architect the future competitive position in the markets you participate in?",
-                "Is your view of your competitive position and your competitors position homest and realistic, upto date and unbiased?",
+                "Is your view of your competitive position and your competitors position honest and realistic, up to date and unbiased?",
                 "Can you innovate and/or create more value to drive greater competitive advantage?"
             ]
         }
-        
-        # Portfolio Assessment
-        groups["portfolio"] = {
+    
+        # Group 6 - Portfolio Assessment
+        groups["portfolio_assessment"] = {
             "name": "Portfolio Assessment",
-            "description": "Assessment of business portfolio balance and growth",
+            "description": "Portfolio Assessment Output",
             "questions": [
                 "Is the Portfolio Perfectly Balanced? - small embryonic and small emerging businesses, larger early growth, Larger mid growth and larger late growth, smaller mature business and smaller declining business.",
                 "Is the largest business in its growth phase?",
                 "Is the smallest business in its embryonic or emerging phase or in decline?",
                 "What can be done to increase the size of your growth businesses?",
-                "What can be done to ensure that your embryonic and emerging businesses become growth businesses",
+                "What can be done to ensure that your embryonic and emerging businesses become growth businesses?",
                 "Can you make your mature and declining businesses very profitable?",
                 "Are your investments in line with your portfolio? Largest investments should be in your emerging, and growth businesses. The smallest investments should be in your embryonic and mature and declining businesses."
             ]
         }
-        
-        # Strengths Assessment
-        groups["strengths"] = {
+    
+        # Group 7 - Strengths Assessment
+        groups["strengths_assessment"] = {
             "name": "Strengths Assessment",
-            "description": "Assessment of business strengths and advantages",
+            "description": "Strengths Assessment Output",
             "questions": [
                 "How much Value is there to each of your Strengths?",
-                "Does your major strength give your business a significant competitive advantage",
+                "Does your major strength give your business a significant competitive advantage?",
                 "Does your portfolio of Strengths enable significant competitive advantage?",
                 "What can you do to increase the value of your strength and turn into greater competitive advantage?"
             ]
         }
-        
-        # Add financial, HR, operations, and S&M dashboard groups
-        # Finance Dashboard
-        groups["finance"] = {
-            "name": "Finance Dashboard",
-            "description": "Financial metrics and performance",
-            "metrics": [
-                "Revenue Growth",
-                "Operating Income",
-                "Cash Flow",
-                "Gross Margin",
-                "Finance Metrics"
-            ],
+    
+        # Group 8 - Weaknesses Assessment
+        groups["weaknesses_assessment"] = {
+            "name": "Weaknesses Assessment",
+            "description": "Weaknesses Assessment Output",
+            "questions": [
+                "Do your Weaknesses create competitive disadvantage?",
+                "Does your portfolio of weaknesses create significant competitive disadvantage?",
+                "What can you do to reduce the impact of your weaknesses?",
+                "What can you do to turn your weaknesses into strengths or opportunities?"
+            ]
+        }
+    
+        # Group 9 - Opportunities Assessment
+        groups["opportunities_assessment"] = {
+            "name": "Opportunities Assessment",
+            "description": "Opportunities Assessment Output",
+            "questions": [
+                "Can you turn the Opportunities into catalysts for your Business?",
+                "Can the Portfolio of Opportunities become future strengths for your business?",
+                "How can you execute on the largest opportunity?"
+            ]
+        }
+    
+        # Group 10 - Threats Assessment
+        groups["threats_assessment"] = {
+            "name": "Threats Assessment",
+            "description": "Threats Assessment Output",
+            "questions": [
+                "Can you reduce the largest threats to your Business?",
+                "Does your strategy turn your threats into opportunities?",
+                "What levers do you have in your business to mitigate the largest threats to your business?",
+                "Could the most significant threats impact the risk profile or growth of your Business significantly?"
+            ]
+        }
+    
+        # Group 11 - Finance Dashboard (Revenue Growth)
+        groups["revenue_growth"] = {
+            "name": "Finance Dashboard (Revenue Growth)",
+            "description": "Revenue Growth Output",
             "questions": [
                 "Has the Business grown revenues over the last few years?",
                 "Are you forecasting revenue growth for the next few years?",
                 "Has the last 2 years revenue growth been above market or below market?",
                 "Does the strategy drive future revenue growth for the Business?",
-                "Is the lack of revenue growth impacting the business profitabiltiy and what is the risk impact of this lack of growth?"
+                "Is the lack of revenue growth impacting the business profitability and what is the risk impact of this lack of growth?"
             ]
         }
-        
-        # HR Dashboard
-        groups["hr"] = {
-            "name": "HR Dashboard",
-            "description": "Human resources metrics and performance",
-            "metrics": [
-                "Time to Hire",
-                "Employee Turnover",
-                "Employee Engagement",
-                "Diversity",
-                "HR Metrics"
-            ],
+    
+        # Group 12 - Finance Dashboard (Operating Income)
+        groups["operating_income"] = {
+            "name": "Finance Dashboard (Operating Income)",
+            "description": "Operating Income Output",
+            "questions": [
+                "Has the Business grown operating income over the last few years?",
+                "Are you forecasting operating income growth for the next few years?",
+                "Has the last 2 years operating income growth been above market or below market?",
+                "Does the strategy drive future operating income growth for the Business?",
+                "Is the lack of operating income growth impacting the business negatively and what is the risk impact of this lack of growth?"
+            ]
+        }
+    
+        # Group 13 - Finance Dashboard (Cash Flow)
+        groups["cash_flow"] = {
+            "name": "Finance Dashboard (Cash Flow)",
+            "description": "Cash Flow Output",
+            "questions": [
+                "Has the Business grown its Cash Flow from Operations over the last few years?",
+                "Are you forecasting cash flow from operations growth for the next few years?",
+                "Has the last 2 years cash flow from operations growth been above market or below market?",
+                "Does the strategy drive future cash flow from operations growth for the Business?",
+                "Is the lack of cash flow from operations growth impacting the business negatively and what is the risk impact of this lack of growth?"
+            ]
+        }
+    
+        # Group 14 - Finance Dashboard (Gross Margin)
+        groups["gross_margin"] = {
+            "name": "Finance Dashboard (Gross Margin)",
+            "description": "Gross Margin Output",
+            "questions": [
+                "Has the Business gross margin increased over the last few years?",
+                "Are you forecasting gross margins to grow over the next few years?",
+                "Has the last 2 years gross margin growth been above market or below market?",
+                "Does the strategy drive future gross margin growth for the Business?",
+                "Is the lack of gross margin growth impacting the business negatively and what is the risk impact of this lack of growth?"
+            ]
+        }
+    
+        # Group 15 - Finance Dashboard (Finance Metrics)
+        groups["finance_metrics"] = {
+            "name": "Finance Dashboard (Finance Metrics)",
+            "description": "Finance Metrics Output",
+            "questions": [
+                "Are any individual finance metrics that are concerning or increase the Business Risk?",
+                "Are there any ratios that are concerning or increase the Business Risk?",
+                "Does the Strategy drive improved individual metrics, improved financial ratios and drive a lower risk profile for the Business?",
+                "Does the strategy drive future gross margin growth for the Business?",
+                "Do the financial metrics support the strategic direction of the Business?"
+            ]
+        }
+    
+        # Group 16 - HR Dashboard (Time to Hire)
+        groups["time_to_hire"] = {
+            "name": "HR Dashboard (Time to Hire)",
+            "description": "Time to Hire Output",
             "questions": [
                 "Is the Time to Hire critical resources an issue for the Business?",
-                "Is the Time to Hire critical resources in the business competitive.",
-                "Does the Strategy rely on hiring critical resources and if so can the time to hire critical resources be improved."
+                "Is the Time to Hire critical resources in the business competitive?",
+                "Does the Strategy rely on hiring critical resources and if so can the time to hire critical resources be improved?"
             ]
         }
-        
-        # Operations Dashboard
-        groups["operations"] = {
-            "name": "Operations Dashboard",
-            "description": "Operational metrics and performance",
-            "metrics": [
-                "Inventory Turnover",
-                "On Time Delivery",
-                "First Pass Yield",
-                "Total Cycle Time",
-                "Operations Metrics"
-            ],
+    
+        # Group 17 - HR Dashboard (Employee Turnover)
+        groups["employee_turnover"] = {
+            "name": "HR Dashboard (Employee Turnover)",
+            "description": "Employee Turnover Output",
+            "questions": [
+                "Is Employee Turnover lower than the market for your Business?",
+                "Does the Strategy depend on low employee turnover?",
+                "Is employee turnover trending negatively and does this create future risk issues for your Business?",
+                "Does the Strategy drive improved employee turnover?"
+            ]
+        }
+    
+        # Group 18 - HR Dashboard (Employee Engagement)
+        groups["employee_engagement"] = {
+            "name": "HR Dashboard (Employee Engagement)",
+            "description": "Employee Engagement Output",
+            "questions": [
+                "Is Employee Engagement in line with the market for your Business?",
+                "Does the Strategy depend on high employee engagement?",
+                "Is employee engagement trending negatively and does this create future risk issues for your Business?",
+                "Does the strategy drive improved employee engagement?"
+            ]
+        }
+    
+        # Group 19 - HR Dashboard (Diversity)
+        groups["diversity"] = {
+            "name": "HR Dashboard (Diversity)",
+            "description": "Diversity Output",
+            "questions": [
+                "Does the Strategy depend on more diversity?",
+                "Is Diversity trending negatively and does this create future risk issues for your Business?"
+            ]
+        }
+    
+        # Group 20 - HR Dashboard (HR Metrics)
+        groups["hr_metrics"] = {
+            "name": "HR Dashboard (HR Metrics)",
+            "description": "HR Metrics Output",
+            "questions": [
+                "Are any individual HR metrics that are concerning or increase the Business Risk?",
+                "Are there any ratios that are concerning or increase the Business Risk?",
+                "Does the Strategy drive improved individual metrics, improved HR ratios and drive a lower risk profile for the Business?",
+                "Do the HR metrics support the strategic direction of the Business?"
+            ]
+        }
+    
+        # Group 21 - OPS Dashboard (Inventory Turnover)
+        groups["inventory_turnover"] = {
+            "name": "OPS Dashboard (Inventory Turnover)",
+            "description": "Inventory Turnover Output",
             "questions": [
                 "Is the Business Inventory Turnover competitive?",
                 "Is Inventory Turnover trending positively?",
-                "Does the Strategy drive improved inventory turonver for the business?"
+                "Does the Strategy drive improved inventory turnover for the business?"
             ]
         }
-        
-        # Sales & Marketing Dashboard
-        groups["sales_marketing"] = {
-            "name": "Sales & Marketing Dashboard",
-            "description": "Sales and marketing metrics and performance",
-            "metrics": [
-                "Annual Recurring Revenue",
-                "Customer Acquisition Cost",
-                "Design Win",
-                "Opportunities",
-                "Sales & Marketing Metrics"
-            ],
+    
+        # Group 22 - OPS Dashboard (On Time Delivery)
+        groups["on_time_delivery"] = {
+            "name": "OPS Dashboard (On Time Delivery)",
+            "description": "On Time Delivery Output",
+            "questions": [
+                "Is the Business On Time Delivery competitive?",
+                "Is On Time Delivery trending positively?",
+                "Does the Strategy drive improved on time delivery for the business?"
+            ]
+        }
+    
+        # Group 23 - OPS Dashboard (First Pass Yield)
+        groups["first_pass_yield"] = {
+            "name": "OPS Dashboard (First Pass Yield)",
+            "description": "First Pass Yield Output",
+            "questions": [
+                "Is the Business First Time Yield competitive?",
+                "Is First Time Yield trending positively?",
+                "Does the Strategy drive improved Yield for the business?"
+            ]
+        }
+    
+        # Group 24 - OPS Dashboard (Total Cycle Time)
+        groups["total_cycle_time"] = {
+            "name": "OPS Dashboard (Total Cycle Time)",
+            "description": "Total Cycle Time Output",
+            "questions": [
+                "Is the Business Total Supply Cycle Time competitive?",
+                "Is the Total Cycle Time trending positively?",
+                "Does the Strategy drive improved Total Cycle Time for the business?"
+            ]
+        }
+    
+    # Group 25 - Operations Dashboard (Operations Metrics)
+        groups["operations_metrics"] = {
+            "name": "Operations Dashboard (Operations Metrics)",
+            "description": "Operations Metrics Output",
+            "questions": [
+                "Are any individual operations metrics that are concerning or increase the Business Risk?",
+                "Are there any ratios that are concerning or increase the Business Risk?",
+                "Does the Strategy drive improved individual metrics, improved operational ratios and drive a lower risk profile for the Business?",
+                "Does the strategy drive future improved metrics for the Business?",
+                "Do the operational metrics support the strategic direction of the Business?"
+            ]
+        }
+    
+        # Group 26 - Sales & Marketing Dashboard (Annual Recurring Revenue)
+        groups["annual_recurring_revenue"] = {
+            "name": "Sales & Marketing Dashboard (Annual Recurring Revenue)",
+            "description": "Annual Recurring Revenue Output",
             "questions": [
                 "Has the Business grown annual recurring revenues over the last few years?",
                 "Are you forecasting annual recurring revenue growth for the next few years?",
                 "Has the last 2 years annual recurring revenue growth been above market or below market?",
                 "Does the strategy drive future annual recurring revenue growth for the Business?",
-                "Is the lack of annual recurring revenue growth impacting the business profitabiltiy and what is the risk impact of this lack of growth?"
+                "Is the lack of annual recurring revenue growth impacting the business profitability and what is the risk impact of this lack of growth?"
             ]
         }
-        
+    
+        # Group 27 - Sales & Marketing Dashboard (Customer Acquisition Cost)
+        groups["customer_acquisition_cost"] = {
+            "name": "Sales & Marketing Dashboard (Customer Acquisition Cost)",
+            "description": "Customer Acquisition Cost Output",
+            "questions": [
+                "Has the Business customer acquisition cost reduced over the last few years?",
+                "Are you forecasting customer acquisition costs to reduce over the next few years?",
+                "Has the last 2 years customer acquisition cost been below market or above market?",
+                "Does the strategy drive future customer acquisition cost declines for the Business?",
+                "Is the lack of customer acquisition cost decline impacting the business profitability and what is the risk impact of this lack of decline?"
+            ]
+        }
+    
+        # Group 28 - Sales & Marketing Dashboard (Design Win)
+        groups["design_win"] = {
+            "name": "Sales & Marketing Dashboard (Design Win)",
+            "description": "Design Win Output",
+            "questions": [
+                "Has the Business design wins increased above market over the last few years?",
+                "Are you forecasting design wins to increase over the next few years?",
+                "Does the Strategy drive future design win growth?"
+            ]
+        }
+    
+        # Group 29 - Sales & Marketing Dashboard (Opportunities)
+        groups["sales_opportunities"] = {
+            "name": "Sales & Marketing Dashboard (Opportunities)",
+            "description": "Opportunities Output",
+            "questions": [
+                "Has the Business Opportunities increased above market over the last few years?",
+                "Are you forecasting opportunities to increase over the next few years?",
+                "Does the Strategy drive future opportunities growth?"
+            ]
+        }
+    
+        # Group 30 - Sales & Marketing Dashboard (Sales & Marketing Metrics)
+        groups["sales_marketing_metrics"] = {
+            "name": "Sales & Marketing Dashboard (Sales & Marketing Metrics)",
+            "description": "Sales & Marketing Metric Output",
+            "questions": [
+                "Are there any individual sales and marketing metrics that are concerning or increase the Business Risk?",
+                "Are there any ratios that are concerning or increase the Business Risk?",
+                "Does the Strategy drive improved individual metrics, improved sales and marketing ratios and drive a lower risk profile for the Business?",
+                "Does the strategy drive future improved sales and marketing metrics for the Business?",
+                "Do the sales and marketing metrics support the strategic direction of the Business?"
+            ]
+        }
+    
         return groups
     
     def assess(self, entity_name: str, user_inputs: Dict[str, Any]) -> Dict[str, Any]:
@@ -638,62 +840,84 @@ class StrategyAssessment:
     def _generate_assessment_summary(self, entity_name: str, group_results: Dict[str, Dict[str, Any]], user_inputs: Dict[str, Any]) -> Dict[str, Any]:
         """
         Generate an overall assessment summary.
-        
+    
         Args:
             entity_name: Name of the entity
             group_results: Assessment results for all groups
             user_inputs: User provided inputs
-            
+        
         Returns:
             dict: Assessment summary
         """
         # Calculate overall scores
         overall_score = 0.0
         total_weight = 0.0
-        
+    
+        # Updated weights to match the 30 group structure
         group_weights = {
             "vision": 0.05,
-            "market": 0.15,
-            "strategic": 0.20,
-            "risk": 0.15,
-            "competitive": 0.15,
-            "portfolio": 0.10,
-            "strengths": 0.10,
-            "finance": 0.05,
-            "hr": 0.02,
-            "operations": 0.02,
-            "sales_marketing": 0.01
+            "market_assessment": 0.10,
+            "strategic_assessment": 0.10,
+            "risk_assessment": 0.10,
+            "competitive_assessment": 0.05,
+            "portfolio_assessment": 0.05,
+            "strengths_assessment": 0.05,
+            "weaknesses_assessment": 0.05,
+            "opportunities_assessment": 0.05,
+            "threats_assessment": 0.05,
+            "revenue_growth": 0.03,
+            "operating_income": 0.03,
+            "cash_flow": 0.03,
+            "gross_margin": 0.03,
+            "finance_metrics": 0.03,
+            "time_to_hire": 0.02,
+            "employee_turnover": 0.02,
+            "employee_engagement": 0.02,
+            "diversity": 0.01,
+            "hr_metrics": 0.02,
+            "inventory_turnover": 0.01,
+            "on_time_delivery": 0.01,
+            "first_pass_yield": 0.01,
+            "total_cycle_time": 0.01,
+            "operations_metrics": 0.01,
+            "annual_recurring_revenue": 0.01,
+            "customer_acquisition_cost": 0.01,
+            "design_win": 0.01,
+            "sales_opportunities": 0.01,
+            "sales_marketing_metrics": 0.01
         }
-        
+    
         # Adjust weights based on user priorities
         priorities = user_inputs.get("priorities", [])
         for priority in priorities:
-            if priority in group_weights:
-                group_weights[priority] *= 1.5  # Increase weight for prioritized groups
-        
+            # Look for partial matches in group IDs
+            for group_id in group_weights:
+                if priority.lower() in group_id.lower():
+                    group_weights[group_id] *= 1.5  # Increase weight for prioritized groups
+    
         # Normalize weights
         weight_sum = sum(group_weights.values())
         normalized_weights = {k: v/weight_sum for k, v in group_weights.items()}
-        
+    
         # Calculate weighted average score
         for group_id, group_data in group_results.items():
             if group_id in normalized_weights:
                 weight = normalized_weights[group_id]
                 score = group_data.get("score", 0.5)
-                
+            
                 overall_score += score * weight
                 total_weight += weight
-        
+    
         # Calculate final score
         if total_weight > 0:
             final_score = overall_score / total_weight
         else:
             final_score = 0.5
-        
+    
         # Determine overall risk level
         risk_tolerance = user_inputs.get("risk_tolerance", "Medium")
         risk_level = self._determine_risk_level(final_score, risk_tolerance)
-        
+    
         # Count findings by type
         findings_by_type = {}
         for group_id, group_data in group_results.items():
@@ -702,7 +926,7 @@ class StrategyAssessment:
                 if finding_type not in findings_by_type:
                     findings_by_type[finding_type] = 0
                 findings_by_type[finding_type] += 1
-        
+    
         # Generate summary
         summary = {
             "overall_score": final_score,
@@ -712,7 +936,7 @@ class StrategyAssessment:
             "concern_areas": self._identify_top_areas(group_results, "high", 3),  # Areas of concern
             "key_insights": self._generate_key_insights(entity_name, group_results, user_inputs)
         }
-        
+    
         return summary
     
     def _identify_top_areas(self, group_results: Dict[str, Dict[str, Any]], risk_level: str, limit: int) -> List[str]:

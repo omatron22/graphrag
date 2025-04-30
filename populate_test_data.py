@@ -9,6 +9,99 @@ import random
 from datetime import datetime, timedelta
 from knowledge_graph.neo4j_manager import Neo4jManager
 
+# Add to populate_test_data.py
+
+def generate_qmirac_test_data():
+    """Generate test data for the 30 assessment groups in the Qmirac Engine Guidelines."""
+    # This would simulate the data that would normally come from the 30 PDF sections
+    
+    # Initialize Neo4j manager
+    neo4j = Neo4jManager()
+    neo4j.connect()
+    
+    try:
+        print("Generating Qmirac test data...")
+        
+        # For each of the 30 groups, create sample data in Neo4j
+        # This would represent the data that would typically come from PDFs
+        
+        # Group 1 - Vision
+        vision_data = {
+            "entity": "TechCorp",
+            "vision_statement": "To transform enterprise software security through innovative cloud solutions",
+            "clarity_score": 0.85,
+            "conciseness_score": 0.75,
+            "inspiration_score": 0.90,
+            "future_focus_score": 0.95,
+            "ambitious_score": 0.85,
+            "achievable_score": 0.70
+        }
+        
+        # Store vision data in Neo4j
+        neo4j.execute_query(
+            """
+            MATCH (e:Entity {name: $entity})
+            MERGE (e)-[:HAS_ASSESSMENT]->(a:Assessment {name: 'Vision'})
+            SET a += $properties
+            """,
+            {"entity": vision_data["entity"], "properties": vision_data}
+        )
+        
+        # Group 2 - Market Assessment
+        market_segments = [
+            {
+                "entity": "TechCorp",
+                "segment": "Enterprise Cloud Security",
+                "attractiveness": 0.85,
+                "value_proposition_fit": 0.80,
+                "current_market_share": 0.15,
+                "growth_potential": 0.90
+            },
+            {
+                "entity": "TechCorp",
+                "segment": "SMB Security Solutions",
+                "attractiveness": 0.65,
+                "value_proposition_fit": 0.70,
+                "current_market_share": 0.08,
+                "growth_potential": 0.75
+            },
+            {
+                "entity": "TechCorp",
+                "segment": "Government Cybersecurity",
+                "attractiveness": 0.90,
+                "value_proposition_fit": 0.60,
+                "current_market_share": 0.05,
+                "growth_potential": 0.85
+            }
+        ]
+        
+        # Store market segment data in Neo4j
+        for segment in market_segments:
+            neo4j.execute_query(
+                """
+                MATCH (e:Entity {name: $entity})
+                MERGE (e)-[:HAS_ASSESSMENT]->(a:Assessment {name: 'Market Assessment'})
+                MERGE (a)-[:HAS_SEGMENT]->(s:MarketSegment {name: $segment})
+                SET s += $properties
+                """,
+                {
+                    "entity": segment["entity"], 
+                    "segment": segment["segment"],
+                    "properties": segment
+                }
+            )
+        
+        # Continue with data for all 30 groups...
+        
+        print("Qmirac test data generated successfully")
+        return True
+    
+    except Exception as e:
+        print(f"Error generating Qmirac test data: {e}")
+        return False
+    finally:
+        neo4j.close()
+        
 def populate_test_data():
     """Add detailed business entities and relationships to the knowledge graph."""
     # Initialize Neo4j manager

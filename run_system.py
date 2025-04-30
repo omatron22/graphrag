@@ -1,10 +1,6 @@
 #!/usr/bin/env python3
 """
-Knowledge Graph-Based Business Consulting System Runner
-
-This script provides a command-line interface to run the knowledge graph-based 
-business consulting system. It allows users to analyze companies with different
-risk profiles and generate strategic recommendations.
+Knowledge Graph-Based Business Consulting System Runner with Qmirac Engine Guidelines
 """
 
 import os
@@ -29,10 +25,10 @@ logger = logging.getLogger("run_system")
 def print_banner():
     """Print the system banner"""
     print("\n" + "="*80)
-    print(" Knowledge Graph-Based Business Consulting System ".center(80, "="))
+    print(" Qmirac Engine - Business Strategy Assessment ".center(80, "="))
     print("="*80 + "\n")
-    print(" A complete offline business risk analysis system using knowledge graphs.")
-    print(" Processes documents, extracts insights, and generates recommendations.")
+    print(" A complete business strategy assessment system using knowledge graphs.")
+    print(" Processes 30 assessment areas and generates strategic recommendations.")
     print("\n" + "="*80 + "\n")
 
 def list_entities(orchestrator):
@@ -51,77 +47,49 @@ def list_entities(orchestrator):
         logger.error(f"Error listing entities: {e}")
         return []
 
-def analyze_entity(orchestrator, entity_name, user_inputs=None):
-    """Analyze an entity and display results"""
-    print(f"\nAnalyzing entity: {entity_name}")
+def run_qmirac_assessment(orchestrator, entity_name, user_inputs):
+    """Run Qmirac assessment and display results"""
+    print(f"\nRunning Qmirac assessment for: {entity_name}")
     
-    # Display user inputs if provided
-    if user_inputs:
-        print(f"Risk Tolerance: {user_inputs.get('risk_tolerance', 'Medium')}")
-        if user_inputs.get('priorities'):
-            print(f"Priorities: {', '.join(user_inputs.get('priorities', []))}")
-        if user_inputs.get('constraints'):
-            print(f"Constraints: {', '.join(user_inputs.get('constraints', []))}")
+    # Display user inputs
+    print(f"Risk Tolerance: {user_inputs.get('risk_tolerance', 'Medium')}")
+    if user_inputs.get('priorities'):
+        print(f"Priorities: {', '.join(user_inputs.get('priorities', []))}")
+    if user_inputs.get('constraints'):
+        print(f"Constraints: {', '.join(user_inputs.get('constraints', []))}")
     
-    print("This may take a few minutes. Please wait...\n")
+    print("Processing 30 assessment areas. This may take a few minutes. Please wait...\n")
     
     start_time = time.time()
     
-    # Use run_strategy_assessment if user_inputs are provided, otherwise use generate_analysis_report
-    if user_inputs:
-        result = orchestrator.run_strategy_assessment(entity_name, user_inputs)
-        report = result.get("assessment_results", {})
-    else:
-        report = orchestrator.generate_analysis_report(entity_name)
+    # Run the Qmirac assessment
+    result = orchestrator.run_qmirac_assessment(entity_name, user_inputs)
     
     end_time = time.time()
     
-    print(f"\nEntity analysis completed in {end_time - start_time:.2f} seconds.")
+    print(f"\nQmirac assessment completed in {end_time - start_time:.2f} seconds.")
     
-    if "error" not in report:
+    if "assessment_results" in result:
         print("Status: ✅ Complete")
         
         # Print risk summary
-        risks = report.get("risks", {}).get("categories", {})
-        if risks:
-            print("\nRisk Assessment:")
-            for risk_type, level in risks.items():
-                if risk_type != "reasoning":
-                    print(f"  - {risk_type.capitalize()}: {level}")
+        risk_level = user_inputs.get("risk_tolerance", "Medium")
+        print(f"\nRisk Tolerance Level: {risk_level}")
         
-        # Print top strategies
-        if user_inputs:
-            strategies = report.get("recommendations", [])
-        else:
-            strategies = report.get("strategies", [])
-            
-        if isinstance(strategies, list) and strategies:
-            print("\nTop Strategies:")
-            for i, strategy in enumerate(strategies[:min(3, len(strategies))]):
-                print(f"  {i+1}. {strategy.get('title')} (Priority: {strategy.get('priority', 'medium')})")
-        else:
-            print("\nNo strategies available or invalid format.")
+        # Print generated PDF paths
+        if "pdf_paths" in result:
+            print("\nGenerated PDF Reports:")
+            for path in result["pdf_paths"]:
+                print(f"  - {path}")
         
-        # Print report paths
-        if "report_path" in report:
-            print(f"\nFull JSON report saved to: {report.get('report_path')}")
-        
-        # Show PDF path information
-        pdf_path = report.get("pdf_path")
-        if not pdf_path and isinstance(result, dict):
-            pdf_path = result.get("pdf_path")
-            
-        if pdf_path:
-            print(f"\nDetailed PDF report saved to: {pdf_path}")
-        
-        return report
+        return result
     else:
         print("Status: ❌ Failed")
-        print(f"Error: {report.get('error')}")
-        return report
+        print(f"Error: {result.get('error')}")
+        return result
 
 def simplified_interactive_mode():
-    """Run a simplified interactive mode focused on strategy assessment"""
+    """Run a simplified interactive mode focused on Qmirac assessment"""
     print_banner()
     
     print("Initializing system components...")
@@ -163,23 +131,24 @@ def simplified_interactive_mode():
                 print("Please enter a valid number.")
                 continue
             
-            # Risk tolerance selection
-            print("\nSelect risk tolerance level:")
-            print("1. Low - Conservative approach")
-            print("2. Medium - Balanced approach")
-            print("3. High - Aggressive approach")
+            # User Input Chat 1: Risk Tolerance (H/M/L)
+            print("\nUser Input Chat 1: Select risk tolerance level (H/M/L):")
+            print("H - High risk tolerance (aggressive approach)")
+            print("M - Medium risk tolerance (balanced approach)")
+            print("L - Low risk tolerance (conservative approach)")
 
-            risk_choice = input("Enter choice (1-3, default 2): ").strip() or "2"
-            risk_mapping = {"1": "Low", "2": "Medium", "3": "High"}
-            risk_tolerance = risk_mapping.get(risk_choice, "Medium")
+            risk_choice = input("Enter choice (H/M/L, default M): ").strip().upper() or "M"
+            risk_tolerance = {"H": "High", "M": "Medium", "L": "Low"}.get(risk_choice, "Medium")
 
-            # Get priorities
-            print("\nEnter business priorities (comma-separated, e.g., market,finance,operations):")
+            # User Input Chat 2: Priorities
+            print("\nUser Input Chat 2: Enter business priorities (comma-separated):")
+            print("Example: market growth, revenue, customer acquisition")
             priorities_input = input("> ").strip()
             priorities = [p.strip() for p in priorities_input.split(",")] if priorities_input else []
 
-            # Get constraints
-            print("\nEnter business constraints (comma-separated, e.g., budget,timeline,resources):")
+            # User Input Chat 3: Constraints
+            print("\nUser Input Chat 3: Enter business constraints (comma-separated):")
+            print("Example: budget limitations, timeline restrictions, resource availability")
             constraints_input = input("> ").strip()
             constraints = [c.strip() for c in constraints_input.split(",")] if constraints_input else []
 
@@ -190,8 +159,8 @@ def simplified_interactive_mode():
                 "constraints": constraints
             }
 
-            # Run analysis
-            analyze_entity(orchestrator, entity_name, user_inputs)
+            # Run Qmirac assessment
+            run_qmirac_assessment(orchestrator, entity_name, user_inputs)
             
             # Ask if user wants to continue
             print("\n")
@@ -211,17 +180,15 @@ def simplified_interactive_mode():
 
 def main():
     """Main entry point for the system"""
-    parser = argparse.ArgumentParser(description="Knowledge Graph Business Consulting System Runner")
+    parser = argparse.ArgumentParser(description="Qmirac Engine - Business Strategy Assessment")
     parser.add_argument("--analyze", "-a", help="Analyze an entity", default=None)
-    parser.add_argument("--risk-tolerance", "-r", choices=["low", "medium", "high"], 
-                      help="Risk tolerance (low, medium, high)", default="medium")
-    parser.add_argument("--priorities", "-p", help="Comma-separated list of priorities (e.g., market,finance)", default="")
+    parser.add_argument("--risk-tolerance", "-r", choices=["H", "M", "L", "high", "medium", "low"], 
+                      help="Risk tolerance (H/M/L)", default="M")
+    parser.add_argument("--priorities", "-p", help="Comma-separated list of priorities", default="")
     parser.add_argument("--constraints", "-c", help="Comma-separated list of constraints", default="")
     parser.add_argument("--list-entities", "-e", action="store_true", help="List top entities in knowledge graph")
     parser.add_argument("--interactive", "-i", action="store_true", help="Run in simplified interactive mode")
-    parser.add_argument("--process-doc", help="Process a document file (advanced)", default=None)
-    parser.add_argument("--visualize", "-v", help="Visualize an entity network (advanced)", default=None)
-    parser.add_argument("--depth", "-d", type=int, help="Network depth for visualization", default=2)
+    parser.add_argument("--populate-test", action="store_true", help="Populate with Qmirac test data")
     
     args = parser.parse_args()
     
@@ -229,6 +196,18 @@ def main():
     if len(sys.argv) == 1:
         args.interactive = True
     
+    # Handle populate test data option
+    if args.populate_test:
+        print("Populating system with Qmirac test data...")
+        import populate_test_data
+        success = populate_test_data.generate_qmirac_test_data()
+        if success:
+            print("Test data populated successfully.")
+        else:
+            print("Error populating test data.")
+        return 0
+    
+    # Normal system operation
     if args.interactive:
         simplified_interactive_mode()
         return 0
@@ -255,40 +234,28 @@ def main():
         if args.analyze:
             entity_name = args.analyze
             
-            # Parse user inputs if provided
+            # Process risk tolerance input (convert to full name if needed)
+            risk_tolerance = args.risk_tolerance.upper()
+            if risk_tolerance in ["H", "HIGH"]:
+                risk_tolerance = "High"
+            elif risk_tolerance in ["M", "MEDIUM"]:
+                risk_tolerance = "Medium" 
+            elif risk_tolerance in ["L", "LOW"]:
+                risk_tolerance = "Low"
+            
+            # Parse priorities and constraints
             priorities = [p.strip() for p in args.priorities.split(",")] if args.priorities else []
             constraints = [c.strip() for c in args.constraints.split(",")] if args.constraints else []
             
+            # Create user inputs
             user_inputs = {
-                "risk_tolerance": args.risk_tolerance.capitalize(),
+                "risk_tolerance": risk_tolerance,
                 "priorities": priorities,
                 "constraints": constraints
             }
             
-            # Only pass user_inputs if any non-default values were provided
-            if args.risk_tolerance != "medium" or priorities or constraints:
-                analyze_entity(orchestrator, entity_name, user_inputs)
-            else:
-                analyze_entity(orchestrator, entity_name)
-        
-        # Advanced options (kept for backward compatibility)
-        if args.process_doc:
-            file_path = args.process_doc
-            if os.path.isfile(file_path):
-                print(f"\nProcessing document: {file_path}")
-                result = orchestrator.process_document(file_path)
-                if result.get("status") == "complete":
-                    print("Document processing completed successfully.")
-            else:
-                print(f"Error: File not found: {file_path}")
-        
-        if args.visualize:
-            entity_name = args.visualize
-            depth = args.depth
-            print(f"\nVisualizing entity network: {entity_name}")
-            viz = orchestrator.visualize_entity_network(entity_name, depth)
-            if "error" not in viz:
-                print(f"Visualization saved to: {viz.get('visualization_path')}")
+            # Run Qmirac assessment
+            run_qmirac_assessment(orchestrator, entity_name, user_inputs)
         
         orchestrator.cleanup()
         

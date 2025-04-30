@@ -10,6 +10,7 @@ import importlib
 from datetime import datetime
 import time
 import config
+from typing import Dict, Any, List, Optional, Tuple, Set
 from knowledge_graph.neo4j_manager import Neo4jManager
 from knowledge_graph.triplet_extractor import TripletExtractor
 from analysis.risk_engine import RiskAnalyzer
@@ -335,45 +336,6 @@ class Orchestrator:
             "parsed_data_path": parsed_path
         }
     
-    def run_strategy_assessment(self, entity_name, user_inputs=None):
-        """
-        Run a comprehensive strategy assessment for an entity.
-
-        Args:
-            entity_name: Name of the entity to assess
-            user_inputs: User provided inputs (risk tolerance, priorities, constraints)
-    
-        Returns:
-            dict: Assessment results
-        """
-        logger.info(f"Running strategy assessment for {entity_name}")
-
-        # Use default inputs if none provided
-        if user_inputs is None:
-            user_inputs = {
-                "risk_tolerance": "Medium",
-                "priorities": [],
-                "constraints": []
-            }
-
-        # Add user_inputs to assessment results for context
-        assessment_results = self.strategy_assessment.assess(entity_name, user_inputs)
-        assessment_results["user_inputs"] = user_inputs
-
-        # Generate charts
-        charts = self.strategy_assessment.generate_charts(assessment_results)
-
-        # Generate PDF report
-        pdf_path = self.pdf_generator.generate_assessment_pdf(assessment_results, charts)
-
-        logger.info(f"Strategy assessment complete for {entity_name}")
-
-        return {
-            "assessment_results": assessment_results,
-            "charts": charts,
-            "pdf_path": pdf_path
-        }
-    
     def _store_triplets_in_graph(self, triplets):
         """
         Store extracted triplets in the Neo4j knowledge graph
@@ -501,167 +463,6 @@ class Orchestrator:
         
         return results
     
-    def generate_analysis_report(self, entity_name):
-        """
-        Generate a comprehensive analysis report for an entity
-    
-        Args:
-            entity_name: Name of the entity to analyze
-    
-        Returns:
-            dict: Analysis report data
-        """
-        # Check if entity exists in knowledge graph
-        entity_summary = self.neo4j_manager.execute_query(
-            "MATCH (e:Entity {name: $name}) RETURN e", 
-            {"name": entity_name}
-        )
-
-        if not entity_summary:
-            return {"error": f"Entity not found: {entity_name}"}
-
-        try:
-            # Get entity insights
-            insights = self.insight_extractor.extract_insights(entity_name)
-
-            # Run risk analysis
-            risk_analysis = self.risk_analyzer.analyze()
-            logger.info(f"Risk analysis results: {risk_analysis}")
-
-            # Generate strategies (do this only once)
-            strategies = self.strategy_generator.generate_for_entity(entity_name)
-            logger.info(f"Strategy type: {type(strategies)}")
-            logger.info(f"Strategy keys: {strategies.keys() if isinstance(strategies, dict) else 'Not a dict'}")
-
-            # Extract strategies list (keep this consistent)
-            if isinstance(strategies, dict) and "strategies" in strategies:
-                strategies_list = strategies["strategies"]
-            else:
-                strategies_list = strategies if isinstance(strategies, list) else []
-        
-            logger.info(f"Strategies list contains {len(strategies_list)} strategies")
-            for i, strategy in enumerate(strategies_list):
-                logger.info(f"Strategy {i+1}: {strategy.get('title', 'Untitled')}")
-
-            # Use the SAME strategies object for comprehensive report
-            report = {
-                "entity": entity_name,
-                "generation_date": datetime.now().isoformat(),
-                "executive_summary": self._generate_executive_summary(entity_name, {"strategies": strategies_list, "risk_summary": risk_analysis.get("categories", {})}),
-                "strategies": strategies_list,
-                "risk_assessment": risk_analysis.get("categories", {}),
-                "visualizations": strategies.get("visualization_data", {}) if isinstance(strategies, dict) else {},
-                "opportunities": strategies.get("strategic_opportunities", {}) if isinstance(strategies, dict) else {},
-                "supporting_data": {
-                    "entity_graph": self.graph_query.export_graph_segment(entity_name, 2),
-                    "market_context": self._get_market_context(entity_name)
-                }
-            }
-
-            # Get connected entities
-            connected_entities = self.neo4j_manager.execute_query(
-                """
-                MATCH (e:Entity {name: $name})-[r]-(connected:Entity)
-                RETURN connected.name AS entity, type(r) AS relationship, 
-                    COUNT(*) AS connection_strength
-                ORDER BY connection_strength DESC
-                LIMIT 10
-                """,
-                {"name": entity_name}
-            )
-
-            # Compile full report
-            full_report = {
-                "entity": entity_name,
-                "timestamp": datetime.now().isoformat(),
-                "risks": risk_analysis,
-                "insights": insights,
-                "strategies": strategies_list,
-                "connected_entities": connected_entities,
-                "comprehensive_report": report
-            }
-
-            # Save report
-            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            report_filename = f"report_{entity_name.replace(' ', '_')}_{timestamp}.json"
-            report_path = os.path.join("data", "knowledge_base", report_filename)
-
-            with open(report_path, 'w', encoding='utf-8') as f:
-                json.dump(full_report, f, ensure_ascii=False, indent=2)
-        
-            logger.info(f"Generated analysis report for {entity_name}: {report_path}")
-
-            # Process insights for PDF - be very careful with data types
-            key_insights = []
-            if isinstance(insights, dict) and "key_findings" in insights:
-                for finding in insights["key_findings"]:
-                    if isinstance(finding, dict):
-                        title = finding.get("title", "")
-                        explanation = finding.get("explanation", "")
-                        if title and explanation:
-                            key_insights.append(f"{title}: {explanation}")
-                        elif title:
-                            key_insights.append(title)
-        
-            # Create assessment results in the format expected by the PDF generator
-            assessment_results = {
-                "entity": entity_name,
-                "summary": {
-                    "overall_score": 0.7,  # This is a placeholder
-                    "risk_level": risk_analysis.get("categories", {}).get("overall", "Medium"),
-                    "key_insights": key_insights[:5]  # Use processed insights
-                },
-                "recommendations": strategies_list,
-                "groups": {
-                    "risk": {
-                        "name": "Risk Assessment",
-                        "description": "Assessment of business risks across multiple dimensions",
-                        "score": 0.7,
-                        "risk_level": risk_analysis.get("categories", {}).get("overall", "Medium"),
-                        "findings": {}  # Initialize as empty dict
-                    },
-                    "market": {
-                        "name": "Market Assessment",
-                        "description": "Evaluation of market position and opportunities",
-                        "score": 0.65,
-                        "risk_level": "Medium",
-                        "findings": []
-                    }
-                }
-            }
-        
-            # Safely populate risk findings
-            if isinstance(risk_analysis, dict) and "categories" in risk_analysis:
-                risk_findings = {}
-                for k, v in risk_analysis["categories"].items():
-                    if k != "reasoning":
-                        risk_findings[k] = v
-                assessment_results["groups"]["risk"]["findings"] = risk_findings
-        
-            try:
-                # Generate charts for visualizations - wrap in try block
-                logger.info("Generating charts for PDF report")
-                charts = self._generate_charts_for_report(assessment_results, strategies)
-    
-                # Generate PDF report
-                logger.info("Generating PDF report")
-                pdf_path = self.pdf_generator.generate_assessment_pdf(assessment_results, charts)
-                logger.info(f"Generated PDF report for {entity_name}: {pdf_path}")
-    
-                # Add PDF path to return values
-                return {**full_report, "report_path": report_path, "pdf_path": pdf_path}
-    
-            except Exception as e:
-                # If PDF generation fails, still return the JSON report
-                logger.error(f"PDF generation failed: {e}")
-                import traceback
-                logger.error(f"Traceback: {traceback.format_exc()}")
-                return {**full_report, "report_path": report_path}
-
-        except Exception as e:
-            logger.error(f"Failed to generate analysis report for {entity_name}: {e}")
-            return {"error": str(e)}
-    
     def _generate_charts_for_report(self, assessment_results, strategies_data):
         """
         Generate chart data for the PDF report.
@@ -758,6 +559,118 @@ class Orchestrator:
     
         return charts
 
+    def _determine_group_risk_level(self, group_id: str, entity_name: str, user_inputs: Dict[str, Any]) -> str:
+        """
+        Determine risk level for a specific group based on user inputs and entity data.
+    
+        Args:
+            group_id: ID of the assessment group
+            entity_name: Name of the entity
+            user_inputs: User provided inputs
+        
+        Returns:
+            str: Risk level (Low, Medium, High)
+        """
+        # Get risk tolerance from user inputs
+        risk_tolerance = user_inputs.get("risk_tolerance", "Medium")
+    
+        # Query Neo4j for risk-related data for this group
+        query = """
+        MATCH (e:Entity {name: $entity_name})-[:HAS_ASSESSMENT]->(a)
+        WHERE a.name CONTAINS $group_name
+        RETURN a.risk_score as risk_score
+        """
+    
+        result = self.neo4j_manager.execute_query(
+            query, {"entity_name": entity_name, "group_name": group_id}
+        )
+    
+        # Extract risk score if available
+        risk_score = 0.5  # Default medium risk
+        if result and len(result) > 0 and "risk_score" in result[0]:
+            risk_score = float(result[0]["risk_score"])
+    
+        # Adjust thresholds based on risk tolerance
+        if risk_tolerance == "Low":
+            # Conservative thresholds
+            if risk_score < 0.3:
+                return "Low"
+            elif risk_score < 0.6:
+                return "Medium"
+            else:
+                return "High"
+        elif risk_tolerance == "High":
+            # Aggressive thresholds
+            if risk_score < 0.5:
+                return "Low"
+            elif risk_score < 0.8:
+                return "Medium"
+            else:
+                return "High"
+        else:  # Medium tolerance (default)
+            if risk_score < 0.4:
+                return "Low"
+            elif risk_score < 0.7:
+                return "Medium"
+            else:
+                return "High"
+    
+    def _get_knowledge_base_data(self, entity_name: str) -> Dict[str, Any]:
+        """
+        Get strategy input prompts from the knowledge base.
+    
+        Args:
+            entity_name: Name of the entity
+        
+        Returns:
+            dict: Strategy input prompts and related knowledge
+        """
+        try:
+            # Query for strategy input prompts
+            query = """
+            MATCH (e:Entity {name: $entity_name})-[:RELATED_TO]->(k:KnowledgeBase)
+            RETURN k.type as type, k.content as content, k.source as source
+            """
+        
+            knowledge_data = self.neo4j_manager.execute_query(query, {"entity_name": entity_name})
+        
+            if not knowledge_data:
+                # If no specific knowledge is found, return generic strategy frameworks
+                return {
+                    "strategy_frameworks": [
+                        {
+                            "name": "SWOT Analysis",
+                            "description": "Analysis of Strengths, Weaknesses, Opportunities, and Threats"
+                        },
+                        {
+                            "name": "Porter's Five Forces",
+                            "description": "Analysis of competitive forces in the industry"
+                        },
+                        {
+                            "name": "Balanced Scorecard",
+                            "description": "Performance measurement framework"
+                        }
+                    ]
+                }
+        
+            # Format knowledge data by type
+            formatted_data = {}
+            for item in knowledge_data:
+                item_type = item.get("type", "general")
+                if item_type not in formatted_data:
+                    formatted_data[item_type] = []
+            
+                formatted_data[item_type].append({
+                    "content": item.get("content", ""),
+                    "source": item.get("source", "")
+                })
+            
+            return formatted_data
+    
+        except Exception as e:
+            logger.warning(f"Error retrieving knowledge base data: {e}")
+            return {}  # Return empty dict on error
+        
     def debug_strategies(self, entity_name):
         """
         Debug function to investigate strategy structure.
@@ -857,6 +770,83 @@ class Orchestrator:
             logger.error(f"Failed to generate visualization for {entity_name}: {e}")
             return {"error": str(e)}
     
+    def run_qmirac_assessment(self, entity_name: str, user_inputs: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Run the Qmirac Engine assessment workflow with the 30 group structure.
+    
+        Args:
+            entity_name: Name of the entity to assess
+            user_inputs: User provided inputs (risk tolerance, priorities, constraints)
+    
+        Returns:
+            dict: Assessment results including PDF paths
+        """
+        logger.info(f"Running Qmirac assessment for {entity_name}")
+    
+        # Process the 30 PDF sections (in real system, these would be actual PDFs)
+        # For now, we'll simulate this with data from Neo4j
+        assessment_data = {}
+    
+        for group_id, group_data in self.strategy_assessment.assessment_groups.items():
+            # Process each group according to its defined questions
+            group_results = self._process_group_assessment(entity_name, group_id, group_data, user_inputs)
+            assessment_data[group_id] = group_results
+    
+        # Incorporate knowledge base data
+        knowledge_base_data = self._get_knowledge_base_data(entity_name)
+    
+        # Generate comprehensive assessment results
+        assessment_results = {
+            "entity": entity_name,
+            "timestamp": datetime.now().isoformat(),
+            "user_inputs": user_inputs,
+            "risk_level": user_inputs.get("risk_tolerance", "Medium"),
+            "groups": assessment_data,
+            "knowledge_base": knowledge_base_data
+        }
+    
+        # Generate charts for visualization
+        charts = self.strategy_assessment.generate_charts(assessment_results)
+    
+        # Generate the three PDF outputs based on risk level
+        risk_level = user_inputs.get("risk_tolerance", "Medium")[0]  # Get first letter (H/M/L)
+        pdf_paths = self.pdf_generator.generate_assessment_pdfs(assessment_results, charts, risk_level)
+    
+        logger.info(f"Qmirac assessment complete for {entity_name}")
+    
+        return {
+            "assessment_results": assessment_results,
+            "charts": charts,
+            "pdf_paths": pdf_paths
+        }
+
+    def _process_group_assessment(self, entity_name: str, group_id: str, group_data: Dict, user_inputs: Dict) -> Dict:
+        """
+        Process assessment for a specific group according to Qmirac Guidelines.
+        """
+        # For each group, query the Neo4j graph for relevant data
+        # Apply the AI Engine questions for that group
+    
+        # This function would handle the specific processing for each group
+        # based on the questions defined in the guidelines
+    
+        # For now, return a placeholder result
+        return {
+            "name": group_data.get("name", ""),
+            "description": group_data.get("description", ""),
+            "outputs": [],  # This would contain the actual analysis outputs
+            "risk_level": self._determine_group_risk_level(group_id, entity_name, user_inputs)
+        }
+
+    def _get_knowledge_base_data(self, entity_name: str) -> Dict:
+        """
+        Get strategy input prompts from the knowledge base.
+        """
+        # Query the Neo4j database for knowledge base data
+        # This would be the strategy input prompts mentioned in the guidelines
+    
+        return {}  # Replace with actual implementation
+
     def cleanup(self):
         """Close connections and clean up resources"""
         self.neo4j_manager.close()
