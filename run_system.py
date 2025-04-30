@@ -200,7 +200,7 @@ def main():
     if args.populate_test:
         print("Populating system with Qmirac test data...")
         import populate_test_data
-        success = populate_test_data.generate_qmirac_test_data()
+        success = populate_test_data.populate_test_data()
         if success:
             print("Test data populated successfully.")
         else:

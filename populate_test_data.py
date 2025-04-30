@@ -11,7 +11,7 @@ from knowledge_graph.neo4j_manager import Neo4jManager
 
 # Add to populate_test_data.py
 
-def generate_qmirac_test_data():
+def populate_test_data():
     """Generate test data for the 30 assessment groups in the Qmirac Engine Guidelines."""
     # This would simulate the data that would normally come from the 30 PDF sections
     
@@ -91,744 +91,867 @@ def generate_qmirac_test_data():
                 }
             )
         
-        # Continue with data for all 30 groups...
+        # Group 3 - Strategic Assessment
+        strategic_assessment_data = {
+            "entity": "TechCorp",
+            "most_attractive_markets": ["Enterprise Cloud Security", "Government Cybersecurity"],
+            "strategic_position_score": 0.75,
+            "market_share_strongest_segment": 0.15,
+            "emerging_markets": ["Edge Computing Security", "IoT Security Solutions"],
+            "strategic_position_enhancement_opportunities": ["Partnership with major cloud providers", "Investment in ML-based threat detection"],
+            "market_growth_barriers": ["Regulatory compliance complexity", "Competition from established players"],
+            "strategic_position_barriers": ["Limited enterprise customer base", "Brand recognition in government sector"],
+            "growth_bottlenecks": ["Sales team capacity", "Product development cycles"],
+            "strategic_constraints": ["Capital limitations", "Technical talent acquisition"],
+            "ecosystem_partnership_opportunities": ["Strategic alliance with AWS", "Integration with Microsoft security suite"],
+            "balance_sheet_strength": 0.65
+        }
+        
+        # Store strategic assessment data in Neo4j
+        neo4j.execute_query(
+            """
+            MATCH (e:Entity {name: $entity})
+            MERGE (e)-[:HAS_ASSESSMENT]->(a:Assessment {name: 'Strategic Assessment'})
+            SET a += $properties
+            """,
+            {"entity": strategic_assessment_data["entity"], "properties": strategic_assessment_data}
+        )
+        
+        # Group 4 - Risk Assessment
+        risk_factors = [
+            {
+                "entity": "TechCorp",
+                "risk_factor": "Cybersecurity Talent Shortage",
+                "risk_category": "High",
+                "probability": 0.80,
+                "impact": 0.85,
+                "mitigation_strategies": ["Internal training program", "Offshore development centers"],
+                "mitigation_effectiveness": 0.60
+            },
+            {
+                "entity": "TechCorp",
+                "risk_factor": "Emerging Competition",
+                "risk_category": "Medium",
+                "probability": 0.65,
+                "impact": 0.70,
+                "mitigation_strategies": ["Accelerate product roadmap", "Strengthen patent portfolio"],
+                "mitigation_effectiveness": 0.75
+            },
+            {
+                "entity": "TechCorp",
+                "risk_factor": "Regulatory Changes",
+                "risk_category": "High",
+                "probability": 0.75,
+                "impact": 0.90,
+                "mitigation_strategies": ["Dedicated compliance team", "Regular regulatory assessments"],
+                "mitigation_effectiveness": 0.65
+            }
+        ]
+        
+        # Store risk assessment data in Neo4j
+        for risk in risk_factors:
+            neo4j.execute_query(
+                """
+                MATCH (e:Entity {name: $entity})
+                MERGE (e)-[:HAS_ASSESSMENT]->(a:Assessment {name: 'Risk Assessment'})
+                MERGE (a)-[:HAS_RISK]->(r:RiskFactor {name: $risk})
+                SET r += $properties
+                """,
+                {
+                    "entity": risk["entity"], 
+                    "risk": risk["risk_factor"],
+                    "properties": risk
+                }
+            )
+        
+        # Group 5 - Competitive Assessment
+        competitive_parameters = [
+            {
+                "entity": "TechCorp",
+                "parameter": "Cloud Integration Capabilities",
+                "company_score": 0.90,
+                "competitive_advantage": "Major",
+                "competitor1_name": "SecureTech",
+                "competitor1_score": 0.65,
+                "competitor2_name": "CloudGuard",
+                "competitor2_score": 0.80,
+                "competitor3_name": "CyberShield",
+                "competitor3_score": 0.70,
+                "market_importance": 0.85
+            },
+            {
+                "entity": "TechCorp",
+                "parameter": "User Interface Simplicity",
+                "company_score": 0.60,
+                "competitive_advantage": "Disadvantage",
+                "competitor1_name": "SecureTech",
+                "competitor1_score": 0.75,
+                "competitor2_name": "CloudGuard",
+                "competitor2_score": 0.85,
+                "competitor3_name": "CyberShield",
+                "competitor3_score": 0.70,
+                "market_importance": 0.80
+            },
+            {
+                "entity": "TechCorp",
+                "parameter": "Threat Detection Speed",
+                "company_score": 0.85,
+                "competitive_advantage": "Major",
+                "competitor1_name": "SecureTech",
+                "competitor1_score": 0.75,
+                "competitor2_name": "CloudGuard",
+                "competitor2_score": 0.70,
+                "competitor3_name": "CyberShield",
+                "competitor3_score": 0.65,
+                "market_importance": 0.90
+            }
+        ]
+        
+        # Store competitive assessment data in Neo4j
+        for param in competitive_parameters:
+            neo4j.execute_query(
+                """
+                MATCH (e:Entity {name: $entity})
+                MERGE (e)-[:HAS_ASSESSMENT]->(a:Assessment {name: 'Competitive Assessment'})
+                MERGE (a)-[:HAS_PARAMETER]->(p:CompetitiveParameter {name: $parameter})
+                SET p += $properties
+                """,
+                {
+                    "entity": param["entity"], 
+                    "parameter": param["parameter"],
+                    "properties": param
+                }
+            )
+        
+        # Group 6 - Portfolio Assessment
+        portfolio_products = [
+            {
+                "entity": "TechCorp",
+                "product": "CloudGuard Enterprise",
+                "lifecycle_stage": "Mid Growth",
+                "revenue_contribution": 0.45,
+                "growth_rate": 0.25,
+                "investment_allocation": 0.35,
+                "profitability": 0.30
+            },
+            {
+                "entity": "TechCorp",
+                "product": "SecureAPI Gateway",
+                "lifecycle_stage": "Early Growth",
+                "revenue_contribution": 0.25,
+                "growth_rate": 0.40,
+                "investment_allocation": 0.40,
+                "profitability": 0.15
+            },
+            {
+                "entity": "TechCorp",
+                "product": "DataVault Legacy",
+                "lifecycle_stage": "Mature",
+                "revenue_contribution": 0.20,
+                "growth_rate": -0.05,
+                "investment_allocation": 0.10,
+                "profitability": 0.40
+            },
+            {
+                "entity": "TechCorp",
+                "product": "EdgeSecure IoT",
+                "lifecycle_stage": "Embryonic",
+                "revenue_contribution": 0.10,
+                "growth_rate": 0.60,
+                "investment_allocation": 0.15,
+                "profitability": -0.10
+            }
+        ]
+        
+        # Store portfolio assessment data in Neo4j
+        for product in portfolio_products:
+            neo4j.execute_query(
+                """
+                MATCH (e:Entity {name: $entity})
+                MERGE (e)-[:HAS_ASSESSMENT]->(a:Assessment {name: 'Portfolio Assessment'})
+                MERGE (a)-[:HAS_PRODUCT]->(p:Product {name: $product})
+                SET p += $properties
+                """,
+                {
+                    "entity": product["entity"], 
+                    "product": product["product"],
+                    "properties": product
+                }
+            )
+        
+        # Group 7 - Strengths Assessment
+        strengths = [
+            {
+                "entity": "TechCorp",
+                "strength": "Cloud-native Architecture Expertise",
+                "value_score": 0.90,
+                "competitive_advantage": 0.85,
+                "enhancement_opportunities": ["Establish thought leadership", "Open-source framework contributions"]
+            },
+            {
+                "entity": "TechCorp",
+                "strength": "Machine Learning Capabilities",
+                "value_score": 0.80,
+                "competitive_advantage": 0.75,
+                "enhancement_opportunities": ["ML model refinement", "Advanced threat prediction algorithms"]
+            },
+            {
+                "entity": "TechCorp",
+                "strength": "Enterprise Integration Framework",
+                "value_score": 0.85,
+                "competitive_advantage": 0.80,
+                "enhancement_opportunities": ["Expand connector library", "Improve API documentation"]
+            }
+        ]
+        
+        # Store strengths assessment data in Neo4j
+        for strength in strengths:
+            neo4j.execute_query(
+                """
+                MATCH (e:Entity {name: $entity})
+                MERGE (e)-[:HAS_ASSESSMENT]->(a:Assessment {name: 'Strengths Assessment'})
+                MERGE (a)-[:HAS_STRENGTH]->(s:Strength {name: $strength})
+                SET s += $properties
+                """,
+                {
+                    "entity": strength["entity"], 
+                    "strength": strength["strength"],
+                    "properties": strength
+                }
+            )
+        
+        # Group 8 - Weaknesses Assessment
+        weaknesses = [
+            {
+                "entity": "TechCorp",
+                "weakness": "User Interface Complexity",
+                "competitive_disadvantage_score": 0.70,
+                "impact_score": 0.65,
+                "mitigation_strategies": ["UX redesign initiative", "Customer experience team"],
+                "opportunity_creation": "Simplified administration dashboard"
+            },
+            {
+                "entity": "TechCorp",
+                "weakness": "Limited Mobile Support",
+                "competitive_disadvantage_score": 0.75,
+                "impact_score": 0.60,
+                "mitigation_strategies": ["Mobile SDK development", "Progressive web app"],
+                "opportunity_creation": "Cross-platform mobile security suite"
+            },
+            {
+                "entity": "TechCorp",
+                "weakness": "Customer Support Response Time",
+                "competitive_disadvantage_score": 0.60,
+                "impact_score": 0.80,
+                "mitigation_strategies": ["Support team expansion", "Knowledge base enhancement"],
+                "opportunity_creation": "Premier support offering"
+            }
+        ]
+        
+        # Store weaknesses assessment data in Neo4j
+        for weakness in weaknesses:
+            neo4j.execute_query(
+                """
+                MATCH (e:Entity {name: $entity})
+                MERGE (e)-[:HAS_ASSESSMENT]->(a:Assessment {name: 'Weaknesses Assessment'})
+                MERGE (a)-[:HAS_WEAKNESS]->(w:Weakness {name: $weakness})
+                SET w += $properties
+                """,
+                {
+                    "entity": weakness["entity"], 
+                    "weakness": weakness["weakness"],
+                    "properties": weakness
+                }
+            )
+        
+        # Group 9 - Opportunities Assessment
+        opportunities = [
+            {
+                "entity": "TechCorp",
+                "opportunity": "Federal Government Contracts",
+                "size_estimate": "USD 50M",
+                "catalytic_potential": 0.85,
+                "strength_conversion_potential": 0.80,
+                "execution_strategies": ["FedRAMP certification", "Government sales team"]
+            },
+            {
+                "entity": "TechCorp",
+                "opportunity": "Financial Services Vertical",
+                "size_estimate": "USD 35M",
+                "catalytic_potential": 0.75,
+                "strength_conversion_potential": 0.70,
+                "execution_strategies": ["FINRA compliance module", "Financial data protection framework"]
+            },
+            {
+                "entity": "TechCorp",
+                "opportunity": "AI-powered Threat Prediction",
+                "size_estimate": "USD 20M",
+                "catalytic_potential": 0.90,
+                "strength_conversion_potential": 0.85,
+                "execution_strategies": ["ML research team expansion", "Predictive security analytics product"]
+            }
+        ]
+        
+        # Store opportunities assessment data in Neo4j
+        for opportunity in opportunities:
+            neo4j.execute_query(
+                """
+                MATCH (e:Entity {name: $entity})
+                MERGE (e)-[:HAS_ASSESSMENT]->(a:Assessment {name: 'Opportunities Assessment'})
+                MERGE (a)-[:HAS_OPPORTUNITY]->(o:Opportunity {name: $opportunity})
+                SET o += $properties
+                """,
+                {
+                    "entity": opportunity["entity"], 
+                    "opportunity": opportunity["opportunity"],
+                    "properties": opportunity
+                }
+            )
+        
+        # Group 10 - Threats Assessment
+        threats = [
+            {
+                "entity": "TechCorp",
+                "threat": "New Market Entrants",
+                "severity": 0.75,
+                "probability": 0.80,
+                "mitigation_strategies": ["Accelerate innovation", "Strengthen patent portfolio"],
+                "opportunity_conversion": "Acquisition of promising startups"
+            },
+            {
+                "entity": "TechCorp",
+                "threat": "Regulatory Changes",
+                "severity": 0.85,
+                "probability": 0.65,
+                "mitigation_strategies": ["Compliance team expansion", "Regulatory engagement"],
+                "opportunity_conversion": "Compliance-as-a-service offering"
+            },
+            {
+                "entity": "TechCorp",
+                "threat": "Cloud Provider Competition",
+                "severity": 0.90,
+                "probability": 0.70,
+                "mitigation_strategies": ["Cross-cloud functionality", "Value-added services"],
+                "opportunity_conversion": "Multi-cloud management platform"
+            }
+        ]
+        
+        # Store threats assessment data in Neo4j
+        for threat in threats:
+            neo4j.execute_query(
+                """
+                MATCH (e:Entity {name: $entity})
+                MERGE (e)-[:HAS_ASSESSMENT]->(a:Assessment {name: 'Threats Assessment'})
+                MERGE (a)-[:HAS_THREAT]->(t:Threat {name: $threat})
+                SET t += $properties
+                """,
+                {
+                    "entity": threat["entity"], 
+                    "threat": threat["threat"],
+                    "properties": threat
+                }
+            )
+        
+        # Group 11 - Finance Dashboard (Revenue Growth)
+        revenue_growth_data = {
+            "entity": "TechCorp",
+            "current_year_revenue": 25000000,
+            "prior_year_revenue": 19500000,
+            "two_years_prior_revenue": 15600000,
+            "current_year_growth": 0.28,
+            "prior_year_growth": 0.25,
+            "market_growth_rate": 0.18,
+            "forecasted_next_year_revenue": 32500000,
+            "forecasted_two_year_revenue": 40625000,
+            "forecasted_growth_rate": 0.30,
+            "risk_impact_of_growth": 0.25
+        }
+        
+        # Store revenue growth data in Neo4j
+        neo4j.execute_query(
+            """
+            MATCH (e:Entity {name: $entity})
+            MERGE (e)-[:HAS_ASSESSMENT]->(a:Assessment {name: 'Revenue Growth'})
+            SET a += $properties
+            """,
+            {"entity": revenue_growth_data["entity"], "properties": revenue_growth_data}
+        )
+        
+        # Group 12 - Finance Dashboard (Operating Income)
+        operating_income_data = {
+            "entity": "TechCorp",
+            "current_year_operating_income": 3750000,
+            "prior_year_operating_income": 2730000,
+            "two_years_prior_operating_income": 1872000,
+            "current_year_growth": 0.37,
+            "prior_year_growth": 0.46,
+            "market_growth_rate": 0.20,
+            "forecasted_next_year_operating_income": 5200000,
+            "forecasted_two_year_operating_income": 7020000,
+            "forecasted_growth_rate": 0.39,
+            "risk_impact_of_growth": 0.30
+        }
+        
+        # Store operating income data in Neo4j
+        neo4j.execute_query(
+            """
+            MATCH (e:Entity {name: $entity})
+            MERGE (e)-[:HAS_ASSESSMENT]->(a:Assessment {name: 'Operating Income'})
+            SET a += $properties
+            """,
+            {"entity": operating_income_data["entity"], "properties": operating_income_data}
+        )
+        
+        # Group 13 - Finance Dashboard (Cash Flow)
+        cash_flow_data = {
+            "entity": "TechCorp",
+            "current_year_operating_cash_flow": 4500000,
+            "prior_year_operating_cash_flow": 3510000,
+            "two_years_prior_operating_cash_flow": 2808000,
+            "current_year_growth": 0.28,
+            "prior_year_growth": 0.25,
+            "market_growth_rate": 0.15,
+            "forecasted_next_year_operating_cash_flow": 5850000,
+            "forecasted_two_year_operating_cash_flow": 7605000,
+            "forecasted_growth_rate": 0.30,
+            "risk_impact_of_growth": 0.20
+        }
+        
+        # Store cash flow data in Neo4j
+        neo4j.execute_query(
+            """
+            MATCH (e:Entity {name: $entity})
+            MERGE (e)-[:HAS_ASSESSMENT]->(a:Assessment {name: 'Cash Flow'})
+            SET a += $properties
+            """,
+            {"entity": cash_flow_data["entity"], "properties": cash_flow_data}
+        )
+        
+        # Group 14 - Finance Dashboard (Gross Margin)
+        gross_margin_data = {
+            "entity": "TechCorp",
+            "current_year_gross_margin": 0.72,
+            "prior_year_gross_margin": 0.68,
+            "two_years_prior_gross_margin": 0.65,
+            "current_year_growth": 0.06,
+            "prior_year_growth": 0.05,
+            "market_average_margin": 0.62,
+            "forecasted_next_year_margin": 0.74,
+            "forecasted_two_year_margin": 0.76,
+            "forecasted_growth_rate": 0.03,
+            "risk_impact_of_margin": 0.25
+        }
+        
+        # Store gross margin data in Neo4j
+        neo4j.execute_query(
+            """
+            MATCH (e:Entity {name: $entity})
+            MERGE (e)-[:HAS_ASSESSMENT]->(a:Assessment {name: 'Gross Margin'})
+            SET a += $properties
+            """,
+            {"entity": gross_margin_data["entity"], "properties": gross_margin_data}
+        )
+        
+        # Group 15 - Finance Dashboard (Finance Metrics)
+        finance_metrics_data = {
+            "entity": "TechCorp",
+            "current_ratio": 1.8,
+            "quick_ratio": 1.5,
+            "debt_to_equity": 0.4,
+            "return_on_assets": 0.18,
+            "return_on_equity": 0.22,
+            "inventory_turnover": 8.5,
+            "days_sales_outstanding": 45,
+            "ebitda_margin": 0.22,
+            "concerning_metrics": ["days_sales_outstanding"],
+            "concerning_ratios": [],
+            "strategic_improvement_areas": ["accounts receivable process", "cash conversion cycle"],
+            "risk_profile_impact": 0.30
+        }
+        
+        # Store finance metrics data in Neo4j
+        neo4j.execute_query(
+            """
+            MATCH (e:Entity {name: $entity})
+            MERGE (e)-[:HAS_ASSESSMENT]->(a:Assessment {name: 'Finance Metrics'})
+            SET a += $properties
+            """,
+            {"entity": finance_metrics_data["entity"], "properties": finance_metrics_data}
+        )
+        
+        # Group 16 - HR Dashboard (Time to Hire)
+        time_to_hire_data = {
+            "entity": "TechCorp",
+            "average_time_to_hire_days": 42,
+            "industry_average_days": 35,
+            "engineering_time_to_hire_days": 56,
+            "sales_time_to_hire_days": 30,
+            "executive_time_to_hire_days": 90,
+            "support_time_to_hire_days": 25,
+            "critical_roles_time_to_hire_days": 65,
+            "improvement_strategies": ["Talent acquisition team expansion", "Automated screening process"],
+            "strategic_dependency": 0.75
+        }
+        
+        # Store time to hire data in Neo4j
+        neo4j.execute_query(
+            """
+            MATCH (e:Entity {name: $entity})
+            MERGE (e)-[:HAS_ASSESSMENT]->(a:Assessment {name: 'Time to Hire'})
+            SET a += $properties
+            """,
+            {"entity": time_to_hire_data["entity"], "properties": time_to_hire_data}
+        )
+        
+        # Group 17 - HR Dashboard (Employee Turnover)
+        employee_turnover_data = {
+            "entity": "TechCorp",
+            "overall_turnover_rate": 0.15,
+            "industry_average_turnover": 0.20,
+            "engineering_turnover_rate": 0.18,
+            "sales_turnover_rate": 0.22,
+            "executive_turnover_rate": 0.08,
+            "support_turnover_rate": 0.12,
+            "voluntary_turnover_rate": 0.11,
+            "involuntary_turnover_rate": 0.04,
+            "turnover_trend": -0.02,
+            "improvement_strategies": ["Compensation review", "Career development programs"],
+            "strategic_dependency": 0.70,
+            "risk_impact": 0.60
+        }
+        
+        # Store employee turnover data in Neo4j
+        neo4j.execute_query(
+            """
+            MATCH (e:Entity {name: $entity})
+            MERGE (e)-[:HAS_ASSESSMENT]->(a:Assessment {name: 'Employee Turnover'})
+            SET a += $properties
+            """,
+            {"entity": employee_turnover_data["entity"], "properties": employee_turnover_data}
+        )
+        
+        # Group 18 - HR Dashboard (Employee Engagement)
+        employee_engagement_data = {
+            "entity": "TechCorp",
+            "overall_engagement_score": 7.2,
+            "industry_average_engagement": 6.8,
+            "engineering_engagement_score": 7.4,
+            "sales_engagement_score": 7.8,
+            "executive_engagement_score": 8.1,
+            "support_engagement_score": 6.5,
+            "engagement_trend": 0.3,
+            "improvement_strategies": ["Regular town halls", "Flexible work arrangements"],
+            "strategic_dependency": 0.80,
+            "risk_impact": 0.65
+        }
+        
+        # Store employee engagement data in Neo4j
+        neo4j.execute_query(
+            """
+            MATCH (e:Entity {name: $entity})
+            MERGE (e)-[:HAS_ASSESSMENT]->(a:Assessment {name: 'Employee Engagement'})
+            SET a += $properties
+            """,
+            {"entity": employee_engagement_data["entity"], "properties": employee_engagement_data}
+        )
+        
+        # Group 19 - HR Dashboard (Diversity)
+        diversity_data = {
+            "entity": "TechCorp",
+            "gender_diversity_ratio": 0.32,
+            "industry_gender_diversity_average": 0.28,
+            "ethnic_diversity_ratio": 0.38,
+            "industry_ethnic_diversity_average": 0.30,
+            "leadership_diversity_ratio": 0.25,
+            "diversity_trend": 0.04,
+            "improvement_strategies": ["Inclusive hiring practices", "Diversity training"],
+            "strategic_dependency": 0.65,
+            "risk_impact": 0.55
+        }
+        
+        # Store diversity data in Neo4j
+        neo4j.execute_query(
+            """
+            MATCH (e:Entity {name: $entity})
+            MERGE (e)-[:HAS_ASSESSMENT]->(a:Assessment {name: 'Diversity'})
+            SET a += $properties
+            """,
+            {"entity": diversity_data["entity"], "properties": diversity_data}
+        )
+        
+        # Group 20 - HR Dashboard (HR Metrics)
+        hr_metrics_data = {
+            "entity": "TechCorp",
+            "cost_per_hire": 8500,
+            "training_cost_per_employee": 2000,
+            "revenue_per_employee": 325000,
+            "profit_per_employee": 48750,
+            "healthcare_costs_per_employee": 12000,
+            "absenteeism_rate": 0.02,
+            "overtime_percentage": 0.08,
+            "concerning_metrics": ["cost_per_hire"],
+            "concerning_ratios": [],
+            "strategic_improvement_areas": ["Recruiting efficiency", "Benefits optimization"],
+            "risk_profile_impact": 0.40
+        }
+        
+        # Store HR metrics data in Neo4j
+        neo4j.execute_query(
+            """
+            MATCH (e:Entity {name: $entity})
+            MERGE (e)-[:HAS_ASSESSMENT]->(a:Assessment {name: 'HR Metrics'})
+            SET a += $properties
+            """,
+            {"entity": hr_metrics_data["entity"], "properties": hr_metrics_data}
+        )
+        
+        # Group 21 - OPS Dashboard (Inventory Turnover)
+        inventory_turnover_data = {
+            "entity": "TechCorp",
+            "inventory_turnover_ratio": 8.5,
+            "industry_average_turnover": 7.2,
+            "hardware_inventory_turnover": 6.8,
+            "software_inventory_turnover": 12.5,
+            "turnover_trend": 0.8,
+            "improvement_strategies": ["Just-in-time inventory", "Demand forecasting"],
+            "strategic_improvement_potential": 0.60
+        }
+        
+        # Store inventory turnover data in Neo4j
+        neo4j.execute_query(
+            """
+            MATCH (e:Entity {name: $entity})
+            MERGE (e)-[:HAS_ASSESSMENT]->(a:Assessment {name: 'Inventory Turnover'})
+            SET a += $properties
+            """,
+            {"entity": inventory_turnover_data["entity"], "properties": inventory_turnover_data}
+        )
+        
+        # Group 22 - OPS Dashboard (On Time Delivery)
+        on_time_delivery_data = {
+            "entity": "TechCorp",
+            "on_time_delivery_rate": 0.92,
+            "industry_average_rate": 0.88,
+            "hardware_delivery_rate": 0.85,
+            "software_delivery_rate": 0.97,
+            "delivery_trend": 0.03,
+            "improvement_strategies": ["Supply chain optimization", "Delivery partner reviews"],
+            "strategic_improvement_potential": 0.55
+        }
+        
+        # Store on time delivery data in Neo4j
+        neo4j.execute_query(
+            """
+            MATCH (e:Entity {name: $entity})
+            MERGE (e)-[:HAS_ASSESSMENT]->(a:Assessment {name: 'On Time Delivery'})
+            SET a += $properties
+            """,
+            {"entity": on_time_delivery_data["entity"], "properties": on_time_delivery_data}
+        )
+        
+        # Group 23 - OPS Dashboard (First Pass Yield)
+        first_pass_yield_data = {
+            "entity": "TechCorp",
+            "first_pass_yield_rate": 0.88,
+            "industry_average_rate": 0.82,
+            "hardware_yield_rate": 0.81,
+            "software_yield_rate": 0.93,
+            "yield_trend": 0.02,
+            "improvement_strategies": ["Quality control automation", "Development process refinement"],
+            "strategic_improvement_potential": 0.70
+        }
+        
+        # Store first pass yield data in Neo4j
+        neo4j.execute_query(
+            """
+            MATCH (e:Entity {name: $entity})
+            MERGE (e)-[:HAS_ASSESSMENT]->(a:Assessment {name: 'First Pass Yield'})
+            SET a += $properties
+            """,
+            {"entity": first_pass_yield_data["entity"], "properties": first_pass_yield_data}
+        )
+        
+        # Group 24 - OPS Dashboard (Total Cycle Time)
+        total_cycle_time_data = {
+            "entity": "TechCorp",
+            "total_cycle_time_days": 65,
+            "industry_average_days": 75,
+            "product_development_cycle_days": 120,
+            "order_fulfillment_cycle_days": 10,
+            "support_resolution_cycle_days": 3,
+            "cycle_time_trend": -5,
+            "improvement_strategies": ["Agile methodology refinement", "Process automation"],
+            "strategic_improvement_potential": 0.65
+        }
+        
+        # Store total cycle time data in Neo4j
+        neo4j.execute_query(
+            """
+            MATCH (e:Entity {name: $entity})
+            MERGE (e)-[:HAS_ASSESSMENT]->(a:Assessment {name: 'Total Cycle Time'})
+            SET a += $properties
+            """,
+            {"entity": total_cycle_time_data["entity"], "properties": total_cycle_time_data}
+        )
+        
+        # Group 25 - Operations Dashboard (Operations Metrics)
+        operations_metrics_data = {
+            "entity": "TechCorp",
+            "production_capacity_utilization": 0.78,
+            "defect_rate": 0.03,
+            "rework_percentage": 0.08,
+            "equipment_uptime": 0.95,
+            "throughput_rate": 550,
+            "waste_percentage": 0.04,
+            "concerning_metrics": ["rework_percentage"],
+            "concerning_ratios": [],
+            "strategic_improvement_areas": ["Quality control", "Process efficiency"],
+            "risk_profile_impact": 0.35
+        }
+        
+        # Store operations metrics data in Neo4j
+        neo4j.execute_query(
+            """
+            MATCH (e:Entity {name: $entity})
+            MERGE (e)-[:HAS_ASSESSMENT]->(a:Assessment {name: 'Operations Metrics'})
+            SET a += $properties
+            """,
+            {"entity": operations_metrics_data["entity"], "properties": operations_metrics_data}
+        )
+        
+        # Group 26 - Sales & Marketing Dashboard (Annual Recurring Revenue)
+        annual_recurring_revenue_data = {
+            "entity": "TechCorp",
+            "current_year_arr": 18500000,
+            "prior_year_arr": 13875000,
+            "two_years_prior_arr": 10268750,
+            "current_year_growth": 0.33,
+            "prior_year_growth": 0.35,
+            "market_growth_rate": 0.25,
+            "forecasted_next_year_arr": 24050000,
+            "forecasted_two_year_arr": 30062500,
+            "forecasted_growth_rate": 0.30,
+            "risk_impact_of_growth": 0.28
+        }
+        
+        # Store annual recurring revenue data in Neo4j
+        neo4j.execute_query(
+            """
+            MATCH (e:Entity {name: $entity})
+            MERGE (e)-[:HAS_ASSESSMENT]->(a:Assessment {name: 'Annual Recurring Revenue'})
+            SET a += $properties
+            """,
+            {"entity": annual_recurring_revenue_data["entity"], "properties": annual_recurring_revenue_data}
+        )
+        
+        # Group 27 - Sales & Marketing Dashboard (Customer Acquisition Cost)
+        customer_acquisition_cost_data = {
+            "entity": "TechCorp",
+            "current_year_cac": 12000,
+            "prior_year_cac": 14000,
+            "two_years_prior_cac": 15500,
+            "current_year_reduction": 0.14,
+            "prior_year_reduction": 0.10,
+            "market_average_cac": 13000,
+            "forecasted_next_year_cac": 10800,
+            "forecasted_two_year_cac": 9720,
+            "forecasted_reduction_rate": 0.10,
+            "risk_impact_of_reduction": 0.25
+        }
+        
+        # Store customer acquisition cost data in Neo4j
+        neo4j.execute_query(
+            """
+            MATCH (e:Entity {name: $entity})
+            MERGE (e)-[:HAS_ASSESSMENT]->(a:Assessment {name: 'Customer Acquisition Cost'})
+            SET a += $properties
+            """,
+            {"entity": customer_acquisition_cost_data["entity"], "properties": customer_acquisition_cost_data}
+        )
+        
+        # Group 28 - Sales & Marketing Dashboard (Design Win)
+        design_win_data = {
+            "entity": "TechCorp",
+            "current_year_design_wins": 45,
+            "prior_year_design_wins": 32,
+            "two_years_prior_design_wins": 24,
+            "current_year_growth": 0.41,
+            "prior_year_growth": 0.33,
+            "market_growth_rate": 0.20,
+            "enterprise_segment_wins": 28,
+            "smb_segment_wins": 12,
+            "government_segment_wins": 5,
+            "forecasted_next_year_wins": 60,
+            "strategic_growth_potential": 0.75
+        }
+        
+        # Store design win data in Neo4j
+        neo4j.execute_query(
+            """
+            MATCH (e:Entity {name: $entity})
+            MERGE (e)-[:HAS_ASSESSMENT]->(a:Assessment {name: 'Design Win'})
+            SET a += $properties
+            """,
+            {"entity": design_win_data["entity"], "properties": design_win_data}
+        )
+        
+        # Group 29 - Sales & Marketing Dashboard (Opportunities)
+        sales_opportunities_data = {
+            "entity": "TechCorp",
+            "current_year_opportunities": 220,
+            "prior_year_opportunities": 175,
+            "two_years_prior_opportunities": 140,
+            "current_year_growth": 0.26,
+            "prior_year_growth": 0.25,
+            "market_growth_rate": 0.15,
+            "enterprise_segment_opportunities": 120,
+            "smb_segment_opportunities": 75,
+            "government_segment_opportunities": 25,
+            "forecasted_next_year_opportunities": 275,
+            "strategic_growth_potential": 0.70
+        }
+        
+        # Store sales opportunities data in Neo4j
+        neo4j.execute_query(
+            """
+            MATCH (e:Entity {name: $entity})
+            MERGE (e)-[:HAS_ASSESSMENT]->(a:Assessment {name: 'Sales Opportunities'})
+            SET a += $properties
+            """,
+            {"entity": sales_opportunities_data["entity"], "properties": sales_opportunities_data}
+        )
+        
+        # Group 30 - Sales & Marketing Dashboard (Sales & Marketing Metrics)
+        sales_marketing_metrics_data = {
+            "entity": "TechCorp",
+            "customer_lifetime_value": 85000,
+            "ltv_to_cac_ratio": 7.08,
+            "conversion_rate": 0.18,
+            "sales_cycle_length_days": 65,
+            "churn_rate": 0.08,
+            "upsell_rate": 0.25,
+            "marketing_roi": 3.2,
+            "concerning_metrics": ["sales_cycle_length_days"],
+            "concerning_ratios": [],
+            "strategic_improvement_areas": ["Sales process efficiency", "Lead qualification"],
+            "risk_profile_impact": 0.40
+        }
+        
+        # Store sales & marketing metrics data in Neo4j
+        neo4j.execute_query(
+            """
+            MATCH (e:Entity {name: $entity})
+            MERGE (e)-[:HAS_ASSESSMENT]->(a:Assessment {name: 'Sales Marketing Metrics'})
+            SET a += $properties
+            """,
+            {"entity": sales_marketing_metrics_data["entity"], "properties": sales_marketing_metrics_data}
+        )
         
         print("Qmirac test data generated successfully")
         return True
     
     except Exception as e:
         print(f"Error generating Qmirac test data: {e}")
-        return False
-    finally:
-        neo4j.close()
-        
-def populate_test_data():
-    """Add detailed business entities and relationships to the knowledge graph."""
-    # Initialize Neo4j manager
-    neo4j = Neo4jManager()
-    neo4j.connect()
-    
-    try:
-        print("Adding comprehensive test data to knowledge graph...")
-        
-        # Create company entities with detailed attributes
-        companies = [
-            {
-                "name": "TechCorp", 
-                "industry": "Technology", 
-                "revenue": "525M", 
-                "employees": 1200,
-                "founded": "2005",
-                "headquarters": "San Francisco",
-                "market_cap": "2.1B",
-                "ceo": "Sarah Chen",
-                "business_model": "SaaS",
-                "description": "Enterprise software solutions focusing on cloud infrastructure and security"
-            },
-            {
-                "name": "FinanceGroup", 
-                "industry": "Financial Services", 
-                "revenue": "1.2B", 
-                "employees": 3500,
-                "founded": "1995",
-                "headquarters": "New York",
-                "market_cap": "5.7B",
-                "ceo": "Michael Rodriguez",
-                "business_model": "B2B/B2C",
-                "description": "Financial technology solutions for banking, insurance, and investment management"
-            },
-            {
-                "name": "ManufactureX", 
-                "industry": "Manufacturing", 
-                "revenue": "800M", 
-                "employees": 5000,
-                "founded": "1982",
-                "headquarters": "Detroit",
-                "market_cap": "1.8B",
-                "ceo": "James Wu",
-                "business_model": "B2B",
-                "description": "Advanced manufacturing technologies for automotive and aerospace industries"
-            },
-            {
-                "name": "RetailPro", 
-                "industry": "Retail", 
-                "revenue": "350M", 
-                "employees": 2800,
-                "founded": "2010",
-                "headquarters": "Chicago",
-                "market_cap": "780M",
-                "ceo": "Lisa Thompson",
-                "business_model": "B2C",
-                "description": "Omnichannel retail platform focusing on fashion and home goods"
-            },
-            {
-                "name": "HealthServices", 
-                "industry": "Healthcare", 
-                "revenue": "600M", 
-                "employees": 4200,
-                "founded": "1998",
-                "headquarters": "Boston",
-                "market_cap": "2.4B",
-                "ceo": "Robert Kim",
-                "business_model": "B2B/B2C",
-                "description": "Healthcare technology services for hospitals and clinical research"
-            }
-        ]
-        
-        # Create market entities with detailed attributes
-        markets = [
-            {
-                "name": "North America", 
-                "size": "Large", 
-                "growth_rate": "4.5%",
-                "competition_level": "High",
-                "regulatory_environment": "Moderate",
-                "consumer_spending": "Strong",
-                "dominant_segments": ["Technology", "Healthcare", "Financial Services"],
-                "emerging_trends": ["Digital Transformation", "Sustainability", "Remote Work"]
-            },
-            {
-                "name": "Europe", 
-                "size": "Large", 
-                "growth_rate": "3.2%",
-                "competition_level": "High",
-                "regulatory_environment": "Strong",
-                "consumer_spending": "Moderate",
-                "dominant_segments": ["Manufacturing", "Renewable Energy", "Financial Services"],
-                "emerging_trends": ["Green Technologies", "Digital Services", "Remote Healthcare"]
-            },
-            {
-                "name": "Asia Pacific", 
-                "size": "Very Large", 
-                "growth_rate": "7.8%",
-                "competition_level": "Moderate to High",
-                "regulatory_environment": "Variable",
-                "consumer_spending": "Rapidly Increasing",
-                "dominant_segments": ["Technology", "Manufacturing", "E-commerce"],
-                "emerging_trends": ["5G Adoption", "Smart Cities", "Digital Payments"]
-            },
-            {
-                "name": "Latin America", 
-                "size": "Medium", 
-                "growth_rate": "5.1%",
-                "competition_level": "Moderate",
-                "regulatory_environment": "Variable",
-                "consumer_spending": "Improving",
-                "dominant_segments": ["Agriculture", "Mining", "Financial Services"],
-                "emerging_trends": ["Financial Inclusion", "E-commerce", "Renewable Energy"]
-            }
-        ]
-        
-        # Create product entities
-        products = [
-            {
-                "name": "CloudSecure", 
-                "company": "TechCorp",
-                "category": "Security Software",
-                "launch_date": "2020-05-15",
-                "revenue": "180M",
-                "growth_rate": "35%",
-                "market_share": "12%",
-                "description": "Cloud-based security platform for enterprise systems"
-            },
-            {
-                "name": "DataAnalyzer", 
-                "company": "TechCorp",
-                "category": "Analytics Software",
-                "launch_date": "2018-11-03",
-                "revenue": "140M",
-                "growth_rate": "25%",
-                "market_share": "8%",
-                "description": "Data analytics and business intelligence solution"
-            },
-            {
-                "name": "InvestPro", 
-                "company": "FinanceGroup",
-                "category": "Financial Software",
-                "launch_date": "2019-02-28",
-                "revenue": "350M",
-                "growth_rate": "18%",
-                "market_share": "15%",
-                "description": "Investment management platform for financial institutions"
-            },
-            {
-                "name": "ManufactureOS", 
-                "company": "ManufactureX",
-                "category": "Manufacturing Software",
-                "launch_date": "2021-08-12",
-                "revenue": "220M",
-                "growth_rate": "40%",
-                "market_share": "18%",
-                "description": "Operating system for smart manufacturing facilities"
-            },
-            {
-                "name": "RetailConnect", 
-                "company": "RetailPro",
-                "category": "Retail Software",
-                "launch_date": "2022-01-20",
-                "revenue": "85M",
-                "growth_rate": "65%",
-                "market_share": "5%",
-                "description": "Omnichannel retail management platform"
-            },
-            {
-                "name": "HealthTrack", 
-                "company": "HealthServices",
-                "category": "Healthcare Software",
-                "launch_date": "2020-10-30",
-                "revenue": "150M",
-                "growth_rate": "45%",
-                "market_share": "10%",
-                "description": "Patient management and clinical trial platform"
-            }
-        ]
-        
-        # Create detailed strength entities
-        strengths = [
-            # TechCorp strengths
-            {
-                "name": "Cloud Security Expertise",
-                "company": "TechCorp",
-                "description": "Industry-leading expertise in cloud security architectures and threat mitigation",
-                "importance": "High"
-            },
-            {
-                "name": "Scalable Infrastructure",
-                "company": "TechCorp",
-                "description": "Highly scalable and resilient infrastructure supporting millions of users",
-                "importance": "High"
-            },
-            {
-                "name": "Data Analytics Capabilities",
-                "company": "TechCorp",
-                "description": "Advanced data analytics and machine learning capabilities",
-                "importance": "Medium"
-            },
-            
-            # FinanceGroup strengths
-            {
-                "name": "Regulatory Compliance Framework",
-                "company": "FinanceGroup",
-                "description": "Comprehensive framework for ensuring compliance with financial regulations",
-                "importance": "High"
-            },
-            {
-                "name": "Financial Risk Management",
-                "company": "FinanceGroup",
-                "description": "Sophisticated risk management models and practices",
-                "importance": "High"
-            },
-            
-            # ManufactureX strengths
-            {
-                "name": "Supply Chain Optimization",
-                "company": "ManufactureX",
-                "description": "Advanced supply chain optimization algorithms and practices",
-                "importance": "High"
-            },
-            {
-                "name": "Manufacturing Automation",
-                "company": "ManufactureX",
-                "description": "Cutting-edge manufacturing automation technologies",
-                "importance": "High"
-            },
-            
-            # RetailPro strengths
-            {
-                "name": "Customer Experience Design",
-                "company": "RetailPro",
-                "description": "Superior customer experience design across digital and physical channels",
-                "importance": "High"
-            },
-            {
-                "name": "Inventory Management",
-                "company": "RetailPro",
-                "description": "AI-driven inventory management and forecasting",
-                "importance": "Medium"
-            },
-            
-            # HealthServices strengths
-            {
-                "name": "Clinical Data Management",
-                "company": "HealthServices",
-                "description": "Secure and compliant clinical data management systems",
-                "importance": "High"
-            },
-            {
-                "name": "Healthcare Interoperability",
-                "company": "HealthServices",
-                "description": "Leading capabilities in healthcare system interoperability",
-                "importance": "Medium"
-            }
-        ]
-        
-        # Create metric entities
-        metrics = [
-            {"name": "revenue", "type": "financial", "description": "Total revenue generated by the company"},
-            {"name": "profit", "type": "financial", "description": "Net profit after all expenses"},
-            {"name": "cash flow", "type": "financial", "description": "Net cash flow from operations"},
-            {"name": "ROI", "type": "financial", "description": "Return on investment for major initiatives"},
-            {"name": "debt to equity", "type": "financial", "description": "Ratio of total debt to shareholders' equity"},
-            {"name": "customer acquisition cost", "type": "marketing", "description": "Cost to acquire a new customer"},
-            {"name": "customer lifetime value", "type": "marketing", "description": "Projected revenue from a customer over their lifetime"},
-            {"name": "market share", "type": "strategic", "description": "Percentage share of the target market"},
-            {"name": "employee turnover", "type": "operational", "description": "Rate at which employees leave the company"},
-            {"name": "production efficiency", "type": "operational", "description": "Efficiency of production processes"},
-            {"name": "innovation index", "type": "strategic", "description": "Measure of company's innovation capabilities"},
-            {"name": "customer satisfaction", "type": "customer", "description": "Measure of customer satisfaction with products/services"}
-        ]
-        
-        # Create entities in database
-        for company in companies:
-            neo4j.execute_query(
-                "MERGE (c:Entity:Company {name: $name}) SET c += $properties",
-                {"name": company["name"], "properties": company}
-            )
-        
-        for market in markets:
-            # Handle array properties for Neo4j
-            market_props = market.copy()
-            dominant_segments = market_props.pop("dominant_segments", [])
-            emerging_trends = market_props.pop("emerging_trends", [])
-            
-            # Create market node
-            neo4j.execute_query(
-                "MERGE (m:Entity:Market {name: $name}) SET m += $properties",
-                {"name": market["name"], "properties": market_props}
-            )
-            
-            # Add array properties as separate nodes with relationships
-            for segment in dominant_segments:
-                neo4j.execute_query(
-                    """
-                    MATCH (m:Market {name: $market_name})
-                    MERGE (s:Segment {name: $segment})
-                    MERGE (m)-[:HAS_DOMINANT_SEGMENT]->(s)
-                    """,
-                    {"market_name": market["name"], "segment": segment}
-                )
-            
-            for trend in emerging_trends:
-                neo4j.execute_query(
-                    """
-                    MATCH (m:Market {name: $market_name})
-                    MERGE (t:Trend {name: $trend})
-                    MERGE (m)-[:HAS_EMERGING_TREND]->(t)
-                    """,
-                    {"market_name": market["name"], "trend": trend}
-                )
-        
-        for product in products:
-            company_name = product.pop("company", None)
-            
-            # Create product node
-            neo4j.execute_query(
-                "MERGE (p:Entity:Product {name: $name}) SET p += $properties",
-                {"name": product["name"], "properties": product}
-            )
-            
-            # Link product to company
-            if company_name:
-                neo4j.execute_query(
-                    """
-                    MATCH (c:Company {name: $company_name}), (p:Product {name: $product_name})
-                    MERGE (c)-[:PRODUCES]->(p)
-                    """,
-                    {"company_name": company_name, "product_name": product["name"]}
-                )
-        
-        for strength in strengths:
-            company_name = strength.pop("company", None)
-            
-            # Create strength node
-            neo4j.execute_query(
-                "MERGE (s:Entity:Strength {name: $name}) SET s += $properties",
-                {"name": strength["name"], "properties": strength}
-            )
-            
-            # Link strength to company
-            if company_name:
-                neo4j.execute_query(
-                    """
-                    MATCH (c:Company {name: $company_name}), (s:Strength {name: $strength_name})
-                    MERGE (c)-[:HAS_STRENGTH]->(s)
-                    """,
-                    {"company_name": company_name, "strength_name": strength["name"]}
-                )
-        
-        for metric in metrics:
-            neo4j.execute_query(
-                "MERGE (m:Entity:Metric {name: $name}) SET m += $properties",
-                {"name": metric["name"], "properties": metric}
-            )
-        
-        # Create relationships
-        
-        # Companies operating in markets
-        market_relationships = [
-            ("TechCorp", "OPERATES_IN", "North America", {"market_position": "Strong", "years_present": 15}),
-            ("TechCorp", "OPERATES_IN", "Europe", {"market_position": "Growing", "years_present": 8}),
-            ("TechCorp", "OPERATES_IN", "Asia Pacific", {"market_position": "Emerging", "years_present": 3}),
-            ("FinanceGroup", "OPERATES_IN", "North America", {"market_position": "Strong", "years_present": 25}),
-            ("FinanceGroup", "OPERATES_IN", "Europe", {"market_position": "Strong", "years_present": 20}),
-            ("ManufactureX", "OPERATES_IN", "Asia Pacific", {"market_position": "Strong", "years_present": 12}),
-            ("ManufactureX", "OPERATES_IN", "North America", {"market_position": "Strong", "years_present": 40}),
-            ("RetailPro", "OPERATES_IN", "North America", {"market_position": "Growing", "years_present": 10}),
-            ("RetailPro", "OPERATES_IN", "Latin America", {"market_position": "Emerging", "years_present": 2}),
-            ("HealthServices", "OPERATES_IN", "North America", {"market_position": "Strong", "years_present": 22}),
-            ("HealthServices", "OPERATES_IN", "Europe", {"market_position": "Growing", "years_present": 15})
-        ]
-        
-        for source, rel_type, target, properties in market_relationships:
-            neo4j.execute_query(
-                f"""
-                MATCH (s:Entity {{name: $source}}), (t:Entity {{name: $target}}) 
-                MERGE (s)-[r:{rel_type}]->(t)
-                SET r += $properties
-                """,
-                {"source": source, "target": target, "properties": properties}
-            )
-        
-        # Company competition with relationship details
-        competition_relationships = [
-            ("TechCorp", "COMPETES_WITH", "FinanceGroup", {"intensity": "Medium", "overlap_areas": "Financial Technology"}),
-            ("TechCorp", "COMPETES_WITH", "HealthServices", {"intensity": "Low", "overlap_areas": "Healthcare Technology"}),
-            ("ManufactureX", "COMPETES_WITH", "RetailPro", {"intensity": "Low", "overlap_areas": "Supply Chain"}),
-            ("FinanceGroup", "COMPETES_WITH", "HealthServices", {"intensity": "Medium", "overlap_areas": "Healthcare Financing"})
-        ]
-        
-        for source, rel_type, target, properties in competition_relationships:
-            neo4j.execute_query(
-                f"""
-                MATCH (s:Entity {{name: $source}}), (t:Entity {{name: $target}}) 
-                MERGE (s)-[r:{rel_type}]->(t)
-                SET r += $properties
-                """,
-                {"source": source, "target": target, "properties": properties}
-            )
-        
-        # Create partnership relationships
-        partnership_relationships = [
-            ("TechCorp", "PARTNERED_WITH", "ManufactureX", {"purpose": "Industry 4.0 Solutions", "start_date": "2022-03-15", "strength": "Strong"}),
-            ("FinanceGroup", "PARTNERED_WITH", "RetailPro", {"purpose": "Payment Solutions", "start_date": "2021-08-10", "strength": "Medium"}),
-            ("HealthServices", "PARTNERED_WITH", "TechCorp", {"purpose": "Healthcare Data Security", "start_date": "2023-01-22", "strength": "Growing"})
-        ]
-        
-        for source, rel_type, target, properties in partnership_relationships:
-            neo4j.execute_query(
-                f"""
-                MATCH (s:Entity {{name: $source}}), (t:Entity {{name: $target}}) 
-                MERGE (s)-[r:{rel_type}]->(t)
-                SET r += $properties
-                """,
-                {"source": source, "target": target, "properties": properties}
-            )
-        
-        # Generate historical metric data (quarterly for 2 years)
-        # This creates a richer dataset for trends and pattern analysis
-        today = datetime.today()
-        companies_list = [company["name"] for company in companies]
-        relevant_metrics = ["revenue", "profit", "cash flow", "customer acquisition cost", 
-                           "market share", "employee turnover", "production efficiency",
-                           "customer satisfaction"]
-        
-        # Create historical metric values
-        for company_name in companies_list:
-            for metric_name in relevant_metrics:
-                # Skip irrelevant metrics for some companies
-                if (metric_name == "production efficiency" and company_name not in ["ManufactureX"]):
-                    continue
-                
-                # Generate values for 8 quarters (2 years)
-                for i in range(8):
-                    quarter_date = (today - timedelta(days=90 * (8-i))).strftime("%Y-%m-%d")
-                    
-                    # Base values for different metrics
-                    if metric_name == "revenue":
-                        if company_name == "TechCorp":
-                            base_value = 120000000 + (i * 5000000)  # Growing revenue
-                        elif company_name == "FinanceGroup":
-                            base_value = 280000000 + (i * 10000000)
-                        elif company_name == "ManufactureX":
-                            base_value = 190000000 + (i * 4000000)
-                        elif company_name == "RetailPro":
-                            base_value = 85000000 + (i * 1500000)
-                        else:  # HealthServices
-                            base_value = 140000000 + (i * 6000000)
-                        unit = "USD"
-                            
-                    elif metric_name == "profit":
-                        if company_name == "TechCorp":
-                            base_value = 18000000 + (i * 800000)
-                        elif company_name == "FinanceGroup":
-                            base_value = 82000000 + (i * 1500000)
-                        elif company_name == "ManufactureX":
-                            base_value = 22000000 + (i * 600000)
-                        elif company_name == "RetailPro":
-                            base_value = 5000000 + (i * 300000)
-                        else:  # HealthServices
-                            base_value = 25000000 + (i * 1000000)
-                        unit = "USD"
-                            
-                    elif metric_name == "cash flow":
-                        if company_name == "TechCorp":
-                            base_value = 22000000 + (i * 1000000)
-                        elif company_name == "FinanceGroup":
-                            base_value = 90000000 + (i * 2000000)
-                        elif company_name == "ManufactureX":
-                            base_value = 25000000 + (i * 800000)
-                        elif company_name == "RetailPro":
-                            base_value = 8000000 + (i * 400000)
-                        else:  # HealthServices
-                            base_value = 30000000 + (i * 1200000)
-                        unit = "USD"
-                            
-                    elif metric_name == "customer acquisition cost":
-                        if company_name == "TechCorp":
-                            base_value = 5000 - (i * 200)  # Improving (decreasing) CAC
-                        elif company_name == "FinanceGroup":
-                            base_value = 8000 - (i * 300)
-                        elif company_name == "ManufactureX":
-                            base_value = 12000 - (i * 400)
-                        elif company_name == "RetailPro":
-                            base_value = 80 - (i * 2)
-                        else:  # HealthServices
-                            base_value = 9000 - (i * 350)
-                        unit = "USD"
-                            
-                    elif metric_name == "market share":
-                        if company_name == "TechCorp":
-                            base_value = 8.5 + (i * 0.5)  # Growing market share
-                        elif company_name == "FinanceGroup":
-                            base_value = 15.2 + (i * 0.3)
-                        elif company_name == "ManufactureX":
-                            base_value = 12.8 + (i * 0.4)
-                        elif company_name == "RetailPro":
-                            base_value = 4.2 + (i * 0.2)
-                        else:  # HealthServices
-                            base_value = 9.5 + (i * 0.3)
-                        unit = "%"
-                            
-                    elif metric_name == "employee turnover":
-                        if company_name == "TechCorp":
-                            base_value = 18.0 - (i * 0.5)  # Improving (decreasing) turnover
-                        elif company_name == "FinanceGroup":
-                            base_value = 12.0 - (i * 0.3)
-                        elif company_name == "ManufactureX":
-                            base_value = 10.0 - (i * 0.2)
-                        elif company_name == "RetailPro":
-                            base_value = 25.0 - (i * 0.6)
-                        else:  # HealthServices
-                            base_value = 14.0 - (i * 0.4)
-                        unit = "%"
-                            
-                    elif metric_name == "production efficiency":
-                        # Only relevant for ManufactureX
-                        base_value = 72.0 + (i * 0.8)  # Improving efficiency
-                        unit = "%"
-                            
-                    elif metric_name == "customer satisfaction":
-                        if company_name == "TechCorp":
-                            base_value = 7.8 + (i * 0.1)  # Improving satisfaction
-                        elif company_name == "FinanceGroup":
-                            base_value = 8.2 + (i * 0.05)
-                        elif company_name == "ManufactureX":
-                            base_value = 7.9 + (i * 0.08)
-                        elif company_name == "RetailPro":
-                            base_value = 8.0 + (i * 0.15)
-                        else:  # HealthServices
-                            base_value = 8.5 + (i * 0.05)
-                        unit = "score"
-                    else:
-                        continue  # Skip unknown metrics
-                    
-                    # Add some variance to the data for more realism
-                    variance = random.uniform(-0.05, 0.05)
-                    value = base_value * (1 + variance)
-                    
-                    # Create the metric value node
-                    metric_id = f"{company_name}_{metric_name}_{quarter_date}"
-                    
-                    neo4j.execute_query(
-                        """
-                        MATCH (c:Entity {name: $company}), (m:Entity {name: $metric})
-                        MERGE (c)-[:HAS_METRIC]->(mv:MetricValue {id: $metric_id})
-                        SET mv.value = $value, mv.unit = $unit, mv.timestamp = $timestamp, 
-                            mv.name = $metric, mv.quarter = $quarter
-                        """,
-                        {
-                            "company": company_name,
-                            "metric": metric_name,
-                            "metric_id": metric_id,
-                            "value": value,
-                            "unit": unit,
-                            "timestamp": quarter_date,
-                            "quarter": f"Q{(i % 4) + 1} {int(today.year - 2 + (i/4))}"
-                        }
-                    )
-        
-        # Add risks with more detailed information
-        risks = [
-            # TechCorp risks
-            ("TechCorp", "financial", "decreasing market share in legacy products", 0.65, {
-                "impact_area": "Revenue",
-                "probability": "Medium",
-                "description": "Market share for legacy software products is declining as competitors offer cloud-native alternatives",
-                "mitigation_status": "In Progress"
-            }),
-            ("TechCorp", "operational", "talent retention issues in engineering", 0.45, {
-                "impact_area": "Product Development",
-                "probability": "Medium",
-                "description": "Higher than industry average turnover among senior engineers",
-                "mitigation_status": "Early Stage"
-            }),
-            ("TechCorp", "market", "new market entrants with disruptive technology", 0.58, {
-                "impact_area": "Market Position",
-                "probability": "Medium",
-                "description": "Startups with AI-driven security solutions are gaining traction in key markets",
-                "mitigation_status": "Monitoring"
-            }),
-            
-            # FinanceGroup risks
-            ("FinanceGroup", "market", "regulatory changes in EU markets", 0.78, {
-                "impact_area": "Compliance",
-                "probability": "High",
-                "description": "New EU financial regulations will require significant changes to current offerings",
-                "mitigation_status": "Advanced Planning"
-            }),
-            ("FinanceGroup", "operational", "legacy system integration challenges", 0.62, {
-                "impact_area": "Operations",
-                "probability": "Medium",
-                "description": "Difficulty integrating modern solutions with legacy banking systems",
-                "mitigation_status": "In Progress"
-            }),
-            
-            # ManufactureX risks
-            ("ManufactureX", "operational", "supply chain disruption", 0.82, {
-                "impact_area": "Production",
-                "probability": "High",
-                "description": "Global supply chain disruptions affecting key component availability",
-                "mitigation_status": "Active Mitigation"
-            }),
-            ("ManufactureX", "financial", "increasing raw material costs", 0.70, {
-                "impact_area": "Cost Structure",
-                "probability": "High",
-                "description": "Raw material costs have increased 15% over the past year",
-                "mitigation_status": "In Progress"
-            }),
-            
-            # RetailPro risks
-            ("RetailPro", "financial", "high debt levels", 0.71, {
-                "impact_area": "Financial Stability",
-                "probability": "High",
-                "description": "Significant debt from recent expansion affecting financial flexibility",
-                "mitigation_status": "Active Mitigation"
-            }),
-            ("RetailPro", "market", "e-commerce competition", 0.68, {
-                "impact_area": "Market Share",
-                "probability": "High",
-                "description": "Increasing pressure from pure e-commerce players in key markets",
-                "mitigation_status": "In Progress"
-            }),
-            
-            # HealthServices risks
-            ("HealthServices", "market", "new entrants in telehealth", 0.53, {
-                "impact_area": "Market Position",
-                "probability": "Medium",
-                "description": "Technology companies entering the telehealth space with innovative solutions",
-                "mitigation_status": "Early Stage"
-            }),
-            ("HealthServices", "operational", "data security compliance", 0.64, {
-                "impact_area": "Compliance",
-                "probability": "Medium",
-                "description": "Increasingly complex data security and privacy regulations",
-                "mitigation_status": "Ongoing"
-            })
-        ]
-        
-        # First, create all risk nodes (this is your existing code)
-        for company, risk_type, description, level, properties in risks:
-            risk_id = f"{company}_{risk_type}_{description.replace(' ', '_')}"
-    
-            # Create base risk properties
-            risk_properties = {
-                "type": risk_type,
-                "description": description,
-                "level": level
-            }
-    
-            # Add additional properties
-            risk_properties.update(properties)
-    
-            neo4j.execute_query(
-                """
-                MATCH (c:Entity {name: $company})
-                MERGE (c)-[:HAS_RISK]->(r:Risk {id: $risk_id})
-                SET r = $properties
-                """,
-                {
-                    "company": company,
-                    "risk_id": risk_id,
-                    "properties": risk_properties
-                }
-            )
-
-        # AFTER the risk creation loop completes, create Process nodes
-        print("Creating Process nodes and relationships...")
-        process_data = [
-            # TechCorp processes
-            ("TechCorp", "Software Development", "talent retention issues in engineering"),
-            ("TechCorp", "Product Management", "decreasing market share in legacy products"),
-            ("TechCorp", "Market Analysis", "new market entrants with disruptive technology"),
-    
-            # FinanceGroup processes
-            ("FinanceGroup", "Regulatory Compliance", "regulatory changes in EU markets"),
-            ("FinanceGroup", "System Integration", "legacy system integration challenges"),
-    
-            # ManufactureX processes
-            ("ManufactureX", "Supply Chain Management", "supply chain disruption"),
-            ("ManufactureX", "Cost Management", "increasing raw material costs"),
-    
-            # RetailPro processes
-            ("RetailPro", "Financial Planning", "high debt levels"),
-            ("RetailPro", "Market Strategy", "e-commerce competition"),
-    
-            # HealthServices processes
-            ("HealthServices", "Market Research", "new entrants in telehealth"),
-            ("HealthServices", "Data Security", "data security compliance")
-        ]
-
-        # Create Process nodes and connect them to entities and risks
-        for company, process_name, risk_desc in process_data:
-            # Create process node and relationships
-            process_query = """
-            MATCH (c:Entity {name: $company})
-            MATCH (r:Risk)
-            WHERE r.description CONTAINS $risk_desc AND (c)-[:HAS_RISK]->(r)
-            MERGE (p:Process {name: $process_name})
-            MERGE (c)-[:HAS_PROCESS]->(p)
-            MERGE (p)-[:HAS_ISSUE]->(r)
-            """
-    
-            neo4j.execute_query(process_query, {
-                "company": company,
-                "process_name": process_name,
-                "risk_desc": risk_desc
-            })
-
-        # Now print success message
-        print("Enhanced sample data added successfully!")
-        
-        # Count entities and relationships
-        entity_count = neo4j.execute_query("MATCH (n) RETURN count(n) as count")[0]["count"]
-        rel_count = neo4j.execute_query("MATCH ()-[r]->() RETURN count(r) as count")[0]["count"]
-        
-        print(f"Graph now contains {entity_count} entities and {rel_count} relationships")
-        
-        return True
-    
-    except Exception as e:
-        print(f"Error adding sample data: {e}")
         return False
     finally:
         neo4j.close()
