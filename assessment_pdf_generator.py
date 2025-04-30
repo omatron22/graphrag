@@ -522,18 +522,17 @@ class AssessmentPDFGenerator:
                     spider.y = height // 2
                     spider.width = 300
                     spider.height = 300
-                
+
                     # Add data
                     spider.data = [d.get("data", []) for d in datasets]
                     spider.labels = categories
-                
+
                     # Customize appearance
                     spider.strands[0].strokeColor = colors.steelblue
                     if len(spider.strands) > 1:
                         spider.strands[1].strokeColor = colors.red
-                
+
                     spider.fillColor = colors.steelblue
-                    spider.fillAlpha = 0.2
                 
                     # Add to drawing
                     drawing.add(spider)

@@ -837,7 +837,63 @@ class Orchestrator:
             "outputs": [],  # This would contain the actual analysis outputs
             "risk_level": self._determine_group_risk_level(group_id, entity_name, user_inputs)
         }
-
+    def run_qmirac_assessment(self, entity_name: str, user_inputs: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Run the Qmirac Engine assessment workflow with the 30 group structure.
+        """
+        logger.info(f"Running Qmirac assessment for {entity_name}")
+    
+        # First, test LLM connection
+        if not self._test_llm_connection():
+            logger.warning("LLM connection test failed - results may be incomplete")
+    
+        # Process the 30 PDF sections
+        assessment_data = {}
+    
+        # Add timing metrics
+        start_time = time.time()
+    
+        # Perform the assessment
+        assessment_results = self.strategy_assessment.assess(entity_name, user_inputs)
+    
+        # Run risk analysis using LLM
+        risk_data = self.risk_analyzer.analyze()
+        logger.info(f"Risk analysis results: {risk_data}")
+    
+        # Incorporate risk data into assessment
+        assessment_results['risk_summary'] = risk_data.get('categories', {})
+    
+        # Generate strategies with LLM
+        strategies_data = self.strategy_generator.generate_for_entity(entity_name)
+        logger.info(f"Generated strategies data type: {type(strategies_data)}")
+    
+        # Extract strategies list
+        if isinstance(strategies_data, dict) and "strategies" in strategies_data:
+            strategies_list = strategies_data["strategies"]
+        else:
+            strategies_list = strategies_data if isinstance(strategies_data, list) else []
+    
+        # Add strategies to assessment results
+        assessment_results['recommendations'] = strategies_list
+    
+        # Generate charts for visualization
+        charts = self.strategy_assessment.generate_charts(assessment_results)
+    
+        # Generate PDF reports
+        risk_level = user_inputs.get("risk_tolerance", "Medium")[0]  # Get first letter (H/M/L)
+        pdf_paths = self.pdf_generator.generate_assessment_pdfs(assessment_results, charts, risk_level)
+    
+        # Calculate processing time
+        end_time = time.time()
+        logger.info(f"Qmirac assessment completed in {end_time - start_time:.2f} seconds")
+    
+        return {
+            "assessment_results": assessment_results,
+            "charts": charts,
+            "pdf_paths": pdf_paths,
+            "processing_time": end_time - start_time
+        }
+    
     def _get_knowledge_base_data(self, entity_name: str) -> Dict:
         """
         Get strategy input prompts from the knowledge base.
