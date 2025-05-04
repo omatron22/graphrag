@@ -937,8 +937,72 @@ class StrategyAssessment:
             "key_insights": self._generate_key_insights(entity_name, group_results, user_inputs)
         }
     
-        return summary
+        # Add risk data processing
+        risk_data = self._process_risk_data(entity_name, group_results)
+        summary["risk_data"] = risk_data
     
+        return summary   
+     
+    def _process_risk_data(self, entity_name: str, group_results: Dict[str, Dict[str, Any]]) -> Dict[str, Any]:
+        """
+        Process risk assessment data for better integration with PDFs.
+    
+        Args:
+            entity_name: Name of the entity
+            group_results: Assessment results for all groups
+        
+        Returns:
+            dict: Processed risk data
+        """
+        # Get risk assessment group
+        risk_group = group_results.get("risk_assessment", {})
+    
+        # Initialize result structure
+        risk_data = {
+            "categories": {
+                "financial": "Medium",
+                "operational": "Medium",
+                "market": "Medium",
+                "overall": "Medium"
+            },
+            "findings": []
+        }
+    
+        # Extract risk findings
+        if "findings" in risk_group:
+            risk_data["findings"] = risk_group.get("findings", [])
+    
+        # Convert risk level to scores
+        risk_level_to_score = {
+            "Low": 0.2,
+            "Medium": 0.5,
+            "High": 0.8
+        }
+    
+        # Look for risk-related scores in other groups
+        for group_id, group_data in group_results.items():
+            if "financial" in group_id.lower():
+                risk_data["categories"]["financial"] = group_data.get("risk_level", "Medium")
+            elif "operation" in group_id.lower():
+                risk_data["categories"]["operational"] = group_data.get("risk_level", "Medium")
+            elif "market" in group_id.lower():
+                risk_data["categories"]["market"] = group_data.get("risk_level", "Medium")
+    
+        # Calculate overall risk level
+        risk_scores = [risk_level_to_score.get(level, 0.5) for level in risk_data["categories"].values() 
+                    if level != "overall"]
+    
+        if risk_scores:
+            avg_score = sum(risk_scores) / len(risk_scores)
+            if avg_score < 0.35:
+                risk_data["categories"]["overall"] = "Low"
+            elif avg_score < 0.65:
+                risk_data["categories"]["overall"] = "Medium"
+            else:
+                risk_data["categories"]["overall"] = "High"
+    
+        return risk_data
+
     def _identify_top_areas(self, group_results: Dict[str, Dict[str, Any]], risk_level: str, limit: int) -> List[str]:
         """
         Identify top performing areas or areas of concern.

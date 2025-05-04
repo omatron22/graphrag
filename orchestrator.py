@@ -7,10 +7,11 @@ import os
 import json
 import logging
 import importlib
+import requests
 from datetime import datetime
 import time
-import config
 from typing import Dict, Any, List, Optional, Tuple, Set
+import config
 from knowledge_graph.neo4j_manager import Neo4jManager
 from knowledge_graph.triplet_extractor import TripletExtractor
 from analysis.risk_engine import RiskAnalyzer
@@ -770,54 +771,132 @@ class Orchestrator:
             logger.error(f"Failed to generate visualization for {entity_name}: {e}")
             return {"error": str(e)}
     
+    def _test_llm_connection(self):
+        """Test connection to the LLM endpoint."""
+        try:
+            model_config = config.MODELS['reasoning']
+            response = requests.post(
+                model_config['endpoint'],
+                json={
+                    "model": model_config['name'],
+                    "prompt": "Test connection",
+                    "stream": False,
+                    **model_config['parameters']
+                },
+                timeout=10  # Short timeout for test
+            )
+        
+            if response.status_code == 200:
+                logger.info("Successfully connected to LLM endpoint")
+                return True
+            else:
+                logger.warning(f"LLM connection test failed with status code: {response.status_code}")
+                return False
+        except Exception as e:
+            logger.warning(f"LLM connection test failed: {e}")
+            return False
+    
     def run_qmirac_assessment(self, entity_name: str, user_inputs: Dict[str, Any]) -> Dict[str, Any]:
         """
         Run the Qmirac Engine assessment workflow with the 30 group structure.
-    
-        Args:
-            entity_name: Name of the entity to assess
-            user_inputs: User provided inputs (risk tolerance, priorities, constraints)
-    
-        Returns:
-            dict: Assessment results including PDF paths
         """
         logger.info(f"Running Qmirac assessment for {entity_name}")
     
-        # Process the 30 PDF sections (in real system, these would be actual PDFs)
-        # For now, we'll simulate this with data from Neo4j
-        assessment_data = {}
+        # First, test LLM connection
+        if not self._test_llm_connection():
+            logger.warning("LLM connection test failed - results may be incomplete")
     
-        for group_id, group_data in self.strategy_assessment.assessment_groups.items():
-            # Process each group according to its defined questions
-            group_results = self._process_group_assessment(entity_name, group_id, group_data, user_inputs)
-            assessment_data[group_id] = group_results
+        # Add timing metrics
+        start_time = time.time()
     
-        # Incorporate knowledge base data
-        knowledge_base_data = self._get_knowledge_base_data(entity_name)
+        # Perform the assessment
+        assessment_results = self.strategy_assessment.assess(entity_name, user_inputs)
     
-        # Generate comprehensive assessment results
-        assessment_results = {
-            "entity": entity_name,
-            "timestamp": datetime.now().isoformat(),
-            "user_inputs": user_inputs,
-            "risk_level": user_inputs.get("risk_tolerance", "Medium"),
-            "groups": assessment_data,
-            "knowledge_base": knowledge_base_data
-        }
+        try:
+            # Run risk analysis using LLM
+            risk_data = self.risk_analyzer.analyze()
+            logger.info(f"Risk analysis results: {risk_data}")
+        
+            # Incorporate risk data into assessment
+            assessment_results['risk_summary'] = risk_data.get('categories', {})
+        except Exception as e:
+            logger.error(f"Error during risk analysis: {e}")
+            assessment_results['risk_summary'] = {
+                "financial": "Medium",
+                "operational": "Medium",
+                "market": "Medium",
+                "overall": "Medium"
+            }
+    
+        try:
+            # Generate strategies with LLM
+            strategies_data = self.strategy_generator.generate_for_entity(entity_name)
+            logger.info(f"Generated strategies data type: {type(strategies_data)}")
+        
+            # Extract strategies list
+            if isinstance(strategies_data, dict) and "strategies" in strategies_data:
+                strategies_list = strategies_data["strategies"]
+            else:
+                strategies_list = strategies_data if isinstance(strategies_data, list) else []
+        
+            # Add strategies to assessment results
+            assessment_results['recommendations'] = strategies_list
+        except Exception as e:
+            logger.error(f"Error during strategy generation: {e}")
+            # Use fallback strategies from the strategy_assessment
+            assessment_results['recommendations'] = assessment_results.get('recommendations', [])
     
         # Generate charts for visualization
-        charts = self.strategy_assessment.generate_charts(assessment_results)
+        try:
+            # First try to use the specialized chart generator from strategy_generator if available
+            if hasattr(self.strategy_generator, 'generate_qmirac_charts'):
+                charts = self.strategy_generator.generate_qmirac_charts(
+                    assessment_results, 
+                    assessment_results.get('recommendations', [])
+                )
+                logger.info(f"Generated specialized Qmirac charts")
+            else:
+                # Fall back to standard chart generator
+                charts = self.strategy_assessment.generate_charts(assessment_results)
+                logger.info(f"Generated standard assessment charts")
+        except Exception as e:
+            logger.error(f"Error generating charts: {e}")
+            # Create basic charts
+            charts = {
+                "risk_levels": {
+                    "type": "pie_chart",
+                    "title": "Risk Assessment",
+                    "data": [
+                        {"label": f"Financial: {assessment_results['risk_summary'].get('financial', 'Medium')}", "value": 1},
+                        {"label": f"Operational: {assessment_results['risk_summary'].get('operational', 'Medium')}", "value": 1},
+                        {"label": f"Market: {assessment_results['risk_summary'].get('market', 'Medium')}", "value": 1}
+                    ]
+                }
+            }
     
-        # Generate the three PDF outputs based on risk level
+        # Generate PDF reports
         risk_level = user_inputs.get("risk_tolerance", "Medium")[0]  # Get first letter (H/M/L)
-        pdf_paths = self.pdf_generator.generate_assessment_pdfs(assessment_results, charts, risk_level)
+        try:
+            pdf_paths = self.pdf_generator.generate_assessment_pdfs(assessment_results, charts, risk_level)
+        except Exception as e:
+            logger.error(f"Error generating PDF reports: {e}")
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            filename = f"assessment_{entity_name.replace(' ', '_')}_{timestamp}.json"
+            filepath = os.path.join("data", "outputs", "pdfs", filename)
+            os.makedirs(os.path.dirname(filepath), exist_ok=True)
+            with open(filepath, 'w', encoding='utf-8') as f:
+                json.dump(assessment_results, f, ensure_ascii=False, indent=2)
+            pdf_paths = [filepath]
     
-        logger.info(f"Qmirac assessment complete for {entity_name}")
+        # Calculate processing time
+        end_time = time.time()
+        logger.info(f"Qmirac assessment completed in {end_time - start_time:.2f} seconds")
     
         return {
             "assessment_results": assessment_results,
             "charts": charts,
-            "pdf_paths": pdf_paths
+            "pdf_paths": pdf_paths,
+            "processing_time": end_time - start_time
         }
 
     def _process_group_assessment(self, entity_name: str, group_id: str, group_data: Dict, user_inputs: Dict) -> Dict:

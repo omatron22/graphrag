@@ -76,6 +76,22 @@ def run_qmirac_assessment(orchestrator, entity_name, user_inputs):
         risk_level = user_inputs.get("risk_tolerance", "Medium")
         print(f"\nRisk Tolerance Level: {risk_level}")
         
+        # Print risk assessment results if available
+        if "risk_summary" in result["assessment_results"]:
+            risk_summary = result["assessment_results"]["risk_summary"]
+            print("\nRisk Assessment:")
+            for risk_type, level in risk_summary.items():
+                if risk_type != "reasoning":
+                    print(f"  - {risk_type.capitalize()}: {level}")
+        
+        # Print top 3 recommendations if available
+        if "recommendations" in result["assessment_results"]:
+            recommendations = result["assessment_results"]["recommendations"]
+            if recommendations:
+                print("\nTop Recommendations:")
+                for i, rec in enumerate(recommendations[:3]):
+                    print(f"  {i+1}. {rec.get('title')} (Priority: {rec.get('priority', 'Medium')})")
+        
         # Print generated PDF paths
         if "pdf_paths" in result:
             print("\nGenerated PDF Reports:")
@@ -85,7 +101,7 @@ def run_qmirac_assessment(orchestrator, entity_name, user_inputs):
         return result
     else:
         print("Status: ❌ Failed")
-        print(f"Error: {result.get('error')}")
+        print(f"Error: {result.get('error', 'Unknown error occurred')}")
         return result
 
 def simplified_interactive_mode():

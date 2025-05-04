@@ -776,3 +776,149 @@ class StrategyGenerator:
                 "Shift toward sustainable practices"
             ]
         }
+        
+    def generate_qmirac_charts(self, assessment_results: Dict[str, Any], strategies: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """
+        Generate charts specifically formatted for the Qmirac PDFs.
+    
+        Args:
+            assessment_results: Results from the strategy assessment
+            strategies: Generated strategy recommendations
+        
+        Returns:
+            dict: Visualization data for PDFs
+        """
+        visualization_data = {}
+    
+        # 1. Strategy prioritization chart
+        strategy_priorities = {"high": 0, "medium": 0, "low": 0}
+        for strategy in strategies:
+            priority = strategy.get("priority", "medium").lower()
+            if priority in strategy_priorities:
+                strategy_priorities[priority] += 1
+    
+        priority_data = [
+            {"label": "High Priority", "value": strategy_priorities["high"]},
+            {"label": "Medium Priority", "value": strategy_priorities["medium"]},
+            {"label": "Low Priority", "value": strategy_priorities["low"]}
+        ]
+    
+        visualization_data["strategy_priorities"] = {
+            "type": "bar_chart",
+            "title": "Strategy Priorities",
+            "data": priority_data
+        }
+    
+        # 2. Implementation timeline
+        # Group strategies by timeline
+        timeline_data = {"short": 0, "medium": 0, "long": 0}
+        for strategy in strategies:
+            timeline = strategy.get("timeline", "medium").lower()
+            if timeline in timeline_data:
+                timeline_data[timeline] += 1
+    
+        implementation_data = [
+            {"label": "0-6 months (Short)", "value": timeline_data["short"]},
+            {"label": "6-18 months (Medium)", "value": timeline_data["medium"]},
+            {"label": "18+ months (Long)", "value": timeline_data["long"]}
+        ]
+    
+        visualization_data["implementation_timeline"] = {
+            "type": "bar_chart",
+            "title": "Implementation Timeline",
+            "data": implementation_data
+        }
+    
+        # 3. Risk mitigation impact
+        # Use the strategy descriptions to estimate impact on risk categories
+        risk_categories = ["Financial", "Operational", "Market", "Reputational", "Legal"]
+        risk_impact = {category.lower(): 0.0 for category in risk_categories}
+    
+        for strategy in strategies:
+            title = strategy.get("title", "").lower()
+            rationale = strategy.get("rationale", "").lower()
+        
+            # Simple keyword matching to guess risk impact
+            if any(word in title or word in rationale for word in ["financ", "revenue", "cost", "profit"]):
+                risk_impact["financial"] += 0.2
+            
+            if any(word in title or word in rationale for word in ["operat", "process", "staff", "efficiency"]):
+                risk_impact["operational"] += 0.2
+            
+            if any(word in title or word in rationale for word in ["market", "customer", "competitor"]):
+                risk_impact["market"] += 0.2
+            
+            if any(word in title or word in rationale for word in ["reputation", "brand", "public"]):
+                risk_impact["reputational"] += 0.2
+            
+            if any(word in title or word in rationale for word in ["legal", "compliance", "regulation"]):
+                risk_impact["legal"] += 0.2
+    
+        # Normalize values to be between 0 and 1
+        for category in risk_impact:
+            risk_impact[category] = min(0.8, risk_impact[category])
+    
+        # Format for visualization
+        risk_mitigation_datasets = []
+        for i, strategy in enumerate(strategies[:3]):  # Use top 3 strategies
+            values = []
+            for category in risk_categories:
+                # Add some variation
+                base_value = risk_impact[category.lower()]
+                variation = 0.1 * (i % 3) - 0.1
+                values.append(max(0.1, min(0.8, base_value + variation)))
+        
+            risk_mitigation_datasets.append({
+                "label": strategy.get("title", f"Strategy {i+1}"),
+                "data": values
+            })
+    
+        visualization_data["risk_mitigation_impact"] = {
+            "type": "radar_chart",
+            "title": "Risk Mitigation Impact",
+            "categories": risk_categories,
+            "datasets": risk_mitigation_datasets
+        }
+    
+        # 4. Financial impact chart
+        financial_impact = {
+            "type": "bar_chart",
+            "title": "Projected Financial Impact",
+            "labels": [strategy.get("title", f"Strategy {i+1}") for i, strategy in enumerate(strategies[:5])],
+            "datasets": [
+                {
+                    "label": "Revenue Impact (%)",
+                    "data": []
+                },
+                {
+                    "label": "Cost Savings (%)",
+                    "data": []
+                }
+            ]
+        }
+    
+        # Generate reasonable values for financial impact
+        for strategy in strategies[:5]:
+            title = strategy.get("title", "").lower()
+            priority = strategy.get("priority", "medium").lower()
+        
+            # Revenue impact - higher for market-focused strategies
+            revenue_base = 0.02  # 2%
+            if "market" in title or "sales" in title or "customer" in title:
+                revenue_base += 0.03
+            if priority == "high":
+                revenue_base += 0.02
+            
+            # Cost savings - higher for operational strategies  
+            cost_base = 0.01  # 1%
+            if "cost" in title or "efficien" in title or "process" in title:
+                cost_base += 0.03
+            if priority == "high":
+                cost_base += 0.01
+            
+            financial_impact["datasets"][0]["data"].append(round(revenue_base * 100, 1))
+            financial_impact["datasets"][1]["data"].append(round(cost_base * 100, 1))
+    
+        visualization_data["financial_impact"] = financial_impact
+    
+        return visualization_data

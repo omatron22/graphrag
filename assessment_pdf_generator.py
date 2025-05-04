@@ -26,11 +26,11 @@ class AssessmentPDFGenerator:
         # Set output directory
         self.output_dir = output_dir or os.path.join("data", "outputs", "pdfs")
         os.makedirs(self.output_dir, exist_ok=True)
-        
+    
         # Initialize PDF library
         self._init_pdf_library()
-        
-        logger.info("Assessment PDF Generator initialized")
+    
+        logger.info(f"Assessment PDF Generator initialized with output directory: {self.output_dir}")
     
     def _init_pdf_library(self):
         """Initialize PDF generation library."""
@@ -149,38 +149,80 @@ class AssessmentPDFGenerator:
         
         return json_path
     
+    def generate_assessment_pdf(self, assessment_results: Dict[str, Any], charts: Dict[str, Dict[str, Any]]) -> str:
+        """
+        Generate a PDF report for strategy assessment results.
+    
+        Args:
+            assessment_results: Assessment results
+            charts: Chart configurations for visualization
+        
+        Returns:
+            str: Path to the generated PDF
+        """
+        entity_name = assessment_results.get("entity", "Unknown Entity")
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f"strategy_assessment_{entity_name.replace(' ', '_')}_{timestamp}.pdf"
+        filepath = os.path.join(self.output_dir, filename)
+    
+        if self.pdf_engine == "reportlab":
+            return self._generate_with_reportlab(assessment_results, charts, filepath)
+        else:
+            return self._generate_with_fallback(assessment_results, charts, filepath)
+    
     def generate_assessment_pdfs(self, assessment_results: Dict[str, Any], charts: Dict[str, Dict[str, Any]], risk_level: str) -> List[str]:
         """
         Generate all three PDF reports for strategy assessment results.
-        
+    
         Args:
             assessment_results: Assessment results
             charts: Chart configurations for visualization
             risk_level: Risk level (H/M/L) from user input
-            
+        
         Returns:
             list: Paths to the generated PDFs
         """
         entity_name = assessment_results.get("entity", "Unknown Entity")
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        
+    
         pdf_paths = []
-        
+    
         # 1. Strategy Summary Recommendation PDF
         summary_filepath = os.path.join(self.output_dir, f"strategy_summary_{entity_name.replace(' ', '_')}_{risk_level}_{timestamp}.pdf")
-        summary_path = self._generate_strategy_summary_pdf(assessment_results, charts, risk_level, summary_filepath)
-        pdf_paths.append(summary_path)
-        
+        try:
+            summary_path = self._generate_strategy_summary_pdf(assessment_results, charts, risk_level, summary_filepath)
+            pdf_paths.append(summary_path)
+            logger.info(f"Generated Strategy Summary PDF: {summary_path}")
+        except Exception as e:
+            logger.error(f"Error generating strategy summary PDF: {e}")
+            # Fallback to JSON export
+            summary_path = self._generate_with_fallback(assessment_results, charts, summary_filepath)
+            pdf_paths.append(summary_path)
+    
         # 2. Strategic Assessment Chart - Goals PDF
         assessment_filepath = os.path.join(self.output_dir, f"strategic_assessment_{entity_name.replace(' ', '_')}_{risk_level}_{timestamp}.pdf")
-        assessment_path = self._generate_strategic_assessment_pdf(assessment_results, charts, risk_level, assessment_filepath)
-        pdf_paths.append(assessment_path)
-        
+        try:
+            assessment_path = self._generate_strategic_assessment_pdf(assessment_results, charts, risk_level, assessment_filepath)
+            pdf_paths.append(assessment_path)
+            logger.info(f"Generated Strategic Assessment Chart PDF: {assessment_path}")
+        except Exception as e:
+            logger.error(f"Error generating strategic assessment PDF: {e}")
+            # Fallback to JSON export
+            assessment_path = self._generate_with_fallback(assessment_results, charts, assessment_filepath)
+            pdf_paths.append(assessment_path)
+    
         # 3. Execution Chart - Goals PDF
         execution_filepath = os.path.join(self.output_dir, f"execution_chart_{entity_name.replace(' ', '_')}_{risk_level}_{timestamp}.pdf")
-        execution_path = self._generate_execution_chart_pdf(assessment_results, charts, risk_level, execution_filepath)
-        pdf_paths.append(execution_path)
-        
+        try:
+            execution_path = self._generate_execution_chart_pdf(assessment_results, charts, risk_level, execution_filepath)
+            pdf_paths.append(execution_path)
+            logger.info(f"Generated Execution Chart PDF: {execution_path}")
+        except Exception as e:
+            logger.error(f"Error generating execution chart PDF: {e}")
+            # Fallback to JSON export
+            execution_path = self._generate_with_fallback(assessment_results, charts, execution_filepath)
+            pdf_paths.append(execution_path)
+    
         return pdf_paths
     
     def _generate_strategy_summary_pdf(self, assessment_results, charts, risk_level, filepath):

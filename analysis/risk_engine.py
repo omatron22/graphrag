@@ -1,5 +1,6 @@
 # analysis/risk_engine.py
 import json
+from typing import Any, Dict
 import requests
 import logging
 from config import MODELS, RISK_THRESHOLDS
@@ -236,28 +237,210 @@ class RiskAnalyzer:
             }
     
     def analyze(self):
-        """Run complete risk analysis."""
-        # Use LLM for comprehensive analysis
-        risk_data = self._use_llm_for_risk_analysis()
+        """Run complete risk analysis with support for the 30 group assessment structure."""
+        # Try to get assessment data from Neo4j
+        try:
+            assessment_query = """
+            MATCH (e:Entity)-[:HAS_ASSESSMENT]->(a)
+            RETURN e.name as entity, a.name as assessment_name, a.risk_score as risk_score
+            """
         
+            assessment_data = self.kg_manager.execute_query(assessment_query)
+        
+            if assessment_data and len(assessment_data) > 0:
+                # If we have assessment data, use that for risk analysis
+                self.logger.info("Using assessment data for risk analysis")
+            
+                # Group assessment data
+                groups = {}
+                for item in assessment_data:
+                    entity = item.get("entity")
+                    assessment = item.get("assessment_name")
+                    risk_score = item.get("risk_score", 0.5)
+                
+                    if entity not in groups:
+                        groups[entity] = {}
+                
+                    groups[entity][assessment] = risk_score
+            
+                # Process the data
+                if groups:
+                    # Just use first entity for now
+                    entity = list(groups.keys())[0]
+                
+                    # Calculate risk categories
+                    financial_scores = []
+                    operational_scores = []
+                    market_scores = []
+                
+                    for assessment, score in groups[entity].items():
+                        # Financial categories
+                        if any(term in assessment.lower() for term in ["revenue", "income", "cash", "margin", "finance"]):
+                            financial_scores.append(float(score))
+                    
+                        # Operational categories
+                        elif any(term in assessment.lower() for term in ["time", "employee", "inventory", "delivery", "yield", "cycle", "operation"]):
+                            operational_scores.append(float(score))
+                    
+                        # Market categories
+                        elif any(term in assessment.lower() for term in ["market", "competitive", "annual", "customer", "design", "sales"]):
+                            market_scores.append(float(score))
+                
+                    # Calculate average scores
+                    risk_scores = {
+                        'financial': sum(financial_scores) / max(1, len(financial_scores)),
+                        'operational': sum(operational_scores) / max(1, len(operational_scores)),
+                        'market': sum(market_scores) / max(1, len(market_scores))
+                    }
+                
+                    # Calculate overall risk
+                    risk_scores['overall'] = (
+                        risk_scores['financial'] * 0.4 + 
+                        risk_scores['operational'] * 0.3 + 
+                        risk_scores['market'] * 0.3
+                    )
+                
+                    # Determine risk categories based on thresholds
+                    risk_categories = {}
+                    for category, score in risk_scores.items():
+                        thresholds = RISK_THRESHOLDS.get(category, RISK_THRESHOLDS.get('financial'))
+                    
+                        if score <= thresholds['low']:
+                            risk_categories[category] = 'Low'
+                        elif score <= thresholds['medium']:
+                            risk_categories[category] = 'Medium'
+                        else:
+                            risk_categories[category] = 'High'
+                
+                    # Add reasoning
+                    risk_categories['reasoning'] = "Risk calculated based on assessment group scores across the 30 evaluation areas."
+                
+                    return {
+                        'scores': risk_scores,
+                        'categories': risk_categories,
+                        'reasoning': risk_categories['reasoning']
+                    }
+        except Exception as e:
+            self.logger.warning(f"Error processing assessment data: {e}")
+    
+        # Use LLM for comprehensive analysis as fallback
+        self.logger.info("Using LLM for risk analysis (fallback)")
+        risk_data = self._use_llm_for_risk_analysis()
+    
         # Determine risk categories based on thresholds
         risk_categories = {}
         for category, score in risk_data.items():
             if category == 'reasoning':
                 risk_categories['reasoning'] = score
                 continue
-                
-            thresholds = RISK_THRESHOLDS.get(category, RISK_THRESHOLDS.get('financial'))
             
+            thresholds = RISK_THRESHOLDS.get(category, RISK_THRESHOLDS.get('financial'))
+        
             if score <= thresholds['low']:
                 risk_categories[category] = 'Low'
             elif score <= thresholds['medium']:
                 risk_categories[category] = 'Medium'
             else:
                 risk_categories[category] = 'High'
-        
+    
         return {
             'scores': risk_data,
             'categories': risk_categories,
             'reasoning': risk_data.get('reasoning', '')
+        }
+        
+    def analyze_assessment_data(self, assessment_results: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Analyze assessment results from the 30 group structure.
+    
+        Args:
+            assessment_results: Results from the strategy assessment
+        
+        Returns:
+            dict: Risk analysis with categories and scores
+        """
+        # Initialize risk scores
+        risk_scores = {
+            'financial': 0.0,
+            'operational': 0.0,
+            'market': 0.0,
+            'overall': 0.0
+        }
+    
+        # Extract assessment groups
+        groups = assessment_results.get("groups", {})
+    
+        # Process financial risk
+        financial_groups = ["revenue_growth", "operating_income", "cash_flow", 
+                        "gross_margin", "finance_metrics"]
+        financial_scores = []
+    
+        for group_id in financial_groups:
+            if group_id in groups:
+                group_data = groups[group_id]
+                # Convert score to risk (higher score = lower risk)
+                risk_score = 1.0 - group_data.get("score", 0.5)
+                financial_scores.append(risk_score)
+    
+        if financial_scores:
+            risk_scores['financial'] = sum(financial_scores) / len(financial_scores)
+    
+        # Process operational risk
+        operational_groups = ["time_to_hire", "employee_turnover", "employee_engagement",
+                            "inventory_turnover", "on_time_delivery", "first_pass_yield",
+                            "total_cycle_time", "operations_metrics"]
+        operational_scores = []
+    
+        for group_id in operational_groups:
+            if group_id in groups:
+                group_data = groups[group_id]
+                # Convert score to risk (higher score = lower risk)
+                risk_score = 1.0 - group_data.get("score", 0.5)
+                operational_scores.append(risk_score)
+    
+        if operational_scores:
+            risk_scores['operational'] = sum(operational_scores) / len(operational_scores)
+    
+        # Process market risk
+        market_groups = ["market_assessment", "competitive_assessment", 
+                        "annual_recurring_revenue", "customer_acquisition_cost",
+                        "design_win", "sales_opportunities", "sales_marketing_metrics"]
+        market_scores = []
+    
+        for group_id in market_groups:
+            if group_id in groups:
+                group_data = groups[group_id]
+                # Convert score to risk (higher score = lower risk)
+                risk_score = 1.0 - group_data.get("score", 0.5)
+                market_scores.append(risk_score)
+    
+        if market_scores:
+            risk_scores['market'] = sum(market_scores) / len(market_scores)
+    
+        # Calculate overall risk (weighted average)
+        risk_scores['overall'] = (
+            risk_scores['financial'] * 0.4 + 
+            risk_scores['operational'] * 0.3 + 
+            risk_scores['market'] * 0.3
+        )
+    
+        # Determine risk categories based on thresholds
+        risk_categories = {}
+        for category, score in risk_scores.items():
+            thresholds = RISK_THRESHOLDS.get(category, RISK_THRESHOLDS.get('financial'))
+        
+            if score <= thresholds['low']:
+                risk_categories[category] = 'Low'
+            elif score <= thresholds['medium']:
+                risk_categories[category] = 'Medium'
+            else:
+                risk_categories[category] = 'High'
+    
+        # Add reasoning
+        risk_categories['reasoning'] = "Risk calculated based on assessment group scores across the 30 evaluation areas."
+    
+        return {
+            'scores': risk_scores,
+            'categories': risk_categories,
+            'reasoning': risk_categories['reasoning']
         }
