@@ -90,9 +90,16 @@ class StrategyGenerator:
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         output_filename = f"strategy_{entity_name.replace(' ', '_')}_{timestamp}.json"
         output_path = os.path.join(self.output_dir, output_filename)
-        
+
+        # Create a custom JSON encoder to handle datetime objects
+        class DateTimeEncoder(json.JSONEncoder):
+            def default(self, obj):
+                if hasattr(obj, 'isoformat'):
+                    return obj.isoformat()
+                return super().default(obj)
+
         with open(output_path, 'w', encoding='utf-8') as f:
-            json.dump(result, f, ensure_ascii=False, indent=2)
+            json.dump(result, f, ensure_ascii=False, indent=2, cls=DateTimeEncoder)
         
         logger.info(f"Strategy recommendations saved to: {output_path}")
         

@@ -205,6 +205,8 @@ def main():
     parser.add_argument("--list-entities", "-e", action="store_true", help="List top entities in knowledge graph")
     parser.add_argument("--interactive", "-i", action="store_true", help="Run in simplified interactive mode")
     parser.add_argument("--populate-test", action="store_true", help="Populate with Qmirac test data")
+    parser.add_argument("--process-reports", action="store_true", 
+                  help="Process BizGuru reports if available, otherwise use test data")
     
     args = parser.parse_args()
     
@@ -228,6 +230,11 @@ def main():
         simplified_interactive_mode()
         return 0
     
+    if args.process_reports:
+        import process_bizguru_reports
+        result = process_bizguru_reports.main()
+        return result
+
     # Non-interactive mode
     print_banner()
     

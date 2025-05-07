@@ -1,0 +1,22 @@
+{
+  "entity": "strong",
+  "timestamp": "2025-05-06T18:52:20.345716",
+  "user_inputs": {
+    "risk_tolerance": "High",
+    "priorities": [],
+    "constraints": []
+  },
+  "groups": {
+    "vision": {
+      "name": "Vision",
+      "description": "Vision Statement Output",
+      "questions": [
+        {
+          "question": "Is the Vision Statement Clear, concise, inspiring, future-focused, Ambitious and Achievable?",
+          "answer": "Based on the available data, we found relationships with vision through HAS_ASSESSMENT. Further analysis would provide more specific insights on this question.",
+          "data": [
+            {
+              "n": {
+                "score": 0.5,
+                "risk_level": "Medium",
+                "updated_at": 

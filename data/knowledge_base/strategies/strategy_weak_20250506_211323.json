@@ -1,0 +1,203 @@
+{
+  "entity": "weak",
+  "timestamp": "2025-05-06T21:13:23.291018",
+  "risk_summary": {
+    "financial": "Low",
+    "operational": "High",
+    "market": "Low",
+    "overall": "Medium",
+    "reasoning": "The business faces a moderate overall risk primarily driven by operational challenges in its supply chain management, particularly affecting key component availability. While there are no explicit financial indicators provided, the operational issues could indirectly impact financial health. Market risk is low as there's no direct indication of competition or market trends issues."
+  },
+  "strategies": [
+    {
+      "title": "Customer-Centric Co-Design Process",
+      "rationale": "Enhance product design by integrating customer feedback directly into the development cycle to increase design wins and align offerings with market needs.",
+      "benefits": [
+        "Increased design wins: 15% quarter-over-quarter growth",
+        "Improved customer retention: 25% annual recurring revenue boost"
+      ],
+      "implementation_steps": [
+        "Conduct monthly co-design workshops involving key customers",
+        "Implement a feedback loop in the product development cycle",
+        "Use customer insights to prioritize feature development"
+      ],
+      "kpis": [
+        "Design wins (measured quarterly)",
+        "Customer retention rate (annual)",
+        "Annual recurring revenue growth (quarterly)"
+      ],
+      "timeline": "medium|6-18 months",
+      "priority": "high"
+    },
+    {
+      "title": "Data-Driven Marketing Strategy Optimization",
+      "rationale": "Leverage sales and marketing data to refine targeting and messaging, improving conversion rates and driving higher annual recurring revenue growth.",
+      "benefits": [
+        "Improved lead conversion: 20% YoY increase",
+        "Higher annual recurring revenue: 15% YoY growth"
+      ],
+      "implementation_steps": [
+        "Analyze sales marketing metrics to identify high-performing segments",
+        "Develop targeted campaigns based on customer behavior data",
+        "Integrate analytics tools into the CRM system"
+      ],
+      "kpis": [
+        "Lead conversion rate (monthly)",
+        "Customer acquisition cost (quarterly)",
+        "Annual recurring revenue growth (annual)"
+      ],
+      "timeline": "medium|6-18 months",
+      "priority": "high"
+    },
+    {
+      "title": "Efficient Customer Acquisition Cost Optimization",
+      "rationale": "Refine customer acquisition strategies to focus on high-quality leads, reducing overall CAC and improving efficiency in acquiring new customers.",
+      "benefits": [
+        "Lower customer acquisition cost: 30% reduction YoY",
+        "Higher quality leads: 40% increase in lead-to-opportunity conversion"
+      ],
+      "implementation_steps": [
+        "Identify high-performing lead sources through sales_opportunities data",
+        "Pilot new lead generation channels with a focused budget",
+        "Optimize CAC by eliminating low-impact channels"
+      ],
+      "kpis": [
+        "Customer acquisition cost (quarterly)",
+        "Lead-to-opportunity conversion rate (monthly)",
+        "Annual recurring revenue growth (annual)"
+      ],
+      "timeline": "medium|6-18 months",
+      "priority": "high"
+    }
+  ],
+  "visualization_data": {
+    "strategy_prioritization": {
+      "type": "bubble_chart",
+      "description": "Strategy prioritization by impact, effort, and priority",
+      "data": [
+        {
+          "title": "Customer-Centric Co-Design Process",
+          "impact": 0.6,
+          "effort": 0.6,
+          "priority": "high",
+          "size": 50
+        },
+        {
+          "title": "Data-Driven Marketing Strategy Optimization",
+          "impact": 0.7999999999999999,
+          "effort": 0.8999999999999999,
+          "priority": "high",
+          "size": 50
+        },
+        {
+          "title": "Efficient Customer Acquisition Cost Optimization",
+          "impact": 0.95,
+          "effort": 0.3,
+          "priority": "high",
+          "size": 50
+        }
+      ]
+    },
+    "implementation_timeline": {
+      "type": "gantt_chart",
+      "description": "Implementation timeline for recommended strategies",
+      "data": [
+        {
+          "title": "Customer-Centric Co-Design Process",
+          "start_days": 0,
+          "end_days": 180,
+          "priority": "high",
+          "group": 0
+        },
+        {
+          "title": "Data-Driven Marketing Strategy Optimization",
+          "start_days": 90,
+          "end_days": 270,
+          "priority": "high",
+          "group": 0
+        },
+        {
+          "title": "Efficient Customer Acquisition Cost Optimization",
+          "start_days": 180,
+          "end_days": 360,
+          "priority": "high",
+          "group": 1
+        }
+      ]
+    },
+    "risk_mitigation_impact": {
+      "type": "radar_chart",
+      "description": "Expected risk reduction by category",
+      "categories": [
+        "Financial",
+        "Operational",
+        "Market",
+        "Reputational",
+        "Legal"
+      ],
+      "datasets": [
+        {
+          "label": "Customer-Centric Co-Design Process",
+          "data": [
+            0.1,
+            0.30000000000000004,
+            0.30000000000000004,
+            0.20000000000000004,
+            0.1
+          ]
+        },
+        {
+          "label": "Data-Driven Marketing Strategy Optimization",
+          "data": [
+            0.4,
+            0.1,
+            0.4,
+            0.1,
+            0.1
+          ]
+        },
+        {
+          "label": "Efficient Customer Acquisition Cost Optimization",
+          "data": [
+            0.5,
+            0.5,
+            0.5,
+            0.4,
+            0.2
+          ]
+        }
+      ]
+    },
+    "financial_impact": {
+      "type": "bar_chart",
+      "description": "Projected financial impact of strategies",
+      "labels": [
+        "Customer-Centric Co-Design Process",
+        "Data-Driven Marketing Strategy Optimization",
+        "Efficient Customer Acquisition Cost Optimization"
+      ],
+      "datasets": [
+        {
+          "label": "Revenue Impact (%)",
+          "data": [
+            5.0,
+            6.0,
+            7.0
+          ]
+        },
+        {
+          "label": "Cost Savings (%)",
+          "data": [
+            4.0,
+            5.0,
+            3.0
+          ]
+        }
+      ]
+    }
+  },
+  "strategic_opportunities": {
+    "partnership_opportunities": [],
+    "market_expansion_opportunities": []
+  }
+}

@@ -1265,12 +1265,12 @@ class StrategyAssessment:
 
     def _save_assessment_results(self, entity_name: str, assessment_results: Dict[str, Any]) -> str:
         """
-        Save assessment results to a file.
+        Save assessment results to a file with proper datetime handling.
     
         Args:
             entity_name: Name of the entity
             assessment_results: Assessment results to save
-        
+    
         Returns:
             str: Path to the saved file
         """
@@ -1278,8 +1278,15 @@ class StrategyAssessment:
         filename = f"assessment_{entity_name.replace(' ', '_')}_{timestamp}.json"
         filepath = os.path.join(self.output_dir, filename)
     
+        # Create a custom JSON encoder to handle datetime objects
+        class DateTimeEncoder(json.JSONEncoder):
+            def default(self, obj):
+                if hasattr(obj, 'isoformat'):
+                    return obj.isoformat()
+                return super().default(obj)
+    
         with open(filepath, 'w', encoding='utf-8') as f:
-            json.dump(assessment_results, f, ensure_ascii=False, indent=2)
+            json.dump(assessment_results, f, ensure_ascii=False, indent=2, cls=DateTimeEncoder)
     
         logger.info(f"Saved assessment results to: {filepath}")
         return filepath
